@@ -9,3 +9,4 @@ to run this project follow the steps below -
 3. run command "npm start"
 
 
+Use "npm install" command to install all the react-scripts 
