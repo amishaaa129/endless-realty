@@ -178,7 +178,7 @@ const App = () => {
               <div className="bg-white/95 backdrop-blur-sm rounded-xl p-4 search-box-shadow slide-in stagger-2">
                 <form className="flex flex-col md:flex-row">
                   <div className="flex-1 mb-3 md:mb-0 md:mr-3">
-                    <label className="block text-white-700 text-sm font-medium mb-1 text-left pl-1">Location</label>
+                    <label className="block text-black text-sm font-medium mb-1 text-left pl-1">Location</label>
                     <select className="w-full px-4 py-3 rounded-lg text-gray-700 border border-gray-200 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 transition">
                       <option value="" disabled selected>
                         Select City
@@ -191,7 +191,7 @@ const App = () => {
                     </select>
                   </div>
                   <div className="flex-1 mb-3 md:mb-0 md:mr-3">
-                    <label className="block text-white-700 text-sm font-medium mb-1 text-left pl-1">Property Type</label>
+                    <label className="block text-black text-sm font-medium mb-1 text-left pl-1">Property Type</label>
                     <select className="w-full px-4 py-3 rounded-lg text-gray-700 border border-gray-200 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 transition">
                       <option value="" disabled selected>
                         Select Type
@@ -203,7 +203,7 @@ const App = () => {
                     </select>
                   </div>
                   <div className="flex-1 mb-3 md:mb-0 md:mr-3">
-                    <label className="block text-white-700 text-sm font-medium mb-1 text-left pl-1">Budget</label>
+                    <label className="block text-black text-sm font-medium mb-1 text-left pl-1">Budget</label>
                     <select className="w-full px-4 py-3 rounded-lg text-gray-700 border border-gray-200 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 transition">
                       <option value="" disabled selected>
                         Select Budget
