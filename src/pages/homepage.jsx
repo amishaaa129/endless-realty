@@ -26,12 +26,12 @@ const App = () => {
       <div className="containe  r mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center">
-              <a href="#" className="flex items-center">
+              <Link to="/" className="flex items-center">
                 <span className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800">
                   Endless
                 </span>
                 <span className="text-3xl font-light ml-1">Realty</span>
-              </a>
+              </Link>
             </div>
 
             {/* Desktop Navigation */}
