@@ -70,9 +70,9 @@ const Header = () => {
             <Link to ="/aboutus" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
               About Us
             </Link>
-            <a href="#features" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
+            <Link to ="/features" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
               Features
-            </a>
+            </Link>
             <a href="#testimonials" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
               Testimonials
             </a>
