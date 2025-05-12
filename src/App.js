@@ -3,6 +3,7 @@ import Homepage from './pages/homepage';
 import Features from './pages/features';
 import About from './pages/aboutus';
 import Contact from './pages/contactus';
+import Properties from './pages/properties';
 function App() {
   return (
     <Router>
@@ -11,6 +12,7 @@ function App() {
         <Route path="/features" element={<Features />} />
         <Route path="/aboutus" element={<About />} />
         <Route path = "/contactus" element={<Contact />} />
+        <Route path ="/allproperties" element = {<Properties />} />
       </Routes>
     </Router>
   );

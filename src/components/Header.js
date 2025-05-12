@@ -24,9 +24,9 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-10">
-            <a href="#properties" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
+            <Link to="/allproperties" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
               Properties
-            </a>
+            </Link>
             <div className="relative">
               <a
                 href="#cities"
