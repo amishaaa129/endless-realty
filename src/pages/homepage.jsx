@@ -72,10 +72,10 @@ const App = () => {
                 )}
               </div>
 
-              <a href="#about" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
+              <Link to="/aboutus" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
                 About Us
               
-              </a>
+              </Link>
               
                   <a href ="#features" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
                     Features
