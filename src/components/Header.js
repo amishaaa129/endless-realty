@@ -1,24 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState,  } from 'react';
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isSticky, setIsSticky] = useState(false);
+  
 
-  // Sticky Header Logic
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsSticky(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  
 
   return (
     <header
       id="header"
-      className={`w-full z-50 transition-all duration-300 ${
-        isSticky ? 'sticky navbar-fixed py-2 shadow-md' : ''
-      }`}
+      className={`w-full z-50 transition-all duration-300 $
+        
+      `}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
