@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -13,12 +14,12 @@ const Header = () => {
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <div className="flex items-center">
-            <a href="#" className="flex items-center">
+            <Link to="/" className="flex items-center">
               <span className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800">
                 Endless
               </span>
               <span className="text-3xl font-light ml-1">Realty</span>
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
@@ -66,9 +67,9 @@ const Header = () => {
                 </div>
               )}
             </div>
-            <a href="#about" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
+            <Link to ="/aboutus" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
               About Us
-            </a>
+            </Link>
             <a href="#features" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
               Features
             </a>
