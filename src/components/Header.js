@@ -1,18 +1,14 @@
-import React, { useState,  } from 'react';
+import React, { useState } from 'react';
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  
-
-  
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
 
   return (
-    <header
-      id="header"
-      className={`w-full z-50 transition-all duration-300 $
-        
-      `}
-    >
+    <header id="header" className="w-full z-50 transition-all duration-300">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
@@ -27,58 +23,144 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-10">
-            <a
-              href="#properties"
-              className="text-sm font-medium text-gray-700 hover:text-blue-600 transition"
-            >
+            <a href="#properties" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
               Properties
             </a>
-            <a
-              href="#cities"
-              className="text-sm font-medium text-gray-700 hover:text-blue-600 transition"
-            >
-              Cities
+            <div className="relative">
+              <a
+                href="#cities"
+                onClick={(e) => {
+                  e.preventDefault(); // Prevent default anchor behavior
+                  toggleDropdown();
+                }}
+                className="text-sm font-medium text-gray-700 hover:text-blue-600 transition flex items-center"
+              >
+                Cities
+                <svg
+                  className="ml-1 w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </a>
+              {isDropdownOpen && (
+                <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 py-1">
+                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    Indore
+                  </a>
+                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    Bhopal
+                  </a>
+                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    Ujjain
+                  </a>
+                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    Rau
+                  </a>
+                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    Dewas
+                  </a>
+                </div>
+              )}
+            </div>
+            <a href="#about" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
+              About Us
+            </a>
+            <a href="#features" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
+              Features
+            </a>
+            <a href="#testimonials" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
+              Testimonials
+            </a>
+            <a href="#contact" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
+              Contact
             </a>
           </nav>
 
           {/* Mobile Menu Button */}
-          <button
-            id="mobile-menu-button"
-            className="md:hidden text-gray-700"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            <i className="fas fa-bars text-2xl"></i>
-          </button>
+          <div className="flex items-center">
+            <a
+              href="#book-visit"
+              className="hidden md:inline-flex items-center justify-center px-5 py-2.5 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition"
+            >
+              Book a Visit
+            </a>
+            <button
+              id="mobile-menu-button"
+              className="md:hidden p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              <svg
+                className="h-6 w-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
+              </svg>
+            </button>
+          </div>
         </div>
+      </div>
 
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div
-            id="mobile-menu"
-            className="md:hidden bg-white shadow-lg rounded-lg p-4 space-y-4"
-          >
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div
+          id="mobile-menu"
+          className="drawer fixed top-0 left-0 h-full w-64 bg-white shadow-xl z-50 md:hidden"
+        >
+          <div className="flex justify-between items-center p-4 border-b">
+            <span className="font-medium">Menu</span>
             <button
               id="close-menu-button"
-              className="text-gray-700"
+              className="p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              <i className="fas fa-times text-2xl"></i>
+              <svg
+                className="h-6 w-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
             </button>
-            <a
-              href="#properties"
-              className="block text-sm font-medium text-gray-700 hover:text-blue-600 transition"
-            >
+          </div>
+          <div className="py-4">
+            <a href="#properties" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
               Properties
             </a>
-            <a
-              href="#cities"
-              className="block text-sm font-medium text-gray-700 hover:text-blue-600 transition"
-            >
+            <a href="#cities" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
               Cities
             </a>
+            <a href="#about" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+              About Us
+            </a>
+            <a href="#features" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+              Features
+            </a>
+            <a href="#testimonials" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+              Testimonials
+            </a>
+            <a href="#contact" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+              Contact
+            </a>
+            <div className="px-4 py-4 border-t">
+              <a
+                href="#book-visit"
+                className="flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
+              >
+                Book a Visit
+              </a>
+            </div>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </header>
   );
 };
