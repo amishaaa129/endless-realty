@@ -94,12 +94,12 @@ const App = () => {
 
             <div className="flex items-center">
 
-              <a
-                href="#book-visit"
+              <Link 
+                to ="/signin"
                 className="hidden md:inline-flex items-center justify-center px-5 py-2.5 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition"
               >
-                Book a Visit
-              </a>
+                Sign In
+              </Link>
 
               <button
                 id="mobile-menu-button"
