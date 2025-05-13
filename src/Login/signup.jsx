@@ -33,6 +33,20 @@ const SignUp = () => {
                 required
               />
             </div>
+            {/* Phone Number Field */}
+            <div className="mb-4">
+              <label htmlFor="phone" className="block text-gray-700 text-sm font-medium mb-2">
+                Phone Number
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+                placeholder="Enter your phone number"
+                required
+              />
+            </div>
 
             {/* Email Field */}
             <div className="mb-4">
@@ -48,6 +62,8 @@ const SignUp = () => {
                 required
               />
             </div>
+
+            
 
             {/* Password Field */}
             <div className="mb-6">
