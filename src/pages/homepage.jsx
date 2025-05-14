@@ -59,7 +59,7 @@ const App = () => {
                 </a>
                 {isDropdownOpen && (
                   <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 py-1 z-50">
-                    {['Indore', 'Bhopal', 'Ujjain', 'Rau', 'Dewas'].map((city) => (
+                    {['Indore', 'Bhopal', 'Ujjain', 'Rau', 'Dewas', 'Pithampur'].map((city) => (
                       <a
                         key={city}
                         href="#"
@@ -181,7 +181,7 @@ const App = () => {
               Indore's Premier Real Estate Platform
             </span>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6 slide-in">
-              Find Your Dream Home with <span className="text-gradient">Endless</span> Realty
+              Find Your Property with <span className="text-gradient">Endless</span> Realty
             </h1>
             <p className="text-xl md:text-2xl mb-10 text-gray-200 slide-in stagger-1">
               Discover premium properties with modern amenities and convenient locations at affordable prices

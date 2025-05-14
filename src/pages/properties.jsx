@@ -17,7 +17,7 @@ const Properties = () => {
           <div className="container mx-auto px-6 relative z-10">
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6">
-                Find Your Dream Home with <span className="text-blue-400">Endless</span>Realty
+                Find Your Property with <span className="text-blue-400">Endless</span>Realty
               </h1>
               <p className="text-xl md:text-2xl mb-10 text-gray-200">
                 Discover premium properties with modern amenities and convenient locations at affordable prices
