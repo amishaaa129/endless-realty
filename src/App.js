@@ -6,6 +6,7 @@ import Contact from './pages/contactus';
 import Properties from './pages/properties';
 import SignIn from './Login/signin';
 import SignUp from './Login/signup'
+import SearchResults from './pages/allproperties';
 function App() {
   return (
     <Router>
@@ -17,6 +18,7 @@ function App() {
         <Route path ="/allproperties" element = {<Properties />} />
         <Route path ="/signin" element = {<SignIn />} />
         <Route path ="/signup" element = {<SignUp />} />
+        <Route path="/search" element={<SearchResults />} />
       </Routes>
     </Router>
   );

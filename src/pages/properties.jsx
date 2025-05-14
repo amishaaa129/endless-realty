@@ -1,13 +1,18 @@
 import React, { useEffect } from 'react';
 import Header from '../components/Header'; 
+import { useNavigate } from "react-router-dom";
 
 const Properties = () => {
+  const navigate = useNavigate();
     useEffect(() => {
         document.body.style.overflow = 'hidden';
         return () => {
           document.body.style.overflow = 'auto';
         };
       }, []);
+      const handleSearch = () => {
+        navigate("/search"); 
+      };
   return (
     <div className="min-h-screen bg-gray-100">
       
@@ -66,7 +71,10 @@ const Properties = () => {
                       <option value="100+">Above ₹1 Crore</option>
                     </select>
                   </div>
-                  <button className="px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">
+                  <button 
+                    type = "button" 
+                    onClick={handleSearch}
+                    className="px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">
                     <i className="fas fa-search mr-2"></i> Search
                   </button>
                 </form>
