@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from '../components/Header'; 
 import { useNavigate } from "react-router-dom";
 
@@ -10,9 +10,25 @@ const Properties = () => {
           document.body.style.overflow = 'auto';
         };
       }, []);
-      const handleSearch = () => {
-        navigate("/search"); 
-      };
+      // State for filters
+  const [city, setCity] = useState('');
+  const [type, setType] = useState('');
+  const [budget, setBudget] = useState('');
+
+  const handleSearch = () => {
+    // Convert budget to min and max values
+    let min = 0;
+    let max = 100000000; // 10 Cr
+    if (budget === '0-30') [min, max] = [0, 3000000];
+    else if (budget === '30-50') [min, max] = [3000000, 5000000];
+    else if (budget === '50-80') [min, max] = [5000000, 8000000];
+    else if (budget === '80-100') [min, max] = [8000000, 10000000];
+    else if (budget === '100+') [min, max] = [10000000, 100000000];
+
+    // Navigate to /search with query params
+    navigate(`/search?city=${city}&type=${type}&min=${min}&max=${max}`);
+  };
+
   return (
     <div className="min-h-screen bg-gray-100">
       
@@ -33,7 +49,7 @@ const Properties = () => {
                 <form className="flex flex-col md:flex-row">
                   <div className="flex-1 mb-3 md:mb-0 md:mr-2">
                   <label className="block text-black text-sm font-medium mb-1 text-left pl-1">Location</label>
-                    <select className="w-full px-4 py-3 rounded-md text-gray-700 border-0 focus:ring-blue-500">
+                    <select value={city} onChange={(e) => setCity(e.target.value)} className="w-full px-4 py-3 rounded-md text-gray-700 border-0 focus:ring-blue-500">
                       <option value="" disabled selected>
                         Select City
                       </option>
@@ -47,7 +63,7 @@ const Properties = () => {
                   </div>
                   <div className="flex-1 mb-3 md:mb-0 md:mr-2">
                   <label className="block text-black text-sm font-medium mb-1 text-left pl-1">Property Type</label>
-                    <select className="w-full px-4 py-3 rounded-md text-gray-700 border-0 focus:ring-blue-500">
+                    <select value={type} onChange={(e) => setType(e.target.value)} className="w-full px-4 py-3 rounded-md text-gray-700 border-0 focus:ring-blue-500">
                       <option value="" disabled selected>
                         Select Type
                       </option>
@@ -59,7 +75,7 @@ const Properties = () => {
                   </div>
                   <div className="flex-1 mb-3 md:mb-0 md:mr-2">
                   <label className="block text-black text-sm font-medium mb-1 text-left pl-1">Budget</label>
-                    <select className="w-full px-4 py-3 rounded-md text-gray-700 border-0 focus:ring-blue-500">
+                    <select value={budget} onChange={(e) => setBudget(e.target.value)}className="w-full px-4 py-3 rounded-md text-gray-700 border-0 focus:ring-blue-500">
                     
                       <option value="" disabled selected>
                         Budget
