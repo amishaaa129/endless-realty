@@ -37,6 +37,7 @@ const Properties = () => {
                       <option value="ujjain">Ujjain</option>
                       <option value="Rau">Rau</option>
                       <option value="Dewas">Dewas</option>
+                      <option value="Pithampur">Pithampur</option>
                     </select>
                   </div>
                   <div className="flex-1 mb-3 md:mb-0 md:mr-2">
