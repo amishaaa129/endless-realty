@@ -74,10 +74,12 @@ const SearchResults = () => {
   ];
 
   // Fetch from backend, fallback if fails
+  const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+
   useEffect(() => {
     const fetchProperties = async () => {
       try {
-        const res = await fetch(`/api/properties/search?city=${city}&type=${type}&min=${min}&max=${max}`);
+        const res = await fetch(`${API_BASE_URL}/api/properties/search?city=${city}&type=${type}&min=${min}&max=${max}`);
         if (!res.ok) throw new Error('Failed to fetch');
         const data = await res.json();
         setProperties(data);

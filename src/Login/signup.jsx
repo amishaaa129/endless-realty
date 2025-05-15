@@ -29,13 +29,15 @@ const SignUp = () => {
     e.preventDefault();
     setLoading(true);
     setError('');
+   
+    const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
 
     try {
-      const res = await fetch('/api/users/signup', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
+      const res = await fetch(`${API_BASE_URL}/api/users/signup`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
+    });
 
       const data = await res.json();
 
