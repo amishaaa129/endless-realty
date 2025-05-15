@@ -8,7 +8,13 @@ const contactRoutes = require('./routes/contactRoutes');
 
 const app = express();
 
-app.use(cors());
+const corsOptions = {
+  origin: process.env.CLIENT_URL || 'http://localhost:3000', // Your React frontend domain
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
+
 app.use(express.json());
 
 app.use('/api/properties', propertyRoutes);
