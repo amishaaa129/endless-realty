@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { searchProperties } = require('../controllers/propertyController');
 const pool = require('../models/db');
+const app = express();
 
 app.get('/api/test-db', async (req, res) => {
   try {
