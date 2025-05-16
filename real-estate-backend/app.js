@@ -30,8 +30,8 @@ app.get('/api/test-db', async (req, res) => {
     const result = await pool.query('SELECT NOW()');
     res.json({ connected: true, time: result.rows[0].now });
   } catch (err) {
-    console.error('DB connection failed:', err.message);
-    res.status(500).json({ connected: false, error: err.message });
+    console.error('DB connection failed:', err); // full error object
+    res.status(500).json({ connected: false, error: err.message || 'Unknown error' });
   }
 });
 
