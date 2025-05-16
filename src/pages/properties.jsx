@@ -15,6 +15,8 @@ const Properties = () => {
   const [type, setType] = useState('');
   const [budget, setBudget] = useState('');
 
+  const API_BASE_URL = process.env.REACT_APP_API_URL || '';
+
   const handleSearch = () => {
     // Convert budget to min and max values
     let min = 0;
