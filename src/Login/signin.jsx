@@ -34,7 +34,7 @@ const SignIn = () => {
       localStorage.setItem('user', JSON.stringify(data.user));
 
       // Redirect to homepage or dashboard
-      navigate('/');
+      navigate('${API_BASE_URL}/');
     } catch (err) {
       console.error(err);
       setError('Something went wrong');

@@ -48,7 +48,7 @@ const SignUp = () => {
       }
 
       // Redirect to login or home
-      navigate('/signin');
+      navigate('${API_BASE_URL}/signin');
     } catch (err) {
       console.error(err);
       setError('Something went wrong. Please try again.');
