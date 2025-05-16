@@ -23,7 +23,7 @@ app.use('/api/contact', contactRoutes);
 
 app.get('/', (req, res) => res.send('Real Estate API Running'));
 
-const pool = require('../models/db');
+const pool = require('./models/db');
 
 app.get('/api/test-db', async (req, res) => {
   try {
