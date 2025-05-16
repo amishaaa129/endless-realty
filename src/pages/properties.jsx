@@ -28,7 +28,7 @@ const Properties = () => {
     else if (budget === '100+') [min, max] = [10000000, 100000000];
 
     // Navigate to /search with query params
-    navigate(`${API_BASE_URL}/search?city=${city}&type=${type}&min=${min}&max=${max}`);
+    navigate(`/search?city=${city}&type=${type}&min=${min}&max=${max}`);
   };
 
   return (
