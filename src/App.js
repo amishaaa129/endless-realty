@@ -7,6 +7,7 @@ import Properties from './pages/properties';
 import SignIn from './Login/signin';
 import SignUp from './Login/signup'
 import SearchResults from './pages/allproperties';
+import Associates from "./pages/associates";
 function App() {
   return (
     <Router>
@@ -19,6 +20,7 @@ function App() {
         <Route path ="/signin" element = {<SignIn />} />
         <Route path ="/signup" element = {<SignUp />} />
         <Route path="/search" element={<SearchResults />} />
+        <Route path="/associates" element={<Associates />} />
       </Routes>
     </Router>
   );

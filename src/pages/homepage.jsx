@@ -84,9 +84,9 @@ const App = () => {
               
 
 
-              <a href="#testimonials" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
-                Testimonials
-              </a>
+              <Link to ="/associates" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
+                Our Associates 
+              </Link>
               <Link to ="/contactus" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
                 Contact
               </Link>
