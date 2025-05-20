@@ -567,7 +567,7 @@ const App = () => {
             </svg>
           </Link>
         </div>
-        <section className="hero-gradient text-white py-32 md:py-40 relative">
+        <section className="text-white bg-white py-32 md:py-40 relative">
           <div><CarouselComponent /></div>
         </section>
       </section>
