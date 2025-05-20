@@ -4,18 +4,23 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
-import {  Pagination, Autoplay } from "swiper/modules";
+import { Pagination, Autoplay } from "swiper/modules";
 const CarouselComponent = () => {
     return (
         <div className="container mx-auto px-6 py-10">
-            <h1 className="text-7xl font-bold text-gray-900 mb-40 text-center" style={{ marginTop: "-10rem" }}>
-                Our Associates
-            </h1>
-
+            <div
+                className="w-screen bg-gradient-to-r from-blue-600 to-indigo-800 text-white flex items-center justify-center px-6 py-4 relative left-0 "
+                style={{ marginLeft: "-148px" , marginTop: "-10rem"}} // Adjust this value to shift left
+            >
+                <h1 className="text-7xl font-bold text-black text-center">
+                    Our Associates
+                </h1>
+            </div>
+            <div className="mb-10"></div>
             {/* Swiper Carousel */}
             <Swiper
                 modules={[Pagination, Autoplay]}
-                
+
 
                 autoplay={{
                     delay: 0, // No delay between slides
@@ -28,7 +33,7 @@ const CarouselComponent = () => {
                 freeMode={true}
                 className="mySwiper"
                 style={{ marginBottom: "0", paddingBottom: "0" }}
-                >
+            >
                 {/* Slide 1 */}
                 <SwiperSlide>
                     <div className="bg-white shadow-md rounded-lg p-5 max-w-md mx-auto">
@@ -63,33 +68,33 @@ const CarouselComponent = () => {
                 </SwiperSlide>
                 {/* Slide 4 */}
                 <SwiperSlide>
-                <div className="bg-white shadow-md rounded-lg p-4 max-w-md mx-auto">
+                    <div className="bg-white shadow-md rounded-lg p-4 max-w-md mx-auto">
                         <img
                             src="/images/image4.jpg" // Replace with the actual path to your image
                             alt="Associate 3"
                             className="w-full h-auto rounded-lg"
                         />
-                    </div> 
+                    </div>
                 </SwiperSlide>
                 {/* Slide 5 */}
                 <SwiperSlide>
-                <div className="bg-white shadow-md rounded-lg p-4 max-w-md mx-auto">
+                    <div className="bg-white shadow-md rounded-lg p-4 max-w-md mx-auto">
                         <img
                             src="/images/image5.jpg" // Replace with the actual path to your image
                             alt="Associate 3"
                             className="w-full h-auto rounded-lg"
                         />
-                    </div> 
+                    </div>
                 </SwiperSlide>
                 {/* Slide 6 */}
                 <SwiperSlide>
-                <div className="bg-white shadow-md rounded-lg p-4 max-w-md mx-auto">
+                    <div className="bg-white shadow-md rounded-lg p-4 max-w-md mx-auto">
                         <img
                             src="/images/image6.jpg" // Replace with the actual path to your image
                             alt="Associate 3"
                             className="w-full h-auto rounded-lg"
                         />
-                    </div> 
+                    </div>
                 </SwiperSlide>
             </Swiper>
         </div>
