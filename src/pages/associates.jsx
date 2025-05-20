@@ -19,30 +19,45 @@ const Associates = () => {
 
         {/* Example List of Associates */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+
+          <div className="bg-white shadow-md rounded-lg p-6">
+          <div className="bg-white  p-5 max-w-md mx-auto ">
+              <img
+                src="/images/image3.jpg" // Replace with the actual path to your image
+                alt="Associate 1"
+                
+              />
+            </div>
+            <h2 className="text-2xl font-semibold text-gray-800 mb-2 text-center">Kalpvraksh hills</h2>
+            
+          </div>
+          <div className="bg-white shadow-md rounded-lg p-6">
+            <div className="bg-white  p-5 max-w-md mx-auto ">
+              <img
+                src="/images/image4.jpg" // Replace with the actual path to your image
+                alt="Associate 1"
+                
+              />
+            </div>
+
+            <h2 className="text-2xl font-semibold text-gray-800 mb-2 text-center">MunimJi Estate Jetpura</h2>
+
+          </div>
+          <div className="bg-white shadow-md rounded-lg p-6">
           
-          <div className="bg-white shadow-md rounded-lg p-6">
-            <h2 className="text-2xl font-semibold text-gray-800 mb-2">Kalpvraksh hills</h2>
-            <p className="text-gray-600">
-              Experts in commercial property development with a focus on sustainability.
-            </p>
+            <h2 className="text-2xl font-semibold text-gray-800 mb-2 text-center">Shourya vihar</h2>
+            
           </div>
           <div className="bg-white shadow-md rounded-lg p-6">
-            <h2 className="text-2xl font-semibold text-gray-800 mb-2">MunimJi Estate Jetpura</h2>
-            <p className="text-gray-600">
-              Renowned for their innovative designs and customer-centric approach.
-            </p>
-          </div>
-          <div className="bg-white shadow-md rounded-lg p-6">
-            <h2 className="text-2xl font-semibold text-gray-800 mb-2">Shourya vihar</h2>
-            <p className="text-gray-600">
-              Renowned for their innovative designs and customer-centric approach.
-            </p>
-          </div>
-          <div className="bg-white shadow-md rounded-lg p-6">
-            <h2 className="text-2xl font-semibold text-gray-800 mb-2">Shree swastik corridor</h2>
-            <p className="text-gray-600">
-              Renowned for their innovative designs and customer-centric approach.
-            </p>
+          <div className="bg-white  p-5 max-w-md mx-auto ">
+              <img
+                src="/images/image5.jpg" // Replace with the actual path to your image
+                alt="Associate 1"
+                
+              />
+            </div>
+            <h2 className="text-2xl font-semibold text-gray-800 mb-2 text-center">Shree swastik corridor</h2>
+            
           </div>
           <div className="bg-white shadow-md rounded-lg p-6">
             <h2 className="text-2xl font-semibold text-gray-800 mb-2">Tulip homes</h2>
@@ -51,10 +66,26 @@ const Associates = () => {
             </p>
           </div>
           <div className="bg-white shadow-md rounded-lg p-6">
-            <h2 className="text-2xl font-semibold text-gray-800 mb-2">Vrindavan premium</h2>
-            <p className="text-gray-600">
-              Renowned for their innovative designs and customer-centric approach.
-            </p>
+          <div className="bg-white  p-5 max-w-md mx-auto ">
+              <img
+                src="/images/image6.jpg" // Replace with the actual path to your image
+                alt="Associate 1"
+                
+              />
+            </div>
+            <h2 className="text-2xl font-semibold text-gray-800 mb-2 text-center">Vrindavan premium</h2>
+            
+          </div>
+          <div className="bg-white shadow-md rounded-lg p-6">
+          <div className="bg-white  p-5 max-w-md mx-auto ">
+              <img
+                src="/images/image1.jpg" // Replace with the actual path to your image
+                alt="Associate 1"
+                
+              />
+            </div>
+            <h2 className="text-2xl font-semibold text-gray-800 mb-2 text-center">Akashneem Vara</h2>
+            
           </div>
         </div>
       </div>

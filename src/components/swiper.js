@@ -9,7 +9,7 @@ const CarouselComponent = () => {
     return (
         <div className="container mx-auto px-6 py-10">
             <div
-                className="w-screen bg-gradient-to-r from-blue-600 to-indigo-800 text-white flex items-center justify-center px-6 py-4 relative left-0 "
+                className="w-screen bg-gradient-to-r from-blue-500 to-indigo-600 text-white flex items-center justify-center px-6 py-4 relative left-0 "
                 style={{ marginLeft: "-148px" , marginTop: "-10rem"}} // Adjust this value to shift left
             >
                 <h1 className="text-7xl font-bold text-black text-center">
