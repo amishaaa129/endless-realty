@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../components/Header"; // Adjust the path based on your project structure
+import Header from "../components/Header"; 
 
 const Associates = () => {
   return (
@@ -17,13 +17,13 @@ const Associates = () => {
           Whether you're looking for residential, commercial, or industrial properties, our associates ensure that you receive the best options tailored to your needs.
         </p>
 
-        {/* Example List of Associates */}
+        {/* List of Associates */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
 
           <div className="bg-white shadow-md rounded-lg p-6">
           <div className="bg-white  p-5 max-w-md mx-auto ">
               <img
-                src="/images/image3.jpg" // Replace with the actual path to your image
+                src="/images/image3.jpg" 
                 alt="Associate 1"
                 
               />
@@ -34,7 +34,7 @@ const Associates = () => {
           <div className="bg-white shadow-md rounded-lg p-6">
             <div className="bg-white  p-5 max-w-md mx-auto ">
               <img
-                src="/images/image4.jpg" // Replace with the actual path to your image
+                src="/images/image4.jpg" 
                 alt="Associate 1"
                 
               />
@@ -51,7 +51,7 @@ const Associates = () => {
           <div className="bg-white shadow-md rounded-lg p-6">
           <div className="bg-white  p-5 max-w-md mx-auto ">
               <img
-                src="/images/image5.jpg" // Replace with the actual path to your image
+                src="/images/image5.jpg" 
                 alt="Associate 1"
                 
               />
@@ -68,7 +68,7 @@ const Associates = () => {
           <div className="bg-white shadow-md rounded-lg p-6">
           <div className="bg-white  p-5 max-w-md mx-auto ">
               <img
-                src="/images/image6.jpg" // Replace with the actual path to your image
+                src="/images/image6.jpg" 
                 alt="Associate 1"
                 
               />
@@ -79,7 +79,7 @@ const Associates = () => {
           <div className="bg-white shadow-md rounded-lg p-6">
           <div className="bg-white  p-5 max-w-md mx-auto ">
               <img
-                src="/images/image1.jpg" // Replace with the actual path to your image
+                src="/images/image1.jpg" 
                 alt="Associate 1"
                 
               />

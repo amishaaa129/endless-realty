@@ -41,7 +41,7 @@ const App = () => {
                 <a
                   href="#cities"
                   onClick={(e) => {
-                    e.preventDefault(); // Prevent default anchor behavior
+                    e.preventDefault(); 
                     toggleDropdown();
                   }}
                   className="text-sm font-medium text-gray-700 hover:text-blue-600 transition flex items-center"

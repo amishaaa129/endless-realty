@@ -10,7 +10,7 @@ const CarouselComponent = () => {
         <div className="container mx-auto px-6 py-10">
             <div
                 className="w-screen bg-gradient-to-r from-blue-500 to-indigo-600 text-white flex items-center justify-center px-6 py-4 relative left-0 "
-                style={{ marginLeft: "-148px" , marginTop: "-10rem"}} // Adjust this value to shift left
+                style={{ marginLeft: "-148px" , marginTop: "-10rem"}} 
             >
                 <h1 className="text-7xl font-bold text-black text-center">
                     Our Associates
@@ -24,10 +24,10 @@ const CarouselComponent = () => {
 
                 autoplay={{
                     delay: 0, // No delay between slides
-                    disableOnInteraction: false, // Continue autoplay after user interaction
+                    disableOnInteraction: false, 
                 }}
-                loop={true} // Enable infinite loop
-                speed={5000} // Smooth transition speed (4 seconds)
+                loop={true} 
+                speed={5000}
                 spaceBetween={0}
                 slidesPerView="auto"
                 freeMode={true}
@@ -38,7 +38,7 @@ const CarouselComponent = () => {
                 <SwiperSlide>
                     <div className="bg-white shadow-md rounded-lg p-5 max-w-md mx-auto">
                         <img
-                            src="/images/image1.jpg" // Replace with the actual path to your image
+                            src="/images/image1.jpg"
                             alt="Associate 1"
                             className="w-full h-auto rounded-lg"
                         />
@@ -49,7 +49,7 @@ const CarouselComponent = () => {
                 <SwiperSlide>
                     <div className="bg-white shadow-md rounded-lg p-4 max-w-md mx-auto">
                         <img
-                            src="/images/image2.jpg" // Replace with the actual path to your image
+                            src="/images/image2.jpg"
                             alt="Associate 2"
                             className="w-full h-auto rounded-lg"
                         />
@@ -60,7 +60,7 @@ const CarouselComponent = () => {
                 <SwiperSlide>
                     <div className="bg-white shadow-md rounded-lg p-4 max-w-md mx-auto">
                         <img
-                            src="/images/image3.jpg" // Replace with the actual path to your image
+                            src="/images/image3.jpg"
                             alt="Associate 3"
                             className="w-full h-auto rounded-lg"
                         />
@@ -70,7 +70,7 @@ const CarouselComponent = () => {
                 <SwiperSlide>
                     <div className="bg-white shadow-md rounded-lg p-4 max-w-md mx-auto">
                         <img
-                            src="/images/image4.jpg" // Replace with the actual path to your image
+                            src="/images/image4.jpg"
                             alt="Associate 3"
                             className="w-full h-auto rounded-lg"
                         />
@@ -80,7 +80,7 @@ const CarouselComponent = () => {
                 <SwiperSlide>
                     <div className="bg-white shadow-md rounded-lg p-4 max-w-md mx-auto">
                         <img
-                            src="/images/image5.jpg" // Replace with the actual path to your image
+                            src="/images/image5.jpg"
                             alt="Associate 3"
                             className="w-full h-auto rounded-lg"
                         />
@@ -90,7 +90,7 @@ const CarouselComponent = () => {
                 <SwiperSlide>
                     <div className="bg-white shadow-md rounded-lg p-4 max-w-md mx-auto">
                         <img
-                            src="/images/image6.jpg" // Replace with the actual path to your image
+                            src="/images/image6.jpg"
                             alt="Associate 3"
                             className="w-full h-auto rounded-lg"
                         />
