@@ -77,7 +77,7 @@ const App = () => {
               
               </Link>
               
-                  <a href ="#features" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
+                  <a href ="/features" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
                     Features
                   </a>
                
@@ -1147,19 +1147,19 @@ const App = () => {
                 <h4 className="text-lg font-semibold text-gray-100 mb-4">Quick Links</h4>
                 <ul className="space-y-2">
                   <li>
-                    <a href="#properties" className="text-gray-400 hover:text-blue-400">
+                    <Link to="/properties" className="text-gray-400 hover:text-blue-400">
                       Properties
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#about" className="text-gray-400 hover:text-blue-400">
+                    <Link to="/about" className="text-gray-400 hover:text-blue-400">
                       About Us
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#contact" className="text-gray-400 hover:text-blue-400">
+                    <Link to ="/contact" className="text-gray-400 hover:text-blue-400">
                       Contact
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
