@@ -115,7 +115,7 @@ const Header = () => {
       {isMobileMenuOpen && (
         <div
           id="mobile-menu"
-          className="drawer fixed top-0 left-0 h-full w-64 bg-white shadow-xl z-50 md:hidden"
+          className="fixed top-0 left-0 h-full w-64 bg-white shadow-xl z-50 md:hidden"
         >
           <div className="flex justify-between items-center p-4 border-b">
             <span className="font-medium">Menu</span>
@@ -136,31 +136,22 @@ const Header = () => {
             </button>
           </div>
           <div className="py-4">
-            <a href="#properties" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-              Properties
-            </a>
-            <a href="#cities" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-              Cities
-            </a>
-            <a href="#about" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-              About Us
-            </a>
-            <a href="#features" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-              Features
-            </a>
-            <a href="#testimonials" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-              Testimonials
-            </a>
-            <a href="#contact" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-              Contact
-            </a>
+            {['Properties', 'Cities', 'About Us', 'Features', 'Our Associates', 'Contact'].map((item) => (
+              <Link
+                key={item}
+                to ={`/${item.toLowerCase().replace(/\s+/g, '-')}`}
+                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+              >
+                {item}
+              </Link>
+            ))}
             <div className="px-4 py-4 border-t">
-              <a
-                href="#book-visit"
+              <Link 
+                to ="/signin"
                 className="flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
               >
-                Book a Visit
-              </a>
+                SignIn
+              </Link>
             </div>
           </div>
         </div>
