@@ -9,7 +9,18 @@ const contactRoutes = require('./routes/contactRoutes');
 const app = express();
 
 const corsOptions = {
-  origin: process.env.CLIENT_URL || 'http://localhost:3000', // Your React frontend domain
+  origin: (origin, callback) => {
+    const allowedOrigins = [
+      'http://localhost:3000',
+      'https://endless-realty-ten.vercel.app',
+      undefined // <-- allow Postman or curl or server-side fetches with no origin
+    ];
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true,
 };
 

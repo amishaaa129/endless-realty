@@ -30,7 +30,7 @@ const SignUp = () => {
     setLoading(true);
     setError('');
    
-    const API_BASE_URL = process.env.REACT_APP_API_URL || '';
+    const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://endless-realty-backend.onrender.com';
 
     try {
       const res = await fetch(`${API_BASE_URL}/api/users/signup`, {
