@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../components/Header"; 
+import Header from "../components/Header";
 
 const Associates = () => {
   return (
@@ -20,15 +20,15 @@ const Associates = () => {
         {/* List of Associates */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
 
-          <div className="bg-white shadow-md rounded-lg p-6">
-            <div className="bg-white  p-5 max-w-md mx-auto ">
-                <img
-                  src="/images/image6.jpg" 
-                  alt="Associate 1"
-                
-                />
+          <div className="bg-white shadow-md rounded-lg p-6 flex justify-center items-center">
+            <div className="bg-white p-5 max-w-lg mx-auto">
+              <img
+                src="/images/image6.jpg"
+                alt="Associate 1"
+                className="w-full h-auto max-w-[500px] mx-auto"
+              />
             </div>
-          </div> 
+          </div>
         </div>
       </div>
     </div>
