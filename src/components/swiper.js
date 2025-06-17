@@ -30,8 +30,8 @@ const CarouselComponent = () => {
                 spaceBetween={20} // Space between slides
                 slidesPerView={1} // Number of slides visible at a time
             >
-                {/* Slide 1 */}
-                <SwiperSlide>
+                {/* {/* Slide 1 */}
+                {/* <SwiperSlide>
                     <div className="bg-white shadow-md rounded-lg p-5 max-w-md mx-auto">
                         <img
                             src="/images/image1.jpg"
@@ -39,10 +39,10 @@ const CarouselComponent = () => {
                             className="w-full h-auto rounded-lg"
                         />
                     </div>
-                </SwiperSlide>
-
+                </SwiperSlide> */}
+ 
                 {/* Slide 2 */}
-                <SwiperSlide>
+                {/* <SwiperSlide>
                     <div className="bg-white shadow-md rounded-lg p-4 max-w-md mx-auto">
                         <img
                             src="/images/image2.jpg"
@@ -50,10 +50,10 @@ const CarouselComponent = () => {
                             className="w-full h-auto rounded-lg"
                         />
                     </div>
-                </SwiperSlide>
+                </SwiperSlide> */}
 
                 {/* Slide 3 */}
-                <SwiperSlide>
+                {/* <SwiperSlide>
                     <div className="bg-white shadow-md rounded-lg p-4 max-w-md mx-auto">
                         <img
                             src="/images/image3.jpg"
@@ -61,9 +61,9 @@ const CarouselComponent = () => {
                             className="w-full h-auto rounded-lg"
                         />
                     </div>
-                </SwiperSlide>
+                </SwiperSlide> */}
                 {/* Slide 4 */}
-                <SwiperSlide>
+                {/* <SwiperSlide>
                     <div className="bg-white shadow-md rounded-lg p-4 max-w-md mx-auto">
                         <img
                             src="/images/image4.jpg"
@@ -71,9 +71,9 @@ const CarouselComponent = () => {
                             className="w-full h-auto rounded-lg"
                         />
                     </div>
-                </SwiperSlide>
+                </SwiperSlide> */}
                 {/* Slide 5 */}
-                <SwiperSlide>
+                {/* <SwiperSlide>
                     <div className="bg-white shadow-md rounded-lg p-4 max-w-md mx-auto">
                         <img
                             src="/images/image5.jpg"
@@ -81,7 +81,7 @@ const CarouselComponent = () => {
                             className="w-full h-auto rounded-lg"
                         />
                     </div>
-                </SwiperSlide>
+                </SwiperSlide> */}
                 {/* Slide 6 */}
                 <SwiperSlide>
                     <div className="bg-white shadow-md rounded-lg p-4 max-w-md mx-auto">
