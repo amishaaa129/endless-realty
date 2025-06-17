@@ -72,7 +72,7 @@ const App = () => {
                 )}
               </div>
 
-              <Link to="/aboutus" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
+              <Link to="/about-us" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
                 About Us
               
               </Link>
@@ -84,10 +84,10 @@ const App = () => {
               
 
 
-              <Link to ="/associates" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
+              <Link to ="/our-associates" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
                 Our Associates 
               </Link>
-              <Link to ="/contactus" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
+              <Link to ="/contact" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
                 Contact
               </Link>
             </nav>
@@ -146,14 +146,14 @@ const App = () => {
             </button>
           </div>
           <div className="py-4">
-            {['Properties', 'Cities', 'About Us', 'Features', 'Testimonials', 'Contact'].map((item) => (
-              <a
+            {['Properties', 'Cities', 'About Us', 'Features', 'Our Associates', 'Contact'].map((item) => (
+              <Link
                 key={item}
-                href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
+                to ={`/${item.toLowerCase().replace(/\s+/g, '-')}`}
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
               >
                 {item}
-              </a>
+              </Link>
             ))}
             <div className="px-4 py-4 border-t">
               <Link 

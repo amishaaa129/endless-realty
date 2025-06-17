@@ -1,38 +1,34 @@
-import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import "swiper/css/navigation";
+
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import { Pagination, Autoplay } from "swiper/modules";
+
 const CarouselComponent = () => {
     return (
-        <div className="container mx-auto px-6 py-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-10 py-6 sm:py-10">
             <div
-                className="w-screen bg-gradient-to-r from-blue-500 to-indigo-600 text-white flex items-center justify-center px-6 py-4 relative left-0 "
-                style={{ marginLeft: "-148px" , marginTop: "-10rem"}} 
+                className="w-screen bg-gradient-to-r from-blue-500 to-indigo-500 text-white flex items-center justify-center px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8 relative -ml-90 sm:-ml-90 lg:-ml-90"
+                style={{ marginLeft: "0", marginTop: "0" }}
             >
-                <h1 className="text-7xl font-bold text-black text-center">
+                <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-black text-center">
                     Our Associates
                 </h1>
             </div>
-            <div className="mb-10"></div>
+            <div className="mb-6 sm:mb-8 lg:mb-10"></div>
+
             {/* Swiper Carousel */}
             <Swiper
-                modules={[Pagination, Autoplay]}
-
-
+                modules={[Autoplay]}
                 autoplay={{
-                    delay: 0, // No delay between slides
-                    disableOnInteraction: false, 
+                    delay: 3000, // Set autoplay delay (3 seconds)
+                    disableOnInteraction: false, // Continue autoplay after user interaction
                 }}
-                loop={true} 
-                speed={5000}
-                spaceBetween={0}
-                slidesPerView="auto"
-                freeMode={true}
-                className="mySwiper"
-                style={{ marginBottom: "0", paddingBottom: "0" }}
+                pagination={{ clickable: true }} // Enable pagination
+                loop={true} // Enable infinite loop
+                spaceBetween={20} // Space between slides
+                slidesPerView={1} // Number of slides visible at a time
             >
                 {/* Slide 1 */}
                 <SwiperSlide>
