@@ -46,7 +46,7 @@ const App = () => {
                 }}
                 className="text-sm font-medium text-gray-700 hover:text-blue-600 transition flex items-center"
               >
-                Cities
+                Locations
                 <svg
                   className="ml-1 w-4 h-4"
                   fill="none"
@@ -60,13 +60,13 @@ const App = () => {
               {isDropdownOpen && (
                 <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 py-1 z-50">
                   {["Khandwa Road","Silicon City","Rau","Mhow","Pithampur","CAT Road","Super Corridor","Nipania","Ujjain Road","AB Bypass Road","Kanandia Road","Vijay Nagar"].map((city) => (
-                    <a
+                    <Link
                       key={city}
-                      href="#"
+                      to ={city === "Rau" ? "/rau" : "/cities"}
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                     >
                       {city}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               )}

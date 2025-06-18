@@ -1,0 +1,51 @@
+
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
+import "./rau.css" 
+import Header from '../../components/Header'; 
+
+const PropertyCard = () => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/property-details');
+  };
+
+  return (
+    <div className="property-card" onClick={handleClick}>
+      <img src="https://via.placeholder.com/300" alt="Property" />
+      <div className="property-info">
+        <h2>Beautiful Property</h2>
+        <p>Click to view details</p>
+      </div>
+    </div>
+  );
+};
+
+const HomePage = () => (
+  <div className="home-page">
+    <Header />
+    <div className="property-list">
+      <PropertyCard />
+    </div>
+  </div>
+);
+
+const PropertyDetailsPage = () => (
+  <div className="property-details-page">
+    <Header />
+    <h2>Property Details</h2>
+    <p>Here are the details of the property...</p>
+  </div>
+);
+
+const Rau = () => (
+  <Router>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/property-details" element={<PropertyDetailsPage />} />
+    </Routes>
+  </Router>
+);
+
+export default Rau;
