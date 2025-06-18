@@ -49,37 +49,28 @@ const Header = () => {
               </a>
               {isDropdownOpen && (
                 <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 py-1 z-50">
-                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                    Indore
-                  </a>
-                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                    Bhopal
-                  </a>
-                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                    Ujjain
-                  </a>
-                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                    Rau
-                  </a>
-                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                    Dewas
-                  </a>
-                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                    Pithampur
-                  </a>
+                  {["Khandwa Road","Silicon City","Rau","Mhow","Pithampur","CAT Road","Super Corridor","Nipania","Ujjain Road","AB Bypass Road","Kanandia Road","Vijay Nagar"].map((city) => (
+                    <a
+                      key={city}
+                      href="#"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    >
+                      {city}
+                    </a>
+                  ))}
                 </div>
               )}
             </div>
-            <Link to ="/aboutus" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
+            <Link to ="/about-us" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
               About Us
             </Link>
             <Link to ="/features" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
               Features
             </Link>
-            <Link to ="/associates" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
+            <Link to ="/our-associates" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
               Our Associates
             </Link >
-            <Link to ="/contactus" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
+            <Link to ="/contact" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
               Contact
             </Link>
           </nav>
