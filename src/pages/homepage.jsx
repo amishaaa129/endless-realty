@@ -16,110 +16,110 @@ const App = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
   return (
-    
-      
 
 
 
-    
-      <header id="header" className="w-full z-50 transition-all duration-300">
+
+
+
+    <header id="header" className="w-full z-50 transition-all duration-300">
       <div className="containe  r mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <div className="flex items-center">
-              <Link to="/" className="flex items-center">
-                <span className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800">Endless</span>
-                <span className="text-3xl font-light ml-1">Realty</span>
-              </Link>
-            </div>
+        <div className="flex justify-between items-center py-4">
+          <div className="flex items-center">
+            <Link to="/" className="flex items-center">
+              <span className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800">Endless</span>
+              <span className="text-3xl font-light ml-1">Realty</span>
+            </Link>
+          </div>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex space-x-10">
-              <a href="#properties" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
-                Properties
-              </a>
-              <div className="relative">
-                <a
-                  href="#cities"
-                  onClick={(e) => {
-                    e.preventDefault(); 
-                    toggleDropdown();
-                  }}
-                  className="text-sm font-medium text-gray-700 hover:text-blue-600 transition flex items-center"
-                >
-                  Cities
-                  <svg
-                    className="ml-1 w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
-                  </svg>
-                </a>
-                {isDropdownOpen && (
-                  <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 py-1 z-50">
-                    {['Indore', 'Bhopal', 'Ujjain', 'Rau', 'Dewas', 'Pithampur'].map((city) => (
-                      <a
-                        key={city}
-                        href="#"
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                      >
-                        {city}
-                      </a>
-                    ))}
-                  </div>
-                )}
-              </div>
-
-              <Link to="/about-us" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
-                About Us
-              
-              </Link>
-              
-                  <a href ="/features" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
-                    Features
-                  </a>
-               
-              
-
-
-              <Link to ="/our-associates" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
-                Our Associates 
-              </Link>
-              <Link to ="/contact" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
-                Contact
-              </Link>
-            </nav>
-
-            <div className="flex items-center">
-
-              <Link 
-                to ="/signin"
-                className="hidden md:inline-flex items-center justify-center px-5 py-2.5 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition"
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex space-x-10">
+            <a href="#properties" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
+              Properties
+            </a>
+            <div className="relative">
+              <a
+                href="#cities"
+                onClick={(e) => {
+                  e.preventDefault();
+                  toggleDropdown();
+                }}
+                className="text-sm font-medium text-gray-700 hover:text-blue-600 transition flex items-center"
               >
-                Sign In
-              </Link>
-
-              <button
-                id="mobile-menu-button"
-                className="md:hidden p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100"
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              >
+                Cities
                 <svg
-                  className="h-6 w-6"
+                  className="ml-1 w-4 h-4"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
                 </svg>
-              </button>
+              </a>
+              {isDropdownOpen && (
+                <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 py-1 z-50">
+                  {["Khandwa Road","Silicon City","Rau","Mhow","Pithampur","CAT Road","Super Corridor","Nipania","Ujjain Road","AB Bypass Road","Kanandia Road","Vijay Nagar"].map((city) => (
+                    <a
+                      key={city}
+                      href="#"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    >
+                      {city}
+                    </a>
+                  ))}
+                </div>
+              )}
             </div>
+
+            <Link to="/about-us" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
+              About Us
+
+            </Link>
+
+            <a href="/features" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
+              Features
+            </a>
+
+
+
+
+            <Link to="/our-associates" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
+              Our Associates
+            </Link>
+            <Link to="/contact" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
+              Contact
+            </Link>
+          </nav>
+
+          <div className="flex items-center">
+
+            <Link
+              to="/signin"
+              className="hidden md:inline-flex items-center justify-center px-5 py-2.5 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition"
+            >
+              Sign In
+            </Link>
+
+            <button
+              id="mobile-menu-button"
+              className="md:hidden p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              <svg
+                className="h-6 w-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
+              </svg>
+            </button>
           </div>
         </div>
-      
+      </div>
+
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
@@ -149,15 +149,15 @@ const App = () => {
             {['Properties', 'Cities', 'About Us', 'Features', 'Our Associates', 'Contact'].map((item) => (
               <Link
                 key={item}
-                to ={`/${item.toLowerCase().replace(/\s+/g, '-')}`}
+                to={`/${item.toLowerCase().replace(/\s+/g, '-')}`}
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
               >
                 {item}
               </Link>
             ))}
             <div className="px-4 py-4 border-t">
-              <Link 
-                to ="/signin"
+              <Link
+                to="/signin"
                 className="flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
               >
                 SignIn
@@ -192,14 +192,20 @@ const App = () => {
                   <label className="block text-black text-sm font-medium mb-1 text-left pl-1">Location</label>
                   <select className="w-full px-4 py-3 rounded-lg text-gray-700 border border-gray-200 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 transition">
                     <option value="" disabled selected>
-                      Select City
+                      Select Location
                     </option>
-                    <option value="indore">Indore</option>
-                    <option value="bhopal">Bhopal</option>
-                    <option value="ujjain">Ujjain</option>
-                    <option value="Rau">Rau</option>
-                    <option value="Dewas">Dewas</option>
-                    <option value="Pithampur">Pithampur</option>
+                    <option value="indore">Khandwa Road</option>
+                    <option value="bhopal">Silicon City</option>
+                    <option value="ujjain">Rau</option>
+                    <option value="Rau">Mhow</option>
+                    <option value="Dewas">Pithampur</option>
+                    <option value="Pithampur">CAT Road</option>
+                    <option value="CAT Road">Super Corridor</option>
+                    <option value="Super Corridor">Nipania</option>
+                    <option value="Nipania">Ujjain Road</option>
+                    <option value="Ujjain Road">AB Bypass Road</option>
+                    <option value="AB Bypass Road">Kanandia Road</option>
+                    <option value="Kanandia Road">Vijay Nagar</option>
                   </select>
                 </div>
                 <div className="flex-1 mb-3 md:mb-0 md:mr-3">
@@ -348,103 +354,103 @@ const App = () => {
               </div>
             </div>
           </div>
-        
-            {/* Property Card 2 */}
-            <div className="property-card bg-white rounded-xl overflow-hidden shadow-md">
+
+          {/* Property Card 2 */}
+          <div className="property-card bg-white rounded-xl overflow-hidden shadow-md">
             <div className="relative">
-                <img
+              <img
                 src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80"
                 alt="Infinite Heights"
                 className="w-full h-64 object-cover"
-                />
-                <div className="absolute top-0 right-0 bg-green-600 text-white px-3 py-1 m-3 rounded-md text-sm font-medium">
+              />
+              <div className="absolute top-0 right-0 bg-green-600 text-white px-3 py-1 m-3 rounded-md text-sm font-medium">
                 Ready to Move
-                </div>
-                <div className="absolute bottom-0 left-0 bg-gradient-to-t from-black to-transparent w-full h-20 flex items-end">
+              </div>
+              <div className="absolute bottom-0 left-0 bg-gradient-to-t from-black to-transparent w-full h-20 flex items-end">
                 <span className="text-white font-bold text-xl px-4 pb-3">Infinite Heights</span>
-                </div>
+              </div>
             </div>
             <div className="p-5">
-                <div className="flex items-center text-gray-500 text-sm mb-3">
+              <div className="flex items-center text-gray-500 text-sm mb-3">
                 <i className="fas fa-map-marker-alt mr-2 text-blue-600"></i>
                 <span>Vijay Nagar, Indore</span>
-                </div>
-                <div className="flex justify-between mb-4 text-sm">
+              </div>
+              <div className="flex justify-between mb-4 text-sm">
                 <div className="flex items-center">
-                    <i className="fas fa-bed mr-1 text-blue-600"></i>
-                    <span>3 & 4 BHK</span>
-                </div>
-                <div className="flex items-center">
-                    <i className="fas fa-ruler-combined mr-1 text-blue-600"></i>
-                    <span>1650-2200 sq.ft.</span>
+                  <i className="fas fa-bed mr-1 text-blue-600"></i>
+                  <span>3 & 4 BHK</span>
                 </div>
                 <div className="flex items-center">
-                    <i className="fas fa-building mr-1 text-blue-600"></i>
-                    <span>RERA Approved</span>
+                  <i className="fas fa-ruler-combined mr-1 text-blue-600"></i>
+                  <span>1650-2200 sq.ft.</span>
                 </div>
+                <div className="flex items-center">
+                  <i className="fas fa-building mr-1 text-blue-600"></i>
+                  <span>RERA Approved</span>
                 </div>
-                <div className="flex justify-between items-center">
+              </div>
+              <div className="flex justify-between items-center">
                 <div>
-                    <span className="text-gray-500 text-sm">Starting at</span>
-                    <div className="text-xl font-bold text-gray-900">₹65.8 Lakhs</div>
+                  <span className="text-gray-500 text-sm">Starting at</span>
+                  <div className="text-xl font-bold text-gray-900">₹65.8 Lakhs</div>
                 </div>
                 <a
-                    href="#"
-                    className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition text-sm"
+                  href="#"
+                  className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition text-sm"
                 >
-                    View Details
+                  View Details
                 </a>
-                </div>
+              </div>
             </div>
-            </div>
-            {/* Property Card 3 */}
-            <div className="property-card bg-white rounded-xl overflow-hidden shadow-md">
+          </div>
+          {/* Property Card 3 */}
+          <div className="property-card bg-white rounded-xl overflow-hidden shadow-md">
             <div className="relative">
-                <img
+              <img
                 src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
                 alt="Royal Meadows"
                 className="w-full h-64 object-cover"
-                />
-                <div className="absolute top-0 right-0 bg-purple-600 text-white px-3 py-1 m-3 rounded-md text-sm font-medium">
+              />
+              <div className="absolute top-0 right-0 bg-purple-600 text-white px-3 py-1 m-3 rounded-md text-sm font-medium">
                 Premium
-                </div>
-                <div className="absolute bottom-0 left-0 bg-gradient-to-t from-black to-transparent w-full h-20 flex items-end">
+              </div>
+              <div className="absolute bottom-0 left-0 bg-gradient-to-t from-black to-transparent w-full h-20 flex items-end">
                 <span className="text-white font-bold text-xl px-4 pb-3">Royal Meadows</span>
-                </div>
+              </div>
             </div>
             <div className="p-5">
-                <div className="flex items-center text-gray-500 text-sm mb-3">
+              <div className="flex items-center text-gray-500 text-sm mb-3">
                 <i className="fas fa-map-marker-alt mr-2 text-blue-600"></i>
                 <span>AB Road, Near MR9, Indore</span>
-                </div>
-                <div className="flex justify-between mb-4 text-sm">
+              </div>
+              <div className="flex justify-between mb-4 text-sm">
                 <div className="flex items-center">
-                    <i className="fas fa-bed mr-1 text-blue-600"></i>
-                    <span>4 BHK</span>
-                </div>
-                <div className="flex items-center">
-                    <i className="fas fa-ruler-combined mr-1 text-blue-600"></i>
-                    <span>2200-2800 sq.ft.</span>
+                  <i className="fas fa-bed mr-1 text-blue-600"></i>
+                  <span>4 BHK</span>
                 </div>
                 <div className="flex items-center">
-                    <i className="fas fa-building mr-1 text-blue-600"></i>
-                    <span>RERA Approved</span>
+                  <i className="fas fa-ruler-combined mr-1 text-blue-600"></i>
+                  <span>2200-2800 sq.ft.</span>
                 </div>
+                <div className="flex items-center">
+                  <i className="fas fa-building mr-1 text-blue-600"></i>
+                  <span>RERA Approved</span>
                 </div>
-                <div className="flex justify-between items-center">
+              </div>
+              <div className="flex justify-between items-center">
                 <div>
-                    <span className="text-gray-500 text-sm">Starting at</span>
-                    <div className="text-xl font-bold text-gray-900">₹95.5 Lakhs</div>
+                  <span className="text-gray-500 text-sm">Starting at</span>
+                  <div className="text-xl font-bold text-gray-900">₹95.5 Lakhs</div>
                 </div>
                 <a
-                    href="#"
-                    className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition text-sm"
+                  href="#"
+                  className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition text-sm"
                 >
-                    View Details
+                  View Details
                 </a>
-                </div>
+              </div>
             </div>
-            </div>
+          </div>
         </div>
         {/* Property Card 2 */}
         <div className="property-card bg-white rounded-xl overflow-hidden shadow-md">
@@ -547,7 +553,7 @@ const App = () => {
         {/* View All Properties Button */}
         <div className="text-center mt-12">
           <Link
-            to ="/allproperties"
+            to="/allproperties"
             className="inline-flex items-center px-8 py-4 text-base font-semibold rounded-xl text-blue-600 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-blue-300 bg-transparent"
           >
             View All Properties
@@ -1157,7 +1163,7 @@ const App = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link to ="/contact" className="text-gray-400 hover:text-blue-400">
+                    <Link to="/contact" className="text-gray-400 hover:text-blue-400">
                       Contact
                     </Link>
                   </li>
@@ -1206,11 +1212,11 @@ const App = () => {
           </div>
         </div>
 
-    
+
       </section>
-      </header>
-    
-    
+    </header>
+
+
   );
 };
 
