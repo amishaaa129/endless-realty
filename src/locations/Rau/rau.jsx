@@ -1,19 +1,18 @@
-
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
-import "./rau.css" 
-import Header from '../../components/Header'; 
+import { Route, Routes, useNavigate } from 'react-router-dom';
+import './rau.css';
+import Header from '../../components/Header';
 
 const PropertyCard = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate('/property-details');
+    navigate('/rau/property-details'); 
   };
 
   return (
     <div className="property-card" onClick={handleClick}>
-      <img src="https://via.placeholder.com/300" alt="Property" />
+      <img src="../../images/rau.jpeg" alt="Property" />
       <div className="property-info">
         <h2>Beautiful Property</h2>
         <p>Click to view details</p>
@@ -40,12 +39,10 @@ const PropertyDetailsPage = () => (
 );
 
 const Rau = () => (
-  <Router>
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/property-details" element={<PropertyDetailsPage />} />
-    </Routes>
-  </Router>
+  <Routes>
+    <Route path="/" element={<HomePage />} />
+    <Route path="/property-details" element={<PropertyDetailsPage />} />
+  </Routes>
 );
 
 export default Rau;
