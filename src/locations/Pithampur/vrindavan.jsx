@@ -12,7 +12,7 @@ const Vrindavan = () => {
       <Header />
       <div className="vrindavan-card">
         <img
-          src="/images/vrindavan-property.jpg"
+          src="/images/vrindavan.png"
           alt="Vrindavan Property"
           className="property-image"
         />
