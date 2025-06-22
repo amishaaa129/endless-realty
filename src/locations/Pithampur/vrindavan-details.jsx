@@ -35,7 +35,7 @@ const VrindavanDetails = () => {
       <div className="media-grid">
         <div className="video-wrapper">
           <video
-            src="/videos/vrindavan-tour.mp4" // Replace with your video path
+            src="/vrindavan/vrindavan-video.mp4" // Replace with your video path
             title="Property Video"
             autoPlay
             loop
@@ -44,7 +44,7 @@ const VrindavanDetails = () => {
           />
         </div>
         <div className="map-image">
-          <img src="/images/vrindavan-map.jpg" alt="Map Location" />
+          <img src="/vrindavan/vrindavan-map.jpeg" alt="Map Location" />
         </div>
       </div>
     </>
