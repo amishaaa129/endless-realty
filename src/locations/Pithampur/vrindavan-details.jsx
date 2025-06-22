@@ -21,12 +21,12 @@ const VrindavanDetails = () => {
           loop={true}
           autoplay={{ delay: 2500, disableOnInteraction: false }}
           pagination={{ clickable: true }}
-          navigation={true}
+          
         >
           {[1, 2, 3, 4, 5].map((num) => (
             <SwiperSlide key={num}>
               <img
-                src={`/images/vrindavan${num}.jpg`}
+                src={`/vrindavan/vrindavan${num}.jpeg`}
                 alt={`Vrindavan ${num}`}
                 className="swiper-image"
               />
