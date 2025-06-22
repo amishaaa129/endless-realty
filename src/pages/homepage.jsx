@@ -62,7 +62,7 @@ const App = () => {
                   {["Khandwa Road","Silicon City","Rau","Mhow","Pithampur","CAT Road","Super Corridor","Nipania","Ujjain Road","AB Bypass Road","Kanandia Road","Vijay Nagar"].map((city) => (
                     <Link
                       key={city}
-                      to ={city === "Rau" ? "/rau" : "/cities"}
+                      to={city === "Rau" ? "/rau" : city === "Pithampur" ? "/pithampur" : "/cities"}
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                     >
                       {city}

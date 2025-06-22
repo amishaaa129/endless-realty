@@ -9,6 +9,8 @@ import SignUp from './Login/signup';
 import SearchResults from './pages/allproperties';
 import Associates from "./pages/associates";
 import Rau from "./locations/Rau/rau";
+import Vrindavan from "./locations/Pithampur/vrindavan";
+import Vdetails from "./locations/Pithampur/vrindavan-details";
 
 function App() {
   return (
@@ -23,6 +25,9 @@ function App() {
       <Route path="/search" element={<SearchResults />} />
       <Route path="/our-associates" element={<Associates />} />
       <Route path="/rau" element={<Rau />} />
+      <Route path="/Pithampur" element={<Vrindavan />} />
+      <Route path="/vrindavan-details" element={<Vdetails />} />
+      
     </Routes>
   );
 }

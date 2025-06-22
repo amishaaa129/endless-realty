@@ -1,0 +1,130 @@
+.vrindavan-card {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    animation: fadeInUp 1s ease-out;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .vrindavan-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .property-image {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    animation: slideIn 1.2s ease-in-out;
+  }
+  
+  .property-title {
+    font-size: 24px;
+    margin: 15px 0;
+    color: #333;
+  }
+  
+  .know-more-button {
+    background: linear-gradient(135deg, #4b6cb7, #182848);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.4s ease;
+  }
+  
+  .know-more-button:hover {
+    background: linear-gradient(135deg, #182848, #4b6cb7);
+  }
+  
+  /* Details Page */
+  .property-detail-page {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    padding: 60px;
+    animation: fadeInUp 1s ease;
+  }
+  
+  .image-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .image-gallery img {
+    width: 100%;
+    border-radius: 14px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s;
+  }
+  
+  .image-gallery img:hover {
+    transform: scale(1.03);
+  }
+  
+  .property-info h1 {
+    font-size: 36px;
+    color: #2c3e50;
+  }
+  
+  .property-info p {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.6;
+  }
+  
+  .property-info ul {
+    margin-top: 20px;
+    list-style: circle inside;
+    font-size: 16px;
+  }
+  
+  /* Animations */
+  @keyframes fadeInUp {
+    0% {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideIn {
+    0% {
+      transform: scale(0.9);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  /* Responsive */
+  @media screen and (max-width: 768px) {
+    .property-detail-page {
+      grid-template-columns: 1fr;
+      padding: 20px;
+    }
+  
+    .property-info h1 {
+      font-size: 28px;
+    }
+  
+    .property-info p,
+    .property-info ul {
+      font-size: 15px;
+    }
+  
+    .vrindavan-card {
+      margin: 40px 20px;
+    }
+  }
