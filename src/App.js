@@ -9,8 +9,8 @@ import SignUp from './Login/signup';
 import SearchResults from './pages/allproperties';
 import Associates from "./pages/associates";
 import Rau from "./locations/Rau/rau";
-import Vrindavan from "./locations/Pithampur/vrindavan";
-import Vdetails from "./locations/Pithampur/vrindavan-details";
+import Vrindavan from "./locations/Cat_road/vrindavan";
+import Vdetails from "./locations/Cat_road/vrindavan-details";
 
 function App() {
   return (

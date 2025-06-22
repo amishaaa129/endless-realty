@@ -1,0 +1,147 @@
+/* Founder Section */
+.founder-section {
+    background: #f7fafc;
+    padding: 60px 20px;
+    text-align: center;
+    animation: fadeIn 1.2s ease-out;
+  }
+  
+  .founder-card {
+    max-width: 800px;
+    margin: auto;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  }
+  
+  .founder-card h1 {
+    font-size: 36px;
+    color: #1e40af;
+    margin-bottom: 10px;
+  }
+  
+  .founder-card h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .founder-card blockquote {
+    font-style: italic;
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 20px;
+  }
+  
+  .founder-card p {
+    font-size: 16px;
+    color: #444;
+    line-height: 1.6;
+  }
+  
+  /* Team Section */
+  .team-section {
+    padding: 60px 20px;
+    background: #ffffff;
+  }
+  
+  .team-heading {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 40px;
+    color: #222;
+  }
+  
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    max-width: 1100px;
+    margin: auto;
+  }
+  
+  .team-card {
+    background: #f9fafb;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+  }
+  
+  .team-card:hover {
+    transform: translateY(-6px);
+  }
+  
+  .team-card h3 {
+    font-size: 20px;
+    color: #1e3a8a;
+    margin-bottom: 5px;
+  }
+  
+  .team-card h4 {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 10px;
+  }
+  
+  .team-card p {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.5;
+  }
+  .founder-story-section {
+    padding: 60px 20px;
+    background: #f7f9fc;
+  }
+  
+  .founder-story-section h2 {
+    text-align: center;
+    font-size: 26px;
+    color: #1e40af;
+    margin-bottom: 30px;
+  }
+  
+  .founder-story {
+    max-width: 900px;
+    margin: auto;
+    font-size: 16px;
+    color: #444;
+    line-height: 1.8;
+    animation: fadeIn 1.2s ease-in-out;
+  }
+  
+  .founder-story p {
+    margin-bottom: 20px;
+  }
+  
+  /* Animation */
+  @keyframes fadeIn {
+    0% {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
+  
+  /* Responsive Tweaks */
+  @media (max-width: 768px) {
+    .founder-card {
+      padding: 30px 20px;
+    }
+  
+    .founder-card h1 {
+      font-size: 28px;
+    }
+  
+    .founder-card h3 {
+      font-size: 18px;
+    }
+  
+    .team-heading {
+      font-size: 24px;
+    }
+  }
