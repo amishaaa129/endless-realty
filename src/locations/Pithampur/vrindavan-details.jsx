@@ -1,8 +1,9 @@
+// File: vrindavanDetails.jsx
 import React from 'react';
 import Header from '../../components/Header';
 import './vrindavan.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { Pagination, Navigation, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
@@ -12,28 +13,19 @@ const VrindavanDetails = () => {
     <>
       <Header />
 
-      {/* Swiper Image Slider */}
-      <div className="swiper-container">
-        <Swiper
-          modules={[Autoplay,]}
-          spaceBetween={20}
-          slidesPerView={1}
-          loop={true}
-          autoplay={{ delay: 2500, disableOnInteraction: false }}
-          pagination={{ clickable: true }}
-          
-        >
-          {[1, 2, 3, 4, 5].map((num) => (
-            <SwiperSlide key={num}>
-              <img
-                src={`/vrindavan/vrindavan${num}.jpeg`}
-                alt={`Vrindavan ${num}`}
-                className="swiper-image"
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper>
+      {/* Constant Video Section */}
+      <div className="video-wrapper top-video">
+        <video
+          src="/vrindavan/vrandavan_video.mp4"
+          title="Property Video"
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="video-player"
+        />
       </div>
+
       {/* Property Content Section */}
       <div className="property-info-section">
         <h1>🌿 Vrindavan Premium — Affordable Luxury Living at CAT Road, Indore</h1>
@@ -92,24 +84,35 @@ const VrindavanDetails = () => {
         </p>
       </div>
 
-            {/* Video + Map Section */}
-            <div className="media-grid">
-                <div className="video-wrapper">
-                    <video
-                        src="/vrindavan/vrandavan_video.mp4"
-                        autoPlay
-                        muted
-                        loop
-                        playsInline
-                        className="video-player"
-                    />
-                </div>
-                <div className="map-image">
-                    <img src="/vrindavan/vrindavan-map.jpeg" alt="Map Location" />
-                </div>
-            </div>
-        </>
-    );
+      {/* Swiper Image Gallery */}
+      <div className="swiper-container">
+        <Swiper
+          modules={[ Autoplay]}
+          spaceBetween={20}
+          slidesPerView={1}
+          loop={true}
+          autoplay={{ delay: 3000, disableOnInteraction: false }}
+          pagination={{ clickable: true }}
+          
+        >
+          {[1, 2, 3, 4, 5].map((num) => (
+            <SwiperSlide key={num}>
+              <img
+                src={`/vrindavan/vrindavan${num}.jpeg`}
+                alt={`Vrindavan ${num}`}
+                className="swiper-image"
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+
+      {/* Map Section */}
+      <div className="map-image">
+        <img src="/vrindavan/vrindavan-map.jpeg" alt="Map Location" />
+      </div>
+    </>
+  );
 };
 
 export default VrindavanDetails;

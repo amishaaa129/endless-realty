@@ -1,3 +1,4 @@
+/* Card (Vrindavan.jsx) */
 .vrindavan-card {
     max-width: 400px;
     margin: 100px auto;
@@ -42,134 +43,138 @@
     background: linear-gradient(135deg, #182848, #4b6cb7);
   }
   
-/* Property Info Section */
-.property-info-section {
+  /* ---------------------- DETAILS PAGE ---------------------- */
+  
+  /* Top Video */
+  .top-video .video-player {
+    width: 100%;
+    max-width: 1100px;
+    height: 400px;
+    margin: 30px auto;
+    display: block;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Property Info Section */
+  .property-info-section {
     padding: 60px 20px 40px;
     max-width: 1000px;
     margin: auto;
     animation: fadeInUp 1s ease;
-}
-
-.property-info-section h1 {
+  }
+  
+  .property-info-section h1 {
     font-size: 36px;
     color: #2c3e50;
     margin-bottom: 20px;
-}
-
-.property-info-section p {
+  }
+  
+  .property-info-section h3 {
+    font-size: 20px;
+    color: #2c3e50;
+    margin-top: 25px;
+  }
+  
+  .property-info-section p {
     font-size: 18px;
     color: #555;
     line-height: 1.6;
-}
-
-.property-info-section ul {
-    margin-top: 20px;
-    list-style: disc inside;
+    margin-top: 10px;
+  }
+  
+  .property-info-section ul {
+    margin-top: 10px;
+    padding-left: 20px;
+    list-style: disc;
     font-size: 16px;
-}
-
-/* 5-Image Gallery */
-.image-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 20px;
-    padding: 40px 20px;
-    max-width: 1100px;
-    margin: auto;
-}
-
-.gallery-image {
-    width: 100%;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s;
-}
-
-.gallery-image:hover {
-    transform: scale(1.03);
-}
-
-
-.media-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    padding: 40px 20px 80px;
-    max-width: 1100px;
-    margin: auto;
-}
-
-.video-wrapper video {
-    width: 100%;
-    height: 300px;
-    border-radius: 12px;
-    object-fit: cover;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-}
-
-.map-image img {
-    width: 100%;
-    max-width: 600px;
-    height: auto;
-    aspect-ratio: 3 / 4;
-    /* reflects vertical layout (e.g., 600x800) */
-    object-fit: contain;
-    border-radius: 12px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-    background-color: #f9f9f9;
-    padding: 8px;
-    border: 1px solid #e0e0e0;
-    margin: auto;
-    display: block;
-}
-
-/* Swiper Styles */
-.swiper-container {
+    color: #444;
+  }
+  
+  .property-info-section a {
+    color: #1e40af;
+    text-decoration: underline;
+  }
+  
+  /* Swiper Image Gallery */
+  .swiper-container {
     width: 100%;
     max-width: 1100px;
-    margin: 30px auto;
-}
-
-.swiper-image {
+    margin: 50px auto;
+  }
+  
+  .swiper-image {
     width: 100%;
     height: 450px;
     object-fit: cover;
     border-radius: 16px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-}
-
-@media (max-width: 768px) {
-    .swiper-image {
-        height: 240px;
-    }
-}
-
-/* Fade-in animation */
-@keyframes fadeInUp {
+  }
+  
+  /* Map Section */
+  .map-image {
+    width: 100%;
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 0 20px;
+  }
+  
+  .map-image img {
+    width: 70%;
+    max-width: 500px;
+    aspect-ratio: 3 / 4;
+    object-fit: contain;
+    border-radius: 12px;
+    background-color: #f9f9f9;
+    padding: 8px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    margin: 0 auto;
+    display: block;
+  }
+  /* Animations */
+  @keyframes fadeInUp {
     0% {
-        transform: translateY(30px);
-        opacity: 0;
+      transform: translateY(30px);
+      opacity: 0;
     }
-
+  
     100% {
-        transform: translateY(0px);
-        opacity: 1;
+      transform: translateY(0px);
+      opacity: 1;
     }
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .top-video .video-player {
+      height: 240px;
+    }
+  
+    .swiper-image {
+      height: 240px;
+    }
+  
     .media-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
+      grid-template-columns: 1fr;
+      gap: 20px;
     }
-
+  
     .property-info-section h1 {
-        font-size: 28px;
+      font-size: 28px;
     }
-
+  
+    .property-info-section h3 {
+      font-size: 18px;
+    }
+  
     .property-info-section p,
     .property-info-section ul {
-        font-size: 15px;
+      font-size: 15px;
     }
-}
+  
+    .map-image img {
+      width: 90%;
+    }
+  }
