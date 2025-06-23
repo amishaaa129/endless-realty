@@ -134,13 +134,16 @@ const SignUp = () => {
             </div>
             {/*referal */}
             <div className="mb-6">
-              <label htmlFor="referral" className="block text-sm font-medium text-gray-700 mb-2">
-                Referral Person
+              <label htmlFor="referral" className="block text-gray-700 text-sm font-medium mb-2">
+                Referral
               </label>
               <select
                 id="referral"
                 name="referral"
-                className="block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm"
+                value={formData.referral}
+                onChange={handleChange}
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+                required
               >
                 <option value="" disabled selected>
                   Select a referral person
@@ -153,7 +156,6 @@ const SignUp = () => {
                 <option value="Abhishek Mishra">Abhishek Mishra</option>
               </select>
             </div>
-
 
             {/* Error Message */}
             {error && (
