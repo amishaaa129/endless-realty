@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Header from '../components/Header';
 
 const OurAssociates = () => {
   const [brokers, setBrokers] = useState([]);
@@ -21,6 +22,7 @@ const OurAssociates = () => {
 
   return (
     <div className="p-6 max-w-7xl mx-auto">
+      <Header />
       <h1 className="text-3xl font-bold mb-10 text-center">Our Associates</h1>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
