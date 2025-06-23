@@ -15,7 +15,6 @@ const getAllBrokers = async (req, res) => {
       brokers.map(async (broker) => {
         const qrData = `${FRONTEND_BASE_URL}/our-associates/${broker.id}`;  // or your actual frontend route
         const qrCodeUrl = await QRCode.toDataURL(qrData); // base64 image
-        console.log(qrCodeUrl);
 
         return {
           ...broker,

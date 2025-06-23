@@ -1,6 +1,6 @@
 const { Pool } = require('pg');
 
-const URL = process.env.DATABASE_URL || "postgresql://endlessrealty_db_user:3fNzqIZY65RJAyDNGXV1JYSPEczYw1cZ@dpg-d0iofj3e5dus739qhktg-a.singapore-postgres.render.com/endlessrealty_db";
+const URL = process.env.DATABASE_URL || "postgresql://endlessrealty_db_78ul_user:5P7pmMzW1X5hwz1RpvLBBCSOqxoPke73@dpg-d1cnbe2li9vc73du84a0-a.singapore-postgres.render.com/endlessrealty_db_78ul";
 
 // Check if you're running locally
 const isLocal = URL.includes('localhost') || URL.includes('127.0.0.1');
