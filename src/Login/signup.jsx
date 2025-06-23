@@ -29,15 +29,15 @@ const SignUp = () => {
     e.preventDefault();
     setLoading(true);
     setError('');
-   
+
     const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://endless-realty-backend.onrender.com';
 
     try {
       const res = await fetch(`${API_BASE_URL}/api/users/signup`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData),
-    });
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
 
       const data = await res.json();
 
@@ -132,6 +132,28 @@ const SignUp = () => {
                 required
               />
             </div>
+            {/*referal */}
+            <div className="mb-6">
+              <label htmlFor="referral" className="block text-sm font-medium text-gray-700 mb-2">
+                Referral Person
+              </label>
+              <select
+                id="referral"
+                name="referral"
+                className="block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm"
+              >
+                <option value="" disabled selected>
+                  Select a referral person
+                </option>
+                <option value="Sachin Sahu">Sachin Sahu</option>
+                <option value="Abhijeet Geete">Abhijeet Geete</option>
+                <option value="Abhishek Sahu">Abhishek Sahu</option>
+                <option value="Lalit Sahu">Lalit Sahu</option>
+                <option value="Pratik Sahu">Pratik Sahu</option>
+                <option value="Abhishek Mishra">Abhishek Mishra</option>
+              </select>
+            </div>
+
 
             {/* Error Message */}
             {error && (
