@@ -8,8 +8,6 @@ const getAllBrokers = async (req, res) => {
     const result = await pool.query('SELECT * FROM brokers');
     const brokers = result.rows;
 
-
-
     // For each broker, generate QR code
     const brokersWithQr = await Promise.all(
       brokers.map(async (broker) => {
