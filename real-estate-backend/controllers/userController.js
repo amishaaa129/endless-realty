@@ -3,23 +3,33 @@ const jwt = require('jsonwebtoken');
 const pool = require('../models/db');
 
 const registerUser = async (req, res) => {
-  const { name, phone, email, password } = req.body;
+  const { name, phone, email, password, referral_broker_id } = req.body;
+
   try {
-    const userExists = await pool.query('SELECT * FROM users WHERE email = $1', [email]);
-    if (userExists.rows.length > 0) {
+    const existingUser = await pool.query('SELECT * FROM users WHERE email = $1', [email]);
+    if (existingUser.rows.length > 0) {
       return res.status(400).json({ error: 'User already exists' });
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
-    const result = await pool.query(
-      'INSERT INTO users (name, phone, email, password) VALUES ($1, $2, $3, $4) RETURNING id, name, phone, email, role',
+    const newUser = await pool.query(
+      `INSERT INTO users (name, phone, email, password) 
+       VALUES ($1, $2, $3, $4) RETURNING id, name, phone, email`,
       [name, phone, email, hashedPassword]
     );
 
-    res.status(201).json(result.rows[0]);
+    // ➕ Update broker score if referral is given
+    if (referral_broker_id) {
+      await pool.query(
+        'UPDATE brokers SET score = score + 10 WHERE id = $1',
+        [referral_broker_id]
+      );
+    }
+
+    res.status(201).json({ message: 'User registered successfully', user: newUser.rows[0] });
   } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: 'Registration failed' });
+    console.error('Signup error:', err);
+    res.status(500).json({ error: 'Server error during registration' });
   }
 };
 

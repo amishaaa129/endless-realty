@@ -1,36 +1,51 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import { Link, useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
   const navigate = useNavigate();
 
-  // Form state
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
     email: '',
     password: '',
+    referral_broker_id: ''
   });
 
+  const [brokers, setBrokers] = useState([]);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
-  // Handle input changes
+  const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://endless-realty-backend.onrender.com';
+
+  // Fetch brokers for referral dropdown
+  useEffect(() => {
+    const fetchBrokers = async () => {
+      try {
+        const res = await fetch(`${API_BASE_URL}/api/our-associates`);
+        const data = await res.json();
+        setBrokers(data);
+      } catch (err) {
+        console.error('Failed to fetch brokers', err);
+      }
+    };
+
+    fetchBrokers();
+  }, []);
+
   const handleChange = (e) => {
-    setFormData(prev => ({
+    const { name, value } = e.target;
+    setFormData((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value,
+      [name]: value,
     }));
   };
 
-  // Handle form submit
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setError('');
-
-    const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://endless-realty-backend.onrender.com';
 
     try {
       const res = await fetch(`${API_BASE_URL}/api/users/signup`, {
@@ -47,7 +62,6 @@ const SignUp = () => {
         return;
       }
 
-      // Redirect to login or home
       navigate('/signin');
     } catch (err) {
       console.error(err);
@@ -132,28 +146,28 @@ const SignUp = () => {
                 required
               />
             </div>
-            {/*referal */}
+
+            {/* Referral Broker */}
             <div className="mb-6">
-              <label htmlFor="referral" className="block text-gray-700 text-sm font-medium mb-2">
+              <label htmlFor="referral_broker_id" className="block text-gray-700 text-sm font-medium mb-2">
                 Referral
               </label>
               <select
-                id="referral"
-                name="referral"
-                value={formData.referral}
+                id="referral_broker_id"
+                name="referral_broker_id"
+                value={formData.referral_broker_id}
                 onChange={handleChange}
                 className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
                 required
               >
-                <option value="" disabled selected>
+                <option value="" disabled>
                   Select a referral person
                 </option>
-                <option value="Sachin Sahu">Sachin Sahu</option>
-                <option value="Abhijeet Geete">Abhijeet Geete</option>
-                <option value="Abhishek Sahu">Abhishek Sahu</option>
-                <option value="Lalit Sahu">Lalit Sahu</option>
-                <option value="Pratik Sahu">Pratik Sahu</option>
-                <option value="Abhishek Mishra">Abhishek Mishra</option>
+                {brokers.map((broker) => (
+                  <option key={broker.id} value={broker.id}>
+                    {broker.name}
+                  </option>
+                ))}
               </select>
             </div>
 
