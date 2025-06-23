@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '../styles/styles.css';
 import { Link } from 'react-router-dom';
 import useScrollAnimations from '../hooks/useScrollAnimations';
-import CarouselComponent from '../components/swiper';
+
 
 
 
@@ -573,9 +573,7 @@ const App = () => {
             </svg>
           </Link>
         </div>
-        <section className="text-white bg-white py-32 md:py-40 relative">
-          <div><CarouselComponent /></div>
-        </section>
+        
       </section>
 
       <section id="cities" className="py-24 bg-gradient-to-r from-blue-600 to-indigo-800 text-white relative overflow-hidden">
