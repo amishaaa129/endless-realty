@@ -25,7 +25,7 @@ const BrokerDetails = () => {
 
   return (
     <div className="p-6 max-w-5xl mx-auto">
-      <Link to="/brokers" className="text-blue-500 text-sm">&larr; Back to Dashboard</Link>
+      <Link to="/" className="text-blue-500 text-sm">&larr; Back to Dashboard</Link>
 
       <div className="bg-white rounded shadow p-6 mt-4 flex justify-between items-center">
         <div>
