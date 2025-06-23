@@ -11,6 +11,8 @@ import Associates from "./pages/associates";
 import OurAssociates from './pages/ourassociates';
 import BrokerDetails from './pages/brokerDetails';
 import Rau from "./locations/Rau/rau";
+import Vrindavan from "./locations/Cat_road/vrindavan";
+import Vdetails from "./locations/Cat_road/vrindavan-details";
 
 function App() {
   return (
@@ -27,6 +29,9 @@ function App() {
       <Route path="/brokers" element={<OurAssociates />} />
       <Route path="/brokers/:id" element={<BrokerDetails />} />
       <Route path="/rau" element={<Rau />} />
+      <Route path="/Cat-road" element={<Vrindavan />} />
+      <Route path="/vrindavan-details" element={<Vdetails />} />
+      
     </Routes>
   );
 }
