@@ -11,7 +11,9 @@ const App = () => {
   useScrollAnimations();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
+  const [isLocationDropdownOpen, setIsLocationDropdownOpen] = useState(false);
+  const menuItems = ['Properties', 'Location', 'About Us', 'Features', 'Our Associates', 'Contact'];
+  const locations = ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Miami'];
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
@@ -34,9 +36,9 @@ const App = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-10">
-            <a href="#properties" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
+            <Link to="/allproperties" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
               Properties
-            </a>
+            </Link>
             <div className="relative">
               <a
                 href="#cities"
@@ -122,50 +124,75 @@ const App = () => {
 
 
       {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div
-          id="mobile-menu"
-          className="fixed top-0 left-0 h-full w-64 bg-white shadow-xl z-50 md:hidden"
+{isMobileMenuOpen && (
+  <div
+    id="mobile-menu"
+    className="fixed top-0 left-0 h-full w-64 bg-white shadow-xl z-50 md:hidden"
+  >
+    <div className="flex justify-between items-center p-4 border-b">
+      <span className="font-medium">Menu</span>
+      <button
+        id="close-menu-button"
+        className="p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100"
+        onClick={() => setIsMobileMenuOpen(false)}
+      >
+        <svg
+          className="h-6 w-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <div className="flex justify-between items-center p-4 border-b">
-            <span className="font-medium">Menu</span>
-            <button
-              id="close-menu-button"
-              className="p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              <svg
-                className="h-6 w-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
-              </svg>
-            </button>
-          </div>
-          <div className="py-4">
-            {['Properties', 'Cities', 'About Us', 'Features', 'Our Associates', 'Contact'].map((item) => (
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+    <div className="py-4">
+      {['Properties', 'About Us', 'Features', 'Our Associates', 'Contact'].map((item) => (
+        <Link
+          key={item}
+          to={`/${item.toLowerCase().replace(/\s+/g, '-')}`}
+          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+        >
+          {item}
+        </Link>
+      ))}
+      {/* Location Dropdown */}
+      <div className="relative">
+        <button
+          onClick={() => {
+            console.log('Dropdown toggled');
+            setIsLocationDropdownOpen(!isLocationDropdownOpen);
+          }}
+          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
+        >
+          Location
+        </button>
+        {isLocationDropdownOpen && (
+          <div className="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-10">
+            {['New York', 'Los Angeles', 'Chicago', 'Houston', 'Miami'].map((location) => (
               <Link
-                key={item}
-                to={`/${item.toLowerCase().replace(/\s+/g, '-')}`}
+                key={location}
+                to={`/location/${location.toLowerCase().replace(/\s+/g, '-')}`}
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
               >
-                {item}
+                {location}
               </Link>
             ))}
-            <div className="px-4 py-4 border-t">
-              <Link
-                to="/signin"
-                className="flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
-              >
-                SignIn
-              </Link>
-            </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
+      <div className="px-4 py-4 border-t">
+        <Link
+          to="/signin"
+          className="flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
+        >
+          SignIn
+        </Link>
+      </div>
+    </div>
+  </div>
+)}
 
       {/* Hero Section */}
       <div
