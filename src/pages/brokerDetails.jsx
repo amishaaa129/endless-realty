@@ -10,7 +10,7 @@ const BrokerDetails = () => {
   useEffect(() => {
     const fetchDetails = async () => {
       try {
-        const res = await fetch(`${API_BASE_URL}/api/brokers/${id}`);
+        const res = await fetch(`${API_BASE_URL}/api/our-associates/${id}`);
         const data = await res.json();
         setBroker(data.broker);
         setCustomers(data.customers);
@@ -80,7 +80,7 @@ const BrokerDetails = () => {
       </div>
     </div>
   );
-  
+
 };
 
 export default BrokerDetails;

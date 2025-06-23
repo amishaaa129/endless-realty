@@ -13,7 +13,7 @@ const getAllBrokers = async (req, res) => {
     // For each broker, generate QR code
     const brokersWithQr = await Promise.all(
       brokers.map(async (broker) => {
-        const qrData = `${FRONTEND_BASE_URL}/brokers/${broker.id}`;  // or your actual frontend route
+        const qrData = `${FRONTEND_BASE_URL}/our-associates/${broker.id}`;  // or your actual frontend route
         const qrCodeUrl = await QRCode.toDataURL(qrData); // base64 image
         console.log(qrCodeUrl);
 
@@ -43,7 +43,7 @@ const getBrokerDetails = async (req, res) => {
 
     const customers = await pool.query('SELECT * FROM customers WHERE broker_id = $1', [brokerId]);
 
-    const qrData = `${FRONTEND_BASE_URL}/brokers/${broker.id}`;
+    const qrData = `${FRONTEND_BASE_URL}/our-associates/${broker.id}`;
     const qrCodeUrl = await QRCode.toDataURL(qrData); // base64 image
 
     res.json({

@@ -32,7 +32,7 @@ app.use(express.json());
 app.use('/api/properties', propertyRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/contact', contactRoutes);
-app.use('/api/brokers', brokerRoutes);
+app.use('/api/our-associates', brokerRoutes);
 
 app.get('/', (req, res) => res.send('Real Estate API Running'));
 

@@ -8,7 +8,7 @@ const OurAssociates = () => {
   useEffect(() => {
     const fetchBrokers = async () => {
       try {
-        const res = await fetch(`${API_BASE_URL}/api/brokers`);
+        const res = await fetch(`${API_BASE_URL}/api/our-associates`);
         const data = await res.json();
         setBrokers(data);
       } catch (err) {
@@ -51,7 +51,7 @@ const OurAssociates = () => {
 
             {/* Button */}
             <Link
-              to={`/brokers/${broker.id}`}
+              to={`/our-associates/${broker.id}`}
               className="bg-blue-600 text-white text-sm px-4 py-2 rounded hover:bg-blue-700 transition"
             >
               View Details
