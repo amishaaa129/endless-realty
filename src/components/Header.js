@@ -14,17 +14,18 @@ const Header = () => {
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <div className="flex items-center">
-            <Link to="/" className="flex items-center">
-              <span className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800">
-                Endless
-              </span>
-              <span className="text-3xl font-light ml-1">Realty</span>
+          <Link to="/" className="flex items-center">
+              <img
+                src="/images/logo.jpg"
+                alt="Endless Realty Logo"
+                className="h-12 w-auto"
+              />
             </Link>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-10">
-            <Link to="/cities" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
+            <Link to="/properties" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
               Properties
             </Link>
             <div className="relative">

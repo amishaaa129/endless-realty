@@ -11,6 +11,7 @@ const App = () => {
   useScrollAnimations();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isLocationDropdownOpen, setIsLocationDropdownOpen] = useState(false);
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -27,16 +28,19 @@ const App = () => {
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
-              <span className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800">Endless</span>
-              <span className="text-3xl font-light ml-1">Realty</span>
+              <img
+                src="/images/logo.jpg"
+                alt="Endless Realty Logo"
+                className="h-12 w-auto"
+              />
             </Link>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-10">
-            <a href="#properties" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
+            <Link to="/properties" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
               Properties
-            </a>
+            </Link>
             <div className="relative">
               <a
                 href="#cities"
@@ -146,7 +150,7 @@ const App = () => {
             </button>
           </div>
           <div className="py-4">
-            {['Properties', 'Cities', 'About Us', 'Features', 'Our Associates', 'Contact'].map((item) => (
+            {['Properties', 'About Us', 'Features', 'Our Associates', 'Contact'].map((item) => (
               <Link
                 key={item}
                 to={`/${item.toLowerCase().replace(/\s+/g, '-')}`}
@@ -155,6 +159,34 @@ const App = () => {
                 {item}
               </Link>
             ))}
+            {/* Location Dropdown */}
+            <div className="relative">
+              <button
+                onClick={() => {
+                  console.log('Dropdown toggled');
+                  setIsLocationDropdownOpen(!isLocationDropdownOpen);
+                }}
+                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
+              >
+                Location
+              </button>
+              {isLocationDropdownOpen && (
+                <div className="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-10">
+                  {["Khandwa Road", "Silicon City", "Rau", "Mhow", "Pithampur", "CAT Road", "Super Corridor", "Nipania", "Ujjain Road", "AB Bypass Road", "Kanandia Road", "Vijay Nagar"].map((location) => (
+                    <Link
+                      key={location}
+                      to={
+                        location === "CAT Road"
+                          ? "/location/cat-road"
+                          : `/location/${location.toLowerCase().replace(/\s+/g, '-')}`}
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    >
+                      {location}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
             <div className="px-4 py-4 border-t">
               <Link
                 to="/signin"
