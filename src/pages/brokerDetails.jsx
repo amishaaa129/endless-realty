@@ -46,7 +46,7 @@ const BrokerDetails = () => {
       </div>
 
       <div className="mt-6">
-        <h3 className="text-lg font-semibold mb-2">Registered Customers</h3>
+        <h3 className="text-lg font-semibold mb-2">Users who selected {broker.name} as Referral</h3>
         <div className="overflow-x-auto">
           <table className="w-full table-auto border-collapse text-sm">
             <thead>
@@ -62,7 +62,7 @@ const BrokerDetails = () => {
                 customers.map((cust) => (
                   <tr key={cust.id} className="border-b">
                     <td className="px-4 py-2">{cust.name}</td>
-                    <td className="px-4 py-2">{cust.contact_number}</td>
+                    <td className="px-4 py-2">{cust.phone}</td>
                     <td className="px-4 py-2">{cust.email}</td>
                     <td className="px-4 py-2">{new Date(cust.registration_date).toLocaleDateString()}</td>
                   </tr>

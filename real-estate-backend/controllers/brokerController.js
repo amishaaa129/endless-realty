@@ -38,7 +38,10 @@ const getBrokerDetails = async (req, res) => {
       return res.status(404).json({ error: 'Broker not found' });
     }
 
-    const customers = await pool.query('SELECT * FROM customers WHERE broker_id = $1', [brokerId]);
+    const usersQuery = await pool.query(
+      'SELECT name, phone, email, created_at FROM users WHERE referral_broker_id = $1 ORDER BY created_at DESC',
+      [brokerId]
+    );
 
     const qrData = `${FRONTEND_BASE_URL}/our-associates/${broker.id}`;
     const qrCodeUrl = await QRCode.toDataURL(qrData); // base64 image
@@ -48,7 +51,7 @@ const getBrokerDetails = async (req, res) => {
         ...broker,
         qr_code_url: qrCodeUrl,
       },
-      customers: customers.rows,
+      customers: usersQuery.rows
     });
   } catch (err) {
     console.error('Error fetching broker details:', err);

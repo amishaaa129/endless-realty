@@ -13,9 +13,9 @@ const registerUser = async (req, res) => {
 
     const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = await pool.query(
-      `INSERT INTO users (name, phone, email, password) 
-       VALUES ($1, $2, $3, $4) RETURNING id, name, phone, email`,
-      [name, phone, email, hashedPassword]
+      `INSERT INTO users (name, phone, email, password, referral_broker_id) 
+       VALUES ($1, $2, $3, $4, $5) RETURNING id, name, phone, email, referral_broker_id, registration_date`,
+      [name, phone, email, hashedPassword, referral_broker_id]
     );
 
     // ➕ Update broker score if referral is given
@@ -24,6 +24,7 @@ const registerUser = async (req, res) => {
         'UPDATE brokers SET score = score + 10 WHERE id = $1',
         [referral_broker_id]
       );
+
     }
 
     res.status(201).json({ message: 'User registered successfully', user: newUser.rows[0] });
