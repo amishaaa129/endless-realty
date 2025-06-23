@@ -14,11 +14,12 @@ const Header = () => {
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <div className="flex items-center">
-            <Link to="/" className="flex items-center">
-              <span className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800">
-                Endless
-              </span>
-              <span className="text-3xl font-light ml-1">Realty</span>
+          <Link to="/" className="flex items-center">
+              <img
+                src="/images/logo.jpg"
+                alt="Endless Realty Logo"
+                className="h-12 w-auto"
+              />
             </Link>
           </div>
 
