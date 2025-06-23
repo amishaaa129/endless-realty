@@ -25,7 +25,7 @@ function App() {
       <Route path="/search" element={<SearchResults />} />
       <Route path="/our-associates" element={<Associates />} />
       <Route path="/rau" element={<Rau />} />
-      <Route path="/Pithampur" element={<Vrindavan />} />
+      <Route path="/Cat-road" element={<Vrindavan />} />
       <Route path="/vrindavan-details" element={<Vdetails />} />
       
     </Routes>
