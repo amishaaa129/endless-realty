@@ -59,7 +59,7 @@ const App = () => {
               </a>
               {isDropdownOpen && (
                 <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 py-1 z-50">
-                  {["Khandwa Road","Silicon City","Rau","Mhow","Pithampur","CAT Road","Super Corridor","Nipania","Ujjain Road","AB Bypass Road","Kanandia Road","Vijay Nagar"].map((city) => (
+                  {["Khandwa Road", "Silicon City", "Rau", "Mhow", "Pithampur", "CAT Road", "Super Corridor", "Nipania", "Ujjain Road", "AB Bypass Road", "Kanandia Road", "Vijay Nagar"].map((city) => (
                     <Link
                       key={city}
                       to={city === "Rau" ? "/rau" : city === "CAT Road" ? "/cat-road" : "/cities"}
@@ -168,13 +168,29 @@ const App = () => {
       )}
 
       {/* Hero Section */}
-      <div className="bg-gradient-to-b from-black/65 via-black/50 to-transparent bg-cover bg-center bg-fixed" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')" }}>
+      <div
+        className="bg-gradient-to-b from-black/65 via-black/50 to-transparent bg-cover bg-center bg-fixed relative"
+        style={{
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')",
+        }}
+      >
+        {/* Card */}
+        <div className="absolute top-10 left-10 bg-white/10 backdrop-blur-md text-white p-6 rounded-lg shadow-lg max-w-xs z-20 transform transition-transform duration-300 hover:scale-105">
+          <h2 className="text-xl font-bold mb-2 text-blue-300">Realty Associates</h2>
+          <ul className="list-disc list-inside mt-4">
+            <li className="text-lg">Vrindavan Premium</li>
+          </ul>
+        </div>
+
         <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500"></h1>
       </div>
       <section className="hero-gradient text-white py-32 md:py-40 relative overflow-hidden" syle={{ zIndex: 1 }}>
         <div className="animated-bg">
 
         </div>
+
+
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <span className="inline-block py-1 px-3 rounded-full bg-white/10 backdrop-blur-sm text-blue-300 text-sm font-medium mb-6 fade-in">
@@ -573,7 +589,7 @@ const App = () => {
             </svg>
           </Link>
         </div>
-        
+
       </section>
 
       <section id="cities" className="py-24 bg-gradient-to-r from-blue-600 to-indigo-800 text-white relative overflow-hidden">
@@ -1212,7 +1228,7 @@ const App = () => {
 
 
       </section>
-    </header>
+    </header >
 
 
   );
