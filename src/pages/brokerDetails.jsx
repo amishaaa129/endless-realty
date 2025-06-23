@@ -80,6 +80,7 @@ const BrokerDetails = () => {
       </div>
     </div>
   );
+  
 };
 
 export default BrokerDetails;
