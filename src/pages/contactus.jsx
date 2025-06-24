@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Header from '../components/Header';
-
+import Footer from '../components/footer';
 const ContactUs = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -82,7 +82,9 @@ const ContactUs = () => {
           </button>
         </form>
       </div>
+      <Footer />  
     </div>
+    
   );
 };
 

@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import Header from '../components/Header';
+
 import { useParams, Link } from 'react-router-dom';
 
 const BrokerDetails = () => {
@@ -24,7 +26,9 @@ const BrokerDetails = () => {
   if (!broker) return <div className="text-center mt-10">Loading...</div>;
 
   return (
+    
     <div className="p-6 max-w-5xl mx-auto">
+      <Header />
       <Link to="/" className="text-blue-500 text-sm">&larr; Back to Dashboard</Link>
 
       <div className="bg-white rounded shadow p-6 mt-4 flex justify-between items-center">
@@ -78,7 +82,9 @@ const BrokerDetails = () => {
           </table>
         </div>
       </div>
+      
     </div>
+  
   );
 
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../components/Header';
-
+import Footer from '../components/footer';
 const Features = () => {
   return (
     <div>
@@ -36,6 +36,7 @@ const Features = () => {
           <p>Hear what our satisfied customers have to say about us.</p>
         </section>
       </main>
+      <Footer />
     </div>
   );
 };

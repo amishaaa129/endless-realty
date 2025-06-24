@@ -1,6 +1,7 @@
 // File: AboutUs.jsx
 import React from 'react';
 import Header from '../components/Header';
+import Footer from '../components/footer';
 import './about.css';
 
 const team = [
@@ -88,6 +89,7 @@ const AboutUs = () => {
           </p>
         </div>
       </section>
+      <Footer />
     </>
   );
 };

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import '../styles/styles.css';
 import { Link } from 'react-router-dom';
 import useScrollAnimations from '../hooks/useScrollAnimations';
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import Footer from '../components/footer';
 
 
