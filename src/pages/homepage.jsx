@@ -149,7 +149,7 @@ const App = () => {
             </button>
           </div>
           <div className="py-4">
-            {['Properties', 'About Us', 'Features', 'Our Associates', 'Contact'].map((item) => (
+            {['Properties', 'About Us', "What's New", 'Our Associates', 'Contact'].map((item) => (
               <Link
                 key={item}
                 to={`/${item.toLowerCase().replace(/\s+/g, '-')}`}
