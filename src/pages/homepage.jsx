@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import '../styles/styles.css';
 import { Link } from 'react-router-dom';
 import useScrollAnimations from '../hooks/useScrollAnimations';
-
-
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import Footer from '../components/footer';
 
 
 
@@ -198,7 +198,7 @@ const App = () => {
           </div>
         </div>
       )}
-
+    
       {/* Hero Section */}
       <div
         className="bg-gradient-to-b from-black/65 via-black/50 to-transparent bg-cover bg-center bg-fixed relative"
@@ -219,7 +219,7 @@ const App = () => {
 
         <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500"></h1>
       </div>
-      <section className="hero-gradient text-white py-32 md:py-40 relative overflow-hidden" syle={{ zIndex: 1 }}>
+      <section className="hero-gradient text-white py-32 md:py-40 relative overflow-hidden" style={{ zIndex: 1 }}>
         <div className="animated-bg">
 
         </div>
@@ -1129,8 +1129,8 @@ const App = () => {
           </div>
         </div>
       </section>
-      <section id="virtual-tour" className="py-24 bg-gray-900 text-white relative overflow-hidden">
-        {/* Animated background elements */}
+      {/* <section id="virtual-tour" className="py-24 bg-gray-900 text-white relative overflow-hidden">
+        
         <div className="absolute inset-0">
           <div className="absolute top-0 right-0 w-96 h-96 bg-blue-900 rounded-full opacity-20 blur-3xl"></div>
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-900 rounded-full opacity-20 blur-3xl"></div>
@@ -1186,86 +1186,11 @@ const App = () => {
             </div>
           </div>
         </div>
-
-        <footer className="bg-gray-900 text-white py-10 mt-12">
-          <div className="container mx-auto px-6 text-center">
-            <div className="mb-6">
-              <a href="#" className="text-3xl font-bold text-blue-400">
-                Endless Realty
-              </a>
-              <p className="text-gray-400 mt-2">Your trusted real estate partner for Tier 2 cities</p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-6">
-              <div>
-                <h4 className="text-lg font-semibold text-gray-100 mb-4">Quick Links</h4>
-                <ul className="space-y-2">
-                  <li>
-                    <Link to="/properties" className="text-gray-400 hover:text-blue-400">
-                      Properties
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/about" className="text-gray-400 hover:text-blue-400">
-                      About Us
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/contact" className="text-gray-400 hover:text-blue-400">
-                      Contact
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="text-lg font-semibold text-gray-100 mb-4">Contact Us</h4>
-                <p className="text-gray-400">401-405, Infinity Tower, MG Road, Indore, MP 452010</p>
-                <p className="text-gray-400">Email: sales@endlessrealty.com</p>
-                <p className="text-gray-400">Phone: +91 731 498 5600</p>
-              </div>
-              <div>
-                <h4 className="text-lg font-semibold text-gray-100 mb-4">Follow Us</h4>
-                <div className="flex justify-center space-x-4">
-                  <a href="#" className="text-gray-400 hover:text-blue-400 text-2xl">
-                    <i className="fab fa-facebook"></i>
-                  </a>
-                  <a href="#" className="text-gray-400 hover:text-blue-400 text-2xl">
-                    <i className="fab fa-twitter"></i>
-                  </a>
-                  <a href="#" className="text-gray-400 hover:text-blue-400 text-2xl">
-                    <i className="fab fa-instagram"></i>
-                  </a>
-                  <a href="#" className="text-gray-400 hover:text-blue-400 text-2xl">
-                    <i className="fab fa-linkedin"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <p className="text-gray-500 text-sm">&copy; 2025 Endless Realty. All rights reserved.</p>
-          </div>
-        </footer>
-
-        <div className="mt-16 w-full text-center">
-          <h3 className="text-2xl font-bold text-gray-900 mb-6">Our Offices</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-            <div className="bg-gray-100 p-6 rounded-lg shadow-md">
-              <h4 className="text-lg font-bold text-gray-900 mb-1">Indore Head Office</h4>
-              <p className="text-gray-600">Caps Town, Indore, MP 452010</p>
-            </div>
-            <div className="bg-gray-100 p-6 rounded-lg shadow-md">
-              <h4 className="text-lg font-bold text-gray-900 mb-1">Bhopal Office</h4>
-              <p className="text-gray-600">203, Platinum Plaza, Zone-II, MP Nagar, Bhopal, MP 462011</p>
-            </div>
-          </div>
-        </div>
-
-
-      </section>
-    </header >
-
-
+      </section> */}
+      
+        <Footer />
+    </header>      
+    
   );
 };
-
 export default App;
