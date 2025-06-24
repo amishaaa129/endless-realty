@@ -29,7 +29,7 @@ const App = () => {
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
               <img
-                src="/images/logo.jpg"
+                src="/images/logo.png"
                 alt="Endless Realty Logo"
                 className="h-12 w-auto"
               />
