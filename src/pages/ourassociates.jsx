@@ -61,7 +61,9 @@ const OurAssociates = () => {
           </div>
         ))}
       </div>
+      
     </div>
+       
   );
 };
 

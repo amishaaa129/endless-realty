@@ -3,6 +3,7 @@ import React from 'react';
 import './vrindavan.css';
 import { useNavigate } from 'react-router-dom';
 import Header from '../../components/Header';
+import Footer from '../../components/footer';
 
 const Vrindavan = () => {
   const navigate = useNavigate();
@@ -21,6 +22,7 @@ const Vrindavan = () => {
           Click to Know More
         </button>
       </div>
+      <Footer />
     </div>
   );
 };

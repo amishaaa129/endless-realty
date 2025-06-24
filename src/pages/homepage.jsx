@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import '../styles/styles.css';
 import { Link } from 'react-router-dom';
 import useScrollAnimations from '../hooks/useScrollAnimations';
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import Footer from '../components/footer';
 
 
@@ -81,7 +80,7 @@ const App = () => {
 
             </Link>
 
-            <a href="/features" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
+            <a href="/what's-new" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
               What's New
             </a>
 
@@ -150,7 +149,7 @@ const App = () => {
             </button>
           </div>
           <div className="py-4">
-            {['Properties', 'About Us', 'Features', 'Our Associates', 'Contact'].map((item) => (
+            {['Properties', 'About Us', "What's New", 'Our Associates', 'Contact'].map((item) => (
               <Link
                 key={item}
                 to={`/${item.toLowerCase().replace(/\s+/g, '-')}`}
