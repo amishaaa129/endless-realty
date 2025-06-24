@@ -66,7 +66,7 @@ const Header = () => {
               About Us
             </Link>
             <Link to ="/features" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
-              Features
+              What's New 
             </Link>
             <Link to ="/our-associates" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
               Our Associates

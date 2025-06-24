@@ -82,7 +82,7 @@ const App = () => {
             </Link>
 
             <a href="/features" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
-              Features
+              What's New
             </a>
 
 
