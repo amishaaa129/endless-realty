@@ -1,16 +1,17 @@
 // File: vrindavanDetails.jsx
 import React from 'react';
 import Header from '../../components/Header';
+import Footer from '../../components/footer';
 import './vrindavan.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Navigation, Autoplay } from 'swiper/modules';
+import {  Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
 const VrindavanDetails = () => {
   return (
-    <>
+    <div>
       <Header />
 
       {/* Constant Video Section */}
@@ -111,7 +112,8 @@ const VrindavanDetails = () => {
       <div className="map-image">
         <img src="/vrindavan/vrindavan-map.jpeg" alt="Map Location" />
       </div>
-    </>
+      <Footer />
+    </div>
   );
 };
 
