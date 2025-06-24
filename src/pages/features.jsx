@@ -7,34 +7,39 @@ const Features = () => {
       {/* Render the Header component */}
       <Header />
 
-      {/* Main content for the Features page */}
-      <main style={{ padding: '20px' }}>
-        
-
-        <section>
-          <h2>Activities</h2>
-          <p>Engage in a variety of activities designed to enhance your experience.</p>
-        </section>
-
-        <section>
-          <h2>Property News</h2>
-          <p>Stay updated with the latest trends and news in the real estate market.</p>
-        </section>
-
-        <section>
-          <h2>Gallery</h2>
-          <p>Browse through our collection of images showcasing our properties and events.</p>
-        </section>
-
-        <section>
-          <h2>Updates</h2>
-          <p>Get the latest updates about our platform and services.</p>
-        </section>
-
-        <section>
-          <h2>Testimonials</h2>
-          <p>Hear what our satisfied customers have to say about us.</p>
-        </section>
+      <main className="py-10 px-4 md:px-12 bg-gray-100 min-h-screen">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {[
+            {
+              title: 'Activities',
+              desc: 'Engage in a variety of activities designed to enhance your experience.',
+            },
+            {
+              title: 'Property News',
+              desc: 'Stay updated with the latest trends and news in the real estate market.',
+            },
+            {
+              title: 'Gallery',
+              desc: 'Browse through our collection of images showcasing our properties and events.',
+            },
+            {
+              title: 'Updates',
+              desc: 'Get the latest updates about our platform and services.',
+            },
+            {
+              title: 'Testimonials',
+              desc: 'Hear what our satisfied customers have to say about us.',
+            },
+          ].map((item, index) => (
+            <div
+              key={index}
+              className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transform transition-all duration-300 hover:-translate-y-1 animate-fade-in"
+            >
+              <h2 className="text-xl font-semibold mb-2 text-gray-800">{item.title}</h2>
+              <p className="text-gray-600">{item.desc}</p>
+            </div>
+          ))}
+        </div>
       </main>
       <Footer />
     </div>
