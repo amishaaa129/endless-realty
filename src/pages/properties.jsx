@@ -55,18 +55,18 @@ const Properties = () => {
                     <option value="" disabled selected>
                       Select City
                     </option>
-                    <option value="indore">Khandwa Road</option>
-                    <option value="bhopal">Silicon City</option>
-                    <option value="ujjain">Rau</option>
-                    <option value="Rau">Mhow</option>
-                    <option value="Dewas">Pithampur</option>
-                    <option value="Pithampur">CAT Road</option>
-                    <option value="CAT Road">Super Corridor</option>
-                    <option value="Super Corridor">Nipania</option>
-                    <option value="Nipania">Ujjain Road</option>  
-                    <option value="Ujjain Road">AB Bypass Road</option>
-                    <option value="AB Bypass Road">Kanandia Road</option>
-                    <option value="Kanandia Road">Vijay Nagar</option>
+                    <option value="khandwa-road">Khandwa Road</option>
+                    <option value="silicon-city">Silicon City</option>
+                    <option value="rau">Rau</option>
+                    <option value="mhow">Mhow</option>
+                    <option value="pithampur">Pithampur</option>
+                    <option value="cat-road">CAT Road</option>
+                    <option value="super-corridor">Super Corridor</option>
+                    <option value="nipania">Nipania</option>
+                    <option value="ujjain-road">Ujjain Road</option>  
+                    <option value="ab-bypass-road">AB Bypass Road</option>
+                    <option value="kanandia-road">Kanandia Road</option>
+                    <option value="vijay-nagar">Vijay Nagar</option>
                   </select>
                 </div>
                 <div className="flex-1 mb-3 md:mb-0 md:mr-2">
@@ -76,7 +76,7 @@ const Properties = () => {
                       Select Type
                     </option>
                     <option value="apartment">Apartment</option>
-                    <option value="villa">Row Houses</option>
+                    <option value="row-houses">Row Houses</option>
                     <option value="plot">Plot</option>
                     <option value="commercial">Commercial</option>
                   </select>

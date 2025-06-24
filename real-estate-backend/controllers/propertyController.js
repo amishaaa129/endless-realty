@@ -9,13 +9,13 @@ const searchProperties = async (req, res) => {
     const values = [];
 
     if (city) {
-      conditions.push(`LOWER(city) = LOWER($${values.length + 1})`);
-      values.push(city);
+      conditions.push(`REPLACE(LOWER(city), ' ', '-') = $${values.length + 1}`);
+      values.push(city.toLowerCase());  
     }
 
     if (type) {
-      conditions.push(`LOWER(type) = LOWER($${values.length + 1})`);
-      values.push(type);
+      conditions.push(`REPLACE(LOWER(type), ' ', '-') = $${values.length + 1}`);
+      values.push(type.toLowerCase());  
     }
 
     if (min) {
