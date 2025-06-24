@@ -209,9 +209,11 @@ const App = () => {
       >
         {/* Card */}
         <div className="absolute top-10 left-10 bg-white/10 backdrop-blur-md text-white p-6 rounded-lg shadow-lg max-w-xs z-20 transform transition-transform duration-300 hover:scale-105">
-          <h2 className="text-xl font-bold mb-2 text-blue-300">Realty Associates</h2>
+          <h2 className="text-xl font-bold mb-2 text-blue-300">Realty Alliance</h2>
           <ul className="list-disc list-inside mt-4">
-            <li className="text-lg">Vrindavan Premium</li>
+            <li className="text-lg">
+              <Link to="/cat-road">Vrindavan Premium</Link>
+            </li>
           </ul>
         </div>
 
