@@ -30,7 +30,7 @@ function App() {
       <Route path="/our-associates/:id" element={<BrokerDetails />} />
       <Route path="/rau" element={<Rau />} />
       <Route path="/Cat-road" element={<Vrindavan />} />
-      <Route path="/vrindavan-details" element={<Vdetails />} />
+      <Route path="/vrindavan-premium" element={<Vdetails />} />
       
     </Routes>
   );

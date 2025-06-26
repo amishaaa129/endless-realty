@@ -140,7 +140,7 @@ const SearchResults = () => {
                     </div>
                   </div>
                   <a
-                    href="#"
+                    href={`/${property.title.toLowerCase().replace(/\s+/g, '-')}`}
                     className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition text-sm"
                   >
                     View Details
