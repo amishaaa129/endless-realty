@@ -7,13 +7,12 @@ import Properties from './pages/properties';
 import SignIn from './Login/signin';
 import SignUp from './Login/signup';
 import SearchResults from './pages/allproperties';
-
 import OurAssociates from './pages/ourassociates';
 import BrokerDetails from './pages/brokerDetails';
 import Rau from "./locations/Rau/rau";
+import Rdetails from "./locations/Rau/rau-details";
 import Vrindavan from "./locations/Cat_road/vrindavan";
 import Vdetails from "./locations/Cat_road/vrindavan-details";
-
 function App() {
   return (
     <Routes>
@@ -29,9 +28,9 @@ function App() {
       <Route path="/our-associates" element={<OurAssociates />} />
       <Route path="/our-associates/:id" element={<BrokerDetails />} />
       <Route path="/rau" element={<Rau />} />
+      <Route path ="/rau-premium" element={<Rdetails />} />
       <Route path="/Cat-road" element={<Vrindavan />} />
       <Route path="/vrindavan-premium" element={<Vdetails />} />
-      
     </Routes>
   );
 }

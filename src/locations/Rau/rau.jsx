@@ -1,48 +1,30 @@
+// File: vrindavan.jsx
 import React from 'react';
-import { Route, Routes, useNavigate } from 'react-router-dom';
 import './rau.css';
+import { useNavigate } from 'react-router-dom';
 import Header from '../../components/Header';
+import Footer from '../../components/footer';
 
-const PropertyCard = () => {
+const Vrindavan = () => {
   const navigate = useNavigate();
 
-  const handleClick = () => {
-    navigate('/rau/property-details'); 
-  };
-
   return (
-    <div className="property-card" onClick={handleClick}>
-      <img src="../../images/rau.jpeg" alt="Property" />
-      <div className="property-info">
-        <h2>Beautiful Property</h2>
-        <p>Click to view details</p>
+    <div>
+      <Header />
+      <div className="vrindavan-card">
+        <img
+          src="/images/rau.jpeg"
+          alt="Vrindavan Property"
+          className="property-image"
+        />
+        <h2 className="property-title">Silicon city property</h2>
+        <button className="know-more-button" onClick={() => navigate('/rau-premium')}>
+          Click to Know More
+        </button>
       </div>
+      <Footer />
     </div>
   );
 };
 
-const HomePage = () => (
-  <div className="home-page">
-    <Header />
-    <div className="property-list">
-      <PropertyCard />
-    </div>
-  </div>
-);
-
-const PropertyDetailsPage = () => (
-  <div className="property-details-page">
-    <Header />
-    <h2>Property Details</h2>
-    <p>Here are the details of the property...</p>
-  </div>
-);
-
-const Rau = () => (
-  <Routes>
-    <Route path="/" element={<HomePage />} />
-    <Route path="/property-details" element={<PropertyDetailsPage />} />
-  </Routes>
-);
-
-export default Rau;
+export default Vrindavan;
