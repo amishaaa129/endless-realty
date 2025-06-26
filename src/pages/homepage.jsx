@@ -602,7 +602,7 @@ const App = () => {
         {/* View All Properties Button */}
         <div className="text-center mt-12">
           <Link
-            to="/allproperties"
+            to="/properties"
             className="inline-flex items-center px-8 py-4 text-base font-semibold rounded-xl text-blue-600 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-blue-300 bg-transparent"
           >
             View All Properties
