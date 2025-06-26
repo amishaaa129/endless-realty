@@ -1,5 +1,4 @@
-/* Card (Vrindavan.jsx) */
-.vrindavan-card {
+.Rau-card {
   max-width: 400px;
   margin: 100px auto;
   padding: 20px;
@@ -9,10 +8,27 @@
   text-align: center;
   animation: fadeInUp 1s ease-out;
   transition: transform 0.3s ease-in-out;
+  position: relative; /* Added this line */
 }
 
-.vrindavan-card:hover {
+.Rau-card:hover {
   transform: scale(1.05);
+}
+
+.sold-out-tag {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(220, 38, 38, 0.8); /* red-600 with opacity */
+  color: white;
+  padding: 10px 20px;
+  font-size: 20px;
+  font-weight: 800;
+  border-radius: 8px;
+  transform: rotate(-12deg);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+  z-index: 10; /* Added this to ensure it stays on top */
 }
 
 .property-image {
@@ -121,6 +137,7 @@
   background: none;
   display: block;
 } */
+
 /* Animations */
 @keyframes fadeInUp {
   0% {
@@ -164,5 +181,12 @@
 
   .map-image img {
     width: 90%;
+  }
+  
+  .sold-out-tag {
+    font-size: 16px;
+    padding: 8px 16px;
+    top: 15px;
+    right: 15px;
   }
 }
