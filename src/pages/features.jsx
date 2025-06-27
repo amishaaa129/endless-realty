@@ -13,69 +13,69 @@ const Features = () => {
 
   const activityImages = [
     {
-      src: '/activity/a1.jpg',
+      src: '/images/activity/a1.jpg',
     },
     {
-      src: '/activity/a2.jpg',
+      src: '/images/activity/a2.jpg',
     },
     {
-      src: '/activity/a3.jpg',
+      src: '/images/activity/a3.jpg',
     },
     {
-      src: '/activity/a4.jpg',
+      src: '/images/activity/a4.jpg',
     },
     {
-      src: '/activity/a5.jpg',
+      src: '/images/activity/a5.jpg',
     },
     {
-      src: '/activity/a6.jpg',
+      src: '/images/activity/a6.jpg',
     },
     {
-      src: '/activity/a7.jpg',
+      src: '/images/activity/a7.jpg',
     },
     {
-      src: '/activity/a8.jpg',
+      src: '/images/activity/a8.jpg',
     },
     {
-      src: '/activity/a9.jpg',
+      src: '/images/activity/a9.jpg',
     },
     {
-      src: '/activity/a10.jpg',
+      src: '/images/activity/a10.jpg',
     },
     {
-      src: '/activity/a11.jpg',
+      src: '/images/activity/a11.jpg',
     },
     {
-      src: '/activity/a12.jpg',
+      src: '/images/activity/a12.jpg',
     },
     {
-      src: '/activity/a13.jpg',
+      src: '/images/activity/a13.jpg',
     },
     {
-      src: '/activity/a14.jpg',
+      src: '/images/activity/a14.jpg',
     }
   ];
 
   // Gallery images for auto-swiper
   const galleryImages = [
     {
-      src: '/associate/DSC00507.jpg',
+      src: '/images/associate/DSC00507.jpg',
       
     },
     {
-      src: '/associate/DSC00759.jpg',
+      src: '/images/associate/DSC00759.jpg',
       
     },
     {
-      src: '/founding-team/DSC00751.jpg',
+      src: '/images/founding-team/DSC00751.jpg',
       
     },
     {
-      src: '/founding-team/DSC00824.jpg',
+      src: '/images/founding-team/DSC00824.jpg',
       
     },
     {
-      src: '/founding-team/DSC00827.jpg',
+      src: '/images/founding-team/DSC00827.jpg',
       
     }
   ];
