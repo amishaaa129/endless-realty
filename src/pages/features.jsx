@@ -1,7 +1,117 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/footer';
+
 const Features = () => {
+  const [showActivitySwiper, setShowActivitySwiper] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  
+  const activityImages = [
+    {
+      src: '/activity/a1.jpg',
+     
+    },
+    {
+      src: '/activity/a2.jpg',
+      
+    },
+    {
+      src: '/activity/a3.jpg',
+     
+    },
+    {
+      src: '/activity/a4.jpg',
+      
+    },
+    {
+      src: '/activity/a5.jpg',
+      
+    },
+    {
+      src: '/activity/a6.jpg',
+      
+    },
+    {
+      src: '/activity/a7.jpg',
+      
+    },
+    {
+      src: '/activity/a8.jpg',
+      
+    },
+    {
+      src: '/activity/a9.jpg',
+      
+    },
+    {
+      src: '/activity/a10.jpg',
+      
+    },
+    {
+      src: '/activity/a11.jpg',
+      
+    },
+    {
+      src: '/activity/a12.jpg',
+      
+    },
+    {
+      src: '/activity/a13.jpg',
+      
+    },
+    {
+      src: '/activity/a14.jpg',
+      
+    }
+
+  ];
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % activityImages.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + activityImages.length) % activityImages.length);
+  };
+
+  const goToSlide = (index) => {
+    setCurrentSlide(index);
+  };
+
+  const handleActivityClick = () => {
+    setShowActivitySwiper(true);
+  };
+
+  const closeSwiperModal = () => {
+    setShowActivitySwiper(false);
+    setCurrentSlide(0);
+  };
+
+  const featureCards = [
+    {
+      title: 'Activities',
+      desc: 'Engage in a variety of activities designed to enhance your experience.',
+      isActivity: true
+    },
+    {
+      title: 'Property News',
+      desc: 'Stay updated with the latest trends and news in the real estate market.',
+    },
+    {
+      title: 'Gallery',
+      desc: 'Browse through our collection of images showcasing our properties and events.',
+    },
+    {
+      title: 'Updates',
+      desc: 'Get the latest updates about our platform and services.',
+    },
+    {
+      title: 'Testimonials',
+      desc: 'Hear what our satisfied customers have to say about us.',
+    },
+  ];
+
   return (
     <div>
       {/* Render the Header component */}
@@ -9,38 +119,114 @@ const Features = () => {
 
       <main className="py-10 px-4 md:px-12 bg-gray-100 min-h-screen">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {[
-            {
-              title: 'Activities',
-              desc: 'Engage in a variety of activities designed to enhance your experience.',
-            },
-            {
-              title: 'Property News',
-              desc: 'Stay updated with the latest trends and news in the real estate market.',
-            },
-            {
-              title: 'Gallery',
-              desc: 'Browse through our collection of images showcasing our properties and events.',
-            },
-            {
-              title: 'Updates',
-              desc: 'Get the latest updates about our platform and services.',
-            },
-            {
-              title: 'Testimonials',
-              desc: 'Hear what our satisfied customers have to say about us.',
-            },
-          ].map((item, index) => (
+          {featureCards.map((item, index) => (
             <div
               key={index}
-              className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transform transition-all duration-300 hover:-translate-y-1 animate-fade-in"
+              onClick={item.isActivity ? handleActivityClick : undefined}
+              className={`bg-white p-6 rounded-xl shadow-md hover:shadow-xl transform transition-all duration-300 hover:-translate-y-1 animate-fade-in ${
+                item.isActivity ? 'cursor-pointer hover:bg-blue-50' : ''
+              }`}
             >
               <h2 className="text-xl font-semibold mb-2 text-gray-800">{item.title}</h2>
               <p className="text-gray-600">{item.desc}</p>
+              {item.isActivity && (
+                <div className="mt-4 text-blue-600 text-sm font-medium">
+                  Click to view activities →
+                </div>
+              )}
             </div>
           ))}
         </div>
       </main>
+
+      {/* Activity Swiper Modal */}
+      {showActivitySwiper && (
+        <div className="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden relative">
+            {/* Close Button */}
+            <button
+              onClick={closeSwiperModal}
+              className="absolute top-4 right-4 z-10 bg-white rounded-full p-2 shadow-lg hover:bg-gray-100 transition-colors"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+
+            {/* Swiper Header */}
+            <div className="p-6 border-b">
+              <h2 className="text-2xl font-bold text-gray-800">Our Activities</h2>
+              
+            </div>
+
+            {/* Swiper Container */}
+            <div className="relative overflow-hidden">
+              <div 
+                className="flex transition-transform duration-500 ease-in-out"
+                style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+              >
+                {activityImages.map((image, index) => (
+                  <div key={index} className="w-full flex-shrink-0">
+                    <div className="p-6">
+                      <div className="aspect-video bg-gray-200 rounded-lg overflow-hidden mb-4">
+                        <img
+                          src={image.src}
+                          alt={image.title}
+                          className="w-full h-full object-cover"
+                          onError={(e) => {
+                            e.target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDQwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiBmaWxsPSIjRjNGNEY2Ii8+CjxwYXRoIGQ9Ik0xNzUgMTIwSDIyNVYxNDBIMjAwVjE4MEgxNzVWMTIwWiIgZmlsbD0iIzlDQTNBRiIvPgo8cGF0aCBkPSJNMjAwIDEwMEMyMTEuMDQ2IDEwMCAyMjAgMTA4Ljk1NCAyMjAgMTIwQzIyMCAxMzEuMDQ2IDIxMS4wNDYgMTQwIDIwMCAxNDBDMTg4Ljk1NCAxNDAgMTgwIDEzMS4wNDYgMTgwIDEyMEMxODAgMTA4Ljk1NCAxODguOTU0IDEwMCAyMDAgMTAwWiIgZmlsbD0iIzlDQTNBRiIvPgo8L3N2Zz4K';
+                          }}
+                        />
+                      </div>
+                      <h3 className="text-xl font-semibold text-gray-800 mb-2">{image.title}</h3>
+                      <p className="text-gray-600">{image.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Previous Button */}
+              <button
+                onClick={prevSlide}
+                className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:bg-gray-100 transition-colors"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+
+              {/* Next Button */}
+              <button
+                onClick={nextSlide}
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:bg-gray-100 transition-colors"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+
+            {/* Dots Indicator */}
+            <div className="flex justify-center space-x-2 p-6">
+              {activityImages.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToSlide(index)}
+                  className={`w-3 h-3 rounded-full transition-colors ${
+                    currentSlide === index ? 'bg-blue-600' : 'bg-gray-300 hover:bg-gray-400'
+                  }`}
+                />
+              ))}
+            </div>
+
+            {/* Slide Counter */}
+            <div className="absolute bottom-6 left-6 bg-black bg-opacity-50 text-white px-3 py-1 rounded-full text-sm">
+              {currentSlide + 1} / {activityImages.length}
+            </div>
+          </div>
+        </div>
+      )}
+
       <Footer />
     </div>
   );
