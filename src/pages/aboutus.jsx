@@ -9,7 +9,7 @@ const team = [
     name: 'Sachin Sahu',
     title: 'Founder | Visionary Leader | Mechanical Engineer',
     bio: 'From losing his father young to building 6 townships, Sachin\'s journey is one of resilience, vision, and integrity. From rental homes to developing 200+ homes and selling 1000+ plots, he created Endless Realty as a reflection of trust. He doesn\'t just sell plots – he builds possibilities, prosperity, and pride.',
-    image: '/images/about/sachin.jpg' 
+    image: '/images/about/sachin.JPG' 
   },
   {
     name: 'Abhijeet Geete',
@@ -27,19 +27,19 @@ const team = [
     name: 'Lalit Sahu',
     title: 'MBA (Marketing & Finance) | Real Estate Consultant',
     bio: 'A management graduate with a dual specialization in Marketing and Finance. Brings 4 years of hands-on experience in real estate and civil construction projects. Known for his strategic thinking, on-ground knowledge, and client-focused approach.',
-    image: '/images/about/lalit.jpg'
+    image: '/images/about/lalit.JPG'
   },
   {
     name: 'Pratik Sahu',
     title: 'B.Tech (IT) | Real Estate Consultant',
     bio: 'An IT graduate with 5 years of experience in the tech industry. Transitioned into civil construction and worked hands-on for the last 4 years. Brings a rare blend of technical mindset and field-level execution.',
-    image: '/images/about/pratik.jpg' 
+    image: '/images/about/pratik.JPG' 
   },
   {
     name: 'Abhishek Mishra',
     title: 'Corporate Trainer | Realty Coach',
     bio: 'A seasoned Corporate Trainer and Life Coach with 25+ years of experience. Blends strategic sales techniques with deep human understanding to empower realty professionals. Mentors the Endless Realty team with clarity, confidence, and vision.',
-    image: '/images/about/abhishek.jpg' 
+    image: '/images/about/abhishek.JPG' 
   }
 ];
 

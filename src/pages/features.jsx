@@ -13,69 +13,69 @@ const Features = () => {
 
   const activityImages = [
     {
-      src: '/images/activity/a1.jpg',
+      src: '/images/activity/a1.JPG',
     },
     {
-      src: '/images/activity/a2.jpg',
+      src: '/images/activity/a2.JPG',
     },
     {
-      src: '/images/activity/a3.jpg',
+      src: '/images/activity/a3.JPG',
     },
     {
-      src: '/images/activity/a4.jpg',
+      src: '/images/activity/a4.JPG',
     },
     {
-      src: '/images/activity/a5.jpg',
+      src: '/images/activity/a5.JPG',
     },
     {
-      src: '/images/activity/a6.jpg',
+      src: '/images/activity/a6.JPG',
     },
     {
-      src: '/images/activity/a7.jpg',
+      src: '/images/activity/a7.JPG',
     },
     {
-      src: '/images/activity/a8.jpg',
+      src: '/images/activity/a8.JPG',
     },
     {
-      src: '/images/activity/a9.jpg',
+      src: '/images/activity/a9.JPG',
     },
     {
-      src: '/images/activity/a10.jpg',
+      src: '/images/activity/a10.JPG',
     },
     {
-      src: '/images/activity/a11.jpg',
+      src: '/images/activity/a11.JPG',
     },
     {
-      src: '/images/activity/a12.jpg',
+      src: '/images/activity/a12.JPG',
     },
     {
-      src: '/images/activity/a13.jpg',
+      src: '/images/activity/a13.JPG',
     },
     {
-      src: '/images/activity/a14.jpg',
+      src: '/images/activity/a14.JPG',
     }
   ];
 
   // Gallery images for auto-swiper
   const galleryImages = [
     {
-      src: '/images/associate/DSC00507.jpg',
+      src: '/images/associate/DSC00507.JPG',
       
     },
     {
-      src: '/images/associate/DSC00759.jpg',
+      src: '/images/associate/DSC00759.JPG',
       
     },
     {
-      src: '/images/founding-team/DSC00751.jpg',
+      src: '/images/founding-team/DSC00751.JPG',
       
     },
     {
-      src: '/images/founding-team/DSC00824.jpg',
+      src: '/images/founding-team/DSC00824.JPG',
       
     },
     {
-      src: '/images/founding-team/DSC00827.jpg',
+      src: '/images/founding-team/DSC00827.JPG',
       
     }
   ];
