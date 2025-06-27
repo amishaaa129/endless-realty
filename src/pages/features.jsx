@@ -139,11 +139,11 @@ const Features = () => {
         </div>
       </main>
 
-      {/* Activity Swiper Modal */}
+      
       {showActivitySwiper && (
         <div className="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center p-4">
           <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden relative">
-            {/* Close Button */}
+            
             <button
               onClick={closeSwiperModal}
               className="absolute top-4 right-4 z-10 bg-white rounded-full p-2 shadow-lg hover:bg-gray-100 transition-colors"
@@ -153,13 +153,13 @@ const Features = () => {
               </svg>
             </button>
 
-            {/* Swiper Header */}
+            
             <div className="p-6 border-b">
               <h2 className="text-2xl font-bold text-gray-800">Our Activities</h2>
               
             </div>
 
-            {/* Swiper Container */}
+            
             <div className="relative overflow-hidden">
               <div 
                 className="flex transition-transform duration-500 ease-in-out"
@@ -185,7 +185,7 @@ const Features = () => {
                 ))}
               </div>
 
-              {/* Previous Button */}
+              
               <button
                 onClick={prevSlide}
                 className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:bg-gray-100 transition-colors"
@@ -195,7 +195,7 @@ const Features = () => {
                 </svg>
               </button>
 
-              {/* Next Button */}
+              
               <button
                 onClick={nextSlide}
                 className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:bg-gray-100 transition-colors"
