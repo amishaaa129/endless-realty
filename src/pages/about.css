@@ -1,147 +1,149 @@
-/* Founder Section */
-.founder-section {
-    background: #f7fafc;
-    padding: 60px 20px;
-    text-align: center;
-    animation: fadeIn 1.2s ease-out;
-  }
-  
-  .founder-card {
-    max-width: 800px;
-    margin: auto;
-    background: #ffffff;
-    padding: 40px;
-    border-radius: 16px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  }
-  
-  .founder-card h1 {
-    font-size: 36px;
-    color: #1e40af;
-    margin-bottom: 10px;
-  }
-  
-  .founder-card h3 {
-    font-size: 20px;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
-  .founder-card blockquote {
-    font-style: italic;
-    font-size: 18px;
-    color: #555;
-    margin-bottom: 20px;
-  }
-  
-  .founder-card p {
-    font-size: 16px;
-    color: #444;
-    line-height: 1.6;
-  }
-  
-  /* Team Section */
-  .team-section {
-    padding: 60px 20px;
-    background: #ffffff;
-  }
-  
-  .team-heading {
-    text-align: center;
-    font-size: 28px;
-    margin-bottom: 40px;
-    color: #222;
-  }
-  
+/* about.css */
+
+/* Team Section */
+.team-section {
+  padding: 80px 20px;
+  background: #f8f9fa;
+}
+
+.team-heading {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 60px;
+  font-weight: 700;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.team-card {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 500px; /* Fixed height for uniform cards */
+  display: flex;
+  flex-direction: column;
+}
+
+.team-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.team-image {
+  height: 200px;
+  overflow: hidden;
+}
+
+.team-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.team-card:hover .team-image img {
+  transform: scale(1.05);
+}
+
+.team-content {
+  padding: 25px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.team-content h3 {
+  font-size: 1.4rem;
+  color: #2c3e50;
+  margin: 0 0 8px 0;
+  font-weight: 600;
+}
+
+.team-content h4 {
+  font-size: 1rem;
+  color: #3498db;
+  margin: 0 0 15px 0;
+  font-weight: 500;
+}
+
+.team-content p {
+  font-size: 0.95rem;
+  color: #7f8c8d;
+  line-height: 1.6;
+  margin: 0;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Founder's Story Section */
+.founder-story-section {
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #5840f5 100%);
+  color: white;
+}
+
+.founder-story {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.founder-story h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+.founder-story p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 25px;
+  text-align: justify;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
   .team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 30px;
-    max-width: 1100px;
-    margin: auto;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
   
   .team-card {
-    background: #f9fafb;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease;
+    height: auto;
   }
   
-  .team-card:hover {
-    transform: translateY(-6px);
+  .team-heading {
+    font-size: 2rem;
   }
   
-  .team-card h3 {
-    font-size: 20px;
-    color: #1e3a8a;
-    margin-bottom: 5px;
+  .founder-story h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .team-section {
+    padding: 60px 15px;
   }
   
-  .team-card h4 {
-    font-size: 15px;
-    color: #555;
-    margin-bottom: 10px;
-  }
-  
-  .team-card p {
-    font-size: 14px;
-    color: #333;
-    line-height: 1.5;
-  }
   .founder-story-section {
-    padding: 60px 20px;
-    background: #f7f9fc;
+    padding: 60px 15px;
   }
-  
-  .founder-story-section h2 {
-    text-align: center;
-    font-size: 26px;
-    color: #1e40af;
-    margin-bottom: 30px;
-  }
-  
-  .founder-story {
-    max-width: 900px;
-    margin: auto;
-    font-size: 16px;
-    color: #444;
-    line-height: 1.8;
-    animation: fadeIn 1.2s ease-in-out;
-  }
-  
-  .founder-story p {
-    margin-bottom: 20px;
-  }
-  
-  /* Animation */
-  @keyframes fadeIn {
-    0% {
-      transform: translateY(20px);
-      opacity: 0;
-    }
-    100% {
-      transform: translateY(0px);
-      opacity: 1;
-    }
-  }
-  
-  /* Responsive Tweaks */
-  @media (max-width: 768px) {
-    .founder-card {
-      padding: 30px 20px;
-    }
-  
-    .founder-card h1 {
-      font-size: 28px;
-    }
-  
-    .founder-card h3 {
-      font-size: 18px;
-    }
-  
-    .team-heading {
-      font-size: 24px;
-    }
-  }
+}
