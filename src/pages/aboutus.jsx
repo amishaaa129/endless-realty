@@ -50,7 +50,7 @@ const AboutUs = () => {
 
       {/* Team Grid */}
       <section className="team-section">
-        <h2 className="team-heading">Meet Our Team</h2>
+        <h2 className="team-heading">Meet Our Founding Team</h2>
         <div className="team-grid">
           {team.map((member, index) => (
             <div className="team-card" key={index}>
@@ -88,6 +88,8 @@ const AboutUs = () => {
           </p>
         </div>
       </section>
+
+      
       <Footer />
     </>
   );
