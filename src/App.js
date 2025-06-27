@@ -25,6 +25,7 @@ function App() {
       <Route path="/signup" element={<SignUp />} />
       <Route path="/search" element={<SearchResults />} />
       <Route path="/location/cat-road" element={<Vrindavan />} />
+      <Route path="/location/rau" element={<Rau />} />
       <Route path="/our-associates" element={<OurAssociates />} />
       <Route path="/our-associates/:id" element={<BrokerDetails />} />
       <Route path="/rau" element={<Rau />} />

@@ -177,6 +177,8 @@ const App = () => {
                       to={
                         location === "CAT Road"
                           ? "/location/cat-road"
+                          : location === "Rau"
+                          ? "/location/rau"
                           : `/location/${location.toLowerCase().replace(/\s+/g, '-')}`}
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                     >
