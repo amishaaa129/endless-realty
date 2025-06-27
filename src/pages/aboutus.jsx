@@ -15,13 +15,13 @@ const team = [
     name: 'Abhijeet Geete',
     title: 'Entrepreneur | Real Estate Consultant',
     bio: 'A commerce graduate with a decade of entrepreneurial success in the solar energy sector. Entered real estate in 2022 with a mission to create secure investment avenues for others. Known for his ethical approach, deep client trust, and results-focused mindset.',
-    image: '/images/about/abhijeet.jpg' 
+    image: '/images/about/abhijeet.JPG' 
   },
   {
     name: 'Abhishek Sahu',
     title: 'Civil Engineer | Real Estate Consultant',
     bio: 'A B.E. (Civil) graduate with 9 years of experience as a Senior Bridge Engineer. Joined Endless Realty to pursue financial freedom and fulfil his parents\' dreams. Bringing technical expertise, discipline, and sharp execution skills to the real estate field.',
-    image: '/images/about/abhishekS.jpg' 
+    image: '/images/about/abhishekS.JPG' 
   },
   {
     name: 'Lalit Sahu',
