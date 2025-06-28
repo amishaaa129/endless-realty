@@ -9,8 +9,13 @@ const searchProperties = async (req, res) => {
     const values = [];
 
     if (city) {
-      conditions.push(`REPLACE(LOWER(city), ' ', '-') = $${values.length + 1}`);
-      values.push(city.toLowerCase());  
+      conditions.push(
+        `EXISTS (
+          SELECT 1 FROM unnest(city) AS c 
+          WHERE REPLACE(LOWER(c), ' ', '-') = $${values.length + 1}
+        )`
+      );
+      values.push(city.toLowerCase());
     }
 
     if (type) {

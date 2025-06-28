@@ -116,7 +116,7 @@ const SearchResults = () => {
               <div className="p-5">
                 <div className="flex items-center text-gray-500 text-sm mb-3">
                   <i className="fas fa-map-marker-alt mr-2 text-blue-600"></i>
-                  <span>{property.location}, {property.city}</span>
+                  <span>{property.location}</span>
                 </div>
                 <div className="flex justify-between mb-4 text-sm">
                   <div className="flex items-center">
