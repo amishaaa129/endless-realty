@@ -11,7 +11,7 @@ const getAllBrokers = async (req, res) => {
     // For each broker, generate QR code
     const brokersWithQr = await Promise.all(
       brokers.map(async (broker) => {
-        const qrData = `${FRONTEND_BASE_URL}/our-associates/${broker.id}`;  // or your actual frontend route
+        const qrData = `${FRONTEND_BASE_URL}/signup`;  // or your actual frontend route
         const qrCodeUrl = await QRCode.toDataURL(qrData); // base64 image
 
         return {
