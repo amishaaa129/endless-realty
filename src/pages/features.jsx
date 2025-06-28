@@ -159,10 +159,7 @@ const Features = () => {
               delay: 3000,
               disableOnInteraction: false,
             }}
-            pagination={{
-              clickable: true,
-              dynamicBullets: true,
-            }}
+            
             loop={true}
             spaceBetween={40}
             slidesPerView={1}
