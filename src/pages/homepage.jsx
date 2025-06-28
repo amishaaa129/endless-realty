@@ -209,10 +209,10 @@ const App = () => {
         }}
       >
         {/* Card */}
-        <div className="absolute top-10 left-10 bg-white/10 backdrop-blur-md text-white p-6 rounded-lg shadow-lg max-w-xs z-20 transform transition-transform duration-300 hover:scale-105">
-          <h2 className="text-xl font-bold mb-2 text-blue-300">Realty Alliance</h2>
-          <ul className="list-disc list-inside mt-4">
-            <li className="text-lg">
+        <div className="absolute top-4 left-4 sm:top-10 sm:left-10 bg-white/10 backdrop-blur-md text-white p-4 sm:p-6 rounded-lg shadow-lg max-w-xs w-[90%] sm:w-auto z-20 transform transition-transform duration-300 hover:scale-105">
+          <h2 className="text-lg sm:text-xl font-bold mb-2 text-blue-300">Realty Alliance</h2>
+          <ul className="list-disc list-inside mt-2 sm:mt-4">
+            <li className="text-base sm:text-lg">
               <Link to="/cat-road">Vrindavan Premium</Link>
             </li>
           </ul>
