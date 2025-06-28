@@ -7,21 +7,21 @@ import './about.css';
 const team = [
   {
     name: 'Sachin Sahu',
-    title: 'Founder | Visionary Leader | Mechanical Engineer',
+    title: 'Visionary Leader | Mechanical Engineer',
     bio: 'From losing his father young to building 6 townships, Sachin\'s journey is one of resilience, vision, and integrity. From rental homes to developing 200+ homes and selling 1000+ plots, he created Endless Realty as a reflection of trust. He doesn\'t just sell plots – he builds possibilities, prosperity, and pride.',
-    image: '/images/about/sachin.JPG' 
+    image: '/images/about/sachin.jpeg' 
   },
   {
     name: 'Abhijeet Geete',
     title: 'Entrepreneur | Real Estate Consultant',
     bio: 'A commerce graduate with a decade of entrepreneurial success in the solar energy sector. Entered real estate in 2022 with a mission to create secure investment avenues for others. Known for his ethical approach, deep client trust, and results-focused mindset.',
-    image: '/images/about/abhijeet.JPG' 
+    image: '/images/about/abhijeet.jpg' 
   },
   {
     name: 'Abhishek Sahu',
     title: 'Civil Engineer | Real Estate Consultant',
     bio: 'A B.E. (Civil) graduate with 9 years of experience as a Senior Bridge Engineer. Joined Endless Realty to pursue financial freedom and fulfil his parents\' dreams. Bringing technical expertise, discipline, and sharp execution skills to the real estate field.',
-    image: '/images/about/abhishekS.JPG' 
+    image: '/images/about/abhishekS.jpeg' 
   },
   {
     name: 'Lalit Sahu',
@@ -70,7 +70,7 @@ const AboutUs = () => {
       {/* Founder's Story Section */}
       <section className="founder-story-section">
         <div className="founder-story">
-          <h2>🛤️ Our Founder's Story</h2>
+          <h2>🛤️ Endless Realty's Story</h2>
           <p>
             Sachin Sahu's journey is not just inspiring — it's transformational. Losing his father at a young age, Sachin was introduced early to the realities of life. But instead of surrendering to circumstances, he chose to rise. With limited resources and unshakable will, he completed his engineering education — a journey marked by silent struggles and sleepless nights.
           </p>
