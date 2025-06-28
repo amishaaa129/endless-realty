@@ -16,25 +16,10 @@ const Features = () => {
       src: '/images/activity/a1.JPG',
     },
     {
-      src: '/images/activity/a2.JPG',
-    },
-    {
       src: '/images/activity/a3.JPG',
     },
     {
-      src: '/images/activity/a4.JPG',
-    },
-    {
-      src: '/images/activity/a5.JPG',
-    },
-    {
       src: '/images/activity/a6.JPG',
-    },
-    {
-      src: '/images/activity/a7.JPG',
-    },
-    {
-      src: '/images/activity/a8.JPG',
     },
     {
       src: '/images/activity/a9.JPG',
@@ -46,13 +31,26 @@ const Features = () => {
       src: '/images/activity/a11.JPG',
     },
     {
-      src: '/images/activity/a12.JPG',
-    },
-    {
       src: '/images/activity/a13.JPG',
     },
     {
       src: '/images/activity/a14.JPG',
+    },
+    {
+      src: '/images/activity/at1.jpeg',
+      title: 'Associate Training Program',
+    },
+    {
+      src: '/images/activity/at2.jpeg',
+      title: 'Associate Training Program',
+    },
+    {
+      src: '/images/activity/at3.jpeg',
+      title: 'Associate Training Program',
+    },
+    {
+      src: '/images/activity/at4.jpeg',
+      title: 'Associate Training Program',
     }
   ];
 
@@ -60,7 +58,7 @@ const Features = () => {
   const galleryImages = [
     {
       src: '/images/associate/DSC00507.JPG',
-      
+
     },
     {
       src: '/images/associate/DSC00759.JPG',
@@ -68,10 +66,6 @@ const Features = () => {
     },
     {
       src: '/images/founding-team/DSC00751.JPG',
-      
-    },
-    {
-      src: '/images/founding-team/DSC00824.JPG',
       
     },
     {
