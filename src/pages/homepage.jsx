@@ -308,8 +308,8 @@ const App = () => {
                 <div className="text-sm font-medium text-gray-200">Happy Families</div>
               </div>
               <div className="bg-white/10 p-6 rounded-xl backdrop-blur-sm border border-white/20 shadow-lg bounce-in stagger-4">
-                <div className="text-4xl font-bold text-gradient mb-2">98%</div>
-                <div className="text-sm font-medium text-gray-200">Customer Satisfaction</div>
+                <div className="text-4xl font-bold text-gradient mb-2">1000+</div>
+                <div className="text-sm font-medium text-gray-200">Monthly Active Users</div>
               </div>
             </div>
             <div className="mt-14 flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 slide-in stagger-5">
@@ -395,7 +395,7 @@ const App = () => {
                     <span>RERA Approved</span>
                   </div>
                 </div>
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center mb-4">
                   <div>
                     <span className="text-gray-500 text-sm">Starting at</span>
                     <div className="text-xl font-bold text-gray-900">Sold Out</div>
@@ -406,6 +406,14 @@ const App = () => {
                   >
                     View Details
                   </Link>
+                </div>
+                {/* Marketed By */}
+                <div className="text-sm text-gray-500 mb-2">
+                  <span className="font-medium text-gray-700">Marketed By:</span> ABC Realty
+                </div>
+                {/* Developed By */}
+                <div className="text-sm text-gray-500">
+                  <span className="font-medium text-gray-700">Developed By:</span> XYZ Developers
                 </div>
               </div>
             </div>
@@ -457,7 +465,16 @@ const App = () => {
                   </Link>
                 </div>
               </div>
+              {/* Marketed By */}
+              <div className="text-sm text-gray-500 mb-2">
+                <span className="font-medium text-gray-700">Marketed By:</span> ABC Realty
+              </div>
+              {/* Developed By */}
+              <div className="text-sm text-gray-500">
+                <span className="font-medium text-gray-700">Developed By:</span> XYZ Developers
+              </div>
             </div>
+
           </div>
         </div>
 
