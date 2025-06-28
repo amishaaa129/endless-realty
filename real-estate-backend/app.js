@@ -12,8 +12,7 @@ const app = express();
 const corsOptions = {
   origin: (origin, callback) => {
     const allowedOrigins = [
-      'http://localhost:3000',
-      'https://endless-realty-ten.vercel.app',
+      'https://endlessrealty.in', 'https://www.endlessrealty.in',
       undefined // <-- allow Postman or curl or server-side fetches with no origin
     ];
     if (!origin || allowedOrigins.includes(origin)) {

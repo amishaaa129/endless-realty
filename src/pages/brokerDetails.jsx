@@ -7,7 +7,7 @@ const BrokerDetails = () => {
   const { id } = useParams();
   const [broker, setBroker] = useState(null);
   const [customers, setCustomers] = useState([]);
-  const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://endless-realty-backend.onrender.com';
+  const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://api.endlessrealty.in';
 
   useEffect(() => {
     const fetchDetails = async () => {

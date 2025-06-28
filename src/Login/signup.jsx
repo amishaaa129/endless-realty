@@ -17,7 +17,7 @@ const SignUp = () => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://endless-realty-backend.onrender.com';
+  const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://api.endlessrealty.in';
 
   // Fetch brokers for referral dropdown
   useEffect(() => {

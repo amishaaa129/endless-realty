@@ -4,7 +4,7 @@ import Header from '../components/Header';
 
 const OurAssociates = () => {
   const [brokers, setBrokers] = useState([]);
-  const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://endless-realty-backend.onrender.com';
+  const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://api.endlessrealty.in';
 
   useEffect(() => {
     const fetchBrokers = async () => {
