@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const [isLocationDropdownOpen, setIsLocationDropdownOpen] = useState(false);
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
@@ -29,15 +31,15 @@ const Header = () => {
               Properties
             </Link>
             <div className="relative">
-              <a
-                href="#cities"
+              <Link
+                to ="#cities"
                 onClick={(e) => {
-                  e.preventDefault(); // Prevent default anchor behavior
+                  e.preventDefault(); 
                   toggleDropdown();
                 }}
                 className="text-sm font-medium text-gray-700 hover:text-blue-600 transition flex items-center"
               >
-                Cities
+                Location
                 <svg
                   className="ml-1 w-4 h-4"
                   fill="none"
@@ -47,7 +49,7 @@ const Header = () => {
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
                 </svg>
-              </a>
+              </Link>
               {isDropdownOpen && (
                 <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 py-1 z-50">
                   {["Khandwa Road","Silicon City","Rau","Mhow","Pithampur","CAT Road","Super Corridor","Nipania","Ujjain Road","AB Bypass Road","Kanandia Road","Vijay Nagar"].map((city) => (
@@ -128,18 +130,48 @@ const Header = () => {
             </button>
           </div>
           <div className="py-4">
-            {['Properties', 'Cities', 'About Us', 'Features', 'Our Associates', 'Contact'].map((item) => (
+            {['Properties', 'About Us', "What's New", 'Our Associates', 'Contact'].map((item) => (
               <Link
                 key={item}
-                to ={`/${item.toLowerCase().replace(/\s+/g, '-')}`}
+                to={`/${item.toLowerCase().replace(/\s+/g, '-')}`}
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
               >
                 {item}
               </Link>
             ))}
+            {/* Location Dropdown */}
+            <div className="relative">
+              <button
+                onClick={() => {
+                  console.log('Dropdown toggled');
+                  setIsLocationDropdownOpen(!isLocationDropdownOpen);
+                }}
+                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
+              >
+                Location
+              </button>
+              {isLocationDropdownOpen && (
+                <div className="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-10">
+                  {["Khandwa Road", "Silicon City", "Rau", "Mhow", "Pithampur", "CAT Road", "Super Corridor", "Nipania", "Ujjain Road", "AB Bypass Road", "Kanandia Road", "Vijay Nagar"].map((location) => (
+                    <Link
+                      key={location}
+                      to={
+                        location === "CAT Road"
+                          ? "/location/cat-road"
+                          : location === "Rau"
+                          ? "/location/rau"
+                          : `/location/${location.toLowerCase().replace(/\s+/g, '-')}`}
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    >
+                      {location}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
             <div className="px-4 py-4 border-t">
-              <Link 
-                to ="/signin"
+              <Link
+                to="/signin"
                 className="flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
               >
                 SignIn
