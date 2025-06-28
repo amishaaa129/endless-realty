@@ -170,6 +170,30 @@ const SignUp = () => {
                 ))}
               </select>
             </div>
+            <div className="mb-6">
+              <label
+                htmlFor="user_type"
+                className="block text-sm font-medium text-gray-700"
+              >
+                What represents you?
+              </label>
+              <select
+                id="user_type"
+                name="user_type"
+                value={formData.user_type}
+                onChange={handleChange}
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+                required
+              >
+                <option value="" disabled selected>
+                  Select what you are
+                </option>
+                <option value="buyer">Buyer</option>
+                <option value="seller">Seller</option>
+                <option value="business_associate">Business Associate</option>
+                <option value="channel_partner">Channel Partner</option>
+              </select>
+            </div>
 
             {/* Error Message */}
             {error && (
