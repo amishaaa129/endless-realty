@@ -43,7 +43,7 @@ const getBrokerDetails = async (req, res) => {
       [brokerId]
     );
 
-    const qrData = `${FRONTEND_BASE_URL}/our-associates/${broker.id}`;
+    const qrData = `${FRONTEND_BASE_URL}/signup`;
     const qrCodeUrl = await QRCode.toDataURL(qrData); // base64 image
 
     res.json({
