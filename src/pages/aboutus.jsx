@@ -15,7 +15,7 @@ const team = [
     name: 'Abhijeet Geete',
     title: 'Entrepreneur | Real Estate Consultant',
     bio: 'A commerce graduate with a decade of entrepreneurial success in the solar energy sector. Entered real estate in 2022 with a mission to create secure investment avenues for others. Known for his ethical approach, deep client trust, and results-focused mindset.',
-    image: '/images/about/abhijeet.jpg' 
+    image: '/images/about/ab.jpg' 
   },
   {
     name: 'Abhishek Sahu',
