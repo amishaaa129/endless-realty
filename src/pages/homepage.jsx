@@ -397,7 +397,6 @@ const App = () => {
                 </div>
                 <div className="flex justify-between items-center mb-4">
                   <div>
-                    <span className="text-gray-500 text-sm">Starting at</span>
                     <div className="text-xl font-bold text-gray-900">Sold Out</div>
                   </div>
                   <Link
