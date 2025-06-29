@@ -17,6 +17,7 @@ const Silicon = () => {
           alt="Vrindavan Property"
           className="property-image"
         />
+        <div className="sold-out-tag">SOLD OUT</div>
         <h2 className="property-title">Silicon City</h2>
         <button className="know-more-button" onClick={() => navigate('/silicon-premium')}>
           Click to Know More
