@@ -1,0 +1,157 @@
+/* Card (Vrindavan.jsx) */
+.vrindavan-card {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    animation: fadeInUp 1s ease-out;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .vrindavan-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .property-image {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    animation: slideIn 1.2s ease-in-out;
+  }
+  
+  .property-title {
+    font-size: 24px;
+    margin: 15px 0;
+    color: #333;
+  }
+  
+  .know-more-button {
+    background: linear-gradient(135deg, #4b6cb7, #182848);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.4s ease;
+  }
+  
+  .know-more-button:hover {
+    background: linear-gradient(135deg, #182848, #4b6cb7);
+  }
+  
+  /* ---------------------- DETAILS PAGE ---------------------- */
+  
+  
+  
+  /* Property Info Section */
+  .property-info-section {
+    padding: 60px 20px 40px;
+    max-width: 1000px;
+    margin: auto;
+    animation: fadeInUp 1s ease;
+  }
+  
+  .property-info-section h1 {
+    font-size: 36px;
+    color: #2c3e50;
+    margin-bottom: 20px;
+  }
+  
+  .property-info-section h3 {
+    font-size: 20px;
+    color: #2c3e50;
+    margin-top: 25px;
+  }
+  
+  .property-info-section p {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.6;
+    margin-top: 10px;
+  }
+  
+  .property-info-section ul {
+    margin-top: 10px;
+    padding-left: 20px;
+    list-style: disc;
+    font-size: 16px;
+    color: #444;
+  }
+  
+  .property-info-section a {
+    color: #1e40af;
+    text-decoration: underline;
+  }
+  
+  
+  
+  /* Map Section */
+  .map-image {
+    width: 100%;
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 0 20px;
+  }
+  
+  .map-image img {
+    width: 70%;
+    max-width: 500px;
+    aspect-ratio: 3 / 4;
+    object-fit: contain;
+    border-radius: 12px;
+    background-color: #f9f9f9;
+    padding: 8px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    margin: 0 auto;
+    display: block;
+  }
+  /* Animations */
+  @keyframes fadeInUp {
+    0% {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+  
+    100% {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .top-video .video-player {
+      height: 240px;
+    }
+  
+    .swiper-image {
+      height: 240px;
+    }
+  
+    .media-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  
+    .property-info-section h1 {
+      font-size: 28px;
+    }
+  
+    .property-info-section h3 {
+      font-size: 18px;
+    }
+  
+    .property-info-section p,
+    .property-info-section ul {
+      font-size: 15px;
+    }
+  
+    .map-image img {
+      width: 90%;
+    }
+  }

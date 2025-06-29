@@ -13,6 +13,8 @@ import Rau from "./locations/Rau/rau";
 import Rdetails from "./locations/Rau/rau-details";
 import Vrindavan from "./locations/Cat_road/vrindavan";
 import Vdetails from "./locations/Cat_road/vrindavan-details";
+import Silicon from "./locations/silicon_city/silicon";
+import Sdetails from "./locations/silicon_city/silicon-details";
 function App() {
   return (
     <Routes>
@@ -32,6 +34,8 @@ function App() {
       <Route path ="/rau-premium" element={<Rdetails />} />
       <Route path="/Cat-road" element={<Vrindavan />} />
       <Route path="/vrindavan-premium" element={<Vdetails />} />
+      <Route path="/silicon-city" element={<Silicon />} />
+      <Route path="/silicon-premium" element={<Sdetails />} />
     </Routes>
   );
 }
