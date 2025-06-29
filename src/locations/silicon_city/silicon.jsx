@@ -13,7 +13,7 @@ const Silicon = () => {
       <Header />
       <div className="vrindavan-card">
         <img
-          src="/images/vrindavan.png"
+          src="/images/silicon.jpeg"
           alt="Vrindavan Property"
           className="property-image"
         />
