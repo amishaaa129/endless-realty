@@ -33,7 +33,7 @@ function App() {
       <Route path="/rau" element={<Rau />} />
       <Route path ="/rau-premium" element={<Rdetails />} />
       <Route path="/Cat-road" element={<Vrindavan />} />
-      <Route path="/vrindavan-premium" element={<Vdetails />} />
+      <Route path="/vrindavan-premium-row-houses" element={<Vdetails />} />
       <Route path="/silicon-city" element={<Silicon />} />
       <Route path="/silicon-premium" element={<Sdetails />} />
     </Routes>

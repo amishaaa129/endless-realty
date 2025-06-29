@@ -18,7 +18,7 @@ const Vrindavan = () => {
           className="property-image"
         />
         <h2 className="property-title">Vrindavan Premium</h2>
-        <button className="know-more-button" onClick={() => navigate('/vrindavan-premium')}>
+        <button className="know-more-button" onClick={() => navigate('/vrindavan-premium-row-houses')}>
           Click to Know More
         </button>
       </div>
