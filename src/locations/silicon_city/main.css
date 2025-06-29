@@ -1,0 +1,44 @@
+/* Grid container for all property cards */
+.property-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  /* Optional heading for the section */
+  .property-grid-title {
+    text-align: center;
+    font-size: 36px;
+    color: #2c3e50;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    animation: fadeInUp 1s ease-out;
+  }
+  
+  /* Fade-in animation reused from your original CSS */
+  @keyframes fadeInUp {
+    0% {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+  
+    100% {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
+  
+  /* Make sure this handles mobile responsiveness */
+  @media (max-width: 768px) {
+    .property-grid-container {
+      padding: 40px 10px;
+      gap: 24px;
+    }
+  
+    .property-grid-title {
+      font-size: 28px;
+    }
+  }

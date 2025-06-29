@@ -13,8 +13,10 @@ import Rau from "./locations/Rau/rau";
 import Rdetails from "./locations/Rau/rau-details";
 import Vrindavan from "./locations/Cat_road/vrindavan";
 import Vdetails from "./locations/Cat_road/vrindavan-details";
-import Silicon from "./locations/silicon_city/silicon";
-import Sdetails from "./locations/silicon_city/silicon-details";
+import Main1 from './locations/silicon_city/main';
+import Sdetails from './locations/silicon_city/silicon/silicon-details';
+import S1details from './locations/silicon_city/silicon1/silicon1-details';
+import S2details from './locations/silicon_city/silicon2/silicon2-details';
 function App() {
   return (
     <Routes>
@@ -34,8 +36,10 @@ function App() {
       <Route path ="/rau-premium" element={<Rdetails />} />
       <Route path="/Cat-road" element={<Vrindavan />} />
       <Route path="/vrindavan-premium-row-houses" element={<Vdetails />} />
-      <Route path="/silicon-city" element={<Silicon />} />
+      <Route path ="/silicon-city" element={<Main1 />} />
       <Route path="/silicon-premium" element={<Sdetails />} />
+      <Route path="/silicon1-premium" element={<S1details />} />
+      <Route path="/silicon2-premium" element={<S2details />} />
     </Routes>
   );
 }
