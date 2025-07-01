@@ -410,11 +410,11 @@ const App = () => {
                 </div>
                 {/* Marketed By */}
                 <div className="text-sm text-gray-500 mb-2">
-                  <span className="font-medium text-gray-700">Marketed By:</span> ABC Realty
+                  <span className="font-medium text-gray-700">Marketed By:</span> Endless Realty
                 </div>
                 {/* Developed By */}
                 <div className="text-sm text-gray-500">
-                  <span className="font-medium text-gray-700">Developed By:</span> XYZ Developers
+                  <span className="font-medium text-gray-700">Developed By:</span> Rachit Homes
                 </div>
               </div>
             </div>
@@ -468,11 +468,11 @@ const App = () => {
               </div>
               {/* Marketed By */}
               <div className="text-sm text-gray-500 mb-2">
-                <span className="font-medium text-gray-700">Marketed By:</span> ABC Realty
+                <span className="font-medium text-gray-700">Marketed By:</span> Endless Realty
               </div>
               {/* Developed By */}
               <div className="text-sm text-gray-500">
-                <span className="font-medium text-gray-700">Developed By:</span> XYZ Developers
+                <span className="font-medium text-gray-700">Developed By:</span> Vrindavan Group
               </div>
             </div>
             {/* Property Card 2 */}
@@ -524,11 +524,11 @@ const App = () => {
               </div>
               {/* Marketed By */}
               <div className="text-sm text-gray-500 mb-2">
-                <span className="font-medium text-gray-700">Marketed By:</span> ABC Realty
+                <span className="font-medium text-gray-700">Marketed By:</span> Endless Realty
               </div>
               {/* Developed By */}
               <div className="text-sm text-gray-500">
-                <span className="font-medium text-gray-700">Developed By:</span> XYZ Developers
+                <span className="font-medium text-gray-700">Developed By:</span> Rachit Homes
               </div>
             </div>
 

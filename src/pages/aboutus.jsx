@@ -8,7 +8,7 @@ const team = [
   {
     name: 'Sachin Sahu',
     title: 'Visionary Leader | Mechanical Engineer',
-    bio: 'From losing his father young to building 6 townships, Sachin\'s journey is one of resilience, vision, and integrity. From rental homes to developing 200+ homes and selling 1000+ plots, he created Endless Realty as a reflection of trust. He doesn\'t just sell plots – he builds possibilities, prosperity, and pride.',
+    bio: ' Sachin\'s journey is one of resilience, vision, and integrity. From rental homes to developing 200+ homes and selling 1000+ plots, he created Endless Realty as a reflection of trust. He doesn\'t just sell plots – he builds possibilities, prosperity, and pride.',
     image: '/images/about/sachin.jpeg' 
   },
   {
