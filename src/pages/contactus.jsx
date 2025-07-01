@@ -4,6 +4,7 @@ import Footer from '../components/footer';
 const ContactUs = () => {
   const [formData, setFormData] = useState({
     name: '',
+    whatsappnumber: '',
     email: '',
     message: '',
   });
@@ -17,7 +18,7 @@ const ContactUs = () => {
     e.preventDefault();
     console.log('Form submitted:', formData);
     alert('Thank you for contacting us!');
-    setFormData({ name: '', email: '', message: '' });
+    setFormData({ name: '',whatsappnumber: '', email: '', message: '' });
   };
 
   return (
@@ -42,6 +43,21 @@ const ContactUs = () => {
             />
           </div>
           <div style={{ marginBottom: '15px' }}>
+            <label htmlFor="whatsappnumber" style={{ display: 'block', marginBottom: '5px' }}>
+              WhatsApp Number:
+            </label>
+            <input
+              type="number"
+              id="whatsappnumber"
+              name="whatsappnumber"
+              value={formData.whatsappnumber}
+              onChange={handleChange}
+              style={{ width: '100%', padding: '8px' }}
+              required
+            />
+          </div>
+
+          <div style={{ marginBottom: '15px' }}>
             <label htmlFor="email" style={{ display: 'block', marginBottom: '5px' }}>
               Email:
             </label>
@@ -57,7 +73,7 @@ const ContactUs = () => {
           </div>
           <div style={{ marginBottom: '15px' }}>
             <label htmlFor="message" style={{ display: 'block', marginBottom: '5px' }}>
-              Message:
+              Your Requirement:
             </label>
             <textarea
               id="message"

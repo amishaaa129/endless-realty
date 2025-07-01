@@ -310,7 +310,7 @@ const App = () => {
                 <div className="text-sm font-medium text-gray-200">Happy Families</div>
               </div>
               <div className="bg-white/10 p-6 rounded-xl backdrop-blur-sm border border-white/20 shadow-lg bounce-in stagger-4">
-                <div className="text-4xl font-bold text-gradient mb-2">1000+</div>
+                <div className="text-4xl font-bold text-gradient mb-2">500+</div>
                 <div className="text-sm font-medium text-gray-200">Monthly Active Users</div>
               </div>
             </div>
