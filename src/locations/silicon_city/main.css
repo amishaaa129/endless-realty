@@ -1,44 +1,114 @@
 /* Grid container for all property cards */
 .property-grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
-    padding: 60px 20px;
-    max-width: 1200px;
-    margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+  padding: 60px 24px;
+  max-width: 1280px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  justify-items: center;
+  align-items: start;
+}
+
+/* Individual property card styling */
+.property-card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  width: 100%;
+  max-width: 350px;
+  min-height: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+}
+
+.property-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Ensure content inside cards fills the space evenly */
+.property-card > * {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Optional heading for the section */
+.property-grid-title {
+  text-align: center;
+  font-size: 36px;
+  color: #2c3e50;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  animation: fadeInUp 1s ease-out;
+}
+
+/* Fade-in animation reused from your original CSS */
+@keyframes fadeInUp {
+  0% {
+    transform: translateY(30px);
+    opacity: 0;
   }
-  
-  /* Optional heading for the section */
+
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+/* Make sure this handles mobile responsiveness */
+@media (max-width: 768px) {
+  .property-grid-container {
+    grid-template-columns: 1fr; /* Single column on mobile */
+    padding: 40px 16px;
+    gap: 24px;
+  }
+
   .property-grid-title {
-    text-align: center;
-    font-size: 36px;
-    color: #2c3e50;
-    margin-top: 40px;
-    margin-bottom: 20px;
-    animation: fadeInUp 1s ease-out;
+    font-size: 28px;
   }
   
-  /* Fade-in animation reused from your original CSS */
-  @keyframes fadeInUp {
-    0% {
-      transform: translateY(30px);
-      opacity: 0;
-    }
-  
-    100% {
-      transform: translateY(0px);
-      opacity: 1;
-    }
+  .property-card {
+    min-height: 350px; /* Slightly smaller on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .property-grid-container {
+    padding: 20px 12px;
+    gap: 20px;
   }
   
-  /* Make sure this handles mobile responsiveness */
-  @media (max-width: 768px) {
-    .property-grid-container {
-      padding: 40px 10px;
-      gap: 24px;
-    }
-  
-    .property-grid-title {
-      font-size: 28px;
-    }
+  .property-card {
+    min-height: 300px;
   }
+}
+
+/* For tablets and desktop - ensure better distribution */
+@media (min-width: 769px) and (max-width: 1200px) {
+  .property-grid-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+}
+
+@media (min-width: 1201px) {
+  .property-grid-container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+}
+
+/* For 4 items specifically - create 2x2 layout on larger screens */
+@media (min-width: 1400px) {
+  .property-grid-container {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 800px;
+  }
+}

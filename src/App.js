@@ -17,6 +17,7 @@ import Main1 from './locations/silicon_city/main';
 import Sdetails from './locations/silicon_city/silicon/silicon-details';
 import S1details from './locations/silicon_city/silicon1/silicon1-details';
 import S2details from './locations/silicon_city/silicon2/silicon2-details';
+import S3details from './locations/silicon_city/silicon3/silicon3-details';
 function App() {
   return (
     <Routes>
@@ -40,6 +41,7 @@ function App() {
       <Route path="/silicon-premium" element={<Sdetails />} />
       <Route path="/silicon1-premium" element={<S1details />} />
       <Route path="/silicon2-premium" element={<S2details />} />
+      <Route path="/silicon3-premium" element={<S3details />} />
     </Routes>
   );
 }
