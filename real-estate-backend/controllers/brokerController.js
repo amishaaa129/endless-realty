@@ -39,7 +39,7 @@ const getBrokerDetails = async (req, res) => {
     }
 
     const usersQuery = await pool.query(
-      'SELECT name, phone, email, created_at FROM users WHERE referral_broker_id = $1 ORDER BY created_at DESC',
+      'SELECT name, phone, email, registration_date FROM users WHERE referral_broker_id = $1 ORDER BY created_at DESC',
       [brokerId]
     );
 
