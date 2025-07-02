@@ -1,8 +1,8 @@
 // File: vrindavanDetails.jsx
 import React from 'react';
-import Header from '../../components/Header';
-import Footer from '../../components/footer';
-import './vrindavan.css';
+import Header from '../../../components/Header';
+import Footer from '../../../components/footer';
+import './arcadia.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import {  Autoplay } from 'swiper/modules';
 import 'swiper/css';

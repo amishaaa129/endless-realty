@@ -251,7 +251,7 @@ const App = () => {
               <Link to="/pithampur">Balaji Realty</Link>
             </li>
             <li className="text-base sm:text-lg">
-              <Link to="/">Shubham Buildcon</Link>
+              <Link to="/shubham">Shubham Buildcon</Link>
             </li>
           </ul>
         </div>

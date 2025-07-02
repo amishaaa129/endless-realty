@@ -1,28 +1,33 @@
-import React from 'react';
-import './main.css';
-import Header from '../../components/Header';
-import Footer from '../../components/footer';
-import Property1 from './silicon/rau';
-import Property2 from './shorya/shorya';
+import React from "react";
+import Header from "../../components/Header";
+import Footer from "../../components/footer";
+import Property1 from "./valley/valley";
+import Property2 from "./arcadia/arcadia";
+import Property3 from "./tsv/tsv";
 
-const SiliconCityMain = () => {
+
+const Main = () => {
   return (
-    <div>
-      <Header />
-      
-      <div className="property-grid-container">
-        <div className="property-card">
-          <Property1 />
+    <div className="min-h-screen flex flex-col bg-gray-50">
+    <Header />
+
+      <main className="flex-grow py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-center text-gray-900 mb-12">
+            Featured Properties
+          </h1>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+            <Property1 />
+            <Property2 />
+            <Property3 />   
+            
+          </div>
         </div>
-        <div className="property-card">
-          <Property2 />
-        </div>
-        
-      </div>
-      
-      <Footer />
+      </main>
+
+    <Footer />
     </div>
   );
 };
 
-export default SiliconCityMain;
+export default Main;

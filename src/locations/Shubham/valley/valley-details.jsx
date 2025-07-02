@@ -1,8 +1,8 @@
 // File: vrindavanDetails.jsx
 import React from 'react';
-import Header from '../../components/Header';
-import Footer from '../../components/footer';
-import './vrindavan.css';
+import Header from '../../../components/Header';
+import Footer from '../../../components/footer';
+import './valley.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import {  Autoplay } from 'swiper/modules';
 import 'swiper/css';
@@ -17,7 +17,7 @@ const VrindavanDetails = () => {
       {/* Constant Video Section */}
       <div className="video-wrapper top-video">
         <video
-          src="/vrindavan/vrandavan_video.mp4"
+          src="/valley/valley_video.mp4"
           title="Property Video"
           autoPlay
           muted
