@@ -6,6 +6,7 @@ import Footer from '../components/footer';
 
 
 
+
 const App = () => {
   useScrollAnimations();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
