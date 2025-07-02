@@ -9,15 +9,17 @@ import SignUp from './Login/signup';
 import SearchResults from './pages/allproperties';
 import OurAssociates from './pages/ourassociates';
 import BrokerDetails from './pages/brokerDetails';
-import Rau from "./locations/Rau/rau";
-import Rdetails from "./locations/Rau/rau-details";
+import Rau from "./locations/Rau/main";
+import Rdetails from "./locations/Rau/silicon/rau-details";
 import Vrindavan from "./locations/Cat_road/vrindavan";
 import Vdetails from "./locations/Cat_road/vrindavan-details";
+import Main2 from './locations/Rau/main';
 import Main1 from './locations/silicon_city/main';
 import Sdetails from './locations/silicon_city/silicon/silicon-details';
 import S1details from './locations/silicon_city/silicon1/silicon1-details';
 import S2details from './locations/silicon_city/silicon2/silicon2-details';
 import S3details from './locations/silicon_city/silicon3/silicon3-details';
+import Shoryadetails from './locations/Rau/shorya/shorya-details';
 function App() {
   return (
     <Routes>
@@ -37,11 +39,13 @@ function App() {
       <Route path ="/rau-premium" element={<Rdetails />} />
       <Route path="/Cat-road" element={<Vrindavan />} />
       <Route path="/vrindavan-premium-row-houses" element={<Vdetails />} />
+      <Route path="/rau" element={<Main2 />} />
       <Route path ="/silicon-city" element={<Main1 />} />
       <Route path="/silicon-premium" element={<Sdetails />} />
       <Route path="/silicon1-premium" element={<S1details />} />
       <Route path="/silicon2-premium" element={<S2details />} />
       <Route path="/silicon3-premium" element={<S3details />} />
+      <Route path="/shorya-premium" element={<Shoryadetails />} />
     </Routes>
   );
 }

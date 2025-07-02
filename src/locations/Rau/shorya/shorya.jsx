@@ -1,32 +1,31 @@
 
 import React from 'react';
-import './rau.css';
+import './shorya.css';
 import { useNavigate } from 'react-router-dom';
-import Header from '../../components/Header';
-import Footer from '../../components/footer';
+
 
 const Rau = () => {
   const navigate = useNavigate();
 
   return (
     <div>
-      <Header />
+      
       <div className="Rau-card">
         <img
-          src="/images/rau.jpeg"
+          src="/images/shorya.jpeg"
           alt="Rau Property"
           className="property-image"
         />
         {/* SOLD OUT Stamp */}
-        <div className="sold-out-tag">SOLD OUT</div>
+        <div className="sold-out-tag">Upcoming</div>
         
         
-        <h2 className="property-title">Silicon city property</h2>
-        <button className="know-more-button" onClick={() => navigate('/rau-premium')}>
+        <h2 className="property-title">Shorya vihar property</h2>
+        <button className="know-more-button" onClick={() => navigate('/shorya-premium')}>
           Click to Know More
         </button>
       </div>
-      <Footer />
+      
     </div>
   );
 };
