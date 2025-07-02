@@ -53,7 +53,7 @@ const Properties = () => {
                   <label className="block text-black text-sm font-medium mb-1 text-left pl-1">Location</label>
                   <select value={city} onChange={(e) => setCity(e.target.value)} className="w-full px-4 py-3 rounded-md text-gray-700 border-0 focus:ring-blue-500">
                     <option value="" disabled selected>
-                      Select City
+                      Select Location 
                     </option>
                     <option value="khandwa-road">Khandwa Road</option>
                     <option value="silicon-city">Silicon City</option>

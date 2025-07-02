@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 import '../styles/styles.css';
 import { Link } from 'react-router-dom';
 import useScrollAnimations from '../hooks/useScrollAnimations';
@@ -16,6 +17,29 @@ const App = () => {
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
+
+  const navigate = useNavigate();
+  // State for filters
+  const [city, setCity] = useState('');
+  const [type, setType] = useState('');
+  const [budget, setBudget] = useState('');
+
+  const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://api.endlessrealty.in';
+
+  const handleSearch = () => {
+    // Convert budget to min and max values
+    let min = 0;
+    let max = 100000000; // 10 Cr
+    if (budget === '0-30') [min, max] = [0, 3000000];
+    else if (budget === '30-50') [min, max] = [3000000, 5000000];
+    else if (budget === '50-80') [min, max] = [5000000, 8000000];
+    else if (budget === '80-100') [min, max] = [8000000, 10000000];
+    else if (budget === '100+') [min, max] = [10000000, 100000000];
+
+    // Navigate to /search with query params
+    navigate(`/search?city=${city}&type=${type}&min=${min}&max=${max}`);
+  };
+
   return (
 
 
@@ -255,27 +279,27 @@ const App = () => {
               <form className="flex flex-col md:flex-row">
                 <div className="flex-1 mb-3 md:mb-0 md:mr-3">
                   <label className="block text-black text-sm font-medium mb-1 text-left pl-1">Location</label>
-                  <select className="w-full px-4 py-3 rounded-lg text-gray-700 border border-gray-200 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 transition">
+                  <select value={city} onChange={(e) => setCity(e.target.value)} className="w-full px-4 py-3 rounded-lg text-gray-700 border border-gray-200 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 transition">
                     <option value="" disabled selected>
                       Select Location
                     </option>
-                    <option value="indore">Khandwa Road</option>
-                    <option value="bhopal">Silicon City</option>
-                    <option value="ujjain">Rau</option>
-                    <option value="Rau">Mhow</option>
-                    <option value="Dewas">Pithampur</option>
-                    <option value="Pithampur">CAT Road</option>
-                    <option value="CAT Road">Super Corridor</option>
-                    <option value="Super Corridor">Nipania</option>
-                    <option value="Nipania">Ujjain Road</option>
-                    <option value="Ujjain Road">AB Bypass Road</option>
-                    <option value="AB Bypass Road">Kanandia Road</option>
-                    <option value="Kanandia Road">Vijay Nagar</option>
+                    <option value="khandwa-road">Khandwa Road</option>
+                    <option value="silicon-city">Silicon City</option>
+                    <option value="rau">Rau</option>
+                    <option value="mhow">Mhow</option>
+                    <option value="pithampur">Pithampur</option>
+                    <option value="cat-road">CAT Road</option>
+                    <option value="super-corridor">Super Corridor</option>
+                    <option value="nipania">Nipania</option>
+                    <option value="ujjain-road">Ujjain Road</option>  
+                    <option value="ab-bypass-road">AB Bypass Road</option>
+                    <option value="kanandia-road">Kanandia Road</option>
+                    <option value="vijay-nagar">Vijay Nagar</option>
                   </select>
                 </div>
                 <div className="flex-1 mb-3 md:mb-0 md:mr-3">
                   <label className="block text-black text-sm font-medium mb-1 text-left pl-1">Property Type</label>
-                  <select className="w-full px-4 py-3 rounded-lg text-gray-700 border border-gray-200 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 transition">
+                  <select value={type} onChange={(e) => setType(e.target.value)} className="w-full px-4 py-3 rounded-lg text-gray-700 border border-gray-200 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 transition">
                     <option value="" disabled selected>
                       Select Type
                     </option>
@@ -287,7 +311,7 @@ const App = () => {
                 </div>
                 <div className="flex-1 mb-3 md:mb-0 md:mr-3">
                   <label className="block text-black text-sm font-medium mb-1 text-left pl-1">Budget</label>
-                  <select className="w-full px-4 py-3 rounded-lg text-gray-700 border border-gray-200 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 transition">
+                  <select value={budget} onChange={(e) => setBudget(e.target.value)} className="w-full px-4 py-3 rounded-lg text-gray-700 border border-gray-200 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 transition">
                     <option value="" disabled selected>
                       Select Budget
                     </option>
@@ -299,7 +323,8 @@ const App = () => {
                   </select>
                 </div>
                 <div className="md:self-end">
-                  <button className="w-full md:w-auto px-8 py-3 btn-gradient text-white rounded-lg shadow-lg hover:shadow-xl transition flex items-center justify-center">
+                  <button type="button"
+                  onClick={handleSearch} className="w-full md:w-auto px-8 py-3 btn-gradient text-white rounded-lg shadow-lg hover:shadow-xl transition flex items-center justify-center">
                     <i className="fas fa-search mr-2"></i> Search
                   </button>
                 </div>
