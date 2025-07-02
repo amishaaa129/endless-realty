@@ -38,6 +38,9 @@ const App = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-10">
+            <Link to="/" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
+              Home
+            </Link>
             <Link to="/properties" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
               Properties
             </Link>
@@ -66,7 +69,7 @@ const App = () => {
                   {["Khandwa Road", "Silicon City", "Rau", "Mhow", "Pithampur", "CAT Road", "Super Corridor", "Nipania", "Ujjain Road", "AB Bypass Road", "Kanandia Road", "Vijay Nagar"].map((city) => (
                     <Link
                       key={city}
-                      to={city === "Rau" ? "/rau" : city === "CAT Road" ? "/cat-road" :  city === "Silicon City" ? "/silicon-city" : city === "Pithampur" ? "/pithampur" : "/cities"}
+                      to={city === "Rau" ? "/rau" : city === "CAT Road" ? "/cat-road" : city === "Silicon City" ? "/silicon-city" : city === "Pithampur" ? "/pithampur" : "/cities"}
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                     >
                       {city}
@@ -176,15 +179,15 @@ const App = () => {
                     <Link
                       key={location}
                       to={
-                          location === "CAT Road"
+                        location === "CAT Road"
                           ? "/location/cat-road"
                           : location === "Silicon City"
                             ? "/location/silicon-city"
-                          : location === "Pithampur"
-                          ? "/location/pithampur"
-                          : location === "Rau"
-                            ? "/location/rau"
-                            : `/location/${location.toLowerCase().replace(/\s+/g, '-')}`}
+                            : location === "Pithampur"
+                              ? "/location/pithampur"
+                              : location === "Rau"
+                                ? "/location/rau"
+                                : `/location/${location.toLowerCase().replace(/\s+/g, '-')}`}
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                     >
                       {location}
@@ -490,7 +493,7 @@ const App = () => {
                   className="w-full h-64 object-cover"
                 />
                 <div className="absolute top-0 right-0 bg-red-600 text-white px-3 py-1 m-3 rounded-md text-sm font-medium">
-                  Sold Out 
+                  Sold Out
                 </div>
                 <div className="absolute bottom-0 left-0 bg-gradient-to-t from-black to-transparent w-full h-20 flex items-end">
                   <span className="text-white font-bold text-xl px-4 pb-3">Silicon City</span>
@@ -517,7 +520,7 @@ const App = () => {
                 </div>
                 <div className="flex justify-between items-center">
                   <div>
-                    
+
                     <div className="text-xl font-bold text-gray-900">Sold Out </div>
                   </div>
                   <Link
@@ -545,7 +548,7 @@ const App = () => {
                   className="w-full h-64 object-cover"
                 />
                 <div className="absolute top-0 right-0 bg-red-600 text-white px-3 py-1 m-3 rounded-md text-sm font-medium">
-                  UPCOMING 
+                  UPCOMING
                 </div>
                 <div className="absolute bottom-0 left-0 bg-gradient-to-t from-black to-transparent w-full h-20 flex items-end">
                   <span className="text-white font-bold text-xl px-4 pb-3">Shourya Vihar</span>
@@ -572,7 +575,7 @@ const App = () => {
                 </div>
                 <div className="flex justify-between items-center">
                   <div>
-                    
+
                     <div className="text-xl font-bold text-gray-900">UPCOMING </div>
                   </div>
                   <Link
@@ -594,7 +597,7 @@ const App = () => {
             </div>
 
           </div>
-          
+
         </div>
 
         {/* View All Properties Button */}
@@ -623,8 +626,8 @@ const App = () => {
 
       </section>
 
-      
-      
+
+
       <section id="why-tier2" className="py-24 bg-white relative overflow-hidden">
         <div className="container mx-auto px-6 relative z-10">
           <div className="flex flex-col lg:flex-row items-center">
@@ -685,7 +688,7 @@ const App = () => {
                 ))}
               </div>
 
-              
+
             </div>
 
             <div className="lg:w-1/2 slide-in-right">
