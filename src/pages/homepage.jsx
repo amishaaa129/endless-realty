@@ -437,7 +437,7 @@ const App = () => {
                   Ready to Move
                 </div>
                 <div className="absolute bottom-0 left-0 bg-gradient-to-t from-black to-transparent w-full h-20 flex items-end">
-                  <span className="text-white font-bold text-xl px-4 pb-3">Vrindavan Premium</span>
+                  <span className="text-white font-bold text-xl px-4 pb-3">Vrindavan Premium Row Houses</span>
                 </div>
               </div>
               <div className="p-5">
@@ -548,13 +548,13 @@ const App = () => {
                   UPCOMING 
                 </div>
                 <div className="absolute bottom-0 left-0 bg-gradient-to-t from-black to-transparent w-full h-20 flex items-end">
-                  <span className="text-white font-bold text-xl px-4 pb-3">Shorya Vihar</span>
+                  <span className="text-white font-bold text-xl px-4 pb-3">Shourya Vihar</span>
                 </div>
               </div>
               <div className="p-5">
                 <div className="flex items-center text-gray-500 text-sm mb-3">
                   <i className="fas fa-map-marker-alt mr-2 text-blue-600"></i>
-                  <span>Shorya Vihar</span>
+                  <span>Shourya Vihar</span>
                 </div>
                 <div className="flex justify-between mb-4 text-sm">
                   <div className="flex items-center">
@@ -589,7 +589,7 @@ const App = () => {
               </div>
               {/* Developed By */}
               <div className="text-sm text-gray-500">
-                <span className="font-medium text-gray-700">Developed By:</span> Shorya Homes
+                <span className="font-medium text-gray-700">Developed By:</span> Balaji Realty
               </div>
             </div>
 
@@ -624,6 +624,107 @@ const App = () => {
       </section>
 
       
+      
+      <section id="why-tier2" className="py-24 bg-white relative overflow-hidden">
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="flex flex-col lg:flex-row items-center">
+            <div className="lg:w-1/2 lg:pr-16 mb-12 lg:mb-0 slide-in-left">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-6">
+                Why Invest in cities like Indore?
+              </h2>
+              <p className="text-xl text-gray-600 mb-8">
+                These cities are emerging as the next big investment destination with significant advantages over metropolitan areas.
+              </p>
+
+              <div className="space-y-5">
+                {[
+                  {
+                    iconClass: "fas fa-chart-line",
+                    bgColor: "bg-green-100",
+                    textColor: "text-green-600",
+                    title: "Higher ROI Potential",
+                    description:
+                      "Properties in Tier 2 cities offer 15-20% higher returns compared to metro cities due to lower entry prices and rapid development.",
+                  },
+                  {
+                    iconClass: "fas fa-building",
+                    bgColor: "bg-blue-100",
+                    textColor: "text-blue-600",
+                    title: "Infrastructure Growth",
+                    description:
+                      "Government initiatives like Smart City Mission are transforming Tier 2 cities with modern infrastructure and connectivity.",
+                  },
+                  {
+                    iconClass: "fas fa-laptop",
+                    bgColor: "bg-purple-100",
+                    textColor: "text-purple-600",
+                    title: "IT & Business Hubs",
+                    description:
+                      "Major companies are establishing offices in Tier 2 cities, creating employment opportunities and driving real estate demand.",
+                  },
+                  {
+                    iconClass: "fas fa-heart",
+                    bgColor: "bg-yellow-100",
+                    textColor: "text-yellow-600",
+                    title: "Better Quality of Life",
+                    description:
+                      "Less congestion, lower pollution, and more space offer a healthier and more balanced lifestyle compared to metro cities.",
+                  },
+                ].map((item, index) => (
+                  <div key={index} className="flex items-start">
+                    <div
+                      className={`flex-shrink-0 w-10 h-10 rounded-full ${item.bgColor} flex items-center justify-center ${item.textColor} mr-4`}
+                    >
+                      <i className={item.iconClass}></i>
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-gray-900 mb-1">{item.title}</h3>
+                      <p className="text-gray-600">{item.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              
+            </div>
+
+            <div className="lg:w-1/2 slide-in-right">
+              <div className="relative">
+                <div className="absolute -top-4 -left-4 w-24 h-24 bg-blue-100 rounded-lg rotate-6"></div>
+                <div className="absolute -bottom-5 -right-5 w-32 h-32 bg-yellow-100 rounded-lg -rotate-6"></div>
+
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl border-8 border-white">
+                  <img src="" alt="Tier 2 City Growth" className="w-full h-auto" />
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-8">
+                    <h3 className="text-2xl font-bold text-white mb-6">Growth Comparison: 2023-2024</h3>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4">
+                        <div className="text-3xl font-bold text-white">15.8%</div>
+                        <div className="text-sm text-blue-200">Tier 2 Property Appreciation</div>
+                      </div>
+                      <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4">
+                        <div className="text-3xl font-bold text-white">8.3%</div>
+                        <div className="text-sm text-blue-200">Metro Cities Appreciation</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="absolute -right-5 top-1/4 bg-white rounded-lg shadow-xl p-4 w-40 text-center transform rotate-6">
+                  <div className="text-2xl font-bold text-blue-600">+62%</div>
+                  <div className="text-sm text-gray-600">IT Job Growth</div>
+                </div>
+
+                <div className="absolute -left-5 bottom-1/4 bg-white rounded-lg shadow-xl p-4 w-40 text-center transform -rotate-6">
+                  <div className="text-2xl font-bold text-green-600">+38%</div>
+                  <div className="text-sm text-gray-600">Rental Yield</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <section id="features" className="py-24 bg-gray-50 relative overflow-hidden">
         {/* Decorative elements */}
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-50 rounded-full opacity-50"></div>
@@ -795,106 +896,6 @@ const App = () => {
               className="inline-flex items-center px-8 py-4 btn-gradient text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
               Explore All Amenities
             </Link>
-          </div>
-        </div>
-      </section>
-      <section id="why-tier2" className="py-24 bg-white relative overflow-hidden">
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="flex flex-col lg:flex-row items-center">
-            <div className="lg:w-1/2 lg:pr-16 mb-12 lg:mb-0 slide-in-left">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-6">
-                Why Invest in cities like Indore?
-              </h2>
-              <p className="text-xl text-gray-600 mb-8">
-                These cities are emerging as the next big investment destination with significant advantages over metropolitan areas.
-              </p>
-
-              <div className="space-y-5">
-                {[
-                  {
-                    iconClass: "fas fa-chart-line",
-                    bgColor: "bg-green-100",
-                    textColor: "text-green-600",
-                    title: "Higher ROI Potential",
-                    description:
-                      "Properties in Tier 2 cities offer 15-20% higher returns compared to metro cities due to lower entry prices and rapid development.",
-                  },
-                  {
-                    iconClass: "fas fa-building",
-                    bgColor: "bg-blue-100",
-                    textColor: "text-blue-600",
-                    title: "Infrastructure Growth",
-                    description:
-                      "Government initiatives like Smart City Mission are transforming Tier 2 cities with modern infrastructure and connectivity.",
-                  },
-                  {
-                    iconClass: "fas fa-laptop",
-                    bgColor: "bg-purple-100",
-                    textColor: "text-purple-600",
-                    title: "IT & Business Hubs",
-                    description:
-                      "Major companies are establishing offices in Tier 2 cities, creating employment opportunities and driving real estate demand.",
-                  },
-                  {
-                    iconClass: "fas fa-heart",
-                    bgColor: "bg-yellow-100",
-                    textColor: "text-yellow-600",
-                    title: "Better Quality of Life",
-                    description:
-                      "Less congestion, lower pollution, and more space offer a healthier and more balanced lifestyle compared to metro cities.",
-                  },
-                ].map((item, index) => (
-                  <div key={index} className="flex items-start">
-                    <div
-                      className={`flex-shrink-0 w-10 h-10 rounded-full ${item.bgColor} flex items-center justify-center ${item.textColor} mr-4`}
-                    >
-                      <i className={item.iconClass}></i>
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-bold text-gray-900 mb-1">{item.title}</h3>
-                      <p className="text-gray-600">{item.description}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              
-            </div>
-
-            <div className="lg:w-1/2 slide-in-right">
-              <div className="relative">
-                <div className="absolute -top-4 -left-4 w-24 h-24 bg-blue-100 rounded-lg rotate-6"></div>
-                <div className="absolute -bottom-5 -right-5 w-32 h-32 bg-yellow-100 rounded-lg -rotate-6"></div>
-
-                <div className="relative rounded-2xl overflow-hidden shadow-2xl border-8 border-white">
-                  <img src="" alt="Tier 2 City Growth" className="w-full h-auto" />
-
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-8">
-                    <h3 className="text-2xl font-bold text-white mb-6">Growth Comparison: 2023-2024</h3>
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4">
-                        <div className="text-3xl font-bold text-white">15.8%</div>
-                        <div className="text-sm text-blue-200">Tier 2 Property Appreciation</div>
-                      </div>
-                      <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4">
-                        <div className="text-3xl font-bold text-white">8.3%</div>
-                        <div className="text-sm text-blue-200">Metro Cities Appreciation</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="absolute -right-5 top-1/4 bg-white rounded-lg shadow-xl p-4 w-40 text-center transform rotate-6">
-                  <div className="text-2xl font-bold text-blue-600">+62%</div>
-                  <div className="text-sm text-gray-600">IT Job Growth</div>
-                </div>
-
-                <div className="absolute -left-5 bottom-1/4 bg-white rounded-lg shadow-xl p-4 w-40 text-center transform -rotate-6">
-                  <div className="text-2xl font-bold text-green-600">+38%</div>
-                  <div className="text-sm text-gray-600">Rental Yield</div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>

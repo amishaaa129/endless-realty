@@ -25,7 +25,7 @@ const VrindavanDetails = () => {
           pagination={{ clickable: true }}
 
         >
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((num) => (
+          {[1, 2, 3, 4, 5, 6,  8, 9].map((num) => (
             <SwiperSlide key={num}>
               <img
                 src={`/shorya/shorya${num}.jpeg`}
