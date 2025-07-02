@@ -6,6 +6,7 @@ import Footer from '../components/footer';
 
 
 
+
 const App = () => {
   useScrollAnimations();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -65,7 +66,7 @@ const App = () => {
                   {["Khandwa Road", "Silicon City", "Rau", "Mhow", "Pithampur", "CAT Road", "Super Corridor", "Nipania", "Ujjain Road", "AB Bypass Road", "Kanandia Road", "Vijay Nagar"].map((city) => (
                     <Link
                       key={city}
-                      to={city === "Rau" ? "/rau" : city === "CAT Road" ? "/cat-road" :  city === "Silicon City" ? "/silicon-city" : "/cities"}
+                      to={city === "Rau" ? "/rau" : city === "CAT Road" ? "/cat-road" :  city === "Silicon City" ? "/silicon-city" : city === "Pithampur" ? "/pithampur" : "/cities"}
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                     >
                       {city}
@@ -179,6 +180,8 @@ const App = () => {
                           ? "/location/cat-road"
                           : location === "Silicon City"
                             ? "/location/silicon-city"
+                          : location === "Pithampur"
+                          ? "/location/pithampur"
                           : location === "Rau"
                             ? "/location/rau"
                             : `/location/${location.toLowerCase().replace(/\s+/g, '-')}`}
@@ -218,7 +221,10 @@ const App = () => {
               <Link to="/cat-road">Vrindavan Premium</Link>
             </li>
             <li className="text-base sm:text-lg">
-              <Link to="/">Balaji Realty</Link>
+              <Link to="/pithampur">Balaji Realty</Link>
+            </li>
+            <li className="text-base sm:text-lg">
+              <Link to="/">Shubham Buildcon</Link>
             </li>
           </ul>
         </div>
@@ -310,7 +316,7 @@ const App = () => {
                 <div className="text-sm font-medium text-gray-200">Happy Families</div>
               </div>
               <div className="bg-white/10 p-6 rounded-xl backdrop-blur-sm border border-white/20 shadow-lg bounce-in stagger-4">
-                <div className="text-4xl font-bold text-gradient mb-2">1000+</div>
+                <div className="text-4xl font-bold text-gradient mb-2">500+</div>
                 <div className="text-sm font-medium text-gray-200">Monthly Active Users</div>
               </div>
             </div>
@@ -361,8 +367,8 @@ const App = () => {
             </p>
           </div>
         </div>
-        <div className="w-full flex justify-end pr-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className=" justify-centre pr-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Property Card 1 */}
             <div className="property-card bg-white rounded-xl overflow-hidden shadow-md">
               <div className="relative">
@@ -410,11 +416,11 @@ const App = () => {
                 </div>
                 {/* Marketed By */}
                 <div className="text-sm text-gray-500 mb-2">
-                  <span className="font-medium text-gray-700">Marketed By:</span> ABC Realty
+                  <span className="font-medium text-gray-700">Marketed By:</span> Endless Realty
                 </div>
                 {/* Developed By */}
                 <div className="text-sm text-gray-500">
-                  <span className="font-medium text-gray-700">Developed By:</span> XYZ Developers
+                  <span className="font-medium text-gray-700">Developed By:</span> Rachit Homes
                 </div>
               </div>
             </div>
@@ -468,11 +474,11 @@ const App = () => {
               </div>
               {/* Marketed By */}
               <div className="text-sm text-gray-500 mb-2">
-                <span className="font-medium text-gray-700">Marketed By:</span> ABC Realty
+                <span className="font-medium text-gray-700">Marketed By:</span> Endless Realty
               </div>
               {/* Developed By */}
               <div className="text-sm text-gray-500">
-                <span className="font-medium text-gray-700">Developed By:</span> XYZ Developers
+                <span className="font-medium text-gray-700">Developed By:</span> Vrindavan Group
               </div>
             </div>
             {/* Property Card 2 */}
@@ -515,7 +521,7 @@ const App = () => {
                     <div className="text-xl font-bold text-gray-900">Sold Out </div>
                   </div>
                   <Link
-                    to="/Cat-road"
+                    to="/silicon-premium"
                     className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition text-sm"
                   >
                     View Details
@@ -524,11 +530,66 @@ const App = () => {
               </div>
               {/* Marketed By */}
               <div className="text-sm text-gray-500 mb-2">
-                <span className="font-medium text-gray-700">Marketed By:</span> ABC Realty
+                <span className="font-medium text-gray-700">Marketed By:</span> Endless Realty
               </div>
               {/* Developed By */}
               <div className="text-sm text-gray-500">
-                <span className="font-medium text-gray-700">Developed By:</span> XYZ Developers
+                <span className="font-medium text-gray-700">Developed By:</span> Rachit Homes
+              </div>
+            </div>
+            <div className="property-card bg-white rounded-xl overflow-hidden shadow-md">
+              <div className="relative">
+                <img
+                  src="/images/shorya.jpeg"
+                  alt="Vrindavan premium"
+                  className="w-full h-64 object-cover"
+                />
+                <div className="absolute top-0 right-0 bg-red-600 text-white px-3 py-1 m-3 rounded-md text-sm font-medium">
+                  UPCOMING 
+                </div>
+                <div className="absolute bottom-0 left-0 bg-gradient-to-t from-black to-transparent w-full h-20 flex items-end">
+                  <span className="text-white font-bold text-xl px-4 pb-3">Shorya Vihar</span>
+                </div>
+              </div>
+              <div className="p-5">
+                <div className="flex items-center text-gray-500 text-sm mb-3">
+                  <i className="fas fa-map-marker-alt mr-2 text-blue-600"></i>
+                  <span>Shorya Vihar</span>
+                </div>
+                <div className="flex justify-between mb-4 text-sm">
+                  <div className="flex items-center">
+                    <i className="fas fa-bed mr-1 text-blue-600"></i>
+                    <span>2 flat & 2 BHK</span>
+                  </div>
+                  <div className="flex items-center">
+                    <i className="fas fa-ruler-combined mr-1 text-blue-600"></i>
+                    <span>3500 sq.ft.</span>
+                  </div>
+                  <div className="flex items-center">
+                    <i className="fas fa-building mr-1 text-blue-600"></i>
+                    <span>RERA Approved</span>
+                  </div>
+                </div>
+                <div className="flex justify-between items-center">
+                  <div>
+                    
+                    <div className="text-xl font-bold text-gray-900">UPCOMING </div>
+                  </div>
+                  <Link
+                    to="/shorya-premium"
+                    className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition text-sm"
+                  >
+                    View Details
+                  </Link>
+                </div>
+              </div>
+              {/* Marketed By */}
+              <div className="text-sm text-gray-500 mb-2">
+                <span className="font-medium text-gray-700">Marketed By:</span> Endless Realty
+              </div>
+              {/* Developed By */}
+              <div className="text-sm text-gray-500">
+                <span className="font-medium text-gray-700">Developed By:</span> Shorya Homes
               </div>
             </div>
 
@@ -562,214 +623,7 @@ const App = () => {
 
       </section>
 
-      <section id="cities" className="py-24 bg-gradient-to-r from-blue-600 to-indigo-800 text-white relative overflow-hidden">
-        {/* Decorative elements */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
-          <div className="absolute w-96 h-96 rounded-full bg-blue-400 opacity-10 -top-20 -left-20"></div>
-          <div className="absolute w-80 h-80 rounded-full bg-indigo-500 opacity-10 bottom-10 right-10"></div>
-          <div className="absolute w-40 h-40 rounded-full bg-blue-300 opacity-10 top-40 right-20"></div>
-        </div>
-
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="text-center mb-16">
-            <span className="text-blue-300 font-semibold text-lg">Tier 2 Real Estate Hub</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Explore Growing Cities</h2>
-            <p className="text-blue-100 max-w-2xl mx-auto text-lg">
-              Discover our premium properties in India's most promising Tier 2 cities with excellent infrastructure and investment potential
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* City Card 1: Indore */}
-            <a href="#" className="block group">
-              <div className="relative rounded-xl overflow-hidden shadow-xl h-80 transition-transform duration-500 group-hover:-translate-y-2">
-                <img
-                  src="https://images.unsplash.com/photo-1559585888-6b01c8ea796b?q=80&w=2094&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  alt="Indore"
-                  className="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-blue-900 via-blue-900/70 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 p-8">
-                  <div className="bg-white/20 backdrop-blur-sm rounded-full px-4 py-1 mb-3 inline-block">
-                    <span className="text-white/90 text-sm font-medium">8 Projects</span>
-                  </div>
-                  <h3 className="text-3xl font-bold text-white mb-2">Indore</h3>
-                  <p className="text-blue-100 mb-4">Financial capital of MP with IT Parks & Smart City initiatives</p>
-                  <div className="flex items-center text-blue-300 text-sm font-medium transition group-hover:text-white">
-                    <span>View Properties</span>
-                    <svg
-                      className="ml-2 h-5 w-5"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            </a>
-
-            {/* City Card 2: Bhopal */}
-            <a href="#" className="block group">
-              <div className="relative rounded-xl overflow-hidden shadow-xl h-80 transition-transform duration-500 group-hover:-translate-y-2">
-                <img
-                  src="https://img.staticmb.com/mbcontent/images/crop/uploads/2024/5/famous-places-in-bhopal_0_1200.jpg"
-                  alt="Bhopal"
-                  className="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-blue-900 via-blue-900/70 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 p-8">
-                  <div className="bg-white/20 backdrop-blur-sm rounded-full px-4 py-1 mb-3 inline-block">
-                    <span className="text-white/90 text-sm font-medium">6 Projects</span>
-                  </div>
-                  <h3 className="text-3xl font-bold text-white mb-2">Bhopal</h3>
-                  <p className="text-blue-100 mb-4">City of Lakes with expanding tech hubs & cultural heritage</p>
-                  <div className="flex items-center text-blue-300 text-sm font-medium transition group-hover:text-white">
-                    <span>View Properties</span>
-                    <svg
-                      className="ml-2 h-5 w-5"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            </a>
-
-            {/* City Card 3: Ujjain */}
-            <a href="#" className="block group">
-              <div className="relative rounded-xl overflow-hidden shadow-xl h-80 transition-transform duration-500 group-hover:-translate-y-2">
-                <img
-                  src="https://images.unsplash.com/photo-1699949967693-9b0084730462?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  alt="Ujjain"
-                  className="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-blue-900 via-blue-900/70 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 p-8">
-                  <div className="bg-white/20 backdrop-blur-sm rounded-full px-4 py-1 mb-3 inline-block">
-                    <span className="text-white/90 text-sm font-medium">4 Projects</span>
-                  </div>
-                  <h3 className="text-3xl font-bold text-white mb-2">Ujjain</h3>
-                  <p className="text-blue-100 mb-4">Heritage city with growing infrastructure & tourism potential</p>
-                  <div className="flex items-center text-blue-300 text-sm font-medium transition group-hover:text-white">
-                    <span>View Properties</span>
-                    <svg
-                      className="ml-2 h-5 w-5"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* City Card 4: Rau */}
-          <a href="#" className="block group">
-            <div className="relative rounded-xl overflow-hidden shadow-xl h-80 transition-transform duration-500 group-hover:-translate-y-2">
-              <img
-                src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/427337605.jpg?k=450e656f6a4b9c89aad86a76e99675484562b31d6f6eec5b2769ecec68fd6660&o=&hp=1"
-                alt="Rau"
-                className="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-blue-900 via-blue-900/70 to-transparent"></div>
-              <div className="absolute bottom-0 left-0 p-8">
-                <div className="bg-white/20 backdrop-blur-sm rounded-full px-4 py-1 mb-3 inline-block">
-                  <span className="text-white/90 text-sm font-medium">5 Projects</span>
-                </div>
-                <h3 className="text-3xl font-bold text-white mb-2">Rau</h3>
-                <p className="text-blue-100 mb-4">
-                  Pink City with booming tourism and expanding IT sectors
-                </p>
-                <div className="flex items-center text-blue-300 text-sm font-medium transition group-hover:text-white">
-                  <span>View Properties</span>
-                  <svg
-                    className="ml-2 h-5 w-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M17 8l4 4m0 0l-4 4m4-4H3"
-                    ></path>
-                  </svg>
-                </div>
-              </div>
-            </div>
-          </a>
-
-          {/* City Card 5: Dewas */}
-          <a href="#" className="block group">
-            <div className="relative rounded-xl overflow-hidden shadow-xl h-80 transition-transform duration-500 group-hover:-translate-y-2">
-              <img
-                src="https://www.thebharatah.in/wp-content/uploads/2019/01/10205518896_a70ea1c600_b.jpg"
-                alt="Dewas"
-                className="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-blue-900 via-blue-900/70 to-transparent"></div>
-              <div className="absolute bottom-0 left-0 p-8">
-                <div className="bg-white/20 backdrop-blur-sm rounded-full px-4 py-1 mb-3 inline-block">
-                  <span className="text-white/90 text-sm font-medium">7 Projects</span>
-                </div>
-                <h3 className="text-3xl font-bold text-white mb-2">Dewas</h3>
-                <p className="text-blue-100 mb-4">
-                  Planned city with high quality of life and strong infrastructure
-                </p>
-                <div className="flex items-center text-blue-300 text-sm font-medium transition group-hover:text-white">
-                  <span>View Properties</span>
-                  <svg
-                    className="ml-2 h-5 w-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M17 8l4 4m0 0l-4 4m4-4H3"
-                    ></path>
-                  </svg>
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
-
-        <div className="flex items-center mt-8 text-blue-500 text-sm font-medium">
-          <span>Explore All 10+ Cities</span>
-          <svg
-            className="ml-2 h-5 w-5"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M17 8l4 4m0 0l-4 4m4-4H3"
-            ></path>
-          </svg>
-        </div>
-      </section>
+      
       <section id="features" className="py-24 bg-gray-50 relative overflow-hidden">
         {/* Decorative elements */}
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-50 rounded-full opacity-50"></div>
@@ -1004,28 +858,7 @@ const App = () => {
                 ))}
               </div>
 
-              <div className="mt-10">
-                <a
-                  href="#investment-guide"
-                  className="inline-flex items-center px-6 py-3 border-2 border-blue-600 text-blue-600 font-medium rounded-full hover:bg-blue-600 hover:text-white transition duration-300"
-                >
-                  Download Investment Guide
-                  <svg
-                    className="ml-2 w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"
-                    ></path>
-                  </svg>
-                </a>
-              </div>
+              
             </div>
 
             <div className="lg:w-1/2 slide-in-right">

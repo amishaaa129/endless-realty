@@ -122,7 +122,7 @@ const Properties = () => {
                 <div className="text-sm text-gray-200">Happy Families</div>
               </div>
               <div className="bg-black bg-opacity-30 p-4 rounded-lg backdrop-filter backdrop-blur-sm">
-                <div className="text-3xl font-bold text-blue-400 mb-1">1000+</div>
+                <div className="text-3xl font-bold text-blue-400 mb-1">500+</div>
                 <div className="text-sm text-gray-200">Monthly Active Users </div>
               </div>
             </div>

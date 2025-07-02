@@ -34,7 +34,7 @@ const Footer = () => {
           </div>
           <div>
             <h4 className="text-lg font-semibold text-gray-100 mb-4">Contact Us</h4>
-            <p className="text-gray-400">401-405, Infinity Tower, MG Road, Indore, MP 452010</p>
+            <p className="text-gray-400">Caps Town, Indore, MP 452010</p>
             <p className="text-gray-400">Email: sales@endlessrealty.com</p>
             <p className="text-gray-400">Phone: +91 731 498 5600</p>
           </div>
@@ -72,10 +72,7 @@ const Footer = () => {
             <h4 className="text-lg font-bold text-gray-900 mb-1">Indore Head Office</h4>
             <p className="text-gray-600">Caps Town, Indore, MP 452010</p>
           </div>
-          <div className="bg-gray-100 p-6 rounded-lg shadow-md">
-            <h4 className="text-lg font-bold text-gray-900 mb-1">Bhopal Office</h4>
-            <p className="text-gray-600">203, Platinum Plaza, Zone-II, MP Nagar, Bhopal, MP 462011</p>
-          </div>
+          
         </div>
       </div>
     </footer>
