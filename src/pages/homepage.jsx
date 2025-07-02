@@ -66,7 +66,7 @@ const App = () => {
                   {["Khandwa Road", "Silicon City", "Rau", "Mhow", "Pithampur", "CAT Road", "Super Corridor", "Nipania", "Ujjain Road", "AB Bypass Road", "Kanandia Road", "Vijay Nagar"].map((city) => (
                     <Link
                       key={city}
-                      to={city === "Rau" ? "/rau" : city === "CAT Road" ? "/cat-road" :  city === "Silicon City" ? "/silicon-city" : "/cities"}
+                      to={city === "Rau" ? "/rau" : city === "CAT Road" ? "/cat-road" :  city === "Silicon City" ? "/silicon-city" : city === "Pithampur" ? "/pithampur" : "/cities"}
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                     >
                       {city}
@@ -180,6 +180,8 @@ const App = () => {
                           ? "/location/cat-road"
                           : location === "Silicon City"
                             ? "/location/silicon-city"
+                          : location === "Pithampur"
+                          ? "/location/pithampur"
                           : location === "Rau"
                             ? "/location/rau"
                             : `/location/${location.toLowerCase().replace(/\s+/g, '-')}`}
@@ -219,7 +221,7 @@ const App = () => {
               <Link to="/cat-road">Vrindavan Premium</Link>
             </li>
             <li className="text-base sm:text-lg">
-              <Link to="/">Balaji Realty</Link>
+              <Link to="/pithampur">Balaji Realty</Link>
             </li>
           </ul>
         </div>
@@ -362,8 +364,8 @@ const App = () => {
             </p>
           </div>
         </div>
-        <div className="w-full flex justify-end pr-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className=" justify-centre pr-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Property Card 1 */}
             <div className="property-card bg-white rounded-xl overflow-hidden shadow-md">
               <div className="relative">
@@ -530,6 +532,61 @@ const App = () => {
               {/* Developed By */}
               <div className="text-sm text-gray-500">
                 <span className="font-medium text-gray-700">Developed By:</span> Rachit Homes
+              </div>
+            </div>
+            <div className="property-card bg-white rounded-xl overflow-hidden shadow-md">
+              <div className="relative">
+                <img
+                  src="/images/shorya.jpeg"
+                  alt="Vrindavan premium"
+                  className="w-full h-64 object-cover"
+                />
+                <div className="absolute top-0 right-0 bg-red-600 text-white px-3 py-1 m-3 rounded-md text-sm font-medium">
+                  UPCOMING 
+                </div>
+                <div className="absolute bottom-0 left-0 bg-gradient-to-t from-black to-transparent w-full h-20 flex items-end">
+                  <span className="text-white font-bold text-xl px-4 pb-3">Shorya Vihar</span>
+                </div>
+              </div>
+              <div className="p-5">
+                <div className="flex items-center text-gray-500 text-sm mb-3">
+                  <i className="fas fa-map-marker-alt mr-2 text-blue-600"></i>
+                  <span>Shorya Vihar</span>
+                </div>
+                <div className="flex justify-between mb-4 text-sm">
+                  <div className="flex items-center">
+                    <i className="fas fa-bed mr-1 text-blue-600"></i>
+                    <span>2 flat & 2 BHK</span>
+                  </div>
+                  <div className="flex items-center">
+                    <i className="fas fa-ruler-combined mr-1 text-blue-600"></i>
+                    <span>3500 sq.ft.</span>
+                  </div>
+                  <div className="flex items-center">
+                    <i className="fas fa-building mr-1 text-blue-600"></i>
+                    <span>RERA Approved</span>
+                  </div>
+                </div>
+                <div className="flex justify-between items-center">
+                  <div>
+                    
+                    <div className="text-xl font-bold text-gray-900">UPCOMING </div>
+                  </div>
+                  <Link
+                    to="/shorya-premium"
+                    className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition text-sm"
+                  >
+                    View Details
+                  </Link>
+                </div>
+              </div>
+              {/* Marketed By */}
+              <div className="text-sm text-gray-500 mb-2">
+                <span className="font-medium text-gray-700">Marketed By:</span> Endless Realty
+              </div>
+              {/* Developed By */}
+              <div className="text-sm text-gray-500">
+                <span className="font-medium text-gray-700">Developed By:</span> Shorya Homes
               </div>
             </div>
 

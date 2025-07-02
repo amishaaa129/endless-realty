@@ -13,6 +13,7 @@ import Rau from "./locations/Rau/main";
 import Rdetails from "./locations/Rau/silicon/rau-details";
 import Vrindavan from "./locations/Cat_road/vrindavan";
 import Vdetails from "./locations/Cat_road/vrindavan-details";
+import Main3 from './locations/pithampur/main';
 import Main2 from './locations/Rau/main';
 import Main1 from './locations/silicon_city/main';
 import Sdetails from './locations/silicon_city/silicon/silicon-details';
@@ -39,6 +40,7 @@ function App() {
       <Route path ="/rau-premium" element={<Rdetails />} />
       <Route path="/Cat-road" element={<Vrindavan />} />
       <Route path="/vrindavan-premium-row-houses" element={<Vdetails />} />
+      <Route path ="/pithampur" element={<Main3 />} />
       <Route path="/rau" element={<Main2 />} />
       <Route path ="/silicon-city" element={<Main1 />} />
       <Route path="/silicon-premium" element={<Sdetails />} />
