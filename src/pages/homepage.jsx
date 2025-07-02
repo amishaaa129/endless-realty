@@ -304,7 +304,7 @@ const App = () => {
                       Select Type
                     </option>
                     <option value="apartment">Apartment</option>
-                    <option value="villa">Row Houses</option>
+                    <option value="row-houses">Row Houses</option>
                     <option value="plot">Plot</option>
                     <option value="commercial">Commercial</option>
                   </select>
