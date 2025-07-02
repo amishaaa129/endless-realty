@@ -90,7 +90,7 @@ const VrindavanDetails = () => {
         </p>
       </div>
 
-      {/* Swiper Image Gallery */}
+      {/* Swiper Image Gallery 
       <div className="swiper-container">
         <Swiper
           modules={[Autoplay]}
@@ -111,11 +111,12 @@ const VrindavanDetails = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-      </div>
+      </div> */}
 
       {/* Map Section */}
-      <div className="map-image">
-        <img src="/vrindavan/vrindavan-map.jpeg" alt="Map Location" />
+      <div className="map-image-row">
+        <img src="/arcadia/arcadia_map.jpg" alt="Map Location" />
+        <img src="/arcadia/arcadia_map1.jpg" alt="Location Overview" />
       </div>
       <Footer />
     </div>
