@@ -223,6 +223,9 @@ const App = () => {
             <li className="text-base sm:text-lg">
               <Link to="/pithampur">Balaji Realty</Link>
             </li>
+            <li className="text-base sm:text-lg">
+              <Link to="/">Shubham Buildcon</Link>
+            </li>
           </ul>
         </div>
 
