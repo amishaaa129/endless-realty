@@ -35,7 +35,7 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold text-gray-100 mb-4">Contact Us</h4>
             <p className="text-gray-400">Caps Town, Indore, MP 452010</p>
-            <p className="text-gray-400">Email: sales@endlessrealty.com</p>
+            <p className="text-gray-400">Email: endlessrealtyindore@gmail.com</p>
             <p className="text-gray-400">Phone: +91 731 498 5600</p>
           </div>
           <div>
