@@ -12,12 +12,12 @@ const Vrindavan = () => {
       
       <div className="vrindavan-card">
         <img
-          src="/images/vrindavan.png"
+          src="/images/arcadia.jpeg"
           alt="Vrindavan Property"
           className="property-image"
         />
-        <h2 className="property-title">Vrindavan Premium</h2>
-        <button className="know-more-button" onClick={() => navigate('/vrindavan-premium-row-houses')}>
+        <h2 className="property-title">Shubham Arcadia</h2>
+        <button className="know-more-button" onClick={() => navigate('/arcadia-premium')}>
           Click to Know More
         </button>
       </div>

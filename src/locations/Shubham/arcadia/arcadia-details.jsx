@@ -4,7 +4,7 @@ import Header from '../../../components/Header';
 import Footer from '../../../components/footer';
 import './arcadia.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import {  Autoplay } from 'swiper/modules';
+import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
@@ -17,7 +17,7 @@ const VrindavanDetails = () => {
       {/* Constant Video Section */}
       <div className="video-wrapper top-video">
         <video
-          src="/vrindavan/vrandavan_video.mp4"
+          src="/arcadia/arcadia_video.mp4"
           title="Property Video"
           autoPlay
           muted
@@ -29,72 +29,77 @@ const VrindavanDetails = () => {
 
       {/* Property Content Section */}
       <div className="property-info-section">
-        <h1>🌿 Vrindavan Premium — Affordable Luxury Living at CAT Road, Indore</h1>
-        <h3>RERA Approved | By Vrindavan Group | Marketed by Endless Realty</h3>
+        <h1>🏙️ Shubham Arcadia — Premium Township on Indore-Ujjain Road</h1>
+        <h3>RERA & TNCP Approved | 31 Acres Township | Marketed by REALTY 21 INFRA</h3>
         <p>
-          Discover a perfect blend of affordability and premium lifestyle at Vrindavan Premium, an exclusive residential colony located on CAT Road near Surya Mandir, Indore. Developed by the trusted Vrindavan Group and marketed by Endless Realty, this RERA-approved project redefines quality living close to nature yet well-connected to the city.
+          Shubham Arcadia is a landmark premium plotting project spread across 31 acres on Indore-Ujjain Road, opposite Prestige University. With extensive recreational amenities and robust infrastructure, this township offers a balanced lifestyle in a future-forward location.
         </p>
 
         <h3>📍 Prime Location</h3>
         <p>
-          Situated strategically between Indore city and Pithampur Industrial Area, Vrindavan Premium offers unmatched connectivity, making it ideal for working professionals, families, and investors alike. The upcoming 6-lane Indore-Pithampur highway and proposed metro line will further enhance accessibility in the near future.
+          Located directly on Indore-Ujjain Road, the township enjoys seamless access to the city’s core and outer bypasses, making it ideal for both residential and investment purposes.
         </p>
 
-        <h3>🏡 Project Highlights:</h3>
+        <h3>🏡 Project Highlights & Amenities</h3>
         <ul>
-          <li>170+ East & West-facing plots</li>
-          <li>Standard plot size: 1000 sq.ft. (20ft × 50ft)</li>
-          <li>Wide internal roads for smooth traffic flow</li>
-          <li>Underground electrification for a cleaner aesthetic</li>
-          <li>High rental and resale demand in the area</li>
+          <li>Road sizes: 30 ft and 40 ft wide</li>
+          <li>4 Acres of amenities including a 23,000 sq.ft. Clubhouse, Swimming Pool, and Temple</li>
+          <li>53,000 sq.ft. Sports Ground with Football Field, Cricket Pitch, and multi-sport courts</li>
+          <li>Dedicated Elder’s Park and Kid’s Park</li>
+          <li>Amphitheatre and Eco Gym</li>
+          <li>Beautifully Landscaped Gardens</li>
+          <li>Underground services: electricity, water supply, drainage, sewer system, cable network, and storm line</li>
+          <li>Underground sump well for water supply</li>
+          <li>Sewer Treatment Plant (STP)</li>
+          <li>Attractive Entrance Gates</li>
+          <li>Full boundary wall for colony security</li>
+          <li>Front boundary fascia on every plot</li>
+          <li>Solar-powered street lights (no overhead cables)</li>
         </ul>
 
-        <h3>📈 Investment Potential</h3>
+        <h3>📐 Plot Sizes Available</h3>
         <p>
-          With the ongoing development in the vicinity and upcoming infrastructure projects, Vrindavan Premium promises an estimated ROI of 20–22% annually, making it a smart choice for real estate investors.
+          Choose from multiple plot sizes: <strong>700, 1000, 1125, 1800, and 2400 sq.ft.</strong>
         </p>
 
-        <h3>🎓 Education & Institutions Nearby:</h3>
+        <h3>🔌 Infrastructure Extras</h3>
         <ul>
-          <li>Schools: St. Norbert School, Golden International School</li>
-          <li>Colleges: IIM Indore, IIST College, LNCT Indore Campus</li>
+          <li>Double electricity cable network till the plots</li>
+          <li><strong>5 Years Clubhouse Membership</strong> from completion certificate date or until December 2030</li>
+          <li><strong>2 Years Society Maintenance Charges</strong> covered from completion certificate date</li>
         </ul>
 
-        <h3>🛕 Temples & Connectivity:</h3>
-        <ul>
-          <li>Nearby religious landmarks: Surya Mandir & Ranjit Hanuman Mandir</li>
-          <li>Railway Stations: Rau & Rajendra Nagar – just 3.5 km away</li>
-        </ul>
-
-        <h3>🛍️ Lifestyle & Essentials:</h3>
-        <ul>
-          <li>Daily need shops within 1 km</li>
-          <li>D-Mart and Kalyan Mart – within 3 km</li>
-          <li>2 existing multiplexes and 3–4 upcoming shopping malls (completion expected within 2 years)</li>
-        </ul>
-
+        <h3>📑 Legal Approvals & Progress</h3>
         <p>
-          Vrindavan Premium isn't just a colony—it's a vision of better living backed by trusted developers and future-ready infrastructure. Whether you’re looking to build your dream home or make a solid investment, this is the opportunity you’ve been waiting for.
+          All necessary permissions secured — <strong>TNCP and RERA Approved</strong>. Building permission expected by <strong>June 2025</strong>. Development is in full swing. For actual site layout and progress, a site visit is recommended.
         </p>
 
-        <p>
-          🔗 <strong>For booking & site visits, connect with Endless Realty today!</strong><br />
-          📞 Call: 70005-66820 / 87707-02367<br />
+        <h3>🏗️ Project & Developer Information</h3>
+        <ul>
+          <li>Project by: <strong>Shubham Group</strong></li>
+          <li>Developer: <strong>Mr. Sumit Mantri</strong></li>
+          <li>Marketed by: <strong>ENDLESS REALTY </strong></li>
+          <li>Office: Caps Town, Indore, MP 452010</li>
+        </ul>
+
+        <p className="mt-4">
+          📞 <strong>For booking & site visits, contact ENDLESS REALTY  today!</strong><br />
+          📱 Call: +91 7314985600<br />
           🌐 <a href="https://www.endlessrealty.in" target="_blank" rel="noopener noreferrer">www.endlessrealty.in</a><br />
-          📱 Follow us on Facebook & Instagram
+          📸 Follow us on Facebook & Instagram
         </p>
       </div>
 
       {/* Swiper Image Gallery */}
       <div className="swiper-container">
         <Swiper
-          modules={[ Autoplay]}
+          modules={[Autoplay]}
           spaceBetween={20}
           slidesPerView={1}
           loop={true}
           autoplay={{ delay: 3000, disableOnInteraction: false }}
           pagination={{ clickable: true }}
-          
+
         >
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (
             <SwiperSlide key={num}>

@@ -4,7 +4,7 @@ import Header from '../../../components/Header';
 import Footer from '../../../components/footer';
 import './valley.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import {  Autoplay } from 'swiper/modules';
+import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
@@ -29,72 +29,67 @@ const VrindavanDetails = () => {
 
       {/* Property Content Section */}
       <div className="property-info-section">
-        <h1>🌿 Vrindavan Premium — Affordable Luxury Living at CAT Road, Indore</h1>
-        <h3>RERA Approved | By Vrindavan Group | Marketed by Endless Realty</h3>
+        <h1>🏞️ Shubham Valley — Hill View Plots at Indore Rau Bypass</h1>
+        <h3>RERA & TNCP Approved | By Shubham Homes Pvt. Ltd. | Marketed by REALTY 21 INFRA</h3>
         <p>
-          Discover a perfect blend of affordability and premium lifestyle at Vrindavan Premium, an exclusive residential colony located on CAT Road near Surya Mandir, Indore. Developed by the trusted Vrindavan Group and marketed by Endless Realty, this RERA-approved project redefines quality living close to nature yet well-connected to the city.
+          Discover an exclusive opportunity to own hill view plots adjacent to DPS School Rau, located at a **very premium location on Indore Rau Bypass**. With exceptional natural surroundings and prime urban connectivity, Shubham Valley is a perfect blend of serenity and investment value.
         </p>
 
         <h3>📍 Prime Location</h3>
         <p>
-          Situated strategically between Indore city and Pithampur Industrial Area, Vrindavan Premium offers unmatched connectivity, making it ideal for working professionals, families, and investors alike. The upcoming 6-lane Indore-Pithampur highway and proposed metro line will further enhance accessibility in the near future.
+          Strategically located next to DPS School, Rau, the project offers easy access to Indore city, educational institutes, and major highways. Its proximity to the bypass ensures smooth connectivity while maintaining a peaceful environment.
         </p>
 
-        <h3>🏡 Project Highlights:</h3>
+        <h3>🏡 Project Amenities:</h3>
         <ul>
-          <li>170+ East & West-facing plots</li>
-          <li>Standard plot size: 1000 sq.ft. (20ft × 50ft)</li>
-          <li>Wide internal roads for smooth traffic flow</li>
-          <li>Underground electrification for a cleaner aesthetic</li>
-          <li>High rental and resale demand in the area</li>
+          <li>30 ft and 35 ft wide internal roads</li>
+          <li>Underground utilities like water supply, drainage, and stormwater line</li>
+          <li>Dedicated nature walk areas</li>
+          <li>Sewer Treatment Plant (STP)</li>
+          <li>Attractive entrance gates for a grand entry</li>
+          <li>Full boundary wall for colony safety and security</li>
+          <li>Main road-facing commercial plots available</li>
+          <li>Easy finance options available</li>
+          <li>Scenic views of Ahilya Hills and the city</li>
         </ul>
 
-        <h3>📈 Investment Potential</h3>
+        <h3>📐 Plot Sizes</h3>
         <p>
-          With the ongoing development in the vicinity and upcoming infrastructure projects, Vrindavan Premium promises an estimated ROI of 20–22% annually, making it a smart choice for real estate investors.
+          Available plot sizes range from <strong>600 sq.ft. to 1200 sq.ft.</strong> to suit every need.
         </p>
 
-        <h3>🎓 Education & Institutions Nearby:</h3>
-        <ul>
-          <li>Schools: St. Norbert School, Golden International School</li>
-          <li>Colleges: IIM Indore, IIST College, LNCT Indore Campus</li>
-        </ul>
-
-        <h3>🛕 Temples & Connectivity:</h3>
-        <ul>
-          <li>Nearby religious landmarks: Surya Mandir & Ranjit Hanuman Mandir</li>
-          <li>Railway Stations: Rau & Rajendra Nagar – just 3.5 km away</li>
-        </ul>
-
-        <h3>🛍️ Lifestyle & Essentials:</h3>
-        <ul>
-          <li>Daily need shops within 1 km</li>
-          <li>D-Mart and Kalyan Mart – within 3 km</li>
-          <li>2 existing multiplexes and 3–4 upcoming shopping malls (completion expected within 2 years)</li>
-        </ul>
-
+        <h3>📑 Legal & Approval</h3>
         <p>
-          Vrindavan Premium isn't just a colony—it's a vision of better living backed by trusted developers and future-ready infrastructure. Whether you’re looking to build your dream home or make a solid investment, this is the opportunity you’ve been waiting for.
+          All required approvals in place — <strong>TNCP and RERA approved</strong>. 60% of development work is already completed.
+          For accurate plot positioning and on-ground view, we recommend scheduling a site visit.
         </p>
 
-        <p>
-          🔗 <strong>For booking & site visits, connect with Endless Realty today!</strong><br />
-          📞 Call: 70005-66820 / 87707-02367<br />
+        <h3>🏗️ Project & Developer Details</h3>
+        <ul>
+          <li>Project by: <strong>Shubham Homes Pvt. Ltd.</strong></li>
+          <li>Developer: <strong>Mr. Sumit Mantri</strong></li>
+          <li>Marketed by: <strong>ENDLESS REALTY </strong></li>
+          <li>Office: Caps Town, Indore, MP 452010</li>
+        </ul>
+
+        <p className="mt-4">
+          📞 <strong>For booking & site visits, contact ENDLESS REALTY today!</strong><br />
+          📱 Call: +91 731 498 5600<br />
           🌐 <a href="https://www.endlessrealty.in" target="_blank" rel="noopener noreferrer">www.endlessrealty.in</a><br />
-          📱 Follow us on Facebook & Instagram
+          📸 Follow us on Facebook & Instagram
         </p>
       </div>
 
       {/* Swiper Image Gallery */}
       <div className="swiper-container">
         <Swiper
-          modules={[ Autoplay]}
+          modules={[Autoplay]}
           spaceBetween={20}
           slidesPerView={1}
           loop={true}
           autoplay={{ delay: 3000, disableOnInteraction: false }}
           pagination={{ clickable: true }}
-          
+
         >
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (
             <SwiperSlide key={num}>
