@@ -356,9 +356,10 @@ const App = () => {
                 <i className="fas fa-vr-cardboard mr-2"></i>
                 Take a Virtual Tour
               </a>
-              <a href="#contact" className="flex items-center justify-center">
+              <a href="tel:+918989941900" className="flex items-center justify-center">
                 <span className="text-white font-medium">Talk to an Expert</span>
-                <i className="fas fa-long-arrow-alt-right ml-2 text-blue-300"></i>
+                <span className="text-white font-medium">+918989941900</span>
+                <i className="fas fa-phone ml-2 text-blue-300"></i>
               </a>
             </div>
           </div>
