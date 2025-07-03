@@ -4,6 +4,7 @@ import Footer from "../../components/footer";
 import Property1 from "./valley/valley";
 import Property2 from "./arcadia/arcadia";
 import Property3 from "./tsv/tsv";
+import Property4 from "./eleven/eleven";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
@@ -34,7 +35,7 @@ const Main = () => {
             <Property1 />
             <Property2 />
             <Property3 />   
-            
+            <Property4 /> 
           </div>
         </div>
         {/* Swiper Image Gallery */}

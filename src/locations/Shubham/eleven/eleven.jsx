@@ -1,10 +1,10 @@
 // File: vrindavan.jsx
 import React from 'react';
-import './tsv.css';
+import './eleven.css';
 import { useNavigate } from 'react-router-dom';
 
 
-const Vrindavan = () => {
+const Eleven = () => {
   const navigate = useNavigate();
 
   return (
@@ -12,12 +12,12 @@ const Vrindavan = () => {
       
       <div className="vrindavan-card">
         <img
-          src="/images/tsv.jpeg"
+          src="/images/eleven.jpeg"
           alt="Vrindavan Property"
           className="property-image"
         />
-        <h2 className="property-title">Shubham TSV</h2>
-        <button className="know-more-button" onClick={() => navigate('/tsv-premium')}>
+        <h2 className="property-title">Shubham Eleven</h2>
+        <button className="know-more-button" onClick={() => navigate('/eleven-premium')}>
           Click to Know More
         </button>
       </div>
@@ -26,4 +26,4 @@ const Vrindavan = () => {
   );
 };
 
-export default Vrindavan;
+export default Eleven;
