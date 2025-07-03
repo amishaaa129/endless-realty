@@ -38,26 +38,31 @@ const Main = () => {
           </div>
         </div>
         {/* Swiper Image Gallery */}
-      <div className="swiper-container">
-        <Swiper
-          modules={[Autoplay]}
-          spaceBetween={20}
-          slidesPerView={1}
-          loop={true}
-          autoplay={{ delay: 3000, disableOnInteraction: false }}
-          pagination={{ clickable: true }}
-
-        >
-          {[4, 5, 6, 7].map((num) => (
-            <SwiperSlide key={num}>
-              <img
-                src={`/shubham_achievment/achievment${num}.jpeg`}
-                alt={`achievment ${num}`}
-                className="swiper-image object-contain"
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper>
+      <div className="w-full max-w-4xl mx-auto mt-12">
+        <h2 className="text-3xl font-bold text-center text-gray-900 mb-8">
+          Achievements
+        </h2>
+        <div className="swiper-container h-96">
+          <Swiper
+            modules={[Autoplay]}
+            spaceBetween={20}
+            slidesPerView={1}
+            loop={true}
+            autoplay={{ delay: 3000, disableOnInteraction: false }}
+            pagination={{ clickable: true }}
+            className="h-full"
+          >
+            {[4, 5, 6, 7].map((num) => (
+              <SwiperSlide key={num} className="flex items-center justify-center">
+                <img
+                  src={`/shubham_achievment/achievment${num}.jpeg`}
+                  alt={`Achievement ${num}`}
+                  className="max-w-full max-h-full object-contain rounded-lg shadow-lg"
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
       </div>
       </main>
 
