@@ -6,7 +6,7 @@ import './about.css';
 
 const team = [
   {
-    name: 'Sachin Sahu',
+    name: 'Sachin Kumar Sahu',
     title: 'Visionary Leader | Electrical Engineer',
     bio: ' Sachin\'s journey is one of resilience, vision, and integrity. From rental homes to developing 200+ homes and selling 1000+ plots, he created Endless Realty as a reflection of trust. He doesn\'t just sell plots – he builds possibilities, prosperity, and pride.',
     image: '/images/about/sachin.jpeg'
