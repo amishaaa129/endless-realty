@@ -48,7 +48,7 @@ const Main = () => {
           pagination={{ clickable: true }}
 
         >
-          {[1, 2, 3, 4, 5, 6, 7].map((num) => (
+          {[4, 5, 6, 7].map((num) => (
             <SwiperSlide key={num}>
               <img
                 src={`/shubham_achievment/achievment${num}.jpeg`}

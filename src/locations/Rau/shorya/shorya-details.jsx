@@ -15,6 +15,27 @@ const VrindavanDetails = () => {
   return (
     <div>
       <Header />
+      {/* Constant Video Section */}
+      <div className="video-wrapper top-video">
+        <video
+          src="/shorya/shorya.mp4"
+          title="Property Video"
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="video-player"
+        />
+      </div>
+      
+
+      
+
+      {/* Property Content Section */}
+      <div className="max-w-4xl mx-auto px-6 py-12">
+        <h2 className="text-3xl font-bold text-center mb-6">SHOURYA VIHAR Proposed Project</h2>
+        
+      </div>
       <div className="swiper-container">
         <Swiper
           modules={[Autoplay]}
@@ -35,14 +56,6 @@ const VrindavanDetails = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-      </div>
-
-      
-
-      {/* Property Content Section */}
-      <div className="max-w-4xl mx-auto px-6 py-12">
-        <h2 className="text-3xl font-bold text-center mb-6">SHOURYA VIHAR Proposed Project</h2>
-        
       </div>
 
       
