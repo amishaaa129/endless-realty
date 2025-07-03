@@ -20,16 +20,16 @@ const searchProperties = async (req, res) => {
 
     if (type) {
       conditions.push(`REPLACE(LOWER(type), ' ', '-') = $${values.length + 1}`);
-      values.push(type.toLowerCase());  
+      values.push(type.toLowerCase());
     }
 
     if (min) {
-      conditions.push(`price >= $${values.length + 1}`);
+      conditions.push(`price_value IS NOT NULL AND price_value >= $${values.length + 1}`);
       values.push(Number(min));
     }
 
     if (max) {
-      conditions.push(`price <= $${values.length + 1}`);
+      conditions.push(`price_value IS NOT NULL AND price_value <= $${values.length + 1}`);
       values.push(Number(max));
     }
 

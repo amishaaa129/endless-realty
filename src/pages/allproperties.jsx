@@ -136,7 +136,7 @@ const SearchResults = () => {
                   <div>
                     <span className="text-gray-500 text-sm">Starting at</span>
                     <div className="text-xl font-bold text-gray-900">
-                      ₹{(property.price / 100000).toFixed(2)} Lakhs
+                      {property.price_label || `₹${(property.price_value / 100000).toFixed(2)} Lakhs`}
                     </div>
                   </div>
                   <a

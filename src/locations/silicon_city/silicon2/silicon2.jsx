@@ -19,7 +19,7 @@ const Silicon = () => {
         />
         <div className="sold-out-tag">SOLD OUT</div>
         <h2 className="property-title">Silver Star City project</h2>
-        <button className="know-more-button" onClick={() => navigate('/silicon2-premium')}>
+        <button className="know-more-button" onClick={() => navigate('/silver-star-city-project')}>
           Click to Know More
         </button>
       </div>

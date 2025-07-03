@@ -18,7 +18,7 @@ const Silicon = () => {
         />
         <div className="sold-out-tag">SOLD OUT</div>
         <h2 className="property-title">Pulak City</h2>
-        <button className="know-more-button" onClick={() => navigate('/silicon3-premium')}>
+        <button className="know-more-button" onClick={() => navigate('/pulak-city')}>
           Click to Know More
         </button>
       </div>
