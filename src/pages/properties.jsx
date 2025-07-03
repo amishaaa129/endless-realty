@@ -1,5 +1,5 @@
-import React from 'react';
- // import './main.css';
+import React, {useEffect} from 'react';
+
 import Header from '../components/Header';
 import Footer from '../components/footer';
 import Property1 from '../locations/Cat_road/vrindavan';
@@ -15,6 +15,10 @@ import Property10 from '../locations/silicon_city/silicon2/silicon2';
 import Property11 from '../locations/silicon_city/silicon3/silicon3';
 
 const Properties = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
     <Header />
