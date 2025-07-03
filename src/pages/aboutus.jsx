@@ -47,8 +47,8 @@ const AboutUs = () => {
   return (
     <>
       <Header />
-      <section className="founder-story-section">
-      <div className="founder-story">
+      <section className="founder-story-section flex justify-end">
+      <div className="founder-story text-left max-w-3xl w-full mr-4">
         <h1>🏠 Endless Realty – इंदौर का भरोसेमंद Real Estate Partner</h1>
         <p><strong>हम कौन हैं:</strong><br />
           Endless Realty सिर्फ एक प्रॉपर्टी कंसल्टेंसी नहीं है — हम आपके Real Estate के सच्चे साथी हैं, जो आपकी Investment को एक मजबूत और फायदेमंद धरोहर में बदलने के लिए committed हैं।
