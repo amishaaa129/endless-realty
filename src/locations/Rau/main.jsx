@@ -7,19 +7,24 @@ import Property2 from './shorya/shorya';
 
 const SiliconCityMain = () => {
   return (
-    <div>
-      <Header />
-      
-      <div className="property-grid-container">
-        <div className="property-card">
-          <Property1 />
+    <div className="min-h-screen flex flex-col bg-gray-50">
+    <Header />
+
+      <main className="flex-grow py-16 px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center">
+            
         </div>
-        <div className="property-card">
-          <Property2 />
+        <div className="max-w-7xl mx-auto">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-center text-gray-900 mb-12">
+            Featured Properties
+          </h1>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+            <Property1 />
+            <Property2 />
+             
+          </div>
         </div>
-        
-      </div>
-      
+      </main>
       <Footer />
     </div>
   );
