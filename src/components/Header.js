@@ -55,7 +55,7 @@ const Header = () => {
               </Link>
               {isDropdownOpen && (
                 <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 py-1 z-50">
-                  {["Khandwa Road","Silicon City","Rau","Mhow","Pithampur","CAT Road","Super Corridor","Nipania","Ujjain Road","AB Bypass Road","Kanandia Road","Vijay Nagar"].map((city) => (
+                  {["Khandwa Road","Silicon City","Rau","Mhow","Pithampur","CAT Road","Super Corridor","Nipania","Ujjain Road","AB Bypass Road","Kanandia Road","Bicholi"].map((city) => (
                     <Link
                       key={city}
                       to={city === "Rau" ? "/rau" : city === "CAT Road" ? "/Cat-road" : city === "Silicon City" ? "/silicon-city" :  city === "Pithampur" ? "/pithampur" :"/cities"}
@@ -155,7 +155,7 @@ const Header = () => {
               </button>
               {isLocationDropdownOpen && (
                 <div className="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-10">
-                  {["Khandwa Road", "Silicon City", "Rau", "Mhow", "Pithampur", "CAT Road", "Super Corridor", "Nipania", "Ujjain Road", "AB Bypass Road", "Kanandia Road", "Vijay Nagar"].map((location) => (
+                  {["Khandwa Road", "Silicon City", "Rau", "Mhow", "Pithampur", "CAT Road", "Super Corridor", "Nipania", "Ujjain Road", "AB Bypass Road", "Kanandia Road", "Bicholi"].map((location) => (
                     <Link
                       key={location}
                       to={
