@@ -1,5 +1,4 @@
 import React, {useEffect} from 'react';
-
 import Header from '../components/Header';
 import Footer from '../components/footer';
 import Property1 from '../locations/Cat_road/vrindavan';
