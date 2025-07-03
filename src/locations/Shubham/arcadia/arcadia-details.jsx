@@ -30,7 +30,7 @@ const VrindavanDetails = () => {
       {/* Property Content Section */}
       <div className="property-info-section">
         <h1>🏙️ Shubham Arcadia — Premium Township on Indore-Ujjain Road</h1>
-        <h3>RERA & TNCP Approved | 31 Acres Township | Marketed by REALTY 21 INFRA</h3>
+        <h3>RERA & TNCP Approved | 31 Acres Township | Marketed by Endless Realty</h3>
         <p>
           Shubham Arcadia is a landmark premium plotting project spread across 31 acres on Indore-Ujjain Road, opposite Prestige University. With extensive recreational amenities and robust infrastructure, this township offers a balanced lifestyle in a future-forward location.
         </p>

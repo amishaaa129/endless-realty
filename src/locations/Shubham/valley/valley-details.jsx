@@ -30,7 +30,7 @@ const VrindavanDetails = () => {
       {/* Property Content Section */}
       <div className="property-info-section">
         <h1>🏞️ Shubham Valley — Hill View Plots at Indore Rau Bypass</h1>
-        <h3>RERA & TNCP Approved | By Shubham Homes Pvt. Ltd. | Marketed by REALTY 21 INFRA</h3>
+        <h3>RERA & TNCP Approved | By Shubham Homes Pvt. Ltd. | Marketed by Endless Realty</h3>
         <p>
           Discover an exclusive opportunity to own hill view plots adjacent to DPS School Rau, located at a **very premium location on Indore Rau Bypass**. With exceptional natural surroundings and prime urban connectivity, Shubham Valley is a perfect blend of serenity and investment value.
         </p>
