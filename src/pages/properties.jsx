@@ -39,7 +39,7 @@ const Properties = () => {
     {
       id: 4,
       title: 'Shubham Eleven',
-      location: 'Near UNO Business Park, Indore',
+      location: '2.6 km from AB Bypass, close to UNO Business Park, Indore',
       bhk: '',
       area_sqft: '1100-1500',
       price_label: 'Coming Soon',
