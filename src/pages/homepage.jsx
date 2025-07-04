@@ -338,7 +338,7 @@ const App = () => {
                 </div>
               </form>
             </div>
-            <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div className="mt-16 grid grid-cols-2 md:grid-cols-3 gap-6 text-center">
               
               <div className="bg-white/10 p-6 rounded-xl backdrop-blur-sm border border-white/20 shadow-lg bounce-in stagger-2">
                 <div className="text-4xl font-bold text-gradient mb-2">50+</div>
