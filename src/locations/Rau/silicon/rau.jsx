@@ -20,7 +20,7 @@ const Rau = () => {
         <div className="sold-out-tag">SOLD OUT</div>
         
         
-        <h2 className="property-title">Silicon city property</h2>
+        <h2 className="property-title">Silicon City Property</h2>
         <button className="know-more-button" onClick={() => navigate('/rau-premium')}>
           Click to Know More
         </button>

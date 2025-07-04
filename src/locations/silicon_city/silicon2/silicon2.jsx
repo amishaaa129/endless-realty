@@ -18,7 +18,7 @@ const Silicon = () => {
           className="property-image"
         />
         <div className="sold-out-tag">SOLD OUT</div>
-        <h2 className="property-title">Silver Star City project</h2>
+        <h2 className="property-title">Silver Star City Project</h2>
         <button className="know-more-button" onClick={() => navigate('/silver-star-city-project')}>
           Click to Know More
         </button>
