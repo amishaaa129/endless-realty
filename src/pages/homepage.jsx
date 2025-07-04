@@ -342,7 +342,7 @@ const App = () => {
               
               <div className="bg-white/10 p-6 rounded-xl backdrop-blur-sm border border-white/20 shadow-lg bounce-in stagger-2">
                 <div className="text-4xl font-bold text-gradient mb-2">50+</div>
-                <div className="text-sm font-medium text-gray-200">Projects "completed"</div>
+                <div className="text-sm font-medium text-gray-200">Projects Completed</div>
               </div>
               <div className="bg-white/10 p-6 rounded-xl backdrop-blur-sm border border-white/20 shadow-lg bounce-in stagger-3">
                 <div className="text-4xl font-bold text-gradient mb-2">300+</div>
