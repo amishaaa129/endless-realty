@@ -35,7 +35,7 @@ const searchProperties = async (req, res) => {
 }
 
     const whereClause = conditions.length ? `WHERE ${conditions.join(' AND ')}` : '';
-    const query = `SELECT * FROM properties ${whereClause} ORDER BY created_at DESC`;
+    const query = `SELECT * FROM properties ${whereClause} ORDER BY created_at ASC`;
 
     const result = await pool.query(query, values);
     res.json(result.rows);
