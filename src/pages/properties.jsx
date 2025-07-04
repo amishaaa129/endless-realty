@@ -31,13 +31,16 @@ const Properties = () => {
             Featured Properties
           </h1>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
-            <Property1 />
             <Property2 />
-            <Property3 />
-            <Property4 />
-            <Property5 />
             <Property6 />
             <Property7 />
+            <Property1 />
+            <Property4 />
+            <Property5 />
+            
+            <Property3 />
+            
+            
             <Property8 />
             <Property9 />
             <Property10 />
