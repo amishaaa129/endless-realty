@@ -340,16 +340,13 @@ const App = () => {
               </form>
             </div>
             <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-              <div className="bg-white/10 p-6 rounded-xl backdrop-blur-sm border border-white/20 shadow-lg bounce-in stagger-1">
-                <div className="text-4xl font-bold text-gradient mb-2">10+</div>
-                <div className="text-sm font-medium text-gray-200">Cities</div>
-              </div>
+              
               <div className="bg-white/10 p-6 rounded-xl backdrop-blur-sm border border-white/20 shadow-lg bounce-in stagger-2">
                 <div className="text-4xl font-bold text-gradient mb-2">50+</div>
-                <div className="text-sm font-medium text-gray-200">Projects</div>
+                <div className="text-sm font-medium text-gray-200">Projects "completed"</div>
               </div>
               <div className="bg-white/10 p-6 rounded-xl backdrop-blur-sm border border-white/20 shadow-lg bounce-in stagger-3">
-                <div className="text-4xl font-bold text-gradient mb-2">3000+</div>
+                <div className="text-4xl font-bold text-gradient mb-2">300+</div>
                 <div className="text-sm font-medium text-gray-200">Happy Families</div>
               </div>
               <div className="bg-white/10 p-6 rounded-xl backdrop-blur-sm border border-white/20 shadow-lg bounce-in stagger-4">
@@ -904,13 +901,7 @@ const App = () => {
               </div>
             </div>
           </div>
-          <div className="mt-16 text-center">
-            <Link
-              to="/features"
-              className="inline-flex items-center px-8 py-4 btn-gradient text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-              Explore All Amenities
-            </Link>
-          </div>
+          
         </div>
       </section>
       {/* <section id="virtual-tour" className="py-24 bg-gray-900 text-white relative overflow-hidden">
