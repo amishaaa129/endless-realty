@@ -55,6 +55,7 @@ const Properties = () => {
       price_label: 'Coming Soon',
       thumbnail_url: '/images/tsv.jpeg',
     },
+    
     {
       id: 6,
       title: 'Shourya Vihar',
