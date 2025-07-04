@@ -64,7 +64,7 @@ const VrindavanDetails = () => {
 
         <p className="mt-4">
           📞 <strong>For booking & site visits, contact ENDLESS REALTY  today!</strong><br />
-          📱 Call: +91 7314985600<br />
+          📱 Call: +91 89899 41900<br />
           🌐 <a href="https://www.endlessrealty.in" target="_blank" rel="noopener noreferrer">www.endlessrealty.in</a><br />
           📸 Follow us on Facebook & Instagram
         </p>
