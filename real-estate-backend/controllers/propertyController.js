@@ -19,9 +19,12 @@ const searchProperties = async (req, res) => {
     }
 
     if (type) {
-      conditions.push(`REPLACE(LOWER(type), ' ', '-') = $${values.length + 1}`);
-      values.push(type.toLowerCase());
-    }
+  conditions.push(`(
+    type IS NULL OR 
+    REPLACE(LOWER(type), ' ', '-') = $${values.length + 1}
+  )`);
+  values.push(type.toLowerCase());
+}
 
     if (min && max) {
   conditions.push(`
