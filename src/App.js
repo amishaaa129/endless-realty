@@ -53,7 +53,7 @@ function App() {
       <Route path="/silicon-city-s-sector" element={<S1details />} />
       <Route path="/silver-star-city-project" element={<S2details />} />
       <Route path="/pulak-city" element={<S3details />} />
-      <Route path="/shourya-premium" element={<Shoryadetails />} />
+      <Route path="/shourya-vihar" element={<Shoryadetails />} />
       <Route path ="/shubham-valley" element={<Valleydetails />} />
       <Route path ="/shubham-tsv" element={<Tsvdetails />} />
       <Route path ="/shubham-arcadia" element={<Arcadiadetails />} />
