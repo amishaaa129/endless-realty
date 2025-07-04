@@ -23,15 +23,13 @@ const searchProperties = async (req, res) => {
       values.push(type.toLowerCase());
     }
 
-    if (min) {
-      conditions.push(`price_value IS NOT NULL AND price_value >= $${values.length + 1}`);
-      values.push(Number(min));
-    }
-
-    if (max) {
-      conditions.push(`price_value IS NOT NULL AND price_value <= $${values.length + 1}`);
-      values.push(Number(max));
-    }
+    if (min && max) {
+  conditions.push(`
+    (price_value IS NULL OR 
+    (price_value IS NOT NULL AND price_value >= $${values.length + 1} AND price_value <= $${values.length + 2}))
+  `);
+  values.push(Number(min), Number(max));
+}
 
     const whereClause = conditions.length ? `WHERE ${conditions.join(' AND ')}` : '';
     const query = `SELECT * FROM properties ${whereClause} ORDER BY created_at DESC`;
