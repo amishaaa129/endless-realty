@@ -240,28 +240,59 @@ const App = () => {
             "url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')",
         }}
       >
-        {/* Card */}
-        <div className="absolute top-4 left-4 sm:top-10 sm:left-10 bg-white/10 backdrop-blur-md text-white p-4 sm:p-6 rounded-lg shadow-lg max-w-xs w-[90%] sm:w-auto z-20 transform transition-transform duration-300 hover:scale-105">
-          <h2 className="text-lg sm:text-xl font-bold mb-2 text-blue-300">Realty Alliance</h2>
-          <ul className="list-disc list-inside mt-2 sm:mt-4">
-            <li className="text-base sm:text-lg">
-              <Link to="/cat-road">Vrindavan Premium</Link>
-            </li>
-            <li className="text-base sm:text-lg">
-              <Link to="/pithampur">Balaji Realty</Link>
-            </li>
-            <li className="text-base sm:text-lg">
-              <Link to="/shubham">Shubham Buildcon</Link>
-            </li>
-          </ul>
-        </div>
-        <div className="absolute top-4 right-2 sm:top-10 sm:right-5 bg-white/10 backdrop-blur-md text-white p-3 sm:p-4 rounded-lg shadow-lg w-[80%] sm:w-auto max-w-sm z-20 transform transition-transform duration-300 hover:scale-105">
-          <h2 className="text-lg sm:text-xl font-bold mb-2 text-blue-300">CALL US NOW</h2>
-          <ul className="list-disc list-inside mt-2 sm:mt-4">
-            <li className="text-base sm:text-lg">
-              <a href="tel:+918989941900">+91 8989941900</a>
-            </li>
-          </ul>
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black/60"></div>
+        {/* Cards Container - Responsive Layout */}
+        <div className="p-4 sm:absolute sm:inset-0 sm:p-0 z-30 relative">
+          <div className="flex flex-col space-y-4 sm:hidden">
+            {/* Mobile: Stacked Cards */}
+            <div className="bg-gradient/30 backdrop-blur-md text-white p-4 rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105">
+              <h2 className="text-lg font-bold mb-2 text-blue-300">Realty Alliance</h2>
+              <ul className="list-disc list-inside mt-2">
+                <li className="text-base">
+                  <Link to="/cat-road">Vrindavan Premium</Link>
+                </li>
+                <li className="text-base">
+                  <Link to="/pithampur">Balaji Realty</Link>
+                </li>
+                <li className="text-base">
+                  <Link to="/shubham">Shubham Buildcon</Link>
+                </li>
+              </ul>
+            </div>
+            <div className="bg-gradient/30 backdrop-blur-md text-white p-4 rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105">
+              <h2 className="text-lg font-bold mb-2 text-blue-300">CALL US NOW</h2>
+              <div className="text-base flex items-center mt-2">
+                <i className="fas fa-phone-alt mr-2 text-blue-300"></i>
+                <a href="tel:+918989941900">+91 89899 41900</a>
+              </div>
+            </div>
+          </div>
+          
+          {/* Desktop: Absolute Positioned Cards */}
+          <div className="hidden sm:block">
+            <div className="absolute top-10 left-10 bg-black/30 backdrop-blur-md text-white p-6 rounded-lg shadow-lg max-w-xs transform transition-transform duration-300 hover:scale-105">
+              <h2 className="text-xl font-bold mb-2 text-blue-300">Realty Alliance</h2>
+              <ul className="list-disc list-inside mt-4">
+                <li className="text-lg">
+                  <Link to="/cat-road">Vrindavan Premium</Link>
+                </li>
+                <li className="text-lg">
+                  <Link to="/pithampur">Balaji Realty</Link>
+                </li>
+                <li className="text-lg">
+                  <Link to="/shubham">Shubham Buildcon</Link>
+                </li>
+              </ul>
+            </div>
+            <div className="absolute top-10 right-10 bg-black/30 backdrop-blur-md text-white p-6 rounded-lg shadow-lg max-w-xs transform transition-transform duration-300 hover:scale-105">
+              <h2 className="text-xl font-bold mb-2 text-blue-300">CALL US NOW</h2>
+              <div className="text-lg flex items-center mt-4">
+                <i className="fas fa-phone-alt mr-2 text-blue-300"></i>
+                <a href="tel:+918989941900">+91 89899 41900</a>
+              </div>
+            </div>
+          </div>
         </div>
 
         <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500"></h1>
