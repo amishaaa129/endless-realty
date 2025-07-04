@@ -90,7 +90,7 @@ const App = () => {
               </a>
               {isDropdownOpen && (
                 <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 py-1 z-50">
-                  {["Khandwa Road", "Silicon City", "Rau", "Mhow", "Pithampur", "CAT Road", "Super Corridor", "Nipania", "Ujjain Road", "AB Bypass Road", "Kanandia Road", "Vijay Nagar"].map((city) => (
+                  {["Khandwa Road", "Silicon City", "Rau", "Mhow", "Pithampur", "CAT Road", "Super Corridor", "Nipania", "Ujjain Road", "AB Bypass Road", "Kanandia Road", "Bicholi"].map((city) => (
                     <Link
                       key={city}
                       to={city === "Rau" ? "/rau" : city === "CAT Road" ? "/cat-road" : city === "Silicon City" ? "/silicon-city" : city === "Pithampur" ? "/pithampur" : "/cities"}
@@ -199,7 +199,7 @@ const App = () => {
               </button>
               {isLocationDropdownOpen && (
                 <div className="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-10">
-                  {["Khandwa Road", "Silicon City", "Rau", "Mhow", "Pithampur", "CAT Road", "Super Corridor", "Nipania", "Ujjain Road", "AB Bypass Road", "Kanandia Road", "Vijay Nagar"].map((location) => (
+                  {["Khandwa Road", "Silicon City", "Rau", "Mhow", "Pithampur", "CAT Road", "Super Corridor", "Nipania", "Ujjain Road", "AB Bypass Road", "Kanandia Road", "Bicholi"].map((location) => (
                     <Link
                       key={location}
                       to={
@@ -303,7 +303,7 @@ const App = () => {
                     <option value="ujjain-road">Ujjain Road</option>  
                     <option value="ab-bypass-road">AB Bypass Road</option>
                     <option value="kanandia-road">Kanandia Road</option>
-                    <option value="vijay-nagar">Vijay Nagar</option>
+                    <option value="bicholi">Bicholi</option>
                   </select>
                 </div>
                 <div className="flex-1 mb-3 md:mb-0 md:mr-3">
@@ -339,7 +339,7 @@ const App = () => {
                 </div>
               </form>
             </div>
-            <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div className="mt-16 grid grid-cols-2 md:grid-cols-3 gap-6 text-center">
               
               <div className="bg-white/10 p-6 rounded-xl backdrop-blur-sm border border-white/20 shadow-lg bounce-in stagger-2">
                 <div className="text-4xl font-bold text-gradient mb-2">50+</div>

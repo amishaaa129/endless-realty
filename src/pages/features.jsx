@@ -99,23 +99,28 @@ const Features = () => {
     {
       title: 'Activities',
       desc: 'Engage in a variety of activities designed to enhance your experience.',
-      isActivity: true
+      isActivity: true,
+      src: '/images/whats-new/activities.JPG',
     },
     {
       title: 'Property News',
       desc: 'Stay updated with the latest trends and news in the real estate market.',
+      src: '/images/whats-new/property-news.jpeg',
     },
     {
       title: 'Gallery',
       desc: 'Browse through our collection of images showcasing our properties and events.',
+      src: '/images/whats-new/gallery.jpeg',
     },
     {
       title: 'Updates',
       desc: 'Get the latest updates about our platform and services.',
+      src: '/images/whats-new/updates.jpeg',
     },
     {
       title: 'Testimonials',
       desc: 'Hear what our satisfied customers have to say about us.',
+      src: '/images/whats-new/testimonials.jpeg',
     },
   ];
 
@@ -125,24 +130,41 @@ const Features = () => {
       <Header />
 
       <main className="py-10 px-4 md:px-12 bg-gray-100 min-h-screen">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {featureCards.map((item, index) => (
-            <div
-              key={index}
-              onClick={item.isActivity ? handleActivityClick : undefined}
-              className={`bg-white p-4 rounded-xl shadow-md hover:shadow-xl transform transition-all duration-300 hover:-translate-y-1 animate-fade-in ${item.isActivity ? 'cursor-pointer hover:bg-blue-50' : ''
-                }`}
-            >
-              <h2 className="text-xl font-semibold mb-2 text-gray-800">{item.title}</h2>
-              <p className="text-gray-600">{item.desc}</p>
-              {item.isActivity && (
-                <div className="mt-4 text-blue-600 text-sm font-medium">
-                  Click to view activities →
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {featureCards.map((item, index) => (
+      <div
+        key={index}
+        onClick={item.isActivity ? handleActivityClick : undefined}
+        className={`bg-white p-4 rounded-xl shadow-md hover:shadow-xl transform transition-all duration-300 hover:-translate-y-1 animate-fade-in ${
+          item.isActivity ? 'cursor-pointer hover:bg-blue-50' : ''
+        }`}
+      >
+        {/* Image at top */}
+        {item.src && (
+          <img
+            src={item.src}
+            alt={item.title}
+            className="w-full h-40 object-cover rounded-md mb-4"
+          />
+        )}
+
+        {/* Title */}
+        <h2 className="text-xl font-semibold mb-2 text-gray-800">
+          {item.title}
+        </h2>
+
+        {/* Description */}
+        <p className="text-gray-600">{item.desc}</p>
+
+        {/* CTA for activities */}
+        {item.isActivity && (
+          <div className="mt-4 text-blue-600 text-sm font-medium">
+            Click to view activities →
+          </div>
+        )}
+      </div>
+    ))}
+  </div>
         {/* Auto-Swiper Section using Swiper Library */}
       <section className="pt-40 pb-24 ">
         <div className="container mx-auto px-6 sm:px-8 lg:px-12">
