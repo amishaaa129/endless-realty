@@ -25,6 +25,7 @@ import Shoryadetails from './locations/Rau/shorya/shorya-details';
 import Valleydetails from './locations/Shubham/valley/valley-details';
 import Tsvdetails from './locations/Shubham/tsv/tsv-details';
 import Arcadiadetails from './locations/Shubham/arcadia/arcadia-details';
+import Elevendetails from './locations/Shubham/eleven/eleven-details';
 function App() {
   return (
     <Routes>
@@ -56,6 +57,7 @@ function App() {
       <Route path ="/valley-premium" element={<Valleydetails />} />
       <Route path ="/tsv-premium" element={<Tsvdetails />} />
       <Route path ="/arcadia-premium" element={<Arcadiadetails />} />
+      <Route path ="/eleven-premium" element={<Elevendetails />} />
     </Routes>
   );
 }

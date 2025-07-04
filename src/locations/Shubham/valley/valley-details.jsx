@@ -15,16 +15,19 @@ const VrindavanDetails = () => {
       <Header />
 
       {/* Constant Video Section */}
+      {/* YouTube Video Section */}
       <div className="video-wrapper top-video">
-        <video
-          src="/valley/valley_video.mp4"
-          title="Property Video"
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="video-player"
-        />
+        <div className="video-player aspect-w-16 aspect-h-9">
+          <iframe
+            width="100%"
+            height="100%"
+            src="https://www.youtube.com/embed/lrlZGgVedNc?autoplay=1&mute=1&loop=1&playlist=lrlZGgVedNc"
+            title="Property Video"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        </div>
       </div>
 
       {/* Property Content Section */}
@@ -80,7 +83,7 @@ const VrindavanDetails = () => {
         </p>
       </div>
 
-      {/* Swiper Image Gallery */}
+      {/* Swiper Image Gallery 
       <div className="swiper-container">
         <Swiper
           modules={[Autoplay]}
@@ -103,10 +106,10 @@ const VrindavanDetails = () => {
         </Swiper>
       </div>
 
-      {/* Map Section */}
+      {/* Map Section 
       <div className="map-image">
         <img src="/vrindavan/vrindavan-map.jpeg" alt="Map Location" />
-      </div>
+      </div> */}
       <Footer />
     </div>
   );
