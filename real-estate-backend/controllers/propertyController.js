@@ -38,6 +38,11 @@ const searchProperties = async (req, res) => {
 
     const result = await pool.query(query, values);
     res.json(result.rows);
+
+    console.log('🔍 Backend search triggered');
+console.log('city:', city);
+console.log('Final query:', query);
+console.log('Values:', values);
   } catch (err) {
     console.error('Error fetching properties:', err);
     res.status(500).json({ error: 'Server error while fetching properties' });
