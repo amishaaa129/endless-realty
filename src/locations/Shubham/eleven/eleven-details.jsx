@@ -14,7 +14,7 @@ const VrindavanDetails = () => {
     <div>
       <Header />
 
-      {/* Constant Video Section 
+      {/* Constant Video Section */}
       <div className="video-wrapper top-video">
         <video
           src="/arcadia/arcadia_video.mp4"
@@ -70,7 +70,7 @@ const VrindavanDetails = () => {
       {/* Swiper Image Gallery 
       <div className="swiper-container">
         <Swiper
-          modules={[Autoplay]}
+          modules={[Autoplay]}  
           spaceBetween={20}
           slidesPerView={1}
           loop={true}
@@ -90,11 +90,11 @@ const VrindavanDetails = () => {
         </Swiper>
       </div> */}
 
-      {/* Map Section 
+      {/* Map Section */}
       <div className="map-image-row">
         <img src="/arcadia/arcadia_map.jpg" alt="Map Location" />
         <img src="/arcadia/arcadia_map1.jpg" alt="Location Overview" />
-      </div> */}
+      </div>
       <Footer />
     </div>
   );
