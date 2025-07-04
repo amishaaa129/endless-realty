@@ -49,9 +49,9 @@ function App() {
       <Route path="/rau" element={<Main2 />} />
       <Route path ="/silicon-city" element={<Main1 />} />
       <Route path="/silicon-premium" element={<Sdetails />} />
-      <Route path="/silicon1-premium" element={<S1details />} />
-      <Route path="/silicon2-premium" element={<S2details />} />
-      <Route path="/silicon3-premium" element={<S3details />} />
+      <Route path="/silicon-city-s-sector" element={<S1details />} />
+      <Route path="/silver-star-city-project" element={<S2details />} />
+      <Route path="/pulak-city" element={<S3details />} />
       <Route path="/shorya-premium" element={<Shoryadetails />} />
       <Route path ="/valley-premium" element={<Valleydetails />} />
       <Route path ="/tsv-premium" element={<Tsvdetails />} />
