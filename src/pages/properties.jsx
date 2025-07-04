@@ -1,13 +1,12 @@
 import React, { useEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/footer';
-import PropertyCard from '../PropertyCard';
+import PropertyCard from '/PropertyCard';
 
 const Properties = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
   // Manually define the featured property data
   const properties = [
     {
@@ -55,7 +54,7 @@ const Properties = () => {
       price_label: 'Coming Soon',
       thumbnail_url: '/images/tsv.jpeg',
     },
-    
+
     {
       id: 6,
       title: 'Shourya Vihar',
