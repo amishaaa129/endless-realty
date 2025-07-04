@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/footer';
-import PropertyCard from '/PropertyCard';
+import PropertyCard from './PropertyCard';
 
 const Properties = () => {
   useEffect(() => {

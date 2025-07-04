@@ -12,6 +12,7 @@ import 'swiper/css/navigation';
 const VrindavanDetails = () => {
   return (
     <div>
+
       <Header />
 
       {/* Constant Video Section */}
