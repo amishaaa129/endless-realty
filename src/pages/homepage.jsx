@@ -255,13 +255,12 @@ const App = () => {
             </li>
           </ul>
         </div>
-        <div className="absolute top-4 right-4 sm:top-10 sm:right-10 bg-white/10 backdrop-blur-md text-white p-4 sm:p-6 rounded-lg shadow-lg max-w-xs w-[90%] sm:w-auto z-20 transform transition-transform duration-300 hover:scale-105">
-          <h2 className="text-lg sm:text-xl font-bold mb-2 text-blue-300">CALL US NOW </h2>
+        <div className="absolute top-4 right-2 sm:top-10 sm:right-5 bg-white/10 backdrop-blur-md text-white p-3 sm:p-4 rounded-lg shadow-lg w-[80%] sm:w-auto max-w-sm z-20 transform transition-transform duration-300 hover:scale-105">
+          <h2 className="text-lg sm:text-xl font-bold mb-2 text-blue-300">CALL US NOW</h2>
           <ul className="list-disc list-inside mt-2 sm:mt-4">
             <li className="text-base sm:text-lg">
-              <a  href ="#">+91 8989941900</a>
+              <a href="tel:+918989941900">+91 8989941900</a>
             </li>
-            
           </ul>
         </div>
 
@@ -300,7 +299,7 @@ const App = () => {
                     <option value="cat-road">CAT Road</option>
                     <option value="super-corridor">Super Corridor</option>
                     <option value="nipania">Nipania</option>
-                    <option value="ujjain-road">Ujjain Road</option>  
+                    <option value="ujjain-road">Ujjain Road</option>
                     <option value="ab-bypass-road">AB Bypass Road</option>
                     <option value="kanandia-road">Kanandia Road</option>
                     <option value="vijay-nagar">Vijay Nagar</option>
@@ -333,14 +332,14 @@ const App = () => {
                 </div>
                 <div className="md:self-end">
                   <button type="button"
-                  onClick={handleSearch} className="w-full md:w-auto px-8 py-3 btn-gradient text-white rounded-lg shadow-lg hover:shadow-xl transition flex items-center justify-center">
+                    onClick={handleSearch} className="w-full md:w-auto px-8 py-3 btn-gradient text-white rounded-lg shadow-lg hover:shadow-xl transition flex items-center justify-center">
                     <i className="fas fa-search mr-2"></i> Search
                   </button>
                 </div>
               </form>
             </div>
             <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-              
+
               <div className="bg-white/10 p-6 rounded-xl backdrop-blur-sm border border-white/20 shadow-lg bounce-in stagger-2">
                 <div className="text-4xl font-bold text-gradient mb-2">50+</div>
                 <div className="text-sm font-medium text-gray-200">Projects "completed"</div>
@@ -355,7 +354,7 @@ const App = () => {
               </div>
             </div>
             <div className="mt-14 flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 slide-in stagger-5">
-              
+
               <a href="tel:+918989941900" className="flex items-center justify-center">
                 <span className="text-white font-medium">Talk to an Expert</span>
                 <span className="text-white font-medium ml-2">+91 89899 41900</span>
@@ -364,7 +363,7 @@ const App = () => {
             </div>
           </div>
         </div>
-        
+
       </section>
       {/* Featured Properties */}
 
@@ -901,7 +900,7 @@ const App = () => {
               </div>
             </div>
           </div>
-          
+
         </div>
       </section>
       {/* <section id="virtual-tour" className="py-24 bg-gray-900 text-white relative overflow-hidden">
