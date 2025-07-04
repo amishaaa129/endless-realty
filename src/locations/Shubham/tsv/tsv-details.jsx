@@ -53,14 +53,7 @@ const VrindavanDetails = () => {
           Located just <strong>6.8 km from the Bypass</strong>, near Vidyasagar School, Indore. The site ensures peace and greenery while being well connected to urban amenities and key areas of the city.
         </p>
 
-        <h3>💰 Pricing & Payment Schedule</h3>
-        <ul>
-          <li>Starting at just <strong>₹4900 per sq.ft.</strong></li>
-          <li><strong>25%</strong> at Booking</li>
-          <li><strong>25%</strong> in the 4<sup>th</sup> Month</li>
-          <li><strong>25%</strong> in the 7<sup>th</sup> Month</li>
-          <li><strong>25%</strong> on RERA approval</li>
-        </ul>
+        
 
         <p className="mt-4">
           📞 <strong>For booking & site visits, contact ENDLESS REALTY  today!</strong><br />

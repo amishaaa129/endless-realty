@@ -46,7 +46,7 @@
   /* ---------------------- DETAILS PAGE ---------------------- */
   
   /* Top Video */
-  .top-video .video-player {
+  /*.top-video .video-player {
     width: 100%;
     max-width: 1100px;
     height: 400px;
