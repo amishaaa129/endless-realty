@@ -17,7 +17,7 @@ const Eleven = () => {
           className="property-image"
         />
         <h2 className="property-title">Shubham Eleven</h2>
-        <button className="know-more-button" onClick={() => navigate('/eleven-premium')}>
+        <button className="know-more-button" onClick={() => navigate('/shubham-eleven')}>
           Click to Know More
         </button>
       </div>

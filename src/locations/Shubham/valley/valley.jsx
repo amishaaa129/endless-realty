@@ -17,7 +17,7 @@ const Valley = () => {
           className="property-image"
         />
         <h2 className="property-title">Shubham Valley</h2>
-        <button className="know-more-button" onClick={() => navigate('/valley-premium')}>
+        <button className="know-more-button" onClick={() => navigate('/shubham-valley')}>
           Click to Know More
         </button>
       </div>
