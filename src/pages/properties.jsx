@@ -37,10 +37,7 @@ const Properties = () => {
             <Property1 />
             <Property4 />
             <Property5 />
-            
             <Property3 />
-            
-            
             <Property8 />
             <Property9 />
             <Property10 />
