@@ -144,7 +144,7 @@ const Features = () => {
           <img
             src={item.src}
             alt={item.title}
-            className="w-full h-40 object-cover rounded-md mb-4"
+            className="w-full h-49 object-cover rounded-md mb-4"
           />
         )}
 
