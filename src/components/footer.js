@@ -65,9 +65,7 @@ const Footer = () => {
         <p className="text-gray-500 text-sm">&copy; 2025 Endless Realty. All rights reserved.</p>
       </div>
 
-      <div className="mt-0 w-full text-center">
-        <h3 className="text-2xl font-bold text-gray-900 mb-6">Our Offices</h3>
-      </div>
+      
     </footer>
   );
 };
