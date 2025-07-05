@@ -17,6 +17,7 @@ const Properties = () => {
       area_sqft: '1000',
       price_label: 'Ready to Move',
       thumbnail_url: '/images/vrindavan.png',
+      type: 'Row Houses',
     },
     {
       id: 2,
@@ -26,6 +27,7 @@ const Properties = () => {
       area_sqft: '600-1200',
       price_label: 'Ready to Move',
       thumbnail_url: '/images/valley.jpeg',
+      type: 'Plot',
     },
     {
       id: 3,
@@ -35,6 +37,7 @@ const Properties = () => {
       area_sqft: '700-2400',
       price_label: 'Ready to Move',
       thumbnail_url: '/images/arcadia.jpeg',
+      type: 'Plot',
     },
     {
       id: 4,
@@ -44,6 +47,7 @@ const Properties = () => {
       area_sqft: '1100-1500',
       price_label: 'Coming Soon',
       thumbnail_url: '/images/eleven.jpeg',
+      type: 'Plot',
     },
     {
       id: 5,
@@ -53,6 +57,7 @@ const Properties = () => {
       area_sqft: '3200',
       price_label: 'Coming Soon',
       thumbnail_url: '/images/tsv.jpeg',
+      type: 'Plot',
     },
 
     {
@@ -63,6 +68,7 @@ const Properties = () => {
       area_sqft: '',
       price_label: 'Coming Soon',
       thumbnail_url: '/images/shorya.jpeg',
+      type: 'Plot',
     },
     {
       id: 7,
@@ -90,6 +96,7 @@ const Properties = () => {
       area_sqft: '750',
       price_label: 'Sold Out',
       thumbnail_url: '/images/s1.jpg',
+      type: 'Row Houses',
     },
     {
       id: 10,
@@ -108,6 +115,7 @@ const Properties = () => {
       area_sqft: '2000',
       price_label: 'Sold Out',
       thumbnail_url: '/images/rau.jpeg',
+      type: 'Row Houses',
     },
   ];
 
