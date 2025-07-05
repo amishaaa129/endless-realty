@@ -15,7 +15,7 @@ const VrindavanDetails = () => {
       <Header />
 
       {/* Constant Video Section */}
-      <div className="video-wrapper top-video">
+      {/*<div className="video-wrapper top-video">
         <video
           src="/arcadia/arcadia_video.mp4"
           title="Property Video"
@@ -25,7 +25,7 @@ const VrindavanDetails = () => {
           playsInline
           className="video-player"
         />
-      </div>
+      </div>*/}
 
       {/* Property Content Section */}
       <div className="property-info-section">
@@ -91,10 +91,10 @@ const VrindavanDetails = () => {
       </div> */}
 
       {/* Map Section */}
-      <div className="map-image-row">
+      {/*<div className="map-image-row">
         <img src="/arcadia/arcadia_map.jpg" alt="Map Location" />
         <img src="/arcadia/arcadia_map1.jpg" alt="Location Overview" />
-      </div>
+      </div>*/}
       <Footer />
     </div>
   );

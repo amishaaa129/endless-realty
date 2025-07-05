@@ -28,10 +28,12 @@ const PropertyCard = ({ property }) => {
             <i className="fas fa-ruler-combined mr-1 text-blue-600"></i>
             <span>{property.area_sqft} sq.ft.</span>
           </div>
-          <div className="flex items-center">
+                {property.price_label !== 'Coming Soon' && (
+        <div className="flex items-center">
             <i className="fas fa-building mr-1 text-blue-600"></i>
             <span>RERA Approved</span>
-          </div>
+        </div>
+        )}
         </div>
         <div className="flex justify-between items-center">
           <div>
