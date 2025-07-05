@@ -5,7 +5,6 @@ import Header from '../components/Header';
 const SearchResults = () => {
   const location = useLocation();
   const [properties, setProperties] = useState([]);
-  const [useFallback, setUseFallback] = useState(false);
 
   // Query params
   const searchParams = new URLSearchParams(location.search);
@@ -14,80 +13,17 @@ const SearchResults = () => {
   const min = searchParams.get('min');
   const max = searchParams.get('max');
 
-  // Hardcoded fallback properties
-  const fallbackProperties = [
-    {
-      id: 1,
-      title: 'Ace Green Valley',
-      location: 'MR-10, Near IT Park',
-      city: 'Indore',
-      bhk: '2 & 3',
-      area_sqft: '1100-1550',
-      type: 'Apartment',
-      price: 3850000,
-      thumbnail_url: 'https://images.unsplash.com/photo-1705955463252-e3f670e4041b?q=80&w=1932&auto=format&fit=crop',
-    },
-    {
-      id: 2,
-      title: 'Infinite Heights',
-      location: 'Vijay Nagar',
-      city: 'Indore',
-      bhk: '3 & 4',
-      area_sqft: '1650-2200',
-      type: 'Villa',
-      price: 6580000,
-      thumbnail_url: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&auto=format&fit=crop',
-    },
-    {
-      id: 3,
-      title: 'Royal Meadows',
-      location: 'AB Road, Near MR9',
-      city: 'Indore',
-      bhk: '4',
-      area_sqft: '2200-2800',
-      type: 'Villa',
-      price: 9550000,
-      thumbnail_url: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop',
-    },
-    {
-      id: 4,
-      title: 'Shiv City',
-      location: 'Near Silicon City',
-      city: 'Indore',
-      bhk: '3 & 4',
-      area_sqft: '1650-2200',
-      type: 'Villa',
-      price: 6580000,
-      thumbnail_url: "https://images.unsplash.com/photo-1590169834934-297bdaa63590?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    },
-    {
-      id: 5,
-      title: 'Star City',
-      location: 'Near Silicon City',
-      city: 'Indore',
-      bhk: '4',
-      area_sqft: '2200-2800',
-      type: 'Apartment',
-      price: 9550000,
-      thumbnail_url: "https://images.unsplash.com/photo-1524813686514-a57563d77965?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    }
-  ];
-
-  // Fetch from backend, fallback if fails
   const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://api.endlessrealty.in';
 
   useEffect(() => {
     const fetchProperties = async () => {
       try {
-        console.log("➡️ Fetching from:", `${API_BASE_URL}/api/properties/search?city=${city}&type=${type}&min=${min}&max=${max}`);
         const res = await fetch(`${API_BASE_URL}/api/properties/search?city=${city}&type=${type}&min=${min}&max=${max}`);
-        if (!res.ok) throw new Error('Failed to fetch');
         const data = await res.json();
         setProperties(data);
       } catch (err) {
-        console.warn('Backend unavailable, using fallback data.');
-        setUseFallback(true);
-        setProperties(fallbackProperties);
+        console.error('Failed to fetch properties:', err);
+        setProperties([]); // fallback to empty
       }
     };
 
@@ -127,10 +63,12 @@ const SearchResults = () => {
                     <i className="fas fa-ruler-combined mr-1 text-blue-600"></i>
                     <span>{property.area_sqft} sq.ft.</span>
                   </div>
-                  <div className="flex items-center">
-                    <i className="fas fa-building mr-1 text-blue-600"></i>
-                    <span>RERA Approved</span>
-                  </div>
+                  {property.price_label !== 'Coming Soon' && (
+                    <div className="flex items-center">
+                      <i className="fas fa-building mr-1 text-blue-600"></i>
+                      <span>RERA Approved</span>
+                    </div>
+                  )}
                 </div>
                 <div className="flex justify-between items-center">
                   <div>
