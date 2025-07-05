@@ -21,7 +21,7 @@ const Rau = () => {
         
         
         <h2 className="property-title">Silicon City Property</h2>
-        <button className="know-more-button" onClick={() => navigate('/rau-premium')}>
+        <button className="know-more-button" onClick={() => navigate('/silicon-city-property')}>
           Click to Know More
         </button>
       </div>

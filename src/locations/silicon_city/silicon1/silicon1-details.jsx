@@ -13,15 +13,17 @@ const Silicondetails = () => {
 
       {/* Constant Video Section */}
       <div className="video-wrapper top-video">
-        <video
-          src="/s1/s1.mp4"
-          title="Property Video"
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="video-player"
-        />
+        <div className="video-player aspect-w-16 aspect-h-9">
+          <iframe
+            width="100%"
+            height="100%"
+            src="https://www.youtube.com/embed/CWjxEU4KdQI?autoplay=1&mute=1&loop=1&playlist=CWjxEU4KdQI"
+            title="Property Video"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        </div>
       </div>
 
       

@@ -17,15 +17,17 @@ const VrindavanDetails = () => {
 
       {/* Constant Video Section */}
       <div className="video-wrapper top-video">
-        <video
-          src="/vrindavan/vrandavan_video.mp4"
-          title="Property Video"
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="video-player"
-        />
+        <div className="video-player aspect-w-16 aspect-h-9">
+          <iframe
+            width="100%"
+            height="100%"
+            src="https://www.youtube.com/embed/fMWg0OsQeYU?autoplay=1&mute=1&loop=1&playlist=fMWg0OsQeYU"
+            title="Property Video"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        </div>
       </div>
 
       {/* Property Content Section */}

@@ -42,7 +42,7 @@ function App() {
       <Route path="/our-associates" element={<OurAssociates />} />
       <Route path="/our-associates/:id" element={<BrokerDetails />} />
       <Route path="/rau" element={<Rau />} />
-      <Route path ="/rau-premium" element={<Rdetails />} />
+      <Route path ="/silicon-city-property" element={<Rdetails />} />
       <Route path="/Cat-road" element={<Vrindavan />} />
       <Route path="/vrindavan-premium-row-houses" element={<Vdetails />} />
       <Route path="/shubham" element={<Main4 />} />

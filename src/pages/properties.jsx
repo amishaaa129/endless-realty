@@ -102,7 +102,7 @@ const Properties = () => {
     },
     {
       id: 11,
-      title: 'Rau Premium',
+      title: 'Silicon City Property',
       location: 'Silicon City, Rau',
       bhk: '4',
       area_sqft: '2000',
