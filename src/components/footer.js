@@ -67,13 +67,6 @@ const Footer = () => {
 
       <div className="mt-0 w-full text-center">
         <h3 className="text-2xl font-bold text-gray-900 mb-6">Our Offices</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-          <div className="bg-gray-100 p-6 rounded-lg shadow-md">
-            <h4 className="text-lg font-bold text-gray-900 mb-1">Indore Head Office</h4>
-            <p className="text-gray-600">Caps Town, Indore, MP 452010</p>
-          </div>
-          
-        </div>
       </div>
     </footer>
   );
