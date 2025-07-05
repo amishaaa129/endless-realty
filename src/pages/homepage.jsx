@@ -90,7 +90,7 @@ const App = () => {
               </a>
               {isDropdownOpen && (
                 <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 py-1 z-50">
-                  {["Khandwa Road", "Silicon City", "Rau", "Mhow", "Pithampur", "CAT Road", "Super Corridor", "Nipania", "Ujjain Road", "AB Bypass Road", "Kanandia Road", "Bicholi"].map((city) => (
+                  {["Silicon City", "Rau", "Mhow", "Pithampur", "CAT Road", "Ujjain Road", "AB Bypass Road", "Bicholi"].map((city) => (
                     <Link
                       key={city}
                       to={city === "Rau" ? "/rau" : city === "CAT Road" ? "/cat-road" : city === "Silicon City" ? "/silicon-city" : city === "Pithampur" ? "/pithampur" : "/cities"}
@@ -199,7 +199,7 @@ const App = () => {
               </button>
               {isLocationDropdownOpen && (
                 <div className="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-10">
-                  {["Khandwa Road", "Silicon City", "Rau", "Mhow", "Pithampur", "CAT Road", "Super Corridor", "Nipania", "Ujjain Road", "AB Bypass Road", "Kanandia Road", "Bicholi"].map((location) => (
+                  {["Silicon City", "Rau", "Mhow", "Pithampur", "CAT Road", "Ujjain Road", "AB Bypass Road", "Bicholi"].map((location) => (
                     <Link
                       key={location}
                       to={
@@ -322,17 +322,13 @@ const App = () => {
                     <option value="" disabled selected>
                       Select Location
                     </option>
-                    <option value="khandwa-road">Khandwa Road</option>
                     <option value="silicon-city">Silicon City</option>
                     <option value="rau">Rau</option>
                     <option value="mhow">Mhow</option>
                     <option value="pithampur">Pithampur</option>
                     <option value="cat-road">CAT Road</option>
-                    <option value="super-corridor">Super Corridor</option>
-                    <option value="nipania">Nipania</option>
                     <option value="ujjain-road">Ujjain Road</option>
                     <option value="ab-bypass-road">AB Bypass Road</option>
-                    <option value="kanandia-road">Kanandia Road</option>
                     <option value="bicholi">Bicholi</option>
                   </select>
                 </div>
@@ -450,7 +446,7 @@ const App = () => {
                     <div className="text-xl font-bold text-gray-900">UPCOMING </div>
                   </div>
                   <Link
-                    to="/shourya-premium"
+                    to="/shourya-vihar"
                     className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition text-sm"
                   >
                     View Details
