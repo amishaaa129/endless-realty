@@ -28,24 +28,7 @@ const Main = () => {
             <Property4 /> 
           </div>
         </div>
-        {/* Swiper Image Gallery */}
-      <div className="w-full max-w-6xl mx-auto mt-12 px-4">
-  <h2 className="text-3xl font-bold text-center text-gray-900 mb-8">
-    Achievements
-  </h2>
-  
-  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-    {[4, 5, 6, 7].map((num) => (
-      <div key={num} className="rounded-lg overflow-hidden shadow-lg">
-        <img
-          src={`/shubham_achievment/achievment${num}.jpeg`}
-          alt={`Achievement ${num}`}
-          className="w-full h-64 object-cover"
-        />
-      </div>
-    ))}
-  </div>
-</div>
+        
       </main>
 
     <Footer />
