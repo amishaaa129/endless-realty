@@ -10,7 +10,8 @@ const SignUp = () => {
     phone: '',
     email: '',
     password: '',
-    referral_broker_id: ''
+    referral_broker_id: '',
+    user_type: '',
   });
 
   const [brokers, setBrokers] = useState([]);
