@@ -13,8 +13,21 @@ const ShoryaDetails = () => {
   return (
     <div>
       <Header />
+      <div className="video-wrapper top-video">
+        <div className="video-player aspect-w-16 aspect-h-9">
+          <iframe
+            width="100%"
+            height="100%"
+            src="https://www.youtube.com/embed/lSUZRCs7kvs?autoplay=1&mute=1&loop=1&playlist=lSUZRCs7kvs"
+            title="Property Video"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        </div>
+      </div>
 
-      
+
 
       {/* Property Content Section */}
       <div className="max-w-4xl mx-auto px-6 py-12">
@@ -118,7 +131,7 @@ const ShoryaDetails = () => {
           autoplay={{ delay: 3000, disableOnInteraction: false }}
           pagination={{ clickable: true }}
         >
-          {[1, 2, 3, 4, 5, 6,  8, 9].map((num) => (
+          {[1, 2, 3, 4, 5, 6, 8, 9].map((num) => (
             <SwiperSlide key={num}>
               <img
                 src={`/shorya/shorya${num}.jpeg`}
