@@ -58,7 +58,7 @@ const Header = () => {
                   {["Silicon City","Rau","Mhow","Pithampur","CAT Road","Ujjain Road","AB Bypass Road","Bicholi"].map((city) => (
                     <Link
                       key={city}
-                      to={city === "Rau" ? "/rau" : city === "CAT Road" ? "/Cat-road" : city === "Silicon City" ? "/silicon-city" :  city === "Pithampur" ? "/pithampur" :"/cities"}
+                      to={city === "Rau" ? "/rau" : city === "CAT Road" ? "/Cat-road" : city === "Silicon City" ? "/silicon-city" :  city === "Pithampur" ? "/pithampur" :city === "Bicholi" ? "/bicholi" : city === "Ujjain Road" ? "/ujjain" : city === "AB Bypass Road" ? "/bypass" :"/cities"}
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                     >
                       {city}

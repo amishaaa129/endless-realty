@@ -1,6 +1,6 @@
 // File: vrindavan.jsx
 import React from 'react';
-import './vrindavan.css';
+import './tsv.css';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -12,12 +12,12 @@ const Vrindavan = () => {
       
       <div className="vrindavan-card">
         <img
-          src="/images/vrindavan.png"
+          src="/images/tsv.jpeg"
           alt="Vrindavan Property"
           className="property-image"
         />
-        <h2 className="property-title">Vrindavan Premium Row Houses</h2>
-        <button className="know-more-button" onClick={() => navigate('/vrindavan-premium-row-houses')}>
+        <h2 className="property-title">Shubham TSV</h2>
+        <button className="know-more-button" onClick={() => navigate('/shubham-tsv')}>
           Click to Know More
         </button>
       </div>

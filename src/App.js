@@ -11,8 +11,11 @@ import OurAssociates from './pages/ourassociates';
 import BrokerDetails from './pages/brokerDetails';
 import Rau from "./locations/Rau/main";
 import Rdetails from "./locations/Rau/silicon/rau-details";
-import Vrindavan from "./locations/Cat_road/vrindavan";
-import Vdetails from "./locations/Cat_road/vrindavan-details";
+import Vdetails from "./locations/Cat_road/vrindavan/vrindavan-details";
+import Main8 from './locations/Cat_road/main';
+import Main7 from './locations/bicholi/main';
+import Main6 from './locations/bypass/main';
+import Main5 from './locations/ujjain/main';
 import Main4 from  './locations/Shubham/main';
 import Main3 from './locations/pithampur/main';
 import Main2 from './locations/Rau/main';
@@ -37,14 +40,16 @@ function App() {
       <Route path="/signin" element={<SignIn />} />
       <Route path="/signup" element={<SignUp />} />
       <Route path="/search" element={<SearchResults />} />
-      <Route path="/location/cat-road" element={<Vrindavan />} />
       <Route path="/location/rau" element={<Rau />} />
       <Route path="/our-associates" element={<OurAssociates />} />
       <Route path="/our-associates/:id" element={<BrokerDetails />} />
       <Route path="/rau" element={<Rau />} />
-      <Route path ="/silicon-city-property" element={<Rdetails />} />
-      <Route path="/Cat-road" element={<Vrindavan />} />
+      <Route path ="/silicon-city-property" element={<Rdetails />} />  
       <Route path="/vrindavan-premium-row-houses" element={<Vdetails />} />
+      <Route path="/Cat-road" element={<Main8 />} />
+      <Route path="/bicholi" element={<Main7 />} />
+      <Route path="/bypass" element={<Main6 />} />
+      <Route path="/ujjain" element={<Main5 />} />
       <Route path="/shubham" element={<Main4 />} />
       <Route path ="/pithampur" element={<Main3 />} />
       <Route path="/rau" element={<Main2 />} />
