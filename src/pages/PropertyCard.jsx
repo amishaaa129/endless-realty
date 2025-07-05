@@ -20,10 +20,13 @@ const PropertyCard = ({ property }) => {
           <span>{property.location}</span>
         </div>
         <div className="flex justify-between mb-4 text-sm">
-          <div className="flex items-center">
-            <i className="fas fa-bed mr-1 text-blue-600"></i>
-            <span>{property.bhk || '—'} BHK</span>
-          </div>
+          {property.type?.toLowerCase() !== 'plot' && (
+            <div className="flex items-center">
+              <i className="fas fa-bed mr-1 text-blue-600"></i>
+              <span>{property.bhk} BHK</span>
+            </div>
+            )}
+
           <div className="flex items-center">
             <i className="fas fa-ruler-combined mr-1 text-blue-600"></i>
             <span>{property.area_sqft} sq.ft.</span>
