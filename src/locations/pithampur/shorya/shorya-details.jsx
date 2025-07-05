@@ -14,27 +14,7 @@ const ShoryaDetails = () => {
     <div>
       <Header />
 
-      {/* Image Carousel */}
-      <div className="swiper-container">
-        <Swiper
-          modules={[Autoplay]}
-          spaceBetween={20}
-          slidesPerView={1}
-          loop={true}
-          autoplay={{ delay: 3000, disableOnInteraction: false }}
-          pagination={{ clickable: true }}
-        >
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((num) => (
-            <SwiperSlide key={num}>
-              <img
-                src={`/shorya/shorya${num}.jpeg`}
-                alt={`Shorya Vihar ${num}`}
-                className="swiper-image"
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
+      
 
       {/* Property Content Section */}
       <div className="max-w-4xl mx-auto px-6 py-12">
@@ -127,6 +107,27 @@ const ShoryaDetails = () => {
             </p>
           </div>
         </div>
+      </div>
+      {/* Image Carousel */}
+      <div className="swiper-container">
+        <Swiper
+          modules={[Autoplay]}
+          spaceBetween={20}
+          slidesPerView={1}
+          loop={true}
+          autoplay={{ delay: 3000, disableOnInteraction: false }}
+          pagination={{ clickable: true }}
+        >
+          {[1, 2, 3, 4, 5, 6,  8, 9].map((num) => (
+            <SwiperSlide key={num}>
+              <img
+                src={`/shorya/shorya${num}.jpeg`}
+                alt={`Shorya Vihar ${num}`}
+                className="swiper-image"
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
 
       <Footer />
