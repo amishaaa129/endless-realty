@@ -12,6 +12,7 @@ import BrokerDetails from './pages/brokerDetails';
 import Rau from "./locations/Rau/main";
 import Rdetails from "./locations/Rau/silicon/rau-details";
 import Vdetails from "./locations/Cat_road/vrindavan/vrindavan-details";
+import Main9 from './locations/mhow/main';
 import Main8 from './locations/Cat_road/main';
 import Main7 from './locations/bicholi/main';
 import Main6 from './locations/bypass/main';
@@ -43,9 +44,17 @@ function App() {
       <Route path="/location/rau" element={<Rau />} />
       <Route path="/our-associates" element={<OurAssociates />} />
       <Route path="/our-associates/:id" element={<BrokerDetails />} />
+      <Route path = '/location/cat-road' element={<Main8 />} />
+      <Route path = '/location/bicholi' element={<Main7 />} />
+      <Route path = '/location/bypass' element={<Main6 />} />'
+      <Route path = '/location/ujjain' element={<Main5 />} />'
+      <Route path = '/location/mhow' element={<Main9 />} />'
+      <Route path = '/location/pithampur' element={<Main3 />} />
+      <Route path = '/location/silicon-city' element={<Main1 />} />
       <Route path="/rau" element={<Rau />} />
       <Route path ="/silicon-city-property" element={<Rdetails />} />  
       <Route path="/vrindavan-premium-row-houses" element={<Vdetails />} />
+      <Route path="/mhow" element={<Main9 />} />
       <Route path="/Cat-road" element={<Main8 />} />
       <Route path="/bicholi" element={<Main7 />} />
       <Route path="/bypass" element={<Main6 />} />

@@ -58,7 +58,7 @@ const Header = () => {
                   {["Silicon City","Rau","Mhow","Pithampur","CAT Road","Ujjain Road","AB Bypass Road","Bicholi"].map((city) => (
                     <Link
                       key={city}
-                      to={city === "Rau" ? "/rau" : city === "CAT Road" ? "/Cat-road" : city === "Silicon City" ? "/silicon-city" :  city === "Pithampur" ? "/pithampur" :city === "Bicholi" ? "/bicholi" : city === "Ujjain Road" ? "/ujjain" : city === "AB Bypass Road" ? "/bypass" :"/cities"}
+                      to={city === "Rau" ? "/rau" : city === "CAT Road" ? "/Cat-road" : city === "Silicon City" ? "/silicon-city" :  city === "Pithampur" ? "/pithampur" :city === "Bicholi" ? "/bicholi" : city === "Ujjain Road" ? "/ujjain" : city === "AB Bypass Road" ? "/bypass" : city === "Mhow" ? "/mhow" : "/cities"}
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                     >
                       {city}
@@ -161,6 +161,18 @@ const Header = () => {
                       to={
                         location === "CAT Road"
                           ? "/location/cat-road"
+                          : location === "Silicon City"
+                          ? "/location/silicon-city"
+                          : location === "Pithampur"
+                          ? "/location/pithampur"
+                          : location === "Mhow"
+                          ? "/location/mhow"
+                          : location === "Ujjain Road"
+                          ? "/location/ujjain"
+                          : location === "AB Bypass Road"
+                          ? "/location/bypass"
+                          : location === "Bicholi"
+                          ? "/location/bicholi"
                           : location === "Rau"
                           ? "/location/rau"
                           : `/location/${location.toLowerCase().replace(/\s+/g, '-')}`}
