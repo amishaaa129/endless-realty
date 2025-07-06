@@ -206,12 +206,20 @@ const App = () => {
                         location === "CAT Road"
                           ? "/location/cat-road"
                           : location === "Silicon City"
-                            ? "/location/silicon-city"
-                            : location === "Pithampur"
-                              ? "/location/pithampur"
-                              : location === "Rau"
-                                ? "/location/rau"
-                                : `/location/${location.toLowerCase().replace(/\s+/g, '-')}`}
+                          ? "/location/silicon-city"
+                          : location === "Pithampur"
+                          ? "/location/pithampur"
+                          : location === "Mhow"
+                          ? "/location/mhow"
+                          : location === "Ujjain Road"
+                          ? "/location/ujjain"
+                          : location === "AB Bypass Road"
+                          ? "/location/bypass"
+                          : location === "Bicholi"
+                          ? "/location/bicholi"
+                          : location === "Rau"
+                          ? "/location/rau"
+                          : `/location/${location.toLowerCase().replace(/\s+/g, '-')}`}
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                     >
                       {location}
