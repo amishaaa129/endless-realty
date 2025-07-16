@@ -604,7 +604,7 @@ const App = () => {
           </div>
         </div>
         <div className=" justify-centre pr-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
             {/* Property Card 1 */}
             <div className="property-card bg-white rounded-xl overflow-hidden shadow-md">
               <div className="relative">
@@ -771,11 +771,11 @@ const App = () => {
               </div>
               {/* Marketed By */}
               <div className="text-sm text-gray-500 mb-2">
-                <span className="font-medium text-gray-700">Marketed By:</span> Endless Realty
+                  <span className="font-medium text-gray-700">Marketed By:</span> Endless Realty
               </div>
               {/* Developed By */}
               <div className="text-sm text-gray-500">
-                <span className="font-medium text-gray-700">Developed By:</span> Rachit Homes
+                  <span className="font-medium text-gray-700">Developed By:</span> Rachit Homes
               </div>
             </div>
             <div className="property-card bg-white rounded-xl overflow-hidden shadow-md">
@@ -1396,14 +1396,7 @@ const App = () => {
         >
           <i className="fab fa-linkedin-in text-lg"></i>
         </a>
-        <a
-          href="https://twitter.com/endlessrealty"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="w-12 h-12 bg-black rounded-full flex items-center justify-center text-white hover:scale-110 transform transition-all duration-300 shadow-lg hover:shadow-xl"
-        >
-          <i className="fab fa-x-twitter text-lg"></i>
-        </a>
+        
       </div>
 
       {/* Mobile Social Media - Bottom Fixed */}
@@ -1419,7 +1412,7 @@ const App = () => {
               <i className="fab fa-instagram text-sm"></i>
             </a>
             <a
-              href="https://www.facebook.com/endlessrealty"
+              href="https://share.google/bLxJZaw0xgtrnPTBW"
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white hover:scale-110 transform transition-all duration-300"
@@ -1434,14 +1427,7 @@ const App = () => {
             >
               <i className="fab fa-linkedin-in text-sm"></i>
             </a>
-            <a
-              href="https://twitter.com/endlessrealty"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-10 h-10 bg-black rounded-full flex items-center justify-center text-white hover:scale-110 transform transition-all duration-300"
-            >
-              <i className="fab fa-x-twitter text-sm"></i>
-            </a>
+            
           </div>
         </div>
       </div>
