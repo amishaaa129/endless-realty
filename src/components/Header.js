@@ -11,14 +11,28 @@ const Header = () => {
   const [isSignUp, setIsSignUp] = useState(false);
   const [userData, setUserData] = useState(null);
   const [showAuthWarning, setShowAuthWarning] = useState(false);
+  const [isAdminUser, setIsAdminUser] = useState(false);
+
+  // Define admin users
+  const adminUsers = [
+    { email: 'admin@gmail.com', name: 'Admin User' },
+    { email: 'manager@endlessrealty.com', name: 'Manager' },
+    { email: 'rohit@endlessrealty.com', name: 'Rohit Singhal' },
+    { email: 'amisha@endlessrealty.com', name: 'Amisha' }
+  ];
 
   // Check login status on component mount
   React.useEffect(() => {
     const loginStatus = localStorage.getItem('isLoggedIn');
     const storedUserData = localStorage.getItem('userData');
     if (loginStatus === 'true' && storedUserData) {
+      const user = JSON.parse(storedUserData);
       setIsLoggedIn(true);
-      setUserData(JSON.parse(storedUserData));
+      setUserData(user);
+      
+      // Check if user is admin
+      const isAdmin = adminUsers.some(adminUser => adminUser.email === user.email);
+      setIsAdminUser(isAdmin);
     }
   }, []);
 
@@ -28,11 +42,18 @@ const Header = () => {
     localStorage.setItem('isLoggedIn', 'true');
     localStorage.setItem('userData', JSON.stringify(userData));
     setShowLoginPopup(false);
+    
+    // Check if user is admin but don't auto-redirect - let them choose
+    const isAdmin = adminUsers.some(adminUser => adminUser.email === userData.email);
+    setIsAdminUser(isAdmin);
+    
+    // Admin users can access admin panel via direct URL /admin when needed
   };
 
   const handleLogout = () => {
     setIsLoggedIn(false);
     setUserData(null);
+    setIsAdminUser(false);
     localStorage.removeItem('isLoggedIn');
     localStorage.removeItem('userData');
   };
@@ -162,6 +183,14 @@ const Header = () => {
                 <span className="text-sm font-medium text-gray-700">
                   Hi, {userData?.name || 'User'}!
                 </span>
+                {isAdminUser && (
+                  <button
+                    onClick={() => navigate('/admin')}
+                    className="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 transition"
+                  >
+                    Admin Panel
+                  </button>
+                )}
                 <button
                   onClick={handleLogout}
                   className="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 transition"
@@ -225,7 +254,9 @@ const Header = () => {
               <a
                 key={item}
                 href={`/${item.toLowerCase().replace(/\s+/g, '-')}`}
-                onClick={(e) => handleProtectedNavigation(e, `/${item.toLowerCase().replace(/\s+/g, '-')}`)}
+                onClick={(e) => {
+                  handleProtectedNavigation(e, `/${item.toLowerCase().replace(/\s+/g, '-')}`);
+                }}
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
               >
                 {item}
@@ -282,6 +313,14 @@ const Header = () => {
                   <div className="text-sm font-medium text-gray-700 px-4">
                     Hi, {userData?.name || 'User'}!
                   </div>
+                  {isAdminUser && (
+                    <button
+                      onClick={() => navigate('/admin')}
+                      className="flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 w-full"
+                    >
+                      Admin Panel
+                    </button>
+                  )}
                   <button
                     onClick={handleLogout}
                     className="flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 w-full"

@@ -16,10 +16,39 @@ const SignIn = () => {
     setError('');
 
     try {
+      // Define admin users with proper names
+      const adminUsers = [
+        { email: 'admin@gmail.com', name: 'Admin User' },
+        { email: 'manager@endlessrealty.com', name: 'Manager' },
+        { email: 'rohit@endlessrealty.com', name: 'Rohit Singhal' },
+        { email: 'amisha@endlessrealty.com', name: 'Amisha' }
+      ];
+
       // For now, simulate authentication with localStorage until backend is integrated
       if (email && password) {
+        // Check if user is admin and use proper name
+        const adminUser = adminUsers.find(admin => admin.email === email);
+        
+        // Check for admin credentials
+        if (adminUser && password === 'admin123') {
+          const userData = {
+            name: adminUser.name,
+            email: adminUser.email,
+            phone: ''
+          };
+          
+          // Store login state
+          localStorage.setItem('isLoggedIn', 'true');
+          localStorage.setItem('userData', JSON.stringify(userData));
+          
+          // Redirect admin users to homepage first (they can access admin panel from there)
+          navigate('/');
+          return;
+        }
+        
+        // For regular users
         const userData = {
-          name: email.split('@')[0], // Extract name from email
+          name: email.split('@')[0], // Extract name from email for regular users
           email: email,
           phone: '' // Placeholder for phone
         };
@@ -28,7 +57,7 @@ const SignIn = () => {
         localStorage.setItem('isLoggedIn', 'true');
         localStorage.setItem('userData', JSON.stringify(userData));
         
-        // Redirect to homepage
+        // Redirect to homepage for regular users
         navigate('/');
         return;
       }

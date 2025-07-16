@@ -15,9 +15,18 @@ const App = () => {
   const [isLocationDropdownOpen, setIsLocationDropdownOpen] = useState(false);
   const [showLoginPopup, setShowLoginPopup] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isAdminUser, setIsAdminUser] = useState(false);
   const [isSignUp, setIsSignUp] = useState(false);
   const [userData, setUserData] = useState(null);
   const [showAuthWarning, setShowAuthWarning] = useState(false);
+
+  // Define admin users
+  const adminUsers = [
+    { email: 'admin@gmail.com', name: 'Admin User' },
+    { email: 'manager@endlessrealty.com', name: 'Manager' },
+    { email: 'rohit@endlessrealty.com', name: 'Rohit Singhal' },
+    { email: 'amisha@endlessrealty.com', name: 'Amisha' }
+  ];
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -37,8 +46,13 @@ const App = () => {
     const loginStatus = localStorage.getItem('isLoggedIn');
     const storedUserData = localStorage.getItem('userData');
     if (loginStatus === 'true' && storedUserData) {
+      const user = JSON.parse(storedUserData);
       setIsLoggedIn(true);
-      setUserData(JSON.parse(storedUserData));
+      setUserData(user);
+      
+      // Check if user is admin
+      const isAdmin = adminUsers.some(adminUser => adminUser.email === user.email);
+      setIsAdminUser(isAdmin);
     } else {
       // Show popup after 3 seconds if not logged in
       const timer = setTimeout(() => {
@@ -87,11 +101,19 @@ const App = () => {
     localStorage.setItem('isLoggedIn', 'true');
     localStorage.setItem('userData', JSON.stringify(userData));
     setShowLoginPopup(false);
+    
+    // Check if user is admin
+    const isAdmin = adminUsers.some(adminUser => adminUser.email === userData.email);
+    setIsAdminUser(isAdmin);
+    
+    // Don't auto-redirect admins - let them choose to access admin panel or stay on main site
+    // Admin users can access admin panel via direct URL /admin when needed
   };
 
   const handleLogout = () => {
     setIsLoggedIn(false);
     setUserData(null);
+    setIsAdminUser(false);
     localStorage.removeItem('isLoggedIn');
     localStorage.removeItem('userData');
   };
@@ -246,6 +268,14 @@ const App = () => {
                 <span className="text-sm font-medium text-gray-700">
                   Hi, {userData?.name || 'User'}!
                 </span>
+                {isAdminUser && (
+                  <button
+                    onClick={() => navigate('/admin')}
+                    className="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 transition"
+                  >
+                    Admin Panel
+                  </button>
+                )}
                 <button
                   onClick={handleLogout}
                   className="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 transition"
@@ -368,6 +398,14 @@ const App = () => {
                   <div className="text-sm font-medium text-gray-700 px-4">
                     Hi, {userData?.name || 'User'}!
                   </div>
+                  {isAdminUser && (
+                    <button
+                      onClick={() => navigate('/admin')}
+                      className="flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 w-full"
+                    >
+                      Admin Panel
+                    </button>
+                  )}
                   <button
                     onClick={handleLogout}
                     className="flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 w-full"
@@ -1179,10 +1217,28 @@ const App = () => {
               <form onSubmit={(e) => {
                 e.preventDefault();
                 const formData = new FormData(e.target);
+                const email = formData.get('email');
+                const password = formData.get('password');
+                
+                // Check if user is admin and use proper name
+                const adminUser = adminUsers.find(admin => admin.email === email);
+                
+                // Check for admin credentials
+                if (adminUser && password === 'admin123') {
+                  const userData = {
+                    name: adminUser.name,
+                    email: adminUser.email,
+                    phone: formData.get('phone') || ''
+                  };
+                  handleLogin(userData);
+                  return;
+                }
+                
+                // For regular users
                 const userData = {
-                  name: formData.get('name') || formData.get('email').split('@')[0],
-                  email: formData.get('email'),
-                  phone: formData.get('phone')
+                  name: formData.get('name') || email.split('@')[0],
+                  email: email,
+                  phone: formData.get('phone') || ''
                 };
                 handleLogin(userData);
               }}>

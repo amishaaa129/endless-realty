@@ -31,6 +31,8 @@ import Tsvdetails from './locations/Shubham/tsv/tsv-details';
 import Arcadiadetails from './locations/Shubham/arcadia/arcadia-details';
 import Elevendetails from './locations/Shubham/eleven/eleven-details';
 import Greendetails from './locations/Shubham/green/green-details';
+import AdminPanel from './admin/AdminPanel';
+
 function App() {
   return (
     <Routes>
@@ -41,6 +43,7 @@ function App() {
       <Route path="/properties" element={<Properties />} />
       <Route path="/signin" element={<SignIn />} />
       <Route path="/signup" element={<SignUp />} />
+      <Route path="/admin" element={<AdminPanel />} />
       <Route path="/search" element={<SearchResults />} />
       <Route path="/location/rau" element={<Rau />} />
       <Route path="/our-associates" element={<OurAssociates />} />
