@@ -16,6 +16,25 @@ const SignIn = () => {
     setError('');
 
     try {
+      // For now, simulate authentication with localStorage until backend is integrated
+      if (email && password) {
+        const userData = {
+          name: email.split('@')[0], // Extract name from email
+          email: email,
+          phone: '' // Placeholder for phone
+        };
+        
+        // Store login state
+        localStorage.setItem('isLoggedIn', 'true');
+        localStorage.setItem('userData', JSON.stringify(userData));
+        
+        // Redirect to homepage
+        navigate('/');
+        return;
+      }
+
+      // When backend is integrated, use this code:
+      /*
       const res = await fetch(`${API_BASE_URL}/api/users/signin`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -32,9 +51,12 @@ const SignIn = () => {
       // Save JWT token (optional, for protected routes)
       localStorage.setItem('token', data.token);
       localStorage.setItem('user', JSON.stringify(data.user));
+      localStorage.setItem('isLoggedIn', 'true');
+      localStorage.setItem('userData', JSON.stringify(data.user));
 
       // Redirect to homepage or dashboard
       navigate('/');
+      */
     } catch (err) {
       console.error(err);
       setError('Something went wrong');
@@ -50,6 +72,14 @@ const SignIn = () => {
       <main className="container mx-auto px-6 py-12 flex justify-center items-center">
         <div className="bg-white rounded-lg shadow-lg p-8 w-full max-w-md">
           <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">Sign In</h2>
+          
+          {/* Error Message */}
+          {error && (
+            <div className="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">
+              {error}
+            </div>
+          )}
+          
           <form onSubmit={handleSubmit}>
             {/* Email Field */}
             <div className="mb-4">

@@ -12,12 +12,12 @@ const Green = () => {
       
       <div className="vrindavan-card">
         <img
-          src="/images/valley.jpeg"
+          src="/images/greens.jpeg"
           alt="Vrindavan Property"
           className="property-image"
         />
         <h2 className="property-title">Shubham Greens</h2>
-        <button className="know-more-button" onClick={() => navigate('/shubham-green')}>
+        <button className="know-more-button" onClick={() => navigate('/shubham-greens')}>
           Click to Know More
         </button>
       </div>

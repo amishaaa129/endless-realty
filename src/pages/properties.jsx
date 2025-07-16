@@ -45,8 +45,8 @@ const Properties = () => {
       location: 'Near Surya Mandir, Rau',
       bhk: '3',
       area_sqft: '1100',
-      price_label: 'Ready to Move',
-      thumbnail_url: '/images/green.jpeg',
+      price_label: '1.28 CR',
+      thumbnail_url: '/images/greens.jpeg',
       type: 'Bungalow',
     },
     {

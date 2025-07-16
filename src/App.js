@@ -73,7 +73,7 @@ function App() {
       <Route path ="/shubham-tsv" element={<Tsvdetails />} />
       <Route path ="/shubham-arcadia" element={<Arcadiadetails />} />
       <Route path ="/shubham-eleven" element={<Elevendetails />} />
-      <Route path ="/shubham-green" element={<Greendetails />} />
+      <Route path ="/shubham-greens" element={<Greendetails />} />
     </Routes>
   );
 }

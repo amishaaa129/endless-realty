@@ -13,6 +13,11 @@ const App = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isLocationDropdownOpen, setIsLocationDropdownOpen] = useState(false);
+  const [showLoginPopup, setShowLoginPopup] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isSignUp, setIsSignUp] = useState(false);
+  const [userData, setUserData] = useState(null);
+  const [showAuthWarning, setShowAuthWarning] = useState(false);
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -24,9 +29,100 @@ const App = () => {
   const [type, setType] = useState('');
   const [budget, setBudget] = useState('');
 
-  const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://api.endlessrealty.in';
+  // Check login status on component mount and scroll to top
+  React.useEffect(() => {
+    // Scroll to top on page load
+    window.scrollTo(0, 0);
+    
+    const loginStatus = localStorage.getItem('isLoggedIn');
+    const storedUserData = localStorage.getItem('userData');
+    if (loginStatus === 'true' && storedUserData) {
+      setIsLoggedIn(true);
+      setUserData(JSON.parse(storedUserData));
+    } else {
+      // Show popup after 3 seconds if not logged in
+      const timer = setTimeout(() => {
+        setShowLoginPopup(true);
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
+  // Add scroll protection for non-logged-in users
+  React.useEffect(() => {
+    const handleScroll = (e) => {
+      if (!isLoggedIn && window.scrollY > 100) {
+        e.preventDefault();
+        window.scrollTo(0, 100);
+        setShowAuthWarning(true);
+        setTimeout(() => setShowAuthWarning(false), 3000);
+        setShowLoginPopup(true);
+      }
+    };
+
+    const handleKeyDown = (e) => {
+      // Prevent scroll with keyboard if not logged in
+      if (!isLoggedIn && (e.key === 'ArrowDown' || e.key === 'ArrowUp' || e.key === 'PageDown' || e.key === 'PageUp' || e.key === 'End' || e.key === 'Home')) {
+        e.preventDefault();
+        setShowAuthWarning(true);
+        setTimeout(() => setShowAuthWarning(false), 3000);
+        setShowLoginPopup(true);
+      }
+    };
+
+    if (!isLoggedIn) {
+      window.addEventListener('scroll', handleScroll, { passive: false });
+      window.addEventListener('keydown', handleKeyDown);
+    }
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isLoggedIn]);
+
+  const handleLogin = (userData) => {
+    setIsLoggedIn(true);
+    setUserData(userData);
+    localStorage.setItem('isLoggedIn', 'true');
+    localStorage.setItem('userData', JSON.stringify(userData));
+    setShowLoginPopup(false);
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    setUserData(null);
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('userData');
+  };
+
+  // Check authentication before navigation
+  const checkAuthAndNavigate = (to) => {
+    if (!isLoggedIn) {
+      setShowAuthWarning(true);
+      setTimeout(() => setShowAuthWarning(false), 3000);
+      return false;
+    }
+    navigate(to);
+    return true;
+  };
+
+  // Handle protected navigation
+  const handleProtectedNavigation = (e, to) => {
+    e.preventDefault();
+    if (!checkAuthAndNavigate(to)) {
+      setShowLoginPopup(true);
+    }
+  };
 
   const handleSearch = () => {
+    if (!isLoggedIn) {
+      setShowAuthWarning(true);
+      setTimeout(() => setShowAuthWarning(false), 3000);
+      setShowLoginPopup(true);
+      return;
+    }
+
     // Convert budget to min and max values
     let min = 0;
     let max = 100000000; // 10 Cr
@@ -65,15 +161,23 @@ const App = () => {
             <Link to="/" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
               Home
             </Link>
-            <Link to="/properties" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
+            <a 
+              href="/properties" 
+              onClick={(e) => handleProtectedNavigation(e, '/properties')}
+              className="text-sm font-medium text-gray-700 hover:text-blue-600 transition"
+            >
               Properties
-            </Link>
+            </a>
             <div className="relative">
               <a
                 href="#cities"
                 onClick={(e) => {
                   e.preventDefault();
-                  toggleDropdown();
+                  if (isLoggedIn) {
+                    toggleDropdown();
+                  } else {
+                    handleProtectedNavigation(e, '/locations');
+                  }
                 }}
                 className="text-sm font-medium text-gray-700 hover:text-blue-600 transition flex items-center"
               >
@@ -88,7 +192,7 @@ const App = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
                 </svg>
               </a>
-              {isDropdownOpen && (
+              {isDropdownOpen && isLoggedIn && (
                 <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 py-1 z-50">
                   {["Silicon City", "Rau", "Mhow", "Pithampur", "CAT Road", "Ujjain Road", "AB Bypass Road", "Bicholi"].map((city) => (
                     <Link
@@ -103,34 +207,60 @@ const App = () => {
               )}
             </div>
 
-            <Link to="/about-us" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
+            <a 
+              href="/about-us" 
+              onClick={(e) => handleProtectedNavigation(e, '/about-us')}
+              className="text-sm font-medium text-gray-700 hover:text-blue-600 transition"
+            >
               About Us
+            </a>
 
-            </Link>
-
-            <a href="/what's-new" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
+            <a 
+              href="/what's-new" 
+              onClick={(e) => handleProtectedNavigation(e, "/what's-new")}
+              className="text-sm font-medium text-gray-700 hover:text-blue-600 transition"
+            >
               What's New
             </a>
 
-
-
-
-            <Link to="/our-associates" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
+            <a 
+              href="/our-associates" 
+              onClick={(e) => handleProtectedNavigation(e, '/our-associates')}
+              className="text-sm font-medium text-gray-700 hover:text-blue-600 transition"
+            >
               Our Associates
-            </Link>
-            <Link to="/contact" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
+            </a>
+            <a 
+              href="/contact" 
+              onClick={(e) => handleProtectedNavigation(e, '/contact')}
+              className="text-sm font-medium text-gray-700 hover:text-blue-600 transition"
+            >
               Contact
-            </Link>
+            </a>
           </nav>
 
           <div className="flex items-center">
 
-            <Link
-              to="/signin"
-              className="hidden md:inline-flex items-center justify-center px-5 py-2.5 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition"
-            >
-              Sign In
-            </Link>
+            {isLoggedIn ? (
+              <div className="hidden md:flex items-center space-x-3">
+                <span className="text-sm font-medium text-gray-700">
+                  Hi, {userData?.name || 'User'}!
+                </span>
+                <button
+                  onClick={handleLogout}
+                  className="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 transition"
+                >
+                  Logout
+                </button>
+              </div>
+            ) : (
+              <button
+                onClick={() => navigate('/signin')}
+                className="hidden md:inline-flex items-center justify-center px-5 py-2.5 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition"
+              >
+                Sign In
+              </button>
+            )}
 
             <button
               id="mobile-menu-button"
@@ -178,26 +308,30 @@ const App = () => {
           </div>
           <div className="py-4">
             {['Properties', 'About Us', "What's New", 'Our Associates', 'Contact'].map((item) => (
-              <Link
+              <a
                 key={item}
-                to={`/${item.toLowerCase().replace(/\s+/g, '-')}`}
+                href={`/${item.toLowerCase().replace(/\s+/g, '-')}`}
+                onClick={(e) => handleProtectedNavigation(e, `/${item.toLowerCase().replace(/\s+/g, '-')}`)}
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
               >
                 {item}
-              </Link>
+              </a>
             ))}
             {/* Location Dropdown */}
             <div className="relative">
               <button
                 onClick={() => {
-                  console.log('Dropdown toggled');
-                  setIsLocationDropdownOpen(!isLocationDropdownOpen);
+                  if (isLoggedIn) {
+                    setIsLocationDropdownOpen(!isLocationDropdownOpen);
+                  } else {
+                    handleProtectedNavigation({ preventDefault: () => {} }, '/locations');
+                  }
                 }}
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
               >
                 Location
               </button>
-              {isLocationDropdownOpen && (
+              {isLocationDropdownOpen && isLoggedIn && (
                 <div className="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-10">
                   {["Silicon City", "Rau", "Mhow", "Pithampur", "CAT Road", "Ujjain Road", "AB Bypass Road", "Bicholi"].map((location) => (
                     <Link
@@ -206,20 +340,20 @@ const App = () => {
                         location === "CAT Road"
                           ? "/location/cat-road"
                           : location === "Silicon City"
-                          ? "/location/silicon-city"
-                          : location === "Pithampur"
-                          ? "/location/pithampur"
-                          : location === "Mhow"
-                          ? "/location/mhow"
-                          : location === "Ujjain Road"
-                          ? "/location/ujjain"
-                          : location === "AB Bypass Road"
-                          ? "/location/bypass"
-                          : location === "Bicholi"
-                          ? "/location/bicholi"
-                          : location === "Rau"
-                          ? "/location/rau"
-                          : `/location/${location.toLowerCase().replace(/\s+/g, '-')}`}
+                            ? "/location/silicon-city"
+                            : location === "Pithampur"
+                              ? "/location/pithampur"
+                              : location === "Mhow"
+                                ? "/location/mhow"
+                                : location === "Ujjain Road"
+                                  ? "/location/ujjain"
+                                  : location === "AB Bypass Road"
+                                    ? "/location/bypass"
+                                    : location === "Bicholi"
+                                      ? "/location/bicholi"
+                                      : location === "Rau"
+                                        ? "/location/rau"
+                                        : `/location/${location.toLowerCase().replace(/\s+/g, '-')}`}
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                     >
                       {location}
@@ -229,12 +363,26 @@ const App = () => {
               )}
             </div>
             <div className="px-4 py-4 border-t">
-              <Link
-                to="/signin"
-                className="flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
-              >
-                SignIn
-              </Link>
+              {isLoggedIn ? (
+                <div className="space-y-3">
+                  <div className="text-sm font-medium text-gray-700 px-4">
+                    Hi, {userData?.name || 'User'}!
+                  </div>
+                  <button
+                    onClick={handleLogout}
+                    className="flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 w-full"
+                  >
+                    Logout
+                  </button>
+                </div>
+              ) : (
+                <button
+                  onClick={() => navigate('/signin')}
+                  className="flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 w-full"
+                >
+                  Sign In
+                </button>
+              )}
             </div>
           </div>
         </div>
@@ -258,13 +406,13 @@ const App = () => {
               <h2 className="text-lg font-bold mb-2 text-blue-300">Realty Alliance</h2>
               <ul className="list-disc list-inside mt-2">
                 <li className="text-base">
-                  <Link to="/cat-road">Vrindavan Premium</Link>
+                  <a href="/cat-road" onClick={(e) => handleProtectedNavigation(e, '/cat-road')}>Vrindavan Premium</a>
                 </li>
                 <li className="text-base">
-                  <Link to="/pithampur">Balaji Realty</Link>
+                  <a href="/pithampur" onClick={(e) => handleProtectedNavigation(e, '/pithampur')}>Balaji Realty</a>
                 </li>
                 <li className="text-base">
-                  <Link to="/shubham">Shubham Buildcon</Link>
+                  <a href="/shubham" onClick={(e) => handleProtectedNavigation(e, '/shubham')}>Shubham Buildcon</a>
                 </li>
               </ul>
             </div>
@@ -276,20 +424,20 @@ const App = () => {
               </div>
             </div>
           </div>
-          
+
           {/* Desktop: Absolute Positioned Cards */}
           <div className="hidden sm:block">
             <div className="absolute top-10 left-10 bg-black/30 backdrop-blur-md text-white p-6 rounded-lg shadow-lg max-w-xs transform transition-transform duration-300 hover:scale-105">
               <h2 className="text-xl font-bold mb-2 text-blue-300">Realty Alliance</h2>
               <ul className="list-disc list-inside mt-4">
                 <li className="text-lg">
-                  <Link to="/cat-road">Vrindavan Premium</Link>
+                  <a href="/cat-road" onClick={(e) => handleProtectedNavigation(e, '/cat-road')}>Vrindavan Premium</a>
                 </li>
                 <li className="text-lg">
-                  <Link to="/pithampur">Balaji Realty</Link>
+                  <a href="/pithampur" onClick={(e) => handleProtectedNavigation(e, '/pithampur')}>Balaji Realty</a>
                 </li>
                 <li className="text-lg">
-                  <Link to="/shubham">Shubham Buildcon</Link>
+                  <a href="/shubham" onClick={(e) => handleProtectedNavigation(e, '/shubham')}>Shubham Buildcon</a>
                 </li>
               </ul>
             </div>
@@ -303,7 +451,8 @@ const App = () => {
           </div>
         </div>
 
-        <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500"></h1>
+        {/* Empty div placeholder for potential future content */}
+        <div className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500"></div>
       </div>
       <section className="hero-gradient text-white py-32 md:py-40 relative overflow-hidden" style={{ zIndex: 1 }}>
         <div className="animated-bg">
@@ -374,7 +523,7 @@ const App = () => {
               </form>
             </div>
             <div className="mt-16 grid grid-cols-2 md:grid-cols-3 gap-6 text-center">
-              
+
               <div className="bg-white/10 p-6 rounded-xl backdrop-blur-sm border border-white/20 shadow-lg bounce-in stagger-2">
                 <div className="text-4xl font-bold text-gradient mb-2">50+</div>
                 <div className="text-sm font-medium text-gray-200">Projects Completed</div>
@@ -389,11 +538,15 @@ const App = () => {
               </div>
             </div>
             <div className="mt-14 flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 slide-in stagger-5">
-
-              <a href="tel:+918989941900" className="flex items-center justify-center">
-                <span className="text-white font-medium">Talk to an Expert</span>
-                <span className="text-white font-medium ml-2">+91 89899 41900</span>
-                <i className="fas fa-phone ml-2 text-blue-300"></i>
+              <a
+                href="https://wa.me/918989941900"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center text-xl px-4 py-2 bg-green-600 hover:bg-green-700 rounded-lg shadow-lg transition-transform duration-200 hover:scale-105"
+              >
+                <span className="text-white font-medium">WhatsApp Us</span>
+                
+                <i className="fab fa-whatsapp ml-2 text-green-400 text-2xl"></i>
               </a>
             </div>
           </div>
@@ -453,12 +606,13 @@ const App = () => {
 
                     <div className="text-xl font-bold text-gray-900">UPCOMING </div>
                   </div>
-                  <Link
-                    to="/shourya-vihar"
+                  <a
+                    href="/shourya-vihar"
+                    onClick={(e) => handleProtectedNavigation(e, '/shourya-vihar')}
                     className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition text-sm"
                   >
                     View Details
-                  </Link>
+                  </a>
                 </div>
               </div>
               {/* Marketed By */}
@@ -470,7 +624,7 @@ const App = () => {
                 <span className="font-medium text-gray-700">Developed By:</span> Balaji Realty
               </div>
             </div>
-            
+
 
             {/* Property Card 2 */}
             <div className="property-card bg-white rounded-xl overflow-hidden shadow-md">
@@ -511,12 +665,13 @@ const App = () => {
                     <span className="text-gray-500 text-sm">Starting at</span>
                     <div className="text-xl font-bold text-gray-900">₹95 Lakhs</div>
                   </div>
-                  <Link
-                    to="/vrindavan-premium-row-houses"
+                  <a
+                    href="/vrindavan-premium-row-houses"
+                    onClick={(e) => handleProtectedNavigation(e, '/vrindavan-premium-row-houses')}
                     className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition text-sm"
                   >
                     View Details
-                  </Link>
+                  </a>
                 </div>
               </div>
               {/* Marketed By */}
@@ -567,12 +722,13 @@ const App = () => {
 
                     <div className="text-xl font-bold text-gray-900">Sold Out </div>
                   </div>
-                  <Link
-                    to="/silicon-premium"
+                  <a
+                    href="/silicon-premium"
+                    onClick={(e) => handleProtectedNavigation(e, '/silicon-premium')}
                     className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition text-sm"
                   >
                     View Details
-                  </Link>
+                  </a>
                 </div>
               </div>
               {/* Marketed By */}
@@ -621,12 +777,13 @@ const App = () => {
                   <div>
                     <div className="text-xl font-bold text-gray-900">Sold Out</div>
                   </div>
-                  <Link
-                    to="/rau"
+                  <a
+                    href="/rau"
+                    onClick={(e) => handleProtectedNavigation(e, '/rau')}
                     className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition text-sm"
                   >
                     View Details
-                  </Link>
+                  </a>
                 </div>
                 {/* Marketed By */}
                 <div className="text-sm text-gray-500 mb-2">
@@ -638,7 +795,7 @@ const App = () => {
                 </div>
               </div>
             </div>
-            
+
 
           </div>
 
@@ -646,8 +803,9 @@ const App = () => {
 
         {/* View All Properties Button */}
         <div className="text-center mt-12">
-          <Link
-            to="/properties"
+          <a
+            href="/properties"
+            onClick={(e) => handleProtectedNavigation(e, '/properties')}
             className="inline-flex items-center px-8 py-4 text-base font-semibold rounded-xl text-blue-600 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-blue-300 bg-transparent"
           >
             View All Properties
@@ -665,7 +823,7 @@ const App = () => {
                 d="M17 8l4 4m0 0l-4 4m4-4H3"
               ></path>
             </svg>
-          </Link>
+          </a>
         </div>
 
       </section>
@@ -999,7 +1157,248 @@ const App = () => {
         </div>
       </section> */}
 
+      {/* Login/Signup Popup */}
+      {showLoginPopup && !isLoggedIn && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-lg shadow-xl max-w-md w-full max-h-[90vh] overflow-y-auto">
+            <div className="p-6">
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-2xl font-bold text-gray-900">
+                  {isSignUp ? 'Create Account' : 'Sign In'}
+                </h2>
+                <button
+                  onClick={() => setShowLoginPopup(false)}
+                  className="text-gray-400 hover:text-gray-600 p-1"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+                </button>
+              </div>
+
+              <form onSubmit={(e) => {
+                e.preventDefault();
+                const formData = new FormData(e.target);
+                const userData = {
+                  name: formData.get('name') || formData.get('email').split('@')[0],
+                  email: formData.get('email'),
+                  phone: formData.get('phone')
+                };
+                handleLogin(userData);
+              }}>
+                {isSignUp && (
+                  <div className="mb-4">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Full Name
+                    </label>
+                    <input
+                      type="text"
+                      name="name"
+                      required
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      placeholder="Enter your full name"
+                    />
+                  </div>
+                )}
+
+                <div className="mb-4">
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Email Address
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    placeholder="Enter your email"
+                  />
+                </div>
+
+                {isSignUp && (
+                  <div className="mb-4">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Phone Number
+                    </label>
+                    <input
+                      type="tel"
+                      name="phone"
+                      required
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      placeholder="Enter your phone number"
+                    />
+                  </div>
+                )}
+
+                <div className="mb-6">
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    name="password"
+                    required
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    placeholder="Enter your password"
+                  />
+                </div>
+
+                {isSignUp && (
+                  <div className="mb-6">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Confirm Password
+                    </label>
+                    <input
+                      type="password"
+                      name="confirmPassword"
+                      required
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      placeholder="Confirm your password"
+                    />
+                  </div>
+                )}
+
+                <button
+                  type="submit"
+                  className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition font-medium"
+                >
+                  {isSignUp ? 'Create Account' : 'Sign In'}
+                </button>
+              </form>
+
+              <div className="mt-6 text-center">
+                <p className="text-sm text-gray-600">
+                  {isSignUp ? 'Already have an account?' : "Don't have an account?"}
+                  <button
+                    onClick={() => setIsSignUp(!isSignUp)}
+                    className="ml-1 text-blue-600 hover:text-blue-700 font-medium"
+                  >
+                    {isSignUp ? 'Sign In' : 'Sign Up'}
+                  </button>
+                </p>
+              </div>
+
+              <div className="mt-6">
+                <div className="relative">
+                  <div className="absolute inset-0 flex items-center">
+                    <div className="w-full border-t border-gray-300"></div>
+                  </div>
+                  <div className="relative flex justify-center text-sm">
+                    <span className="px-2 bg-white text-gray-500">Or continue with</span>
+                  </div>
+                </div>
+
+                <div className="mt-6 grid grid-cols-2 gap-3">
+                  <button
+                    type="button"
+                    onClick={() => handleLogin({ email: 'google@example.com', name: 'Google User' })}
+                    className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
+                  >
+                    <svg className="w-5 h-5" viewBox="0 0 24 24">
+                      <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                      <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                      <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                      <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                    </svg>
+                    <span className="ml-2">Google</span>
+                  </button>
+
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Authentication Warning */}
+      {showAuthWarning && (
+        <div className="fixed top-4 right-4 bg-red-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 animate-pulse">
+          <div className="flex items-center">
+            <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833-.192 2.5 1.732 2.5z"></path>
+            </svg>
+            <span className="font-medium">Please log in to access</span>
+          </div>
+        </div>
+      )}
+
       <Footer />
+
+      {/* Fixed Social Media Handles */}
+      <div className="fixed left-4 top-1/2 transform -translate-y-1/2 z-50 hidden md:flex flex-col space-y-3">
+        <a
+          href="https://www.instagram.com/endlessrealty_indore?igsh=MWVtdmFycWdnOHM4Mg=="
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white hover:scale-110 transform transition-all duration-300 shadow-lg hover:shadow-xl"
+        >
+          <i className="fab fa-instagram text-lg"></i>
+        </a>
+        <a
+          href="https://www.facebook.com/endlessrealty"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white hover:scale-110 transform transition-all duration-300 shadow-lg hover:shadow-xl"
+        >
+          <i className="fab fa-facebook-f text-lg"></i>
+        </a>
+        <a
+          href="https://www.linkedin.com/company/endlessrealty"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-12 h-12 bg-blue-700 rounded-full flex items-center justify-center text-white hover:scale-110 transform transition-all duration-300 shadow-lg hover:shadow-xl"
+        >
+          <i className="fab fa-linkedin-in text-lg"></i>
+        </a>
+        <a
+          href="https://twitter.com/endlessrealty"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-12 h-12 bg-black rounded-full flex items-center justify-center text-white hover:scale-110 transform transition-all duration-300 shadow-lg hover:shadow-xl"
+        >
+          <i className="fab fa-x-twitter text-lg"></i>
+        </a>
+      </div>
+
+      {/* Mobile Social Media - Bottom Fixed */}
+      <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50 md:hidden">
+        <div className="bg-white/90 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg border border-gray-200">
+          <div className="flex space-x-4">
+            <a
+              href="https://www.instagram.com/endlessrealty/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white hover:scale-110 transform transition-all duration-300"
+            >
+              <i className="fab fa-instagram text-sm"></i>
+            </a>
+            <a
+              href="https://www.facebook.com/endlessrealty"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white hover:scale-110 transform transition-all duration-300"
+            >
+              <i className="fab fa-facebook-f text-sm"></i>
+            </a>
+            <a
+              href="https://www.linkedin.com/company/endlessrealty"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 bg-blue-700 rounded-full flex items-center justify-center text-white hover:scale-110 transform transition-all duration-300"
+            >
+              <i className="fab fa-linkedin-in text-sm"></i>
+            </a>
+            <a
+              href="https://twitter.com/endlessrealty"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 bg-black rounded-full flex items-center justify-center text-white hover:scale-110 transform transition-all duration-300"
+            >
+              <i className="fab fa-x-twitter text-sm"></i>
+            </a>
+          </div>
+        </div>
+      </div>
     </header>
 
   );
