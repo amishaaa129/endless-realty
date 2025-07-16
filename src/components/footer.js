@@ -41,7 +41,8 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold text-gray-100 mb-4">Follow Us</h4>
             <div className="flex justify-center space-x-4">
-              <a href="https://share.google/bLxJZaw0xgtrnPTBW" className="text-gray-400 hover:text-blue-400 text-2xl">
+              <a href="https://share.google/bLxJZaw0xgtrnPTBW" className="text-gray-400 hover:text-blue-400 text-2xl"
+                target="_blank">
                 <FaFacebook />
               </a>
               
@@ -53,7 +54,7 @@ const Footer = () => {
               >
                 <FaInstagram />
               </a>
-              <a href="#" className="text-gray-400 hover:text-blue-400 text-2xl">
+              <a href="" className="text-gray-400 hover:text-blue-400 text-2xl">
                 <FaLinkedin />
               </a>
             </div>

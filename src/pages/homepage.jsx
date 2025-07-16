@@ -1381,7 +1381,7 @@ const App = () => {
           <i className="fab fa-instagram text-lg"></i>
         </a>
         <a
-          href="https://www.facebook.com/endlessrealty"
+          href="https://share.google/bLxJZaw0xgtrnPTBW"
           target="_blank"
           rel="noopener noreferrer"
           className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white hover:scale-110 transform transition-all duration-300 shadow-lg hover:shadow-xl"
@@ -1404,7 +1404,7 @@ const App = () => {
         <div className="bg-white/90 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg border border-gray-200">
           <div className="flex space-x-4">
             <a
-              href="https://www.instagram.com/endlessrealty/"
+              href="https://www.instagram.com/endlessrealty_indore?igsh=MWVtdmFycWdnOHM4Mg=="
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white hover:scale-110 transform transition-all duration-300"
