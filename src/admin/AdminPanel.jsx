@@ -107,7 +107,7 @@ const AdminPanel = () => {
     // Check if user is an admin
     const adminUser = adminUsers.find(admin => admin.email === email);
     
-    if (adminUser && password === 'admin123') {
+    if (adminUser && password === process.env.ADMIN_PASSWORD) {
       // Store admin login state
       const userData = {
         name: adminUser.name,
