@@ -40,6 +40,16 @@ const Properties = () => {
       type: 'Plot',
     },
     {
+      id: 12,
+      title: 'Shubham Greens',
+      location: 'Near Surya Mandir, Rau',
+      bhk: '3',
+      area_sqft: '1100',
+      price_label: 'Ready to Move',
+      thumbnail_url: '/images/green.jpeg',
+      type: 'Bungalow',
+    },
+    {
       id: 4,
       title: 'Shubham Eleven',
       location: '2.6 km from AB Bypass, close to UNO Business Park, Indore',

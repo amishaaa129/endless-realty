@@ -5,6 +5,7 @@ import Property1 from "./valley/valley";
 import Property2 from "./arcadia/arcadia";
 import Property3 from "./tsv/tsv";
 import Property4 from "./eleven/eleven";
+import Property5 from "./green/green";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
@@ -36,6 +37,7 @@ const Main = () => {
             <Property2 />
             <Property3 />   
             <Property4 /> 
+            <Property5 />
           </div>
         </div>
         {/* Swiper Image Gallery */}

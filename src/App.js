@@ -30,6 +30,7 @@ import Valleydetails from './locations/Shubham/valley/valley-details';
 import Tsvdetails from './locations/Shubham/tsv/tsv-details';
 import Arcadiadetails from './locations/Shubham/arcadia/arcadia-details';
 import Elevendetails from './locations/Shubham/eleven/eleven-details';
+import Greendetails from './locations/Shubham/green/green-details';
 function App() {
   return (
     <Routes>
@@ -72,6 +73,7 @@ function App() {
       <Route path ="/shubham-tsv" element={<Tsvdetails />} />
       <Route path ="/shubham-arcadia" element={<Arcadiadetails />} />
       <Route path ="/shubham-eleven" element={<Elevendetails />} />
+      <Route path ="/shubham-green" element={<Greendetails />} />
     </Routes>
   );
 }
