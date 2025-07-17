@@ -41,36 +41,19 @@ const App = () => {
   React.useEffect(() => {
     // Scroll to top on page load
     window.scrollTo(0, 0);
-    
+
     const loginStatus = localStorage.getItem('isLoggedIn');
     const storedUserData = localStorage.getItem('userData');
     if (loginStatus === 'true' && storedUserData) {
       const user = JSON.parse(storedUserData);
       setIsLoggedIn(true);
       setUserData(user);
-      
+
       // Check if user is admin
       const isAdmin = adminUsers.some(adminUser => adminUser.email === user.email);
       setIsAdminUser(isAdmin);
-    } else {
-      // Show popup after 3 seconds if not logged in
-      const timer = setTimeout(() => {
-        setShowLoginPopup(true);
-      }, 3000);
-      return () => clearTimeout(timer);
     }
   }, []);
-
-  // Show login popup at intervals for non-logged-in users
-  React.useEffect(() => {
-    if (!isLoggedIn) {
-      const showPopupInterval = setInterval(() => {
-        setShowLoginPopup(true);
-      }, 30000); // Show popup every 30 seconds
-
-      return () => clearInterval(showPopupInterval);
-    }
-  }, [isLoggedIn]);
 
   const handleLogin = (userData) => {
     setIsLoggedIn(true);
@@ -78,11 +61,11 @@ const App = () => {
     localStorage.setItem('isLoggedIn', 'true');
     localStorage.setItem('userData', JSON.stringify(userData));
     setShowLoginPopup(false);
-    
+
     // Check if user is admin
     const isAdmin = adminUsers.some(adminUser => adminUser.email === userData.email);
     setIsAdminUser(isAdmin);
-    
+
     // Don't auto-redirect admins - let them choose to access admin panel or stay on main site
     // Admin users can access admin panel via direct URL /admin when needed
   };
@@ -145,8 +128,8 @@ const App = () => {
             <Link to="/" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition">
               Home
             </Link>
-            <a 
-              href="/properties" 
+            <a
+              href="/properties"
               onClick={(e) => handleFreeNavigation(e, '/properties')}
               className="text-sm font-medium text-gray-700 hover:text-blue-600 transition"
             >
@@ -187,31 +170,31 @@ const App = () => {
               )}
             </div>
 
-            <a 
-              href="/about-us" 
+            <a
+              href="/about-us"
               onClick={(e) => handleFreeNavigation(e, '/about-us')}
               className="text-sm font-medium text-gray-700 hover:text-blue-600 transition"
             >
               About Us
             </a>
 
-            <a 
-              href="/what's-new" 
+            <a
+              href="/what's-new"
               onClick={(e) => handleFreeNavigation(e, "/what's-new")}
               className="text-sm font-medium text-gray-700 hover:text-blue-600 transition"
             >
               What's New
             </a>
 
-            <a 
-              href="/our-associates" 
+            <a
+              href="/our-associates"
               onClick={(e) => handleFreeNavigation(e, '/our-associates')}
               className="text-sm font-medium text-gray-700 hover:text-blue-600 transition"
             >
               Our Associates
             </a>
-            <a 
-              href="/contact" 
+            <a
+              href="/contact"
               onClick={(e) => handleFreeNavigation(e, '/contact')}
               className="text-sm font-medium text-gray-700 hover:text-blue-600 transition"
             >
@@ -535,7 +518,7 @@ const App = () => {
                 className="flex items-center justify-center text-xl px-4 py-2 bg-green-600 hover:bg-green-700 rounded-lg shadow-lg transition-transform duration-200 hover:scale-105"
               >
                 <span className="text-white font-medium">WhatsApp Us</span>
-                
+
                 <i className="fab fa-whatsapp ml-2 text-green-400 text-2xl"></i>
               </a>
             </div>
@@ -723,11 +706,11 @@ const App = () => {
               </div>
               {/* Marketed By */}
               <div className="text-sm text-gray-500 mb-2">
-                  <span className="font-medium text-gray-700">Marketed By:</span> Endless Realty
+                <span className="font-medium text-gray-700">Marketed By:</span> Endless Realty
               </div>
               {/* Developed By */}
               <div className="text-sm text-gray-500">
-                  <span className="font-medium text-gray-700">Developed By:</span> Rachit Homes
+                <span className="font-medium text-gray-700">Developed By:</span> Rachit Homes
               </div>
             </div>
             <div className="property-card bg-white rounded-xl overflow-hidden shadow-md">
@@ -1171,10 +1154,10 @@ const App = () => {
                 const formData = new FormData(e.target);
                 const email = formData.get('email');
                 const password = formData.get('password');
-                
+
                 // Check if user is admin and use proper name
                 const adminUser = adminUsers.find(admin => admin.email === email);
-                
+
                 // Check for admin credentials
                 if (adminUser && password === 'admin123') {
                   const userData = {
@@ -1185,7 +1168,7 @@ const App = () => {
                   handleLogin(userData);
                   return;
                 }
-                
+
                 // For regular users
                 const userData = {
                   name: formData.get('name') || email.split('@')[0],
@@ -1285,13 +1268,13 @@ const App = () => {
                 </p>
               </div>
 
-              
+
             </div>
           </div>
         </div>
       )}
 
-      
+
 
       <Footer />
 
@@ -1306,6 +1289,14 @@ const App = () => {
           <i className="fab fa-instagram text-lg"></i>
         </a>
         <a
+          href="https://share.google/bLxJZaw0xgtrnPTBW"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-12 h-12 bg-blue-700 rounded-full flex items-center justify-center text-white hover:scale-110 transform transition-all duration-300 shadow-lg hover:shadow-xl"
+        >
+          <i className="fab fa-facebook-f text-lg"></i>
+        </a>
+        <a
           href="https://www.linkedin.com/company/endlessrealty"
           target="_blank"
           rel="noopener noreferrer"
@@ -1313,7 +1304,7 @@ const App = () => {
         >
           <i className="fab fa-linkedin-in text-lg"></i>
         </a>
-        
+
       </div>
 
       {/* Mobile Social Media - Bottom Fixed */}
@@ -1329,6 +1320,14 @@ const App = () => {
               <i className="fab fa-instagram text-sm"></i>
             </a>
             <a
+              href="https://share.google/bLxJZaw0xgtrnPTBW"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 bg-blue-700 rounded-full flex items-center justify-center text-white hover:scale-110 transform transition-all duration-300 shadow-lg hover:shadow-xl"
+            >
+              <i className="fab fa-facebook-f text-lg"></i>
+            </a>
+            <a
               href="https://www.linkedin.com/company/endlessrealty"
               target="_blank"
               rel="noopener noreferrer"
@@ -1336,7 +1335,7 @@ const App = () => {
             >
               <i className="fab fa-linkedin-in text-sm"></i>
             </a>
-            
+
           </div>
         </div>
       </div>
