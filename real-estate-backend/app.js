@@ -1,11 +1,14 @@
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 require('dotenv').config();
 
 const propertyRoutes = require('./routes/propertyRoutes');
 const userRoutes = require('./routes/userRoutes');
 const contactRoutes = require('./routes/contactRoutes');
 const brokerRoutes = require('./routes/brokerRoutes');
+const uploadRoutes = require('./routes/uploadRoutes');
+const galleryRoutes = require('./routes/galleryRoutes');
 
 const app = express();
 
@@ -32,6 +35,9 @@ app.use('/api/properties', propertyRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/contact', contactRoutes);
 app.use('/api/our-associates', brokerRoutes);
+app.use('/api/uploads', uploadRoutes);
+
+app.use('/uploads', express.static(path.join(__dirname, '..', 'public', 'uploads')));
 
 app.get('/', (req, res) => res.send('Real Estate API Running'));
 

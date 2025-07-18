@@ -9,6 +9,10 @@ const AdminPanel = () => {
   const [authError, setAuthError] = useState('');
   const navigate = useNavigate();
   const [properties, setProperties] = useState([]);
+  const [activityFiles, setActivityFiles] = useState([]);
+  const [galleryFiles, setGalleryFiles] = useState([]);
+  const [propertyNewsFiles, setPropertyNewsFiles] = useState([]);
+  const [updatesFiles, setUpdatesFiles] = useState([]);
   const [formData, setFormData] = useState({
     title: '',
     type: '',
@@ -30,6 +34,8 @@ const AdminPanel = () => {
   const [editingProperty, setEditingProperty] = useState(null);
   const [imageFiles, setImageFiles] = useState([]);
   const [imagePreview, setImagePreview] = useState([]);
+
+  const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://api.endlessrealty.in';
 
   // Statistics
   const [stats, setStats] = useState({
@@ -136,6 +142,32 @@ const AdminPanel = () => {
     navigate('/');
   };
 
+  const handleMultipleImageUpload = async (files, category) => {
+  const uploadedUrls = [];
+
+  for (let file of files) {
+    const formData = new FormData();
+    formData.append('image', file);
+
+    try {
+      const res = await fetch(`${API_BASE_URL}/api/uploads/${category}`, {
+        method: 'POST',
+        body: formData,
+      });
+
+      const data = await res.json();
+      if (data.fileUrl) {
+        uploadedUrls.push(`${API_BASE_URL}/${data.fileUrl}`);
+      }
+    } catch (error) {
+      console.error(`Error uploading to ${category}:`, error);
+    }
+  }
+
+  alert(`${uploadedUrls.length} images uploaded to ${category}.`);
+  return uploadedUrls;
+};
+
   const redirectToMainSite = () => {
     navigate('/');
   };
@@ -148,14 +180,18 @@ const AdminPanel = () => {
     }));
   };
 
-  const handleImageUpload = (e) => {
-    const files = Array.from(e.target.files);
-    setImageFiles(files);
+  const handleImageUpload = async (file, category) => {
+  const formData = new FormData();
+  formData.append('image', file);
 
-    // Create preview URLs
-    const previews = files.map(file => URL.createObjectURL(file));
-    setImagePreview(previews);
-  };
+  const res = await fetch(`${API_BASE_URL}/api/uploads/${category}`, {
+    method: 'POST',
+    body: formData,
+  });
+
+  const data = await res.json();
+  return data.fileUrl;
+};
 
   const handleSubmitProperty = (e) => {
     e.preventDefault();
@@ -737,10 +773,26 @@ const AdminPanel = () => {
     </div>
   );
 
-  const renderImageUploadSection = (sectionType) => (
+  const renderImageUploadSection = (files, setFiles, category) => {
+  const handleFileChange = (e) => {
+    setFiles(Array.from(e.target.files));
+  };
+
+  const handleUploadSubmit = async (e) => {
+    e.preventDefault();
+    if (files.length === 0) {
+      alert("Please select images first.");
+      return;
+    }
+
+    await handleMultipleImageUpload(files, category);
+    setFiles([]);
+  };
+
+  return (
     <div className="bg-white rounded-lg shadow-md p-6">
-      <h2 className="text-2xl font-semibold text-gray-900 mb-6 capitalize">{sectionType.replace('-', ' ')}</h2>
-      <form className="space-y-6">
+      <h2 className="text-2xl font-semibold text-gray-900 mb-6 capitalize">{category.replace("-", " ")}</h2>
+      <form onSubmit={handleUploadSubmit} className="space-y-6">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">Upload Images</label>
           <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-gray-400 transition-colors">
@@ -749,14 +801,29 @@ const AdminPanel = () => {
               multiple
               accept="image/*"
               className="hidden"
-              id={`${sectionType}Images`}
+              id={`${category}Images`}
+              onChange={handleFileChange}
             />
-            <label htmlFor={`${sectionType}Images`} className="cursor-pointer">
+            <label htmlFor={`${category}Images`} className="cursor-pointer">
               <i className="fas fa-cloud-upload-alt text-4xl text-gray-400 mb-2"></i>
               <p className="text-gray-600">Drag & drop images here or click to browse</p>
             </label>
           </div>
+
+          {files.length > 0 && (
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
+              {files.map((file, index) => (
+                <img
+                  key={index}
+                  src={URL.createObjectURL(file)}
+                  alt={`Preview ${index + 1}`}
+                  className="w-full h-24 object-cover rounded-md"
+                />
+              ))}
+            </div>
+          )}
         </div>
+
         <button
           type="submit"
           className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
@@ -766,6 +833,8 @@ const AdminPanel = () => {
       </form>
     </div>
   );
+};
+
 
   const renderSettings = () => (
     <div className="space-y-6">
@@ -794,33 +863,33 @@ const AdminPanel = () => {
   );
 
   const renderContent = () => {
-    switch (activeSection) {
-      case 'dashboard':
-        return renderDashboard();
-      case 'properties':
-        return renderProperties();
-      case 'add-property':
-        return renderAddProperty();
-      case 'associates':
-        return renderDataSection('associates');
-      case 'buyers':
-        return renderDataSection('buyers');
-      case 'sellers':
-        return renderDataSection('sellers');
-      case 'activities':
-        return renderImageUploadSection('activities');
-      case 'property-news':
-        return renderImageUploadSection('property-news');
-      case 'gallery':
-        return renderImageUploadSection('gallery');
-      case 'updates':
-        return renderImageUploadSection('updates');
-      case 'settings':
-        return renderSettings();
-      default:
-        return renderDashboard();
-    }
-  };
+  switch (activeSection) {
+    case 'dashboard':
+      return renderDashboard();
+    case 'properties':
+      return renderProperties();
+    case 'add-property':
+      return renderAddProperty();
+    case 'associates':
+      return renderDataSection('associates');
+    case 'buyers':
+      return renderDataSection('buyers');
+    case 'sellers':
+      return renderDataSection('sellers');
+    case 'activities':
+      return renderImageUploadSection(activityFiles, setActivityFiles, 'activities');
+    case 'property-news':
+      return renderImageUploadSection(propertyNewsFiles, setPropertyNewsFiles, 'property-news');
+    case 'gallery':
+      return renderImageUploadSection(galleryFiles, setGalleryFiles, 'gallery');
+    case 'updates':
+      return renderImageUploadSection(updatesFiles, setUpdatesFiles, 'updates');
+    case 'settings':
+      return renderSettings();
+    default:
+      return renderDashboard();
+  }
+};
 
   if (!isLoggedIn) {
     return (
