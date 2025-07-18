@@ -7,13 +7,11 @@ const router = express.Router();
 
 const allowedCategories = ['gallery', 'activities', 'property-news', 'updates'];
 
-// Create folders if not exist
 allowedCategories.forEach(category => {
   const dir = path.join(__dirname, '..', '..', 'public', 'uploads', category);
   if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
 });
 
-// Multer Storage Config
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     const { category } = req.params;
@@ -28,7 +26,6 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-// Upload Route
 router.post('/:category', (req, res, next) => {
   const { category } = req.params;
   if (!allowedCategories.includes(category)) {
@@ -44,7 +41,6 @@ router.post('/:category', (req, res, next) => {
   });
 });
 
-// Get Files Route
 router.get('/:category', (req, res) => {
   const { category } = req.params;
   if (!allowedCategories.includes(category)) {
@@ -54,13 +50,33 @@ router.get('/:category', (req, res) => {
   const dirPath = path.join(__dirname, '..', '..', 'public', 'uploads', category);
 
   fs.readdir(dirPath, (err, files) => {
+    if (err) return res.status(500).json({ error: 'Could not list files' });
+
+    const fileUrls = files.map(filename => `/uploads/${category}/${filename}`);
+    res.json(fileUrls);
+  });
+});
+
+router.delete('/:category/:filename', (req, res) => {
+  const { category, filename } = req.params;
+
+  if (!allowedCategories.includes(category)) {
+    return res.status(400).json({ error: 'Invalid category.' });
+  }
+
+  if (filename.includes('..')) {
+    return res.status(400).json({ error: 'Invalid filename.' });
+  }
+
+  const filePath = path.join(__dirname, '..', '..', 'public', 'uploads', category, filename);
+
+  fs.unlink(filePath, (err) => {
     if (err) {
-      console.error(err);
-      return res.status(500).json({ error: 'Could not list files' });
+      console.error('Error deleting file:', err);
+      return res.status(500).json({ error: 'File not found or could not be deleted.' });
     }
 
-    const fileUrls = files.map(filename => `uploads/${category}/${filename}`);
-    res.json(fileUrls);
+    res.json({ message: 'File deleted successfully.' });
   });
 });
 

@@ -20,6 +20,8 @@ const Features = () => {
   const [showUpdatesSwiper, setShowUpdatesSwiper] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
 
+  const isAdminUser = localStorage.getItem('isLoggedIn') === 'true';
+
   useEffect(() => {
     const fetchAllImages = async () => {
       try {
@@ -40,6 +42,16 @@ const Features = () => {
 
     fetchAllImages();
   }, []);
+
+  const handleDeleteImage = async (category, filename) => {
+    if (!window.confirm("Are you sure you want to delete this image?")) return;
+    try {
+      await fetch(`${API_BASE_URL}/api/uploads/${category}/${filename}`, { method: 'DELETE' });
+      window.location.reload(); // quick refresh, or manually update state instead
+    } catch (err) {
+      console.error("Delete failed:", err);
+    }
+  };
 
   const featureCards = [
     { title: 'Activities', desc: 'Engage in a variety of activities designed to enhance your experience.', isActivity: true, src: '/images/whats-new/activities.JPG' },
@@ -78,17 +90,17 @@ const Features = () => {
         </div>
       </main>
 
-      {renderModalSwiper(showActivitySwiper, setShowActivitySwiper, activitiesImages, "Our Activities", setCurrentSlide)}
-      {renderModalSwiper(showNewsSwiper, setShowNewsSwiper, propertyNewsImages, "Property News")}
-      {renderModalSwiper(showGallerySwiper, setShowGallerySwiper, galleryImages, "Gallery")}
-      {renderModalSwiper(showUpdatesSwiper, setShowUpdatesSwiper, updatesImages, "Updates")}
+      {renderModalSwiper(showActivitySwiper, setShowActivitySwiper, activitiesImages, "Our Activities", setCurrentSlide, isAdminUser, handleDeleteImage, "activities")}
+      {renderModalSwiper(showNewsSwiper, setShowNewsSwiper, propertyNewsImages, "Property News", null, isAdminUser, handleDeleteImage, "property-news")}
+      {renderModalSwiper(showGallerySwiper, setShowGallerySwiper, galleryImages, "Gallery", null, isAdminUser, handleDeleteImage, "gallery")}
+      {renderModalSwiper(showUpdatesSwiper, setShowUpdatesSwiper, updatesImages, "Updates", null, isAdminUser, handleDeleteImage, "updates")}
 
       <Footer />
     </div>
   );
 };
 
-function renderModalSwiper(show, setShow, images, title, setCurrentSlide) {
+function renderModalSwiper(show, setShow, images, title, setCurrentSlide, isAdminUser, handleDeleteImage, category) {
   if (!show) return null;
 
   return (
@@ -114,14 +126,22 @@ function renderModalSwiper(show, setShow, images, title, setCurrentSlide) {
         >
           {images.map((imgPath, index) => (
             <SwiperSlide key={index}>
-              <div className="p-6">
-                <div className="bg-gray-200 rounded-lg overflow-hidden mb-4 flex justify-center items-center">
+              <div className="p-6 relative">
+                <div className="bg-gray-200 rounded-lg overflow-hidden mb-4 flex justify-center items-center relative">
                   <img
-                    src={`${API_BASE_URL}/${imgPath}`}
+                    src={imgPath.startsWith('uploads') ? `${API_BASE_URL}/${imgPath}` : imgPath}
                     alt={`${title} ${index + 1}`}
                     className="w-full h-auto max-h-[80vh] object-contain"
                     onError={(e) => { e.target.src = 'https://via.placeholder.com/400x300?text=Image+Not+Found'; }}
                   />
+                  {isAdminUser && (
+                    <button
+                      onClick={() => handleDeleteImage(category, imgPath.split('/').pop())}
+                      className="absolute top-2 right-2 bg-red-600 text-white p-1 rounded hover:bg-red-700"
+                    >
+                      Delete
+                    </button>
+                  )}
                 </div>
               </div>
             </SwiperSlide>
