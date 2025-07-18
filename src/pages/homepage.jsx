@@ -377,17 +377,26 @@ const App = () => {
             {/* Mobile: Stacked Cards */}
             <div className="bg-gradient/30 backdrop-blur-md text-white p-4 rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105">
               <h2 className="text-lg font-bold mb-2 text-blue-300">Realty Alliance</h2>
-              <ul className="list-disc list-inside mt-2">
-                <li className="text-base">
-                  <a href="/cat-road" onClick={(e) => handleFreeNavigation(e, '/cat-road')}>Vrindavan Premium</a>
-                </li>
-                <li className="text-base">
-                  <a href="/pithampur" onClick={(e) => handleFreeNavigation(e, '/pithampur')}>Balaji Realty</a>
-                </li>
-                <li className="text-base">
-                  <a href="/shubham" onClick={(e) => handleFreeNavigation(e, '/shubham')}>Shubham Buildcon</a>
-                </li>
-              </ul>
+              <div className="mt-2 space-y-2">
+                <button 
+                  onClick={(e) => handleFreeNavigation(e, '/cat-road')}
+                  className="block w-full text-left px-3 py-2 text-base text-white bg-blue-600/20 hover:bg-blue-600/40 rounded-md transition-colors duration-200 border border-blue-400/30 hover:border-blue-400/60"
+                >
+                  Vrindavan Premium
+                </button>
+                <button 
+                  onClick={(e) => handleFreeNavigation(e, '/pithampur')}
+                  className="block w-full text-left px-3 py-2 text-base text-white bg-blue-600/20 hover:bg-blue-600/40 rounded-md transition-colors duration-200 border border-blue-400/30 hover:border-blue-400/60"
+                >
+                  Balaji Realty
+                </button>
+                <button 
+                  onClick={(e) => handleFreeNavigation(e, '/shubham')}
+                  className="block w-full text-left px-3 py-2 text-base text-white bg-blue-600/20 hover:bg-blue-600/40 rounded-md transition-colors duration-200 border border-blue-400/30 hover:border-blue-400/60"
+                >
+                  Shubham Buildcon
+                </button>
+              </div>
             </div>
             <div className="bg-gradient/30 backdrop-blur-md text-white p-4 rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105">
               <h2 className="text-lg font-bold mb-2 text-blue-300">CALL US NOW</h2>
@@ -402,17 +411,26 @@ const App = () => {
           <div className="hidden sm:block">
             <div className="absolute top-10 left-10 bg-black/30 backdrop-blur-md text-white p-6 rounded-lg shadow-lg max-w-xs transform transition-transform duration-300 hover:scale-105">
               <h2 className="text-xl font-bold mb-2 text-blue-300">Realty Alliance</h2>
-              <ul className="list-disc list-inside mt-4">
-                <li className="text-lg">
-                  <a href="/cat-road" onClick={(e) => handleFreeNavigation(e, '/cat-road')}>Vrindavan Premium</a>
-                </li>
-                <li className="text-lg">
-                  <a href="/pithampur" onClick={(e) => handleFreeNavigation(e, '/pithampur')}>Balaji Realty</a>
-                </li>
-                <li className="text-lg">
-                  <a href="/shubham" onClick={(e) => handleFreeNavigation(e, '/shubham')}>Shubham Buildcon</a>
-                </li>
-              </ul>
+              <div className="mt-4 space-y-3">
+                <button 
+                  onClick={(e) => handleFreeNavigation(e, '/cat-road')}
+                  className="block w-full text-left px-4 py-3 text-lg text-white bg-blue-600/20 hover:bg-blue-600/40 rounded-lg transition-colors duration-200 border border-blue-400/30 hover:border-blue-400/60 hover:shadow-md"
+                >
+                  Vrindavan Premium
+                </button>
+                <button 
+                  onClick={(e) => handleFreeNavigation(e, '/pithampur')}
+                  className="block w-full text-left px-4 py-3 text-lg text-white bg-blue-600/20 hover:bg-blue-600/40 rounded-lg transition-colors duration-200 border border-blue-400/30 hover:border-blue-400/60 hover:shadow-md"
+                >
+                  Balaji Realty
+                </button>
+                <button 
+                  onClick={(e) => handleFreeNavigation(e, '/shubham')}
+                  className="block w-full text-left px-4 py-3 text-lg text-white bg-blue-600/20 hover:bg-blue-600/40 rounded-lg transition-colors duration-200 border border-blue-400/30 hover:border-blue-400/60 hover:shadow-md"
+                >
+                  Shubham Buildcon
+                </button>
+              </div>
             </div>
             <div className="absolute top-10 right-10 bg-black/30 backdrop-blur-md text-white p-6 rounded-lg shadow-lg max-w-xs transform transition-transform duration-300 hover:scale-105">
               <h2 className="text-xl font-bold mb-2 text-blue-300">CALL US NOW</h2>
