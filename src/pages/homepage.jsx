@@ -33,7 +33,7 @@ const App = () => {
 
   const navigate = useNavigate();
   // State for filters
-  const [city, setCity] = useState('');
+  const [location, setCity] = useState('');
   const [type, setType] = useState('');
   const [budget, setBudget] = useState('');
 
@@ -100,7 +100,7 @@ const App = () => {
     else if (budget === '100+') [min, max] = [10000000, 100000000];
 
     // Navigate to /search with query params
-    navigate(`/search?city=${city}&type=${type}&min=${min}&max=${max}`);
+    navigate(`/search?location=${location}&type=${type}&min=${min}&max=${max}`);
   };
 
   return (
@@ -466,7 +466,7 @@ const App = () => {
               <form className="flex flex-col md:flex-row">
                 <div className="flex-1 mb-3 md:mb-0 md:mr-3">
                   <label className="block text-black text-sm font-medium mb-1 text-left pl-1">Location</label>
-                  <select value={city} onChange={(e) => setCity(e.target.value)} className="w-full px-4 py-3 rounded-lg text-gray-700 border border-gray-200 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 transition">
+                  <select value={location} onChange={(e) => setCity(e.target.value)} className="w-full px-4 py-3 rounded-lg text-gray-700 border border-gray-200 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 transition">
                     <option value="" disabled selected>
                       Select Location
                     </option>

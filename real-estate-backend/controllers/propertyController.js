@@ -2,20 +2,20 @@ const pool = require('../models/db');
 
 // GET /api/properties/search?city=&type=&min=&max=
 const searchProperties = async (req, res) => {
-  const { city, type, min, max } = req.query;
+  const { location, type, min, max } = req.query;
 
   try {
     const conditions = [];
     const values = [];
 
-    if (city) {
+    if (location) {
       conditions.push(
         `EXISTS (
-          SELECT 1 FROM unnest(city) AS c 
+          SELECT 1 FROM unnest(location) AS c 
           WHERE REPLACE(LOWER(c), ' ', '-') = $${values.length + 1}
         )`
       );
-      values.push(city.toLowerCase());
+      values.push(location.toLowerCase());
     }
 
     if (type) {
@@ -40,7 +40,7 @@ const searchProperties = async (req, res) => {
     res.json(result.rows);
 
     console.log('🔍 Backend search triggered');
-console.log('city:', city);
+console.log('city:', location);
 console.log('Final query:', query);
 console.log('Values:', values);
   } catch (err) {

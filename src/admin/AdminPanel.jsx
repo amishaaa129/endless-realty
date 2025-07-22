@@ -20,8 +20,9 @@ const AdminPanel = () => {
     type: '',
     organization: '',
     price: '',
-    status: 'draft',
+    status: '',
     location: '',
+    address: '',
     description: '',
     bedrooms: '',
     bathrooms: '',
@@ -450,9 +451,9 @@ useEffect(() => {
           className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
         >
           <option value="">All Status</option>
-          <option value="active">Active</option>
-          <option value="inactive">Inactive</option>
-          <option value="draft">Draft</option>
+          <option value="ready-to-move">Ready to Move</option>
+          <option value="sold-out">Sold Out</option>
+          <option value="coming-soon">Coming Soon</option>
         </select>
       </div>
 
@@ -535,10 +536,9 @@ useEffect(() => {
             >
               <option value="">Select Type</option>
               <option value="apartment">Apartment</option>
-              <option value="house">House</option>
-              <option value="villa">Villa</option>
+              <option value="row-houses">Row Houses</option>
+              <option value="plot">Plot</option>
               <option value="commercial">Commercial</option>
-              <option value="land">Land</option>
             </select>
           </div>
 
@@ -555,8 +555,8 @@ useEffect(() => {
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             >
               <option value="">Select Organization</option>
-              <option value="Alliance">Alliance</option>
-              <option value="Individual Property">Individual Property</option>
+              <option value="alliance">Alliance</option>
+              <option value="individual-property">Individual Property</option>
             </select>
           </div>
 
@@ -587,9 +587,10 @@ useEffect(() => {
               required
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             >
-              <option value="draft">Draft</option>
-              <option value="active">Active</option>
-              <option value="inactive">Inactive</option>
+              <option value="">Select Type</option>
+              <option value="ready-to-move">Ready to Move</option>
+          <option value="sold-out">Sold Out</option>
+          <option value="coming-soon">Coming Soon</option>
             </select>
           </div>
 
@@ -615,6 +616,21 @@ useEffect(() => {
               <option value="AB Bypass Road">AB Bypass Road</option>
               <option value="Bicholi">Bicholi</option>
             </select>
+          </div>
+
+          <div>
+            <label htmlFor="address" className="block text-sm font-medium text-gray-700 mb-2">
+              Property Address *
+            </label>
+            <input
+              type="text"
+              id="address"
+              name="address"
+              value={formData.address}
+              onChange={handleInputChange}
+              required
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            />
           </div>
         </div>
 
@@ -781,8 +797,9 @@ useEffect(() => {
                 type: '',
                 organization: '',
                 price: '',
-                status: 'draft',
+                status: '',
                 location: '',
+                address: '',
                 description: '',
                 bedrooms: '',
                 bathrooms: '',

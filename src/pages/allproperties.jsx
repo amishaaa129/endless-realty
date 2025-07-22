@@ -3,12 +3,12 @@ import { useLocation } from 'react-router-dom';
 import Header from '../components/Header';
 
 const SearchResults = () => {
-  const location = useLocation();
+  const location1 = useLocation();
   const [properties, setProperties] = useState([]);
 
   // Query params
-  const searchParams = new URLSearchParams(location.search);
-  const city = searchParams.get('city');
+  const searchParams = new URLSearchParams(location1.search);
+  const location = searchParams.get('location');
   const type = searchParams.get('type');
   const min = searchParams.get('min');
   const max = searchParams.get('max');
@@ -18,8 +18,9 @@ const SearchResults = () => {
   useEffect(() => {
     const fetchProperties = async () => {
       try {
-        const res = await fetch(`${API_BASE_URL}/api/properties/search?city=${city}&type=${type}&min=${min}&max=${max}`);
+        const res = await fetch(`${API_BASE_URL}/api/properties/search?location=${location}&type=${type}&min=${min}&max=${max}`);
         const data = await res.json();
+        console.log(location);
         setProperties(data);
       } catch (err) {
         console.error('Failed to fetch properties:', err);
@@ -28,7 +29,7 @@ const SearchResults = () => {
     };
 
     fetchProperties();
-  }, [city, type, min, max]);
+  }, [location, type, min, max]);
 
   return (
     <div>
@@ -52,7 +53,7 @@ const SearchResults = () => {
               <div className="p-5">
                 <div className="flex items-center text-gray-500 text-sm mb-3">
                   <i className="fas fa-map-marker-alt mr-2 text-blue-600"></i>
-                  <span>{property.location}</span>
+                  <span>{property.address}</span>
                 </div>
                 <div className="flex justify-between mb-4 text-sm">
                   {property.type?.toLowerCase() !== 'plot' && (
