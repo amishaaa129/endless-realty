@@ -11,7 +11,6 @@ const allowedCategories = ['gallery', 'activities', 'property-news', 'updates'];
 // UPLOAD IMAGE TO SUPABASE
 router.post('/:category', upload.single('image'), async (req, res) => {
   const { category } = req.params;
-
   if (!allowedCategories.includes(category)) {
     return res.status(400).json({ error: 'Invalid upload category' });
   }
