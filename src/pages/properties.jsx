@@ -30,6 +30,16 @@ const Properties = () => {
       type: 'Plot',
     },
     {
+      id: 13,
+      title: 'Turnkey Villa',
+      location: 'Near Surya Mandir, Rau',
+      bhk: '3',
+      area_sqft: '1800',
+      price_label: 'Ready to Move',
+      thumbnail_url: '/images/turnkey.jpeg',
+      type: 'Villa',
+    },
+    {
       id: 3,
       title: 'Shubham Arcadia',
       location: 'Indore-Ujjain Road',
