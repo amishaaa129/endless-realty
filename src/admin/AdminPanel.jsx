@@ -14,6 +14,7 @@ const AdminPanel = () => {
   const [galleryFiles, setGalleryFiles] = useState([]);
   const [propertyNewsFiles, setPropertyNewsFiles] = useState([]);
   const [updatesFiles, setUpdatesFiles] = useState([]);
+  const [users, setUsers] = useState([]);
   const [formData, setFormData] = useState({
     title: '',
     type: '',
@@ -105,6 +106,34 @@ const AdminPanel = () => {
       recentProperties: recent
     });
   };
+
+  const fetchUsersByRole = async (role) => {
+  try {
+    const res = await fetch(`${API_BASE_URL}/api/users/role/${role}`);
+    const data = await res.json();
+    return data;
+  } catch (err) {
+    console.error(`Failed to fetch ${role}s:`, err);
+    return [];
+  }
+};
+
+useEffect(() => {
+  const loadUsers = async () => {
+    if (['buyers', 'sellers', 'associates'].includes(activeSection)) {
+      const roleMap = {
+        buyers: 'buyer',
+        sellers: 'seller',
+        associates: 'business_associate',
+      };
+      const role = roleMap[activeSection];
+      const data = await fetchUsersByRole(role);
+      setUsers(data);
+    }
+  };
+  loadUsers();
+}, [activeSection]);
+
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -776,22 +805,43 @@ const AdminPanel = () => {
   );
 
   const renderDataSection = (sectionType) => (
-    <div className="space-y-6">
-      <div className="flex justify-between items-center">
-        <h2 className="text-2xl font-semibold text-gray-900 capitalize">{sectionType}</h2>
-        <button
-          onClick={() => downloadExcel(sectionType)}
-          className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors flex items-center space-x-2"
-        >
-          <i className="fas fa-file-excel"></i>
-          <span>Download Excel</span>
-        </button>
-      </div>
-      <div className="bg-white rounded-lg shadow-md p-6">
-        <p className="text-gray-600">No {sectionType} data available yet. Data will be displayed here once available.</p>
-      </div>
+  <div className="space-y-6">
+    <div className="flex justify-between items-center">
+      <h2 className="text-2xl font-semibold capitalize">{sectionType}</h2>
+      <button
+        onClick={() => downloadExcel(sectionType)}
+        className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors flex items-center space-x-2"
+      >
+        <i className="fas fa-file-excel"></i>
+        <span>Download Excel</span>
+      </button>
     </div>
-  );
+    <div className="bg-white rounded-lg shadow-md p-6 overflow-x-auto">
+      {users.length === 0 ? (
+        <p className="text-gray-600">No {sectionType} data available yet.</p>
+      ) : (
+        <table className="min-w-full divide-y divide-gray-200">
+          <thead className="bg-gray-100">
+            <tr>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Contact</th>
+            </tr>
+          </thead>
+          <tbody className="bg-white divide-y divide-gray-200">
+            {users.map((user, idx) => (
+              <tr key={idx}>
+                <td className="px-6 py-4 whitespace-nowrap">{user.name}</td>
+                <td className="px-6 py-4 whitespace-nowrap">{user.email}</td>
+                <td className="px-6 py-4 whitespace-nowrap">{user.phone}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
+    </div>
+  </div>
+);
 
   const renderImageUploadSection = (files, setFiles, category) => {
   const handleFileChange = (e) => {
