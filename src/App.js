@@ -31,6 +31,7 @@ import Tsvdetails from './locations/Shubham/tsv/tsv-details';
 import Arcadiadetails from './locations/Shubham/arcadia/arcadia-details';
 import Elevendetails from './locations/Shubham/eleven/eleven-details';
 import Greendetails from './locations/Shubham/green/green-details';
+import TurnkeyDetails from './locations/Rau/turnkey/turnkey-details';
 import AdminPanel from './admin/AdminPanel';
 
 function App() {
@@ -73,6 +74,7 @@ function App() {
       <Route path="/pulak-city" element={<S3details />} />
       <Route path="/shourya-vihar" element={<Shoryadetails />} />
       <Route path ="/shubham-valley" element={<Valleydetails />} />
+      <Route path ="/turnkey-villa" element={<TurnkeyDetails />} />
       <Route path ="/shubham-tsv" element={<Tsvdetails />} />
       <Route path ="/shubham-arcadia" element={<Arcadiadetails />} />
       <Route path ="/shubham-eleven" element={<Elevendetails />} />

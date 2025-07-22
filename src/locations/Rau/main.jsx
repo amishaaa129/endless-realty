@@ -4,6 +4,8 @@ import Header from '../../components/Header';
 import Footer from '../../components/footer';
 import Property1 from './silicon/rau';
 import Property2 from './shorya/shorya';
+import Property3 from './valley/valley';
+import Property4 from './turnkey/turnkey';
 
 const SiliconCityMain = () => {
   return (
@@ -21,6 +23,8 @@ const SiliconCityMain = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
             <Property1 />
             <Property2 />
+            <Property3 />
+            <Property4 />
              
           </div>
         </div>
