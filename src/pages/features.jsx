@@ -45,7 +45,6 @@ const Features = () => {
   }, []);
 
   const handleDeleteImage = async (category, filename) => {
-  console.log("🗑️ Attempting delete:", category, filename);  // ✅ Add this
 
   if (!window.confirm("Are you sure you want to delete this image?")) return;
   try {
@@ -54,7 +53,6 @@ const Features = () => {
 });
 
     const result = await res.json();
-    console.log("🧹 Delete result:", result);
 
     if (res.ok) {
       // manually update state instead of full reload
@@ -125,7 +123,6 @@ const Features = () => {
 
 function renderModalSwiper(show, setShow, images, title, setCurrentSlide, isAdminUser, handleDeleteImage, category) {
   if (!show) return null;
-  console.log("🖼️ Images for", title, images);
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center p-4">

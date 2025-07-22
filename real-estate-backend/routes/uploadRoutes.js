@@ -66,7 +66,6 @@ router.get('/:category', async (req, res) => {
 router.delete('/:category', async (req, res) => {
   const { category } = req.params;
   const { filename } = req.query; // <-- now send filename as query param
-  console.log("📛 Filename to delete:", filename);
 
   if (!category || !filename) {
     return res.status(400).json({ error: 'Missing category or filename' });
