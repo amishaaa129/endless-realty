@@ -21,6 +21,7 @@ const Features = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const isAdminUser = localStorage.getItem('isLoggedIn') === 'true';
+  const REACT_APP_SUPABASE_URL = process.env.REACT_APP_SUPABASE_URL;
 
   useEffect(() => {
     const fetchAllImages = async () => {
@@ -32,9 +33,9 @@ const Features = () => {
           fetch(`${API_BASE_URL}/api/uploads/updates`).then(res => res.json()),
         ]);
         setGalleryImages(gallery);
-        setActivitiesImages(activities);
-        setPropertyNewsImages(news);
-        setUpdatesImages(updates);
+      setActivitiesImages(activities);
+      setPropertyNewsImages(news);
+      setUpdatesImages(updates);
       } catch (err) {
         console.error("Error fetching images:", err);
       }
@@ -44,14 +45,36 @@ const Features = () => {
   }, []);
 
   const handleDeleteImage = async (category, filename) => {
-    if (!window.confirm("Are you sure you want to delete this image?")) return;
-    try {
-      await fetch(`${API_BASE_URL}/api/uploads/${category}/${filename}`, { method: 'DELETE' });
-      window.location.reload(); // quick refresh, or manually update state instead
-    } catch (err) {
-      console.error("Delete failed:", err);
+  console.log("🗑️ Attempting delete:", category, filename);  // ✅ Add this
+
+  if (!window.confirm("Are you sure you want to delete this image?")) return;
+  try {
+    const res = await fetch(`${API_BASE_URL}/api/uploads/${category}?filename=${encodeURIComponent(filename)}`, {
+  method: 'DELETE'
+});
+
+    const result = await res.json();
+    console.log("🧹 Delete result:", result);
+
+    if (res.ok) {
+      // manually update state instead of full reload
+      if (category === 'gallery') {
+        setGalleryImages(prev => prev.filter(img => !img.includes(filename)));
+      } else if (category === 'activities') {
+        setActivitiesImages(prev => prev.filter(img => !img.includes(filename)));
+      } else if (category === 'property-news') {
+        setPropertyNewsImages(prev => prev.filter(img => !img.includes(filename)));
+      } else if (category === 'updates') {
+        setUpdatesImages(prev => prev.filter(img => !img.includes(filename)));
+      }
+    } else {
+      alert("Delete failed: " + result.error);
     }
-  };
+
+  } catch (err) {
+    console.error("❌ Delete failed:", err);
+  }
+};
 
   const featureCards = [
     { title: 'Activities', desc: 'Engage in a variety of activities designed to enhance your experience.', isActivity: true, src: '/images/whats-new/activities.JPG' },
@@ -102,6 +125,7 @@ const Features = () => {
 
 function renderModalSwiper(show, setShow, images, title, setCurrentSlide, isAdminUser, handleDeleteImage, category) {
   if (!show) return null;
+  console.log("🖼️ Images for", title, images);
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center p-4">
@@ -129,11 +153,12 @@ function renderModalSwiper(show, setShow, images, title, setCurrentSlide, isAdmi
               <div className="p-6 relative">
                 <div className="bg-gray-200 rounded-lg overflow-hidden mb-4 flex justify-center items-center relative">
                   <img
-                    src={imgPath.startsWith('uploads') ? `${API_BASE_URL}/${imgPath}` : imgPath}
+                    src={imgPath}
                     alt={`${title} ${index + 1}`}
                     className="w-full h-auto max-h-[80vh] object-contain"
                     onError={(e) => { e.target.src = 'https://via.placeholder.com/400x300?text=Image+Not+Found'; }}
                   />
+
                   {isAdminUser && (
                     <button
                       onClick={() => handleDeleteImage(category, imgPath.split('/').pop())}

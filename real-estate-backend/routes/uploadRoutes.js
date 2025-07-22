@@ -1,83 +1,89 @@
 const express = require('express');
 const multer = require('multer');
-const path = require('path');
-const fs = require('fs');
+const supabase = require('../utils/supabaseClient');
 
 const router = express.Router();
+const storage = multer.memoryStorage();
+const upload = multer({ storage });
 
 const allowedCategories = ['gallery', 'activities', 'property-news', 'updates'];
 
-allowedCategories.forEach(category => {
-  const dir = path.join(__dirname, '..', '..', 'public', 'uploads', category);
-  if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
-});
-
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    const { category } = req.params;
-    cb(null, path.join(__dirname, '..', '..', 'public', 'uploads', category));
-  },
-  filename: (req, file, cb) => {
-    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-    const ext = path.extname(file.originalname).toLowerCase();
-    cb(null, `${uniqueSuffix}${ext}`);
-  },
-});
-
-const upload = multer({ storage });
-
-router.post('/:category', (req, res, next) => {
+// UPLOAD IMAGE TO SUPABASE
+router.post('/:category', upload.single('image'), async (req, res) => {
   const { category } = req.params;
+
   if (!allowedCategories.includes(category)) {
     return res.status(400).json({ error: 'Invalid upload category' });
   }
-  next();
-}, upload.single('image'), (req, res) => {
-  if (!req.file) return res.status(400).json({ error: 'No file uploaded' });
 
-  res.json({
-    message: 'Upload successful',
-    fileUrl: `/uploads/${req.params.category}/${req.file.filename}`,
-  });
+  const file = req.file;
+  if (!file) return res.status(400).json({ error: 'No file uploaded' });
+
+  const cleanFileName = file.originalname.split('\\').pop().split('/').pop();
+  const fileName = `${Date.now()}-${cleanFileName}`;
+
+  const { error: uploadError } = await supabase.storage
+    .from(category)
+    .upload(fileName, file.buffer, {
+      contentType: file.mimetype,
+      upsert: false,
+    });
+
+  if (uploadError) {
+    console.error(uploadError);
+    return res.status(500).json({ error: 'Upload failed' });
+  }
+
+  const { data } = supabase.storage.from(category).getPublicUrl(fileName);
+  return res.json({ message: 'Upload successful', fileUrl: data.publicUrl });
 });
 
-router.get('/:category', (req, res) => {
+// GET LIST OF IMAGE URLS
+router.get('/:category', async (req, res) => {
   const { category } = req.params;
+
   if (!allowedCategories.includes(category)) {
     return res.status(400).json({ error: 'Invalid category' });
   }
 
-  const dirPath = path.join(__dirname, '..', '..', 'public', 'uploads', category);
+  const { data, error } = await supabase.storage
+    .from(category)
+    .list('', { limit: 100, offset: 0, sortBy: { column: 'created_at', order: 'desc' } });
 
-  fs.readdir(dirPath, (err, files) => {
-    if (err) return res.status(500).json({ error: 'Could not list files' });
+  if (error) {
+    console.error(error);
+    return res.status(500).json({ error: 'Could not list images' });
+  }
 
-    const fileUrls = files.map(filename => `/uploads/${category}/${filename}`);
-    res.json(fileUrls);
-  });
+  const urls = data.map(file =>
+    supabase.storage.from(category).getPublicUrl(file.name).data.publicUrl
+  );
+
+  return res.json(urls);
 });
 
-router.delete('/:category/:filename', (req, res) => {
-  const { category, filename } = req.params;
+// DELETE IMAGE FROM SUPABASE (fixed route)
+router.delete('/:category', async (req, res) => {
+  const { category } = req.params;
+  const { filename } = req.query; // <-- now send filename as query param
+  console.log("📛 Filename to delete:", filename);
+
+  if (!category || !filename) {
+    return res.status(400).json({ error: 'Missing category or filename' });
+  }
 
   if (!allowedCategories.includes(category)) {
-    return res.status(400).json({ error: 'Invalid category.' });
+    return res.status(400).json({ error: 'Invalid category' });
   }
 
-  if (filename.includes('..')) {
-    return res.status(400).json({ error: 'Invalid filename.' });
+  const { error } = await supabase.storage.from(category).remove([filename]);
+
+  if (error) {
+    console.error("❌ Delete error:", error);
+    return res.status(500).json({ error: 'Delete failed' });
   }
 
-  const filePath = path.join(__dirname, '..', '..', 'public', 'uploads', category, filename);
-
-  fs.unlink(filePath, (err) => {
-    if (err) {
-      console.error('Error deleting file:', err);
-      return res.status(500).json({ error: 'File not found or could not be deleted.' });
-    }
-
-    res.json({ message: 'File deleted successfully.' });
-  });
+  return res.json({ message: 'Image deleted successfully' });
 });
 
 module.exports = router;

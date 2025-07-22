@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import supabase from '../supabaseClient';
 
 const AdminPanel = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -143,28 +144,47 @@ const AdminPanel = () => {
   };
 
   const handleMultipleImageUpload = async (files, category) => {
+  console.log("Supabase URL:", process.env.SUPABASE_URL);
+  console.log("🔄 Starting image upload...");
+  console.log("📁 Category:", category);
+  console.log("📷 Files to upload:", files);
+
   const uploadedUrls = [];
 
-  for (let file of files) {
-    const formData = new FormData();
-    formData.append('image', file);
+  for (const file of files) {
+    const fileName = `${Date.now()}_${file.name}`.replace(/\s+/g, "_");
+    console.log(`🆙 Uploading file: ${fileName}`);
 
     try {
-      const res = await fetch(`${API_BASE_URL}/api/uploads/${category}`, {
-        method: 'POST',
-        body: formData,
-      });
+      const { data, error } = await supabase.storage
+        .from(category)
+        .upload(fileName, file, {
+          cacheControl: '3600',
+          upsert: false,
+          contentType: file.type, // ✅ Ensure proper MIME type is set
+        });
 
-      const data = await res.json();
-      if (data.fileUrl) {
-        uploadedUrls.push(`${API_BASE_URL}/${data.fileUrl}`);
+      if (error) {
+        console.error(`❌ Upload failed for ${fileName}:`, error.message);
+        continue;
       }
-    } catch (error) {
-      console.error(`Error uploading to ${category}:`, error);
+
+      console.log(`✅ Uploaded: ${fileName}`);
+
+      const publicUrl = supabase
+        .storage
+        .from(category)
+        .getPublicUrl(fileName).data.publicUrl;
+
+      console.log("🌐 Public URL:", publicUrl);
+      uploadedUrls.push(publicUrl);
+    } catch (err) {
+      console.error(`🚨 Unexpected error uploading ${fileName}:`, err);
     }
   }
 
-  alert(`${uploadedUrls.length} images uploaded to ${category}.`);
+  console.log(`✅ Uploaded ${uploadedUrls.length}/${files.length} images`);
+  alert(`${uploadedUrls.length} images uploaded to ${category}`);
   return uploadedUrls;
 };
 
