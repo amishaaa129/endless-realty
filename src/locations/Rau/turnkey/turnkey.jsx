@@ -12,7 +12,7 @@ const Valley = () => {
       
       <div className="vrindavan-card">
         <img
-          src="/images/valley.jpeg"
+          src="/images/turnkey.jpeg"
           alt="Vrindavan Property"
           className="property-image"
         />

@@ -15,7 +15,7 @@ const VrindavanDetails = () => {
       <Header />
 
       {/* Constant Video Section */}
-      {/* YouTube Video Section */}
+      {/* YouTube Video Section 
       <div className="video-wrapper top-video">
         <div className="video-player aspect-w-16 aspect-h-9">
           <iframe
@@ -32,48 +32,58 @@ const VrindavanDetails = () => {
 
       {/* Property Content Section */}
       <div className="property-info-section">
-        <h1>🏞️ Shubham Valley — Hill View Plots at Indore Rau Bypass</h1>
-        <h3>RERA & TNCP Approved | By Shubham Homes Pvt. Ltd. | Marketed by Endless Realty</h3>
+        <h1>🏡 Turnkey Villa @ Suncity – Phanda, Indore</h1>
+        <h3>Developed by: Karmanya Constructions | Marketed by: Endless Realty</h3>
         <p>
-          Discover an exclusive opportunity to own hill view plots adjacent to DPS School Rau, located at a **very premium location on Indore Rau Bypass**. With exceptional natural surroundings and prime urban connectivity, Shubham Valley is a perfect blend of serenity and investment value.
+          Discover luxury living in this fully furnished 3,900 sq.ft. independent villa built on a spacious 1,800 sq.ft. plot in the serene surroundings of Suncity Colony, Phanda. Thoughtfully designed with modern aesthetics, full home automation, and high-end interior work, this ready-to-move bungalow offers an elegant blend of style, comfort, and functionality.
         </p>
 
-        <h3>📍 Prime Location</h3>
-        <p>
-          Strategically located next to DPS School, Rau, the project offers easy access to Indore city, educational institutes, and major highways. Its proximity to the bypass ensures smooth connectivity while maintaining a peaceful environment.
-        </p>
-
-        <h3>🏡 Project Amenities:</h3>
+        <h3>📐 Property Details</h3>
         <ul>
-          <li>30 ft and 35 ft wide internal roads</li>
-          <li>Underground utilities like water supply, drainage, and stormwater line</li>
-          <li>Dedicated nature walk areas</li>
-          <li>Sewer Treatment Plant (STP)</li>
-          <li>Attractive entrance gates for a grand entry</li>
-          <li>Full boundary wall for colony safety and security</li>
-          <li>Main road-facing commercial plots available</li>
-          <li>Easy finance options available</li>
-          <li>Scenic views of Ahilya Hills and the city</li>
+          <li><strong>Plot Area:</strong> 1800 Sq. Ft. (30x60)</li>
+          <li><strong>Construction:</strong> Approx. 3900 Sq. Ft.</li>
+          <li><strong>Configuration:</strong> Independent Villa with full interiors & furnishing</li>
         </ul>
 
-        <h3>📐 Plot Sizes</h3>
-        <p>
-          Available plot sizes range from <strong>600 sq.ft. to 1200 sq.ft.</strong> to suit every need.
-        </p>
-
-        <h3>📑 Legal & Approval</h3>
-        <p>
-          All required approvals in place — <strong>TNCP and RERA approved</strong>. 60% of development work is already completed.
-          For accurate plot positioning and on-ground view, we recommend scheduling a site visit.
-        </p>
-
-        <h3>🏗️ Project & Developer Details</h3>
+        <h3>✨ Interior Highlights</h3>
         <ul>
-          <li>Project by: <strong>Shubham Homes Pvt. Ltd.</strong></li>
-          <li>Developer: <strong>Mr. Sumit Mantri</strong></li>
-          <li>Marketed by: <strong>ENDLESS REALTY </strong></li>
-          <li>Office: Caps Town, Indore, MP 452010</li>
+          <li>Modular Kitchen with modern fittings</li>
+          <li>False Ceiling and designer TV panel</li>
+          <li>Bed & Wardrobes in all rooms</li>
+          <li>Elegant Sofa Set and Mandir Unit</li>
+          <li>Biometric Locks & Video Door Phone for enhanced security</li>
+          <li>Complete Home Automation for smart living</li>
         </ul>
+
+        <h3>📍 Location Advantage</h3>
+        <p>
+          Located in Suncity Colony, Village Phanda — just off AB Bypass Road — the project is minutes away from Medicaps International School, making it an ideal home for families. The peaceful surroundings, green landscapes, and upcoming infrastructure make this a valuable residential and investment choice.
+        </p>
+
+        <h3>🗺️ Nearby Connectivity & Landmarks</h3>
+        <ul>
+          <li>🏫 Medicaps University – 2 min</li>
+          <li>🏫 DPS Rau & Emerald Heights – 10–15 min</li>
+          <li>🚉 Rau Railway Station – ~10 min</li>
+          <li>🏭 Pithampur Industrial Area – 15–20 min</li>
+          <li>🛣️ AB Bypass & Super Corridor – 5–10 min</li>
+          <li>✈️ Indore Airport – 30 min via Super Corridor</li>
+          <li>🏞️ Simcha Island Adventure Park – 10 min</li>
+          <li>🛒 Local Markets & Medical Stores – Walking distance</li>
+        </ul>
+
+        <h3>✅ Why Choose Suncity, Phanda?</h3>
+        <ul>
+          <li>Peaceful surroundings with clean air and low congestion</li>
+          <li>Fast-developing area near major educational & industrial hubs</li>
+          <li>Excellent rental prospects due to proximity to Medicaps & Pithampur</li>
+          <li>Perfect balance of nature and city life</li>
+          <li>Move-in ready villa — no construction or interior delays</li>
+        </ul>
+
+        <p>
+          Whether you're looking for a luxurious home or a smart investment, this turnkey villa in Suncity is an opportunity you don't want to miss.
+        </p>
 
         <p className="mt-4">
           📞 <strong>For booking & site visits, contact ENDLESS REALTY today!</strong><br />
@@ -83,7 +93,7 @@ const VrindavanDetails = () => {
         </p>
       </div>
 
-      {/* Swiper Image Gallery 
+      {/* Swiper Image Gallery */}
       <div className="swiper-container">
         <Swiper
           modules={[Autoplay]}
@@ -94,11 +104,11 @@ const VrindavanDetails = () => {
           pagination={{ clickable: true }}
 
         >
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (
+          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26].map((num) => (
             <SwiperSlide key={num}>
               <img
-                src={`/vrindavan/vrindavan${num}.jpeg`}
-                alt={`Vrindavan ${num}`}
+                src={`/turnkey/turnkey${num}.jpeg`}
+                alt={`turnkey ${num}`}
                 className="swiper-image"
               />
             </SwiperSlide>
@@ -106,10 +116,11 @@ const VrindavanDetails = () => {
         </Swiper>
       </div>
 
-      {/* Map Section 
+      {/* Map Section */}
       <div className="map-image">
-        <img src="/vrindavan/vrindavan-map.jpeg" alt="Map Location" />
-      </div> */}
+        <img src="/turnkey/turnkey-map1.png" alt="Map Location" />
+        <img src="/turnkey/turnkey-map2.png" alt="Map Location" />
+      </div>
       <Footer />
     </div>
   );
