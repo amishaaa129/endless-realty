@@ -12,7 +12,7 @@ const Properties = () => {
     {
       id: 1,
       title: 'Vrindavan Premium Row Houses',
-      location: 'RRCAT, Indore',
+      address: 'RRCAT, Indore',
       bhk: '3 & 4',
       area_sqft: '1000',
       price_label: 'Ready to Move',
@@ -22,7 +22,7 @@ const Properties = () => {
     {
       id: 2,
       title: 'Shubham Valley',
-      location: 'Next to DPS School,Rau',
+      address: 'Next to DPS School,Rau',
       bhk: '',
       area_sqft: '600-1200',
       price_label: 'Ready to Move',
@@ -32,7 +32,7 @@ const Properties = () => {
     {
       id: 13,
       title: 'Turnkey Villa',
-      location: 'Near Surya Mandir, Rau',
+      address: 'Near Surya Mandir, Rau',
       bhk: '3',
       area_sqft: '1800',
       price_label: 'Ready to Move',
@@ -42,7 +42,7 @@ const Properties = () => {
     {
       id: 3,
       title: 'Shubham Arcadia',
-      location: 'Indore-Ujjain Road',
+      address: 'Indore-Ujjain Road',
       bhk: '2',
       area_sqft: '700-2400',
       price_label: 'Ready to Move',
@@ -52,7 +52,7 @@ const Properties = () => {
     {
       id: 12,
       title: 'Shubham Greens',
-      location: 'Near Surya Mandir, Rau',
+      address: 'Near Surya Mandir, Rau',
       bhk: '3',
       area_sqft: '1100',
       price_label: '1.28 CR',
@@ -62,7 +62,7 @@ const Properties = () => {
     {
       id: 4,
       title: 'Shubham Eleven',
-      location: '2.6 km from AB Bypass, close to UNO Business Park, Indore',
+      address: '2.6 km from AB Bypass, close to UNO Business Park, Indore',
       bhk: '',
       area_sqft: '1100-1500',
       price_label: 'Coming Soon',
@@ -72,7 +72,7 @@ const Properties = () => {
     {
       id: 5,
       title: 'Shubham TSV',
-      location: '6.8 km from the AB Bypass, near Vidyasagar School, Indore',
+      address: '6.8 km from the AB Bypass, near Vidyasagar School, Indore',
       bhk: '',
       area_sqft: '3200',
       price_label: 'Coming Soon',
@@ -83,7 +83,7 @@ const Properties = () => {
     {
       id: 6,
       title: 'Shourya Vihar',
-      location: 'Near Medicaps International School, Village Phanda, Indore',
+      address: 'Near Medicaps International School, Village Phanda, Indore',
       bhk: '',
       area_sqft: '',
       price_label: 'Coming Soon',
@@ -93,7 +93,7 @@ const Properties = () => {
     {
       id: 7,
       title: 'Silicon Premium',
-      location: 'Silicon City, Near Pulak City, Gate no 2',
+      address: 'Silicon City, Near Pulak City, Gate no 2',
       bhk: '2',
       area_sqft: '1120',
       price_label: 'Sold Out',
@@ -102,7 +102,7 @@ const Properties = () => {
     {
       id: 8,
       title: 'Pulak City',
-      location: 'Pulak City, Silicon City',
+      address: 'Pulak City, Silicon City',
       bhk: '',
       area_sqft: '1500',
       price_label: 'Sold Out',
@@ -111,7 +111,7 @@ const Properties = () => {
     {
       id: 9,
       title: 'Silicon City S Sector',
-      location: 'Silicon City, S Sector',
+      address: 'Silicon City, S Sector',
       bhk: '2',
       area_sqft: '750',
       price_label: 'Sold Out',
@@ -121,7 +121,7 @@ const Properties = () => {
     {
       id: 10,
       title: 'Silver Star City Project',
-      location: 'Shubham Eleven',
+      address: 'Shubham Eleven',
       bhk: '',
       area_sqft: '1100-1500',
       price_label: 'Sold Out',
@@ -130,7 +130,7 @@ const Properties = () => {
     {
       id: 11,
       title: 'Silicon City Property',
-      location: 'Silicon City, Rau',
+      address: 'Silicon City, Rau',
       bhk: '4',
       area_sqft: '2000',
       price_label: 'Sold Out',
