@@ -116,7 +116,7 @@ fetchProperties();
     const total = propertiesList.length;
 
     const active = propertiesList.filter(p => 
-      p.status?.toLowerCase() === 'ready-to-move'
+      p.status?.toLowerCase().replace(/\s+/g, '-') === 'ready-to-move'
     ).length;
 
     const recentProperties = propertiesList.filter(p => {
