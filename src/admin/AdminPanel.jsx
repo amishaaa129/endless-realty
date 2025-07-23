@@ -504,7 +504,7 @@ useEffect(() => {
                     <i className="fas fa-ruler-combined mr-1 text-blue-600"></i>
                     <span>{property.area_sqft} sq.ft.</span>
                   </div>
-                        {property.price_label !== 'Coming Soon' && (
+                        {property.status !== 'Coming Soon' && (
                 <div className="flex items-center">
                     <i className="fas fa-building mr-1 text-blue-600"></i>
                     <span>RERA Approved</span>
@@ -515,7 +515,7 @@ useEffect(() => {
                   <div>
                     <span className="text-gray-500 text-sm">Starting at</span>
                     <div className="text-xl font-bold text-gray-900">
-                      {property.price_label || `₹${(property.price_value / 100000).toFixed(2)} Lakhs`}
+                      {property.status || `₹${(property.price_value / 100000).toFixed(2)} Lakhs`}
                     </div>
                   </div>
                   <a
