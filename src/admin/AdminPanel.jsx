@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import supabase from '../supabaseClient';
+import * as XLSX from 'xlsx';
+import { saveAs } from 'file-saver';
 
 const AdminPanel = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -15,13 +17,15 @@ const AdminPanel = () => {
   const [propertyNewsFiles, setPropertyNewsFiles] = useState([]);
   const [updatesFiles, setUpdatesFiles] = useState([]);
   const [users, setUsers] = useState([]);
+  const [thumbnailFile, setThumbnailFile] = useState(null);
+const [thumbnailPreview, setThumbnailPreview] = useState(null);
   const [formData, setFormData] = useState({
     title: '',
     type: '',
     organization: '',
     price: '',
     status: '',
-    location: '',
+    location: [],
     address: '',
     description: '',
     bedrooms: '',
@@ -29,14 +33,16 @@ const AdminPanel = () => {
     area: '',
     floors: '',
     amenities: '',
-    youtube: ''
+    youtube: '',
+    thumbnailUrl: ''
   });
   const [searchTerm, setSearchTerm] = useState('');
-  const [statusFilter, setStatusFilter] = useState('');
+  const [statusFilter, setStatusFilter] = useState('all');
   const [showModal, setShowModal] = useState(false);
   const [editingProperty, setEditingProperty] = useState(null);
   const [imageFiles, setImageFiles] = useState([]);
   const [imagePreview, setImagePreview] = useState([]);
+  const [recentProperties, setRecentProperties] = useState([]);
 
   const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://api.endlessrealty.in';
 
@@ -83,30 +89,53 @@ const AdminPanel = () => {
     }
 
     // Load properties from localStorage or initialize empty array
-    const storedProperties = localStorage.getItem('adminProperties');
-    if (storedProperties) {
-      const parsedProperties = JSON.parse(storedProperties);
-      setProperties(parsedProperties);
-      updateStats(parsedProperties);
-    }
+    // Fetch properties from backend API
+const fetchProperties = async () => {
+  try {
+    const res = await fetch(`${API_BASE_URL}/api/properties/all`);
+    const data = await res.json();
+
+    // Ensure images are always arrays
+    const parsedData = data.map(p => ({
+      ...p,
+      images: typeof p.images === 'string' ? JSON.parse(p.images) : p.images || []
+    }));
+
+    setProperties(parsedData);
+    updateStats(parsedData);
+    localStorage.setItem('adminProperties', JSON.stringify(parsedData));
+  } catch (err) {
+    console.error('Failed to fetch properties:', err);
+  }
+};
+fetchProperties();
+
   }, []);
 
   const updateStats = (propertiesList) => {
     const total = propertiesList.length;
-    const active = propertiesList.filter(p => p.status === 'active').length;
-    const recent = propertiesList.filter(p => {
-      const createdDate = new Date(p.createdAt);
-      const weekAgo = new Date();
-      weekAgo.setDate(weekAgo.getDate() - 7);
-      return createdDate > weekAgo;
-    }).length;
+
+    const active = propertiesList.filter(p => 
+      p.status?.toLowerCase() === 'ready-to-move'
+    ).length;
+
+    const recentProperties = propertiesList.filter(p => {
+      const createdAt = new Date(p.created_at); // ✅ PostgreSQL column
+      const oneWeekAgo = new Date();
+      oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+      return createdAt >= oneWeekAgo;
+    });
 
     setStats({
       totalProperties: total,
       activeProperties: active,
-      recentProperties: recent
+      recentProperties: recentProperties.length
     });
+
+    // Store for cards in dashboard
+    setRecentProperties(recentProperties.slice(0, 6));
   };
+
 
   const fetchUsersByRole = async (role) => {
   try {
@@ -118,6 +147,13 @@ const AdminPanel = () => {
     return [];
   }
 };
+useEffect(() => {
+  return () => {
+    imagePreview.forEach(url => URL.revokeObjectURL(url));
+    if (thumbnailPreview) URL.revokeObjectURL(thumbnailPreview);
+  };
+}, [imagePreview, thumbnailPreview]);
+
 
 useEffect(() => {
   const loadUsers = async () => {
@@ -243,49 +279,60 @@ useEffect(() => {
   return data.fileUrl;
 };
 
-  const handleSubmitProperty = (e) => {
-    e.preventDefault();
-    const newProperty = {
-      id: editingProperty ? editingProperty.id : Date.now(),
-      ...formData,
-      images: imagePreview,
-      createdAt: editingProperty ? editingProperty.createdAt : new Date().toISOString(),
-      updatedAt: new Date().toISOString()
-    };
+  const handleSubmitProperty = async (e) => {
+  e.preventDefault();
+  const form = new FormData();
+  form.append('thumbnail', thumbnailFile);
+  console.log(form.images);
+  console.log(imageFiles);
 
-    let updatedProperties;
-    if (editingProperty) {
-      updatedProperties = properties.map(p => p.id === editingProperty.id ? newProperty : p);
-    } else {
-      updatedProperties = [...properties, newProperty];
-    }
-
-    setProperties(updatedProperties);
-    localStorage.setItem('adminProperties', JSON.stringify(updatedProperties));
-    updateStats(updatedProperties);
-
-    // Reset form
-    setFormData({
-      title: '',
-      type: '',
-      organization: '',
-      price: '',
-      status: 'draft',
-      location: '',
-      description: '',
-      bedrooms: '',
-      bathrooms: '',
-      area: '',
-      floors: '',
-      amenities: '',
-      youtube: ''
+      Object.entries(formData).forEach(([key, value]) => {
+      if (Array.isArray(value)) {
+        value.forEach(v => form.append(key, v)); // handles location[] correctly
+      } else {
+        form.append(key, value);
+      }
     });
-    setImageFiles([]);
-    setImagePreview([]);
-    setEditingProperty(null);
-    setShowModal(false);
-    setActiveSection('properties');
-  };
+
+
+  imageFiles.forEach(file => {
+    form.append('images', file); // "images" matches multer field name
+  });
+
+  try {
+    const res = await fetch(`${API_BASE_URL}/api/properties/add`, {
+      method: 'POST',
+      body: form
+    });
+
+    const data = await res.json();
+    if (res.ok) {
+      alert('Property added successfully!');
+      setFormData({ title: '',
+    type: '',
+    organization: '',
+    price: '',
+    status: '',
+    location: [],
+    address: '',
+    description: '',
+    bedrooms: '',
+    bathrooms: '',
+    area: '',
+    floors: '',
+    amenities: '',
+    youtube: '',
+  thumbnailUrl:''});
+      setImageFiles([]);
+      setImagePreview([]);
+    } else {
+      console.error('Upload error:', data.error);
+      alert('Upload failed');
+    }
+  } catch (err) {
+    console.error('Server error:', err);
+  }
+};
 
   const handleEditProperty = (property) => {
     setEditingProperty(property);
@@ -296,17 +343,24 @@ useEffect(() => {
       price: property.price,
       status: property.status,
       location: property.location,
+      address: property.address,
       description: property.description,
       bedrooms: property.bedrooms || '',
       bathrooms: property.bathrooms || '',
       area: property.area || '',
       floors: property.floors || '',
       amenities: property.amenities || '',
-      youtube: property.youtube || ''
+      youtube: property.youtube || '',
+      thumbnailUrl: property.thumbnailUrl || ''
     });
     setImagePreview(property.images || []);
     setShowModal(true);
   };
+  useEffect(() => {
+  return () => {
+    imagePreview.forEach(url => URL.revokeObjectURL(url));
+  };
+}, [imagePreview]);
 
   const handleDeleteProperty = (propertyId) => {
     if (window.confirm('Are you sure you want to delete this property?')) {
@@ -324,10 +378,26 @@ useEffect(() => {
     return matchesSearch && matchesStatus;
   });
 
-  const downloadExcel = (dataType) => {
-    // In a real application, you would implement actual Excel export
-    alert(`Downloading ${dataType} data as Excel file...`);
-  };
+  const downloadExcel = (sectionType, users) => {
+  if (!users || users.length === 0) return;
+
+  // Convert users to worksheet
+  const worksheet = XLSX.utils.json_to_sheet(users);
+
+  // Create a workbook and add the worksheet
+  const workbook = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(workbook, worksheet, sectionType);
+
+  // Convert workbook to binary
+  const excelBuffer = XLSX.write(workbook, {
+    bookType: 'xlsx',
+    type: 'array',
+  });
+
+  // Trigger download
+  const dataBlob = new Blob([excelBuffer], { type: 'application/octet-stream' });
+  saveAs(dataBlob, `${sectionType}_data.xlsx`);
+};
 
   const renderNavigation = () => {
     const navItems = [
@@ -405,102 +475,137 @@ useEffect(() => {
       <div className="bg-white rounded-lg shadow-md p-6">
         <h2 className="text-xl font-semibold mb-4">Recent Properties</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {properties.slice(0, 6).map(property => (
-            <div key={property.id} className="border rounded-lg p-4 hover:shadow-md transition-shadow">
-              <h4 className="font-medium text-gray-900">{property.title}</h4>
-              <p className="text-sm text-gray-600">{property.location}</p>
-              <p className="text-lg font-semibold text-blue-600">₹{property.price}</p>
-              <span className={`inline-block px-2 py-1 rounded-full text-xs font-medium ${
-                property.status === 'active' ? 'bg-green-100 text-green-800' :
-                property.status === 'inactive' ? 'bg-red-100 text-red-800' :
-                'bg-yellow-100 text-yellow-800'
-              }`}>
-                {property.status}
-              </span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-
-  const renderProperties = () => (
-    <div className="space-y-6">
-      <div className="flex justify-between items-center">
-        <h2 className="text-2xl font-semibold text-gray-900">All Properties</h2>
-        <button
-          onClick={() => setActiveSection('add-property')}
-          className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center space-x-2"
-        >
-          <i className="fas fa-plus"></i>
-          <span>Add New Property</span>
-        </button>
-      </div>
-      
-      <div className="flex space-x-4 mb-6">
-        <input
-          type="text"
-          placeholder="Search properties..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-        />
-        <select
-          value={statusFilter}
-          onChange={(e) => setStatusFilter(e.target.value)}
-          className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-        >
-          <option value="">All Status</option>
-          <option value="ready-to-move">Ready to Move</option>
-          <option value="sold-out">Sold Out</option>
-          <option value="coming-soon">Coming Soon</option>
-        </select>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredProperties.map(property => (
-          <div key={property.id} className="bg-white rounded-lg shadow-md overflow-hidden">
-            {property.images && property.images[0] && (
-              <img
-                src={property.images[0]}
-                alt={property.title}
-                className="w-full h-48 object-cover"
-              />
-            )}
-            <div className="p-4">
-              <h3 className="font-semibold text-lg text-gray-900 mb-2">{property.title}</h3>
-              <p className="text-gray-600 mb-2">{property.location}</p>
-              <p className="text-xl font-bold text-blue-600 mb-2">₹{property.price}</p>
-              <p className="text-sm text-gray-600 mb-3 line-clamp-2">{property.description}</p>
-              <div className="flex justify-between items-center">
-                <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                  property.status === 'active' ? 'bg-green-100 text-green-800' :
-                  property.status === 'inactive' ? 'bg-red-100 text-red-800' :
-                  'bg-yellow-100 text-yellow-800'
-                }`}>
-                  {property.status}
-                </span>
-                <div className="flex space-x-2">
-                  <button
-                    onClick={() => handleEditProperty(property)}
-                    className="text-blue-600 hover:text-blue-800"
-                  >
-                    <i className="fas fa-edit"></i>
-                  </button>
-                  <button
-                    onClick={() => handleDeleteProperty(property.id)}
-                    className="text-red-600 hover:text-red-800"
-                  >
-                    <i className="fas fa-trash"></i>
-                  </button>
+          {recentProperties.map(property => (
+            <div className="property-card bg-white rounded-xl overflow-hidden shadow-md">
+              <div className="relative">
+                <img
+                  src={property.thumbnail_url || 'https://via.placeholder.com/400x250'}
+                  alt={property.title}
+                  className="w-full h-64 object-cover"
+                />
+                <div className="absolute bottom-0 left-0 bg-gradient-to-t from-black to-transparent w-full h-20 flex items-end">
+                  <span className="text-white font-bold text-xl px-4 pb-3">{property.title}</span>
                 </div>
               </div>
-            </div>
+              <div className="p-5">
+                <div className="flex items-center text-gray-500 text-sm mb-3">
+                  <i className="fas fa-map-marker-alt mr-2 text-blue-600"></i>
+                  <span>{property.address}</span>
+                </div>
+                <div className="flex justify-between mb-4 text-sm">
+                  {property.type?.toLowerCase() !== 'plot' && (
+                    <div className="flex items-center">
+                      <i className="fas fa-bed mr-1 text-blue-600"></i>
+                      <span>{property.bhk} BHK</span>
+                    </div>
+                    )}
+
+                  <div className="flex items-center">
+                    <i className="fas fa-ruler-combined mr-1 text-blue-600"></i>
+                    <span>{property.area_sqft} sq.ft.</span>
+                  </div>
+                        {property.price_label !== 'Coming Soon' && (
+                <div className="flex items-center">
+                    <i className="fas fa-building mr-1 text-blue-600"></i>
+                    <span>RERA Approved</span>
+                </div>
+                )}
+                </div>
+                <div className="flex justify-between items-center">
+                  <div>
+                    <span className="text-gray-500 text-sm">Starting at</span>
+                    <div className="text-xl font-bold text-gray-900">
+                      {property.price_label || `₹${(property.price_value / 100000).toFixed(2)} Lakhs`}
+                    </div>
+                  </div>
+                  <a
+                    href={`/${property.title.toLowerCase().replace(/\s+/g, '-')}`}
+                    className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition text-sm"
+                  >
+                    View Details
+                  </a>
+                </div>
+              </div>
           </div>
         ))}
       </div>
     </div>
+    </div>
   );
+
+  const renderProperties = () => {
+    const filteredProperties = statusFilter === 'all'
+    ? properties
+    : properties.filter(prop => prop.status?.toLowerCase() === statusFilter);
+
+  return (
+    <div className="mt-10">
+  <div className="mb-4">
+  <h2 className="text-xl font-semibold mb-2">All Properties</h2>
+  <div className="w-full md:w-60">
+    <select
+      value={statusFilter}
+      onChange={(e) => setStatusFilter(e.target.value)}
+      className="w-full border px-3 py-2 rounded-md text-sm"
+    >
+      <option value="all">All Status</option>
+      <option value="ready-to-move">Ready to Move</option>
+      <option value="sold-out">Sold Out</option>
+      <option value="coming-soon">Coming Soon</option>
+    </select>
+  </div>
+</div>
+
+  <div className="w-screen overflow-x-auto">
+    <div className="min-w-[4000px] px-6 pb-10">
+      <table className="table-auto w-full text-sm text-left border-collapse">
+  <thead className="bg-gray-800 text-white">
+    <tr>
+      <th className="px-4 py-3 whitespace-nowrap min-w-[150px]">Title</th>
+      <th className="px-4 py-3 whitespace-nowrap min-w-[100px]">Type</th>
+      <th className="px-4 py-3 whitespace-nowrap min-w-[120px]">Organization</th>
+      <th className="px-4 py-3 whitespace-nowrap min-w-[120px]">Price (₹)</th>
+      <th className="px-4 py-3 whitespace-nowrap min-w-[120px]">Status</th>
+      <th className="px-4 py-3 whitespace-nowrap min-w-[200px]">Location</th>
+      <th className="px-4 py-3 whitespace-nowrap min-w-[200px]">Address</th>
+      <th className="px-4 py-3 whitespace-nowrap min-w-[300px]">Description</th>
+      <th className="px-4 py-3 whitespace-nowrap min-w-[80px]">BHK</th>
+      <th className="px-4 py-3 whitespace-nowrap min-w-[100px]">Bathrooms</th>
+      <th className="px-4 py-3 whitespace-nowrap min-w-[130px]">Area (sqft)</th>
+      <th className="px-4 py-3 whitespace-nowrap min-w-[80px]">Floors</th>
+      <th className="px-4 py-3 whitespace-nowrap min-w-[180px]">YouTube</th>
+    </tr>
+  </thead>
+  <tbody>
+    {filteredProperties.map((property) => (
+      <tr key={property.id} className="border-t hover:bg-gray-50">
+        <td className="px-4 py-2">{property.title}</td>
+        <td className="px-4 py-2">{property.type}</td>
+        <td className="px-4 py-2">{property.organization}</td>
+        <td className="px-4 py-2">{property.price_value}</td>
+        <td className="px-4 py-2">{property.status}</td>
+        <td className="px-4 py-2">{Array.isArray(property.location) ? property.location.join(', ') : property.location}</td>
+        <td className="px-4 py-2">{property.address}</td>
+        <td className="px-4 py-2">{property.description}</td>
+        <td className="px-4 py-2">{property.bhk}</td>
+        <td className="px-4 py-2">{property.bathrooms}</td>
+        <td className="px-4 py-2">{property.area_sqft}</td>
+        <td className="px-4 py-2">{property.floors}</td>
+        <td className="px-4 py-2">
+          <a href={property.youtube} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">
+            Link
+          </a>
+        </td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+    </div>
+  </div>
+</div>
+
+  );
+};
 
   const renderAddProperty = () => (
     <div className="bg-white rounded-lg shadow-md p-6">
@@ -595,28 +700,47 @@ useEffect(() => {
           </div>
 
           <div>
-            <label htmlFor="location" className="block text-sm font-medium text-gray-700 mb-2">
-              Location *
-            </label>
-            <select
-              id="location"
-              name="location"
-              value={formData.location}
-              onChange={handleInputChange}
-              required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-            >
-              <option value="">Select Location</option>
-              <option value="Silicon City">Silicon City</option>
-              <option value="Rau">Rau</option>
-              <option value="Mhow">Mhow</option>
-              <option value="Pithampur">Pithampur</option>
-              <option value="CAT Road">CAT Road</option>
-              <option value="Ujjain Road">Ujjain Road</option>
-              <option value="AB Bypass Road">AB Bypass Road</option>
-              <option value="Bicholi">Bicholi</option>
-            </select>
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            Location *
+          </label>
+          <div className="grid grid-cols-2 gap-2">
+            {[
+              "Silicon City",
+              "Rau",
+              "Mhow",
+              "Pithampur",
+              "CAT Road",
+              "Ujjain Road",
+              "AB Bypass Road",
+              "Bicholi"
+            ].map((loc) => (
+              <label key={loc} className="flex items-center space-x-2">
+                <input
+                  type="checkbox"
+                  value={loc}
+                  checked={formData.location?.includes(loc)}
+                  onChange={(e) => {
+                    const value = e.target.value;
+                    const checked = e.target.checked;
+                    setFormData((prev) => {
+                      let updated = prev.location || [];
+                      if (checked) {
+                        updated = [...updated, value];
+                      } else {
+                        updated = updated.filter((item) => item !== value);
+                      }
+                      return { ...prev, location: updated };
+                    });
+                  }}
+                  className="accent-blue-600"
+                />
+                <span className="text-sm text-gray-700">{loc}</span>
+              </label>
+            ))}
           </div>
+        </div>
+
+
 
           <div>
             <label htmlFor="address" className="block text-sm font-medium text-gray-700 mb-2">
@@ -633,7 +757,7 @@ useEffect(() => {
             />
           </div>
         </div>
-
+  
         <div>
           <label htmlFor="description" className="block text-sm font-medium text-gray-700 mb-2">
             Description *
@@ -650,6 +774,28 @@ useEffect(() => {
           />
         </div>
 
+        <div className="mb-4">
+  <label className="block text-sm font-medium text-gray-700 mb-2">
+    Thumbnail Image
+  </label>
+  <input
+    type="file"
+    accept="image/*"
+    onChange={(e) => {
+      const file = e.target.files[0];
+      setThumbnailFile(file);
+      if (file) {
+        setThumbnailPreview(URL.createObjectURL(file));
+      }
+    }}
+    className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50"
+  />
+  {thumbnailPreview && (
+    <img src={thumbnailPreview} alt="Thumbnail Preview" className="mt-2 h-32 rounded border" />
+  )}
+</div>
+
+
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">Property Images</label>
           <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-gray-400 transition-colors">
@@ -657,7 +803,22 @@ useEffect(() => {
               type="file"
               multiple
               accept="image/*"
-              onChange={handleImageUpload}
+              onChange={(e) => {
+                const selectedFiles = Array.from(e.target.files);
+
+                setImageFiles((prevFiles) => {
+                  const merged = [...prevFiles, ...selectedFiles];
+                  
+                  // Optional: remove duplicates by name
+                  const unique = Array.from(new Map(merged.map(file => [file.name, file])).values());
+                  
+                  return unique;
+                });
+
+                // Update previews
+                const selectedPreviews = selectedFiles.map(file => URL.createObjectURL(file));
+                setImagePreview((prev) => [...prev, ...selectedPreviews]);
+              }}
               className="hidden"
               id="propertyImages"
             />
@@ -798,7 +959,7 @@ useEffect(() => {
                 organization: '',
                 price: '',
                 status: '',
-                location: '',
+                location: [],
                 address: '',
                 description: '',
                 bedrooms: '',
@@ -806,7 +967,8 @@ useEffect(() => {
                 area: '',
                 floors: '',
                 amenities: '',
-                youtube: ''
+                youtube: '',
+                thumbnailUrl: ''
               });
               setImageFiles([]);
               setImagePreview([]);
@@ -826,7 +988,7 @@ useEffect(() => {
     <div className="flex justify-between items-center">
       <h2 className="text-2xl font-semibold capitalize">{sectionType}</h2>
       <button
-        onClick={() => downloadExcel(sectionType)}
+        onClick={() => downloadExcel(sectionType, users)}
         className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors flex items-center space-x-2"
       >
         <i className="fas fa-file-excel"></i>

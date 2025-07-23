@@ -1,14 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/footer';
 import PropertyCard from './PropertyCard';
+import axios from 'axios';
 
 const Properties = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-  // Manually define the featured property data
-  const properties = [
+  const [dbProperties, setDbProperties] = useState([]);
+
+  // 🟡 Hardcoded properties (shown first)
+  const hardcodedProperties = [
     {
       id: 1,
       title: 'Vrindavan Premium Row Houses',
@@ -139,6 +139,25 @@ const Properties = () => {
     },
   ];
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    fetchDbProperties();
+  }, []);
+
+  const fetchDbProperties = async () => {
+    try {
+      const res = await axios.get('/api/properties/all');
+      // only include properties with id > 13
+      const filtered = res.data.filter((p) => p.id > 13);
+      setDbProperties(filtered);
+    } catch (error) {
+      console.error('Error fetching properties:', error);
+    }
+  };
+
+  // 🟢 Combine both: hardcoded first, then DB properties
+  const allProperties = [...hardcodedProperties, ...dbProperties];
+
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
       <Header />
@@ -148,7 +167,7 @@ const Properties = () => {
             Featured Properties
           </h1>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-            {properties.map((property) => (
+            {allProperties.map((property) => (
               <PropertyCard key={property.id} property={property} />
             ))}
           </div>
