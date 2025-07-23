@@ -148,7 +148,7 @@ const Properties = () => {
     try {
       const res = await axios.get('/api/properties/all');
       // only include properties with id > 13
-      const filtered = res.data.filter((p) => p.id > 13);
+      const filtered = res.data;
       setDbProperties(filtered);
     } catch (error) {
       console.error('Error fetching properties:', error);
@@ -156,7 +156,7 @@ const Properties = () => {
   };
 
   // 🟢 Combine both: hardcoded first, then DB properties
-  const allProperties = [...hardcodedProperties, ...dbProperties];
+  const allProperties = [...dbProperties];
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
