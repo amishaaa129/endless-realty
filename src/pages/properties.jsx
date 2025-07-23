@@ -148,7 +148,7 @@ const Properties = () => {
     try {
       const res = await axios.get('/api/properties/all');
       // only include properties with id > 13
-      const filtered = res.data;
+      const filtered = res.data.rows;
       setDbProperties(filtered);
     } catch (error) {
       console.error('Error fetching properties:', error);
