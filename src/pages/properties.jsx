@@ -15,7 +15,7 @@ const Properties = () => {
   const fetchDbProperties = async () => {
     try {
       const res = await axios.get('/api/properties/all');
-      setDbProperties(res.data); // ✅ Assuming your backend returns an array of properties
+      setDbProperties(res.data.rows); // ✅ Assuming your backend returns an array of properties
     } catch (error) {
       console.error('Error fetching properties:', error);
     }
