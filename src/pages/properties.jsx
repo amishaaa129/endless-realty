@@ -13,13 +13,15 @@ const Properties = () => {
   }, []);
 
   const fetchDbProperties = async () => {
-    try {
-      const res = await axios.get('/api/properties/all');
-      setDbProperties(res.data.rows); // ✅ Assuming your backend returns an array of properties
-    } catch (error) {
-      console.error('Error fetching properties:', error);
-    }
-  };
+  try {
+    const res = await axios.get('/api/properties/all');
+    console.log('Fetched data:', res.data); // optional for debugging
+    setDbProperties(res.data); // ✅ Just use res.data directly if it's an array
+  } catch (error) {
+    console.error('Error fetching properties:', error);
+  }
+};
+
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
@@ -30,7 +32,7 @@ const Properties = () => {
             Featured Properties
           </h1>
 
-          {dbProperties.length === 0 ? (
+          {Array.isArray(dbProperties) && dbProperties.length === 0 ? (
             <p className="text-center text-gray-500">No properties available.</p>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
