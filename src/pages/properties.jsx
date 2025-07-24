@@ -16,8 +16,23 @@ const Properties = () => {
   const fetchDbProperties = async () => {
   try {
     const res = await axios.get(`${API_BASE_URL}/api/properties/all`);
-    console.log('Fetched data:', res.data); // optional for debugging
-    setDbProperties(res.data); // ✅ Just use res.data directly if it's an array
+    const data = res.data;
+
+    // Define desired order of statuses
+    const statusOrder = {
+      'ready-to-move': 0,
+      'coming-soon': 1,
+      'sold-out': 2
+    };
+
+    // Sort the properties based on status order
+    const sorted = data.sort((a, b) => {
+      const statusA = a.status?.toLowerCase().replace(/\s+/g, '-') || '';
+      const statusB = b.status?.toLowerCase().replace(/\s+/g, '-') || '';
+      return (statusOrder[statusA] ?? 99) - (statusOrder[statusB] ?? 99);
+    });
+
+    setDbProperties(sorted);
   } catch (error) {
     console.error('Error fetching properties:', error);
   }
