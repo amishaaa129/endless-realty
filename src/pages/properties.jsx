@@ -6,6 +6,7 @@ import axios from 'axios';
 
 const Properties = () => {
   const [dbProperties, setDbProperties] = useState([]);
+  const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://api.endlessrealty.in';
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -14,7 +15,7 @@ const Properties = () => {
 
   const fetchDbProperties = async () => {
   try {
-    const res = await axios.get('/api/properties/all');
+    const res = await axios.get(`${API_BASE_URL}/api/properties/all`);
     console.log('Fetched data:', res.data); // optional for debugging
     setDbProperties(res.data); // ✅ Just use res.data directly if it's an array
   } catch (error) {
